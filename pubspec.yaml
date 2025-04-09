@@ -31,7 +31,18 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_dotenv: 5.2.1
-  supabase_flutter: 2.8.3
+  supabase_flutter: 2.8.4
+  flutter_localizations:
+    sdk: flutter
+  intl: 0.19.0
+  url_launcher: 6.3.1
+  package_info_plus: 8.3.0
+  pub_semver: 2.2.0
+  flutter_mobx: 2.3.0
+  mobx: 2.5.0
+  get_it: 8.0.3
+  provider: 6.1.4
+  mobx_codegen: 2.7.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -40,13 +51,16 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: 2.4.15
+  json_serializable: 6.9.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^5.0.0
+  flutter_lints: 5.0.0
+  intl_utils: 2.8.8
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -90,3 +104,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+  generate: true
+flutter_intl:
+  enabled: true

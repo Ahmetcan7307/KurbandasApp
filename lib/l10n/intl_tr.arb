@@ -1,0 +1,20 @@
+{
+  "@@locale": "tr",
+  "appUpdateRequired": "Uygulama Güncellemesi Gerekli",
+  "@appUpdateRequired": {
+    "description": "Title for app update dialog"
+  },
+  "pleaseUpdateToContinue": "Uygulamayı kullanmaya devam etmek için lütfen güncelleyin.",
+  "@pleaseUpdateToContinue": {
+    "description": "Message in app update dialog"
+  },
+  "updateNow": "Şimdi Güncelle",
+  "@updateNow": {
+    "description": "Button text to update the app now"
+  },
+  "later": "Daha Sonra",
+  "@later": {
+    "description": "Button text to update the app later"
+  },
+  "SigninwithGoogle": "Google ile Giriş Yap"
+}
