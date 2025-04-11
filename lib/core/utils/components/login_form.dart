@@ -1,5 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
+import 'package:kurbandas/core/utils/components/my_snackbar.dart';
 import 'package:kurbandas/generated/l10n.dart';
+import 'package:kurbandas/stores/root_store.dart';
+import 'package:kurbandas/stores/supabase/auth_store.dart';
+import 'package:provider/provider.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -11,11 +16,15 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   late S lang;
 
+  late AuthStore authStore;
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
 
     lang = S.of(context);
+
+    authStore = Provider.of<RootStore>(context).authStore;
   }
 
   @override
@@ -31,7 +40,7 @@ class _LoginFormState extends State<LoginForm> {
         SizedBox(
           width: double.infinity,
           child: ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: signInWithGoogle,
               icon: const Icon(Icons.g_mobiledata),
               label: Text(lang.SigninwithGoogle),
               style: ElevatedButton.styleFrom(
@@ -41,5 +50,16 @@ class _LoginFormState extends State<LoginForm> {
         )
       ],
     );
+  }
+
+  Future signInWithGoogle() async {
+    try {
+      await authStore.signInWithGoogle();
+      showSnackBar(context, text: "🎉🎉🎉");
+      debugPrint("Success 🎉🎉🎉");
+    } catch (e) {
+      debugPrint("Hata: $e");
+      showSnackBar(context, text: e.toString());
+    }
   }
 }

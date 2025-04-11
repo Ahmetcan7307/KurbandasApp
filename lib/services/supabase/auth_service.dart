@@ -1,3 +1,4 @@
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:kurbandas/core/domain/entities/user.dart' as user_c;
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -16,5 +17,35 @@ class AuthService {
   Future<bool> logout() async {
     await _supabaseAuth.signOut();
     return true;
+  }
+
+  Future<user_c.User?> signInWithGoogle() async {
+    GoogleSignInAccount? googleAccount = (await GoogleSignIn(scopes: [
+      "email",
+      "https://www.googleapis.com/auth/userinfo.profile",
+      "https://www.googleapis.com/auth/user.phonenumbers.read"
+    ]).signIn())!;
+    GoogleSignInAuthentication googleAuth = await googleAccount.authentication;
+
+    if (googleAuth.accessToken == null) {
+      throw "No Access Token found.";
+    }
+    if (googleAuth.idToken == null) {
+      throw "No ID Token found.";
+    }
+
+    User? user = (await _supabaseAuth.signInWithIdToken(
+            provider: OAuthProvider.google,
+            idToken: googleAuth.idToken!,
+            accessToken: googleAuth.idToken!))
+        .user;
+    if (user != null) {
+      return user_c.User.fromGoogle(
+          displayName: googleAccount.displayName!,
+          email: user.email!,
+          phoneNo: user.phone);
+    }
+
+    return null;
   }
 }
