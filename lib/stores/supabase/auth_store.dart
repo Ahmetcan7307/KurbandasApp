@@ -1,3 +1,5 @@
+import 'package:hive/hive.dart';
+import 'package:kurbandas/core/const/hive_cons.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../core/domain/entities/user.dart';
@@ -34,7 +36,10 @@ abstract class _AuthStore with Store {
   Future signInWithGoogle() async {
     User? authUser = await authService.signInWithGoogle();
     if (authUser != null) {
-      user = authUser;
+      User dbUser = await userService.signIn(authUser.toJson());
+      user = dbUser;
+      await Hive.box<String>(HiveCons.settings)
+          .put(HiveCons.token, user!.token!);
     }
   }
 }

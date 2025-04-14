@@ -43,7 +43,7 @@ class AuthService {
       return user_c.User.fromGoogle(
           displayName: googleAccount.displayName!,
           email: user.email!,
-          phoneNo: user.phone);
+          phoneNo: user.phone!.isNotEmpty ? user.phone : null);
     }
 
     return null;

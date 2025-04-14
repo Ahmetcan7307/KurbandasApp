@@ -45,6 +45,9 @@ dependencies:
   mobx_codegen: 2.7.0
   firebase_core: 3.13.0
   google_sign_in: 6.3.0
+  dio: 5.8.0+1
+  hive: 2.2.3
+  hive_flutter: 1.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

@@ -6,6 +6,8 @@ import 'package:kurbandas/stores/root_store.dart';
 import 'package:kurbandas/stores/supabase/auth_store.dart';
 import 'package:provider/provider.dart';
 
+import '../../../routes.dart';
+
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
 
@@ -17,6 +19,8 @@ class _LoginFormState extends State<LoginForm> {
   late S lang;
 
   late AuthStore authStore;
+
+  bool isLoading = false;
 
   @override
   void didChangeDependencies() {
@@ -37,29 +41,42 @@ class _LoginFormState extends State<LoginForm> {
           style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 32),
-        SizedBox(
-          width: double.infinity,
-          child: ElevatedButton.icon(
-              onPressed: signInWithGoogle,
-              icon: const Icon(Icons.g_mobiledata),
-              label: Text(lang.SigninwithGoogle),
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.black,
-                  padding: const EdgeInsets.symmetric(vertical: 16))),
-        )
+        isLoading
+            ? const CircularProgressIndicator()
+            : SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                    onPressed: signInWithGoogle,
+                    icon: const Icon(Icons.g_mobiledata),
+                    label: Text(lang.SigninwithGoogle),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.black,
+                        padding: const EdgeInsets.symmetric(vertical: 16))),
+              )
       ],
     );
   }
 
   Future signInWithGoogle() async {
+    setState(() {
+      isLoading = true;
+    });
+
     try {
       await authStore.signInWithGoogle();
-      showSnackBar(context, text: "🎉🎉🎉");
-      debugPrint("Success 🎉🎉🎉");
+
+      if (authStore.isLoggedIn) {
+        Routes.navigateAndRemoveUntil(Routes.home);
+      }
     } catch (e) {
-      debugPrint("Hata: $e");
       showSnackBar(context, text: e.toString());
+    }
+
+    if (mounted) {
+      setState(() {
+        isLoading = false;
+      });
     }
   }
 }

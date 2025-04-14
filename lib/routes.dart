@@ -29,4 +29,8 @@ class Routes {
 
     return MaterialPageRoute(builder: (context) => page);
   }
+
+  static Future navigateAndRemoveUntil(String routeName) =>
+      navigatorKey.currentState!
+          .pushNamedAndRemoveUntil(routeName, (route) => false);
 }
