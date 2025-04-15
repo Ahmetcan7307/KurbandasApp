@@ -22,11 +22,21 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "SigningOut":
+            MessageLookupByLibrary.simpleMessage("Çıkış Yapılıyor..."),
         "SigninwithGoogle":
             MessageLookupByLibrary.simpleMessage("Google ile Giriş Yap"),
         "appUpdateRequired": MessageLookupByLibrary.simpleMessage(
             "Uygulama Güncellemesi Gerekli"),
+        "cancel": MessageLookupByLibrary.simpleMessage("İptal"),
+        "findPartnersQurbani": MessageLookupByLibrary.simpleMessage(
+            "Kurban için ortaklarınızı kolayca bulun"),
         "later": MessageLookupByLibrary.simpleMessage("Daha Sonra"),
+        "logout": MessageLookupByLibrary.simpleMessage("Çıkış Yap"),
+        "logoutConfirmation": MessageLookupByLibrary.simpleMessage(
+            "Çıkış yapmak istediğinizden emin misiniz?"),
+        "newQurbani": MessageLookupByLibrary.simpleMessage("Yeni Kurban"),
+        "partners": MessageLookupByLibrary.simpleMessage("Ortak"),
         "pleaseUpdateToContinue": MessageLookupByLibrary.simpleMessage(
             "Uygulamayı kullanmaya devam etmek için lütfen güncelleyin."),
         "updateNow": MessageLookupByLibrary.simpleMessage("Şimdi Güncelle")

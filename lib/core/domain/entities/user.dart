@@ -1,15 +1,17 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:kurbandas/core/domain/common/entity_base.dart';
 import 'package:kurbandas/core/utils/extensions/map_extensions.dart';
 
 part 'user.g.dart';
 
 @JsonSerializable()
-class User {
+class User extends EntityBase {
   String? name;
   String? surname;
   String email;
   String? token;
   String? phoneNo;
+  String? photoUrl;
 
   User({this.name, this.surname, required this.email, this.phoneNo});
 

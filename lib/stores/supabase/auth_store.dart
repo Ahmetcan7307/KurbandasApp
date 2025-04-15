@@ -30,7 +30,11 @@ abstract class _AuthStore with Store {
   }
 
   @action
-  Future logout() async => authService.logout();
+  Future logout() async {
+    if (await authService.logout()) {
+      user = null;
+    }
+  }
 
   @action
   Future signInWithGoogle() async {

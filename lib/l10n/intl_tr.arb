@@ -16,5 +16,12 @@
   "@later": {
     "description": "Button text to update the app later"
   },
-  "SigninwithGoogle": "Google ile Giriş Yap"
+  "SigninwithGoogle": "Google ile Giriş Yap",
+  "logout": "Çıkış Yap",
+  "logoutConfirmation": "Çıkış yapmak istediğinizden emin misiniz?",
+  "cancel": "İptal",
+  "SigningOut": "Çıkış Yapılıyor...",
+  "findPartnersQurbani": "Kurban için ortaklarınızı kolayca bulun",
+  "partners": "Ortak",
+  "newQurbani": "Yeni Kurban"
 }

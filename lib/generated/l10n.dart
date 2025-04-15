@@ -99,6 +99,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Logout`
+  String get logout {
+    return Intl.message(
+      'Logout',
+      name: 'logout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to log out?`
+  String get logoutConfirmation {
+    return Intl.message(
+      'Are you sure you want to log out?',
+      name: 'logoutConfirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Signing out...`
+  String get SigningOut {
+    return Intl.message(
+      'Signing out...',
+      name: 'SigningOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Easily find your partners for Qurbani`
+  String get findPartnersQurbani {
+    return Intl.message(
+      'Easily find your partners for Qurbani',
+      name: 'findPartnersQurbani',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Partners`
+  String get partners {
+    return Intl.message(
+      'Partners',
+      name: 'partners',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Qurbani`
+  String get newQurbani {
+    return Intl.message(
+      'New Qurbani',
+      name: 'newQurbani',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

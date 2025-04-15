@@ -16,5 +16,12 @@
   "@later": {
     "description": "Button text to update the app later"
   },
-  "SigninwithGoogle": "Sign in with Google"
+  "SigninwithGoogle": "Sign in with Google",
+  "logout": "Logout",
+  "logoutConfirmation": "Are you sure you want to log out?",
+  "cancel": "Cancel",
+  "SigningOut": "Signing out...",
+  "findPartnersQurbani": "Easily find your partners for Qurbani",
+  "partners": "Partners",
+  "newQurbani": "New Qurbani"
 }

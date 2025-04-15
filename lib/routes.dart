@@ -20,7 +20,7 @@ class Routes {
 
     switch (settings.name) {
       case Routes.home:
-        page = const HomePage();
+        page = HomePage();
         break;
       case Routes.login:
         page = const LoginPage();
