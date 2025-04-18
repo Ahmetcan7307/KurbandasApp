@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:kurbandas/core/utils/components/force_update.dart';
 import 'package:kurbandas/generated/l10n.dart';
@@ -32,16 +33,51 @@ class _AppState extends State<App> {
       title: "Kurbandaş",
       debugShowCheckedModeBanner: true,
       theme: ThemeData(
-          primarySwatch: Colors.green,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
+          useMaterial3: true,
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: Colors.green,
+              brightness: Brightness.light,
+              primary: Colors.green,
+              secondary: Colors.amber),
           appBarTheme: const AppBarTheme(
-              color: Colors.white,
-              elevation: 0,
-              iconTheme: IconThemeData(color: Colors.black),
-              titleTextStyle: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold)),
+            elevation: 0,
+            color: Colors.green,
+            foregroundColor: Colors.white,
+            systemOverlayStyle: SystemUiOverlayStyle(
+                statusBarColor: Colors.transparent,
+                statusBarIconBrightness: Brightness.light),
+          ),
+          cardTheme: CardTheme(
+            elevation: 2,
+            margin: EdgeInsets.zero,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          ),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                  elevation: 2,
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)))),
+          inputDecorationTheme: InputDecorationTheme(
+              filled: true,
+              fillColor: Colors.grey.shade50,
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: Colors.grey.shade300)),
+              enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: Colors.grey.shade300)),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: const BorderSide(color: Colors.green, width: 2)),
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 16, vertical: 16)),
+          tabBarTheme: const TabBarTheme(
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.white70,
+            indicatorColor: Colors.white,
+          ),
           buttonTheme: const ButtonThemeData(
               buttonColor: Colors.green, textTheme: ButtonTextTheme.primary)),
       localizationsDelegates: const [
