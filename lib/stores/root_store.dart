@@ -1,5 +1,7 @@
 import 'package:kurbandas/stores/api/app_setting_store.dart';
+import 'package:kurbandas/stores/api/kurban_store.dart';
 import 'package:kurbandas/stores/supabase/auth_store.dart';
+import 'package:kurbandas/stores/turkiye_api_store.dart';
 import 'package:kurbandas/stores/url_launcher_store.dart';
 import 'package:mobx/mobx.dart';
 
@@ -18,8 +20,16 @@ abstract class _RootStore with Store {
   @observable
   late AuthStore authStore;
 
+  @observable
+  late TurkiyeAPIStore turkiyeAPIStore;
+
+  @observable
+  late KurbanStore kurbanStore;
+
   _RootStore(
       {required this.urlLauncherStore,
       required this.appSettingStore,
-      required this.authStore});
+      required this.authStore,
+      required this.turkiyeAPIStore,
+      required this.kurbanStore});
 }

@@ -23,5 +23,12 @@
   "SigningOut": "Signing out...",
   "findPartnersQurbani": "Easily find your partners for Qurbani",
   "partners": "Partners",
-  "newQurbani": "New Qurbani"
+  "newQurbani": "New Qurbani",
+  "FilterQurbani": "Filter Qurbani",
+  "QurbaniAnimal": "Qurbani Animal",
+  "Location": "Location",
+  "SelectProvince": "Select Province",
+  "SelectDistrict": "Select District",
+  "clear": "Clear",
+  "apply": "Apply"
 }

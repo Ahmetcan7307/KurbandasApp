@@ -23,5 +23,12 @@
   "SigningOut": "Çıkış Yapılıyor...",
   "findPartnersQurbani": "Kurban için ortaklarınızı kolayca bulun",
   "partners": "Ortak",
-  "newQurbani": "Yeni Kurban"
+  "newQurbani": "Yeni Kurban",
+  "FilterQurbani": "Kurbanları Filtrele",
+  "QurbaniAnimal": "Kurban Hayvanı",
+  "Location": "Konum",
+  "SelectProvince": "İl Seçin",
+  "SelectDistrict": "İlçe Seçin",
+  "clear": "Temizle",
+  "apply": "Uygula"
 }

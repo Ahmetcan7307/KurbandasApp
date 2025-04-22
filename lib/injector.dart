@@ -2,15 +2,20 @@ import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:kurbandas/core/const/get_cons.dart';
 import 'package:kurbandas/core/const/hive_cons.dart';
 import 'package:kurbandas/services/api/app_setting_service.dart';
+import 'package:kurbandas/services/api/kurban_service.dart';
 import 'package:kurbandas/services/api/user_service.dart';
 import 'package:kurbandas/services/package_info_service.dart';
 import 'package:kurbandas/services/supabase/auth_service.dart';
+import 'package:kurbandas/services/turkiye_api/turkiye_api_service.dart';
 import 'package:kurbandas/services/url_launcher_service.dart';
 import 'package:kurbandas/stores/api/app_setting_store.dart';
+import 'package:kurbandas/stores/api/kurban_store.dart';
 import 'package:kurbandas/stores/root_store.dart';
 import 'package:kurbandas/stores/supabase/auth_store.dart';
+import 'package:kurbandas/stores/turkiye_api_store.dart';
 import 'package:kurbandas/stores/url_launcher_store.dart';
 
 GetIt serviceLocator = GetIt.instance;
@@ -19,8 +24,13 @@ Future init() async {
   serviceLocator.registerFactory(() => UrlLauncherStore());
   serviceLocator.registerFactory(() => AppSettingStore());
   serviceLocator.registerFactory(() => AuthStore());
+  serviceLocator.registerFactory(() => TurkiyeAPIStore());
+  serviceLocator.registerFactory(() => KurbanStore());
 
-  serviceLocator.registerLazySingleton(() => Dio());
+  serviceLocator.registerLazySingleton(() => Dio(),
+      instanceName: GetCons.myAPIDio);
+  serviceLocator.registerLazySingleton(() => Dio(),
+      instanceName: GetCons.turkiyeAPIDio);
 
   await Hive.initFlutter();
   await Hive.openBox<String>(HiveCons.settings);
@@ -31,18 +41,25 @@ Future init() async {
   serviceLocator.registerLazySingleton(() => UrlLauncherService());
   serviceLocator.registerLazySingleton(() => AppSettingService());
   serviceLocator.registerLazySingleton(() => AuthService());
-  serviceLocator
-      .registerLazySingleton(() => UserService(serviceLocator.get<Dio>()));
+  serviceLocator.registerLazySingleton(() =>
+      UserService(serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)));
+  serviceLocator.registerLazySingleton(() => TurkiyeAPIService(
+      dio: serviceLocator.get<Dio>(instanceName: GetCons.turkiyeAPIDio)));
+  serviceLocator.registerLazySingleton(() => KurbanService(
+      dio: serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)));
 
   serviceLocator.registerLazySingleton(() => RootStore(
       urlLauncherStore: serviceLocator.get<UrlLauncherStore>(),
       appSettingStore: serviceLocator.get<AppSettingStore>(),
-      authStore: serviceLocator.get<AuthStore>()));
+      authStore: serviceLocator.get<AuthStore>(),
+      turkiyeAPIStore: serviceLocator.get<TurkiyeAPIStore>(),
+      kurbanStore: serviceLocator.get<KurbanStore>()));
 }
 
 initDio() {
-  serviceLocator.get<Dio>().interceptors.add(InterceptorsWrapper(
-      onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
+  serviceLocator.get<Dio>(instanceName: "MyAPI").interceptors.add(
+      InterceptorsWrapper(onRequest:
+          (RequestOptions options, RequestInterceptorHandler handler) {
     options.headers
         .putIfAbsent("Authorization", () => "Bearer ${dotenv.env["apiKey"]}");
 

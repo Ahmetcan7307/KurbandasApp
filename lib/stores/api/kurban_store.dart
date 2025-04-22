@@ -1,0 +1,31 @@
+import 'package:kurbandas/core/domain/entities/kurban.dart';
+import 'package:kurbandas/core/models/filter.dart';
+import 'package:kurbandas/injector.dart';
+import 'package:kurbandas/services/api/kurban_service.dart';
+import 'package:mobx/mobx.dart';
+
+part 'kurban_store.g.dart';
+
+class KurbanStore = _KurbanStore with _$KurbanStore;
+
+abstract class _KurbanStore with Store {
+  @observable
+  List<KurbanAnimal>? animals;
+
+  @observable
+  Filter? filter;
+
+  KurbanService service = serviceLocator.get<KurbanService>();
+
+  @action
+  Future getAnimals() async => animals ??= await service.getAnimals();
+
+  @action
+  createFilter(
+      {KurbanAnimal? animal, int? selectedProvince, int? selectedDistrict}) {
+    filter ??= Filter();
+    filter!.animal = animal;
+    filter!.selectedProvince = selectedProvince;
+    filter!.selectedDistrict = selectedDistrict;
+  }
+}

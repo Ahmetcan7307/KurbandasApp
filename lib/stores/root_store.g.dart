@@ -71,12 +71,55 @@ mixin _$RootStore on _RootStore, Store {
     });
   }
 
+  late final _$turkiyeAPIStoreAtom =
+      Atom(name: '_RootStore.turkiyeAPIStore', context: context);
+
+  @override
+  TurkiyeAPIStore get turkiyeAPIStore {
+    _$turkiyeAPIStoreAtom.reportRead();
+    return super.turkiyeAPIStore;
+  }
+
+  bool _turkiyeAPIStoreIsInitialized = false;
+
+  @override
+  set turkiyeAPIStore(TurkiyeAPIStore value) {
+    _$turkiyeAPIStoreAtom.reportWrite(
+        value, _turkiyeAPIStoreIsInitialized ? super.turkiyeAPIStore : null,
+        () {
+      super.turkiyeAPIStore = value;
+      _turkiyeAPIStoreIsInitialized = true;
+    });
+  }
+
+  late final _$kurbanStoreAtom =
+      Atom(name: '_RootStore.kurbanStore', context: context);
+
+  @override
+  KurbanStore get kurbanStore {
+    _$kurbanStoreAtom.reportRead();
+    return super.kurbanStore;
+  }
+
+  bool _kurbanStoreIsInitialized = false;
+
+  @override
+  set kurbanStore(KurbanStore value) {
+    _$kurbanStoreAtom.reportWrite(
+        value, _kurbanStoreIsInitialized ? super.kurbanStore : null, () {
+      super.kurbanStore = value;
+      _kurbanStoreIsInitialized = true;
+    });
+  }
+
   @override
   String toString() {
     return '''
 urlLauncherStore: ${urlLauncherStore},
 appSettingStore: ${appSettingStore},
-authStore: ${authStore}
+authStore: ${authStore},
+turkiyeAPIStore: ${turkiyeAPIStore},
+kurbanStore: ${kurbanStore}
     ''';
   }
 }

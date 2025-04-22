@@ -169,6 +169,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Filter Qurbani`
+  String get FilterQurbani {
+    return Intl.message(
+      'Filter Qurbani',
+      name: 'FilterQurbani',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Qurbani Animal`
+  String get QurbaniAnimal {
+    return Intl.message(
+      'Qurbani Animal',
+      name: 'QurbaniAnimal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location`
+  String get Location {
+    return Intl.message(
+      'Location',
+      name: 'Location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Province`
+  String get SelectProvince {
+    return Intl.message(
+      'Select Province',
+      name: 'SelectProvince',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select District`
+  String get SelectDistrict {
+    return Intl.message(
+      'Select District',
+      name: 'SelectDistrict',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Clear`
+  String get clear {
+    return Intl.message(
+      'Clear',
+      name: 'clear',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Apply`
+  String get apply {
+    return Intl.message(
+      'Apply',
+      name: 'apply',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

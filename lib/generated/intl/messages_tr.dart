@@ -22,13 +22,21 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "FilterQurbani":
+            MessageLookupByLibrary.simpleMessage("Kurbanları Filtrele"),
+        "Location": MessageLookupByLibrary.simpleMessage("Konum"),
+        "QurbaniAnimal": MessageLookupByLibrary.simpleMessage("Kurban Hayvanı"),
+        "SelectDistrict": MessageLookupByLibrary.simpleMessage("İlçe Seçin"),
+        "SelectProvince": MessageLookupByLibrary.simpleMessage("İl Seçin"),
         "SigningOut":
             MessageLookupByLibrary.simpleMessage("Çıkış Yapılıyor..."),
         "SigninwithGoogle":
             MessageLookupByLibrary.simpleMessage("Google ile Giriş Yap"),
         "appUpdateRequired": MessageLookupByLibrary.simpleMessage(
             "Uygulama Güncellemesi Gerekli"),
+        "apply": MessageLookupByLibrary.simpleMessage("Uygula"),
         "cancel": MessageLookupByLibrary.simpleMessage("İptal"),
+        "clear": MessageLookupByLibrary.simpleMessage("Temizle"),
         "findPartnersQurbani": MessageLookupByLibrary.simpleMessage(
             "Kurban için ortaklarınızı kolayca bulun"),
         "later": MessageLookupByLibrary.simpleMessage("Daha Sonra"),
