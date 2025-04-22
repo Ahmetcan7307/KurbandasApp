@@ -22,8 +22,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "AccountOperations":
+            MessageLookupByLibrary.simpleMessage("Account Operations"),
         "FilterQurbani": MessageLookupByLibrary.simpleMessage("Filter Qurbani"),
         "Location": MessageLookupByLibrary.simpleMessage("Location"),
+        "MyProfile": MessageLookupByLibrary.simpleMessage("My Profile"),
+        "ProfileDetails":
+            MessageLookupByLibrary.simpleMessage("Profile Details"),
         "QurbaniAnimal": MessageLookupByLibrary.simpleMessage("Qurbani Animal"),
         "SelectDistrict":
             MessageLookupByLibrary.simpleMessage("Select District"),
@@ -32,6 +37,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "SigningOut": MessageLookupByLibrary.simpleMessage("Signing out..."),
         "SigninwithGoogle":
             MessageLookupByLibrary.simpleMessage("Sign in with Google"),
+        "account": MessageLookupByLibrary.simpleMessage("Account"),
+        "app": MessageLookupByLibrary.simpleMessage("Application"),
         "appUpdateRequired":
             MessageLookupByLibrary.simpleMessage("App Update Required"),
         "apply": MessageLookupByLibrary.simpleMessage("Apply"),
@@ -39,6 +46,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "clear": MessageLookupByLibrary.simpleMessage("Clear"),
         "findPartnersQurbani": MessageLookupByLibrary.simpleMessage(
             "Easily find your partners for Qurbani"),
+        "help": MessageLookupByLibrary.simpleMessage("Help and Support"),
+        "info": MessageLookupByLibrary.simpleMessage("Information"),
+        "lang": MessageLookupByLibrary.simpleMessage("Language"),
         "later": MessageLookupByLibrary.simpleMessage("Later"),
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "logoutConfirmation": MessageLookupByLibrary.simpleMessage(
@@ -47,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "partners": MessageLookupByLibrary.simpleMessage("Partners"),
         "pleaseUpdateToContinue": MessageLookupByLibrary.simpleMessage(
             "Please update to continue using the app."),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "updateNow": MessageLookupByLibrary.simpleMessage("Update Now")
       };
 }

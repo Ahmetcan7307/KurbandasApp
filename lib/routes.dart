@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kurbandas/screens/home_page.dart';
+import 'package:kurbandas/screens/profile/settings_page.dart';
 
 import 'screens/auth/login_page.dart';
+import 'screens/profile/profile_page.dart';
 
 class Routes {
   Routes();
@@ -9,7 +11,10 @@ class Routes {
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
 
-  static const String home = "/home", login = "/login";
+  static const String home = "/home",
+      login = "/login",
+      profile = "/profile",
+      settings = "/settings";
 
   Route onGenerateRoute(RouteSettings settings) {
     Widget page = const Scaffold(
@@ -24,6 +29,12 @@ class Routes {
         break;
       case Routes.login:
         page = const LoginPage();
+        break;
+      case Routes.profile:
+        page = ProfilePage();
+        break;
+      case Routes.settings:
+        page = SettingsPage();
         break;
     }
 

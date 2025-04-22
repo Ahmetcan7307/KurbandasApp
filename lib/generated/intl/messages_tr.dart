@@ -22,9 +22,14 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "AccountOperations":
+            MessageLookupByLibrary.simpleMessage("Hesap İşlemleri"),
         "FilterQurbani":
             MessageLookupByLibrary.simpleMessage("Kurbanları Filtrele"),
         "Location": MessageLookupByLibrary.simpleMessage("Konum"),
+        "MyProfile": MessageLookupByLibrary.simpleMessage("Profilim"),
+        "ProfileDetails":
+            MessageLookupByLibrary.simpleMessage("Profil Bilgileri"),
         "QurbaniAnimal": MessageLookupByLibrary.simpleMessage("Kurban Hayvanı"),
         "SelectDistrict": MessageLookupByLibrary.simpleMessage("İlçe Seçin"),
         "SelectProvince": MessageLookupByLibrary.simpleMessage("İl Seçin"),
@@ -32,6 +37,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Çıkış Yapılıyor..."),
         "SigninwithGoogle":
             MessageLookupByLibrary.simpleMessage("Google ile Giriş Yap"),
+        "account": MessageLookupByLibrary.simpleMessage("Hesap"),
+        "app": MessageLookupByLibrary.simpleMessage("Uygulama"),
         "appUpdateRequired": MessageLookupByLibrary.simpleMessage(
             "Uygulama Güncellemesi Gerekli"),
         "apply": MessageLookupByLibrary.simpleMessage("Uygula"),
@@ -39,6 +46,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "clear": MessageLookupByLibrary.simpleMessage("Temizle"),
         "findPartnersQurbani": MessageLookupByLibrary.simpleMessage(
             "Kurban için ortaklarınızı kolayca bulun"),
+        "help": MessageLookupByLibrary.simpleMessage("Yardım ve Destek"),
+        "info": MessageLookupByLibrary.simpleMessage("Hakkında"),
+        "lang": MessageLookupByLibrary.simpleMessage("Dil"),
         "later": MessageLookupByLibrary.simpleMessage("Daha Sonra"),
         "logout": MessageLookupByLibrary.simpleMessage("Çıkış Yap"),
         "logoutConfirmation": MessageLookupByLibrary.simpleMessage(
@@ -47,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "partners": MessageLookupByLibrary.simpleMessage("Ortak"),
         "pleaseUpdateToContinue": MessageLookupByLibrary.simpleMessage(
             "Uygulamayı kullanmaya devam etmek için lütfen güncelleyin."),
+        "settings": MessageLookupByLibrary.simpleMessage("Ayarlar"),
         "updateNow": MessageLookupByLibrary.simpleMessage("Şimdi Güncelle")
       };
 }

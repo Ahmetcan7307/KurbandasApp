@@ -1,4 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
 import 'package:kurbandas/core/utils/components/filter_bottom_sheet.dart';
 import 'package:kurbandas/core/utils/components/kurban/kurban_list.dart';
@@ -55,6 +54,12 @@ class _HomePageState extends State<HomePage>
               icon: const Icon(
                 Icons.filter_list,
                 color: Colors.white,
+              )),
+          IconButton(
+              onPressed: () => Navigator.pushNamed(context, Routes.profile),
+              icon: const Icon(
+                Icons.person,
+                color: Colors.white,
               ))
         ],
       ),
@@ -81,7 +86,7 @@ class _HomePageState extends State<HomePage>
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => Navigator.pushNamed(context, Routes.createKurban),
+        onPressed: () => (),
         icon: const Icon(Icons.add),
         label: Text(lang.newQurbani),
         backgroundColor: Theme.of(context).primaryColor,
@@ -97,16 +102,4 @@ class _HomePageState extends State<HomePage>
             borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
         builder: (context) => FilterBottomSheet());
   }
-
-/*Future logoutOnPressed(BuildContext context) async {
-    if (await showDialog(
-        context: context,
-        builder: (context) => LogoutConfirmationDialog()) as bool) {
-      showSnackBar(context, text: lang.SigningOut, seconds: 2);
-
-      await authStore.logout();
-
-      Navigator.pushReplacementNamed(context, Routes.login);
-    }
-  }*/
 }

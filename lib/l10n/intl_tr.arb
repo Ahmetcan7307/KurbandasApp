@@ -30,5 +30,14 @@
   "SelectProvince": "İl Seçin",
   "SelectDistrict": "İlçe Seçin",
   "clear": "Temizle",
-  "apply": "Uygula"
+  "apply": "Uygula",
+  "MyProfile": "Profilim",
+  "settings": "Ayarlar",
+  "account": "Hesap",
+  "ProfileDetails": "Profil Bilgileri",
+  "app": "Uygulama",
+  "lang": "Dil",
+  "info": "Hakkında",
+  "help": "Yardım ve Destek",
+  "AccountOperations": "Hesap İşlemleri"
 }

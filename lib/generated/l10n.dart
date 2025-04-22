@@ -239,6 +239,96 @@ class S {
       args: [],
     );
   }
+
+  /// `My Profile`
+  String get MyProfile {
+    return Intl.message(
+      'My Profile',
+      name: 'MyProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account`
+  String get account {
+    return Intl.message(
+      'Account',
+      name: 'account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile Details`
+  String get ProfileDetails {
+    return Intl.message(
+      'Profile Details',
+      name: 'ProfileDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Application`
+  String get app {
+    return Intl.message(
+      'Application',
+      name: 'app',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get lang {
+    return Intl.message(
+      'Language',
+      name: 'lang',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Information`
+  String get info {
+    return Intl.message(
+      'Information',
+      name: 'info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help and Support`
+  String get help {
+    return Intl.message(
+      'Help and Support',
+      name: 'help',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account Operations`
+  String get AccountOperations {
+    return Intl.message(
+      'Account Operations',
+      name: 'AccountOperations',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

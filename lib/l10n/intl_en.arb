@@ -30,5 +30,14 @@
   "SelectProvince": "Select Province",
   "SelectDistrict": "Select District",
   "clear": "Clear",
-  "apply": "Apply"
+  "apply": "Apply",
+  "MyProfile": "My Profile",
+  "settings": "Settings",
+  "account": "Account",
+  "ProfileDetails": "Profile Details",
+  "app": "Application",
+  "lang": "Language",
+  "info": "Information",
+  "help": "Help and Support",
+  "AccountOperations": "Account Operations"
 }
