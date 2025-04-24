@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "FilterQurbani":
             MessageLookupByLibrary.simpleMessage("Kurbanları Filtrele"),
         "Location": MessageLookupByLibrary.simpleMessage("Konum"),
+        "MyPartnerships": MessageLookupByLibrary.simpleMessage("Ortaklıklarım"),
         "MyProfile": MessageLookupByLibrary.simpleMessage("Profilim"),
         "ProfileDetails":
             MessageLookupByLibrary.simpleMessage("Profil Bilgileri"),
@@ -53,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "logout": MessageLookupByLibrary.simpleMessage("Çıkış Yap"),
         "logoutConfirmation": MessageLookupByLibrary.simpleMessage(
             "Çıkış yapmak istediğinizden emin misiniz?"),
+        "myQurbanies": MessageLookupByLibrary.simpleMessage("Kurbanlarım"),
         "newQurbani": MessageLookupByLibrary.simpleMessage("Yeni Kurban"),
         "partners": MessageLookupByLibrary.simpleMessage("Ortak"),
         "pleaseUpdateToContinue": MessageLookupByLibrary.simpleMessage(

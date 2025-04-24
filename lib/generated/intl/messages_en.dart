@@ -26,6 +26,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Account Operations"),
         "FilterQurbani": MessageLookupByLibrary.simpleMessage("Filter Qurbani"),
         "Location": MessageLookupByLibrary.simpleMessage("Location"),
+        "MyPartnerships":
+            MessageLookupByLibrary.simpleMessage("My Partnerships"),
         "MyProfile": MessageLookupByLibrary.simpleMessage("My Profile"),
         "ProfileDetails":
             MessageLookupByLibrary.simpleMessage("Profile Details"),
@@ -53,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "logoutConfirmation": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to log out?"),
+        "myQurbanies": MessageLookupByLibrary.simpleMessage("My Qurbanies"),
         "newQurbani": MessageLookupByLibrary.simpleMessage("New Qurbani"),
         "partners": MessageLookupByLibrary.simpleMessage("Partners"),
         "pleaseUpdateToContinue": MessageLookupByLibrary.simpleMessage(

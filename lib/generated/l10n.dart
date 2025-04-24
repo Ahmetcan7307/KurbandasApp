@@ -329,6 +329,26 @@ class S {
       args: [],
     );
   }
+
+  /// `My Qurbanies`
+  String get myQurbanies {
+    return Intl.message(
+      'My Qurbanies',
+      name: 'myQurbanies',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Partnerships`
+  String get MyPartnerships {
+    return Intl.message(
+      'My Partnerships',
+      name: 'MyPartnerships',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
