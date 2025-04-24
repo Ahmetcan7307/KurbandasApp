@@ -17,11 +17,13 @@ Kurban _$KurbanFromJson(Map<String, dynamic> json) => Kurban(
       cutDate: json['cutDate'] == null
           ? null
           : DateTime.parse(json['cutDate'] as String),
-      address: json['address'] as String,
+      address: json['address'] as String?,
       totalPartnersCount: (json['totalPartnersCount'] as num).toInt(),
       partners: (json['partners'] as List<dynamic>?)
           ?.map((e) => User.fromJson(e as Map<String, dynamic>))
           .toList(),
+      photoUrls:
+          (json['photoUrls'] as List<dynamic>).map((e) => e as String).toList(),
     )
       ..documentId = json['documentId'] as String?
       ..remainPartnersCount = (json['remainPartnersCount'] as num).toInt();
@@ -38,6 +40,7 @@ Map<String, dynamic> _$KurbanToJson(Kurban instance) => <String, dynamic>{
       'totalPartnersCount': instance.totalPartnersCount,
       'remainPartnersCount': instance.remainPartnersCount,
       'partners': instance.partners,
+      'photoUrls': instance.photoUrls,
     };
 
 const _$KurbanStatusEnumMap = {

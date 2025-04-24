@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/routes.dart';
-import 'package:kurbandas/screens/kurban/my_kurbans_page.dart';
-import 'package:kurbandas/screens/kurban/my_partnerships_page.dart';
+import 'package:kurbandas/screens/profile/my_kurbans_page.dart';
+import 'package:kurbandas/screens/profile/my_partnerships_page.dart';
 import 'package:kurbandas/stores/root_store.dart';
 import 'package:kurbandas/stores/supabase/auth_store.dart';
 import 'package:provider/provider.dart';

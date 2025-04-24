@@ -15,6 +15,9 @@ abstract class _KurbanStore with Store {
   @observable
   Filter? filter;
 
+  @observable
+  List<Kurban>? myKurbans;
+
   KurbanService service = serviceLocator.get<KurbanService>();
 
   @action
@@ -28,4 +31,7 @@ abstract class _KurbanStore with Store {
     filter!.selectedProvince = selectedProvince;
     filter!.selectedDistrict = selectedDistrict;
   }
+
+  @action
+  Future getMyKurbans() async => myKurbans = await service.getMyKurbans();
 }

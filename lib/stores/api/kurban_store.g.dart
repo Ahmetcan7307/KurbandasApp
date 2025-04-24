@@ -40,12 +40,36 @@ mixin _$KurbanStore on _KurbanStore, Store {
     });
   }
 
+  late final _$myKurbansAtom =
+      Atom(name: '_KurbanStore.myKurbans', context: context);
+
+  @override
+  List<Kurban>? get myKurbans {
+    _$myKurbansAtom.reportRead();
+    return super.myKurbans;
+  }
+
+  @override
+  set myKurbans(List<Kurban>? value) {
+    _$myKurbansAtom.reportWrite(value, super.myKurbans, () {
+      super.myKurbans = value;
+    });
+  }
+
   late final _$getAnimalsAsyncAction =
       AsyncAction('_KurbanStore.getAnimals', context: context);
 
   @override
   Future<dynamic> getAnimals() {
     return _$getAnimalsAsyncAction.run(() => super.getAnimals());
+  }
+
+  late final _$getMyKurbansAsyncAction =
+      AsyncAction('_KurbanStore.getMyKurbans', context: context);
+
+  @override
+  Future<dynamic> getMyKurbans() {
+    return _$getMyKurbansAsyncAction.run(() => super.getMyKurbans());
   }
 
   late final _$_KurbanStoreActionController =
@@ -70,7 +94,8 @@ mixin _$KurbanStore on _KurbanStore, Store {
   String toString() {
     return '''
 animals: ${animals},
-filter: ${filter}
+filter: ${filter},
+myKurbans: ${myKurbans}
     ''';
   }
 }

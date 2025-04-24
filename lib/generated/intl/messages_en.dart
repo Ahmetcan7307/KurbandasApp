@@ -20,6 +20,11 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(animal) =>
+      "Are you sure you want to delete the ${animal} Qurbani?";
+
+  static String m1(count) => "${count} partners remain";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "AccountOperations":
@@ -29,9 +34,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "MyPartnerships":
             MessageLookupByLibrary.simpleMessage("My Partnerships"),
         "MyProfile": MessageLookupByLibrary.simpleMessage("My Profile"),
+        "PartnershipsCompleted":
+            MessageLookupByLibrary.simpleMessage("Partnerships completed"),
         "ProfileDetails":
             MessageLookupByLibrary.simpleMessage("Profile Details"),
         "QurbaniAnimal": MessageLookupByLibrary.simpleMessage("Qurbani Animal"),
+        "QurbaniPostDeleted": MessageLookupByLibrary.simpleMessage(
+            "Qurbani announcement deleted"),
+        "Requests": MessageLookupByLibrary.simpleMessage("Requests"),
         "SelectDistrict":
             MessageLookupByLibrary.simpleMessage("Select District"),
         "SelectProvince":
@@ -44,8 +54,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "appUpdateRequired":
             MessageLookupByLibrary.simpleMessage("App Update Required"),
         "apply": MessageLookupByLibrary.simpleMessage("Apply"),
+        "areYouSureDeleteQurbani": m0,
+        "areYouSureDeleteQurbaniDesc": MessageLookupByLibrary.simpleMessage(
+            "This action is irreversible and all partnerships are canceled."),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "clear": MessageLookupByLibrary.simpleMessage("Clear"),
+        "cutAddress": MessageLookupByLibrary.simpleMessage("Cut Address"),
+        "delete": MessageLookupByLibrary.simpleMessage("Delete"),
+        "deleteQurbani":
+            MessageLookupByLibrary.simpleMessage("Delete Qurbani Posting"),
+        "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "findPartnersQurbani": MessageLookupByLibrary.simpleMessage(
             "Easily find your partners for Qurbani"),
         "help": MessageLookupByLibrary.simpleMessage("Help and Support"),
@@ -57,7 +75,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Are you sure you want to log out?"),
         "myQurbanies": MessageLookupByLibrary.simpleMessage("My Qurbanies"),
         "newQurbani": MessageLookupByLibrary.simpleMessage("New Qurbani"),
+        "noCutAddress": MessageLookupByLibrary.simpleMessage("No Cut Address"),
+        "noMyQurbaniAds": MessageLookupByLibrary.simpleMessage(
+            "You do not have any sacrifice announcements yet"),
+        "noMyQurbaniAdsDesc": MessageLookupByLibrary.simpleMessage(
+            "You can use the “Share Qurbani” button on the home page to share your Qurbani"),
         "partners": MessageLookupByLibrary.simpleMessage("Partners"),
+        "partnersRemain": m1,
         "pleaseUpdateToContinue": MessageLookupByLibrary.simpleMessage(
             "Please update to continue using the app."),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),

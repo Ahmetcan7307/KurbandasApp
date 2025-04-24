@@ -19,7 +19,10 @@ class KurbanList extends StatelessWidget {
                     price: 1000,
                     address: "İstanbul / Beylikdüzü",
                     totalPartnersCount: 7,
-                    status: KurbanStatus.waiting)
+                    status: KurbanStatus.waiting,
+                    photoUrls: [
+                      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg"
+                    ])
                   ..documentId = index.toString(),
               ),
             ));

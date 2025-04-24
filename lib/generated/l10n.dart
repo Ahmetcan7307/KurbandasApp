@@ -349,6 +349,136 @@ class S {
       args: [],
     );
   }
+
+  /// `You do not have any sacrifice announcements yet`
+  String get noMyQurbaniAds {
+    return Intl.message(
+      'You do not have any sacrifice announcements yet',
+      name: 'noMyQurbaniAds',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can use the “Share Qurbani” button on the home page to share your Qurbani`
+  String get noMyQurbaniAdsDesc {
+    return Intl.message(
+      'You can use the “Share Qurbani” button on the home page to share your Qurbani',
+      name: 'noMyQurbaniAdsDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Requests`
+  String get Requests {
+    return Intl.message(
+      'Requests',
+      name: 'Requests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get edit {
+    return Intl.message(
+      'Edit',
+      name: 'edit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get delete {
+    return Intl.message(
+      'Delete',
+      name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Qurbani Posting`
+  String get deleteQurbani {
+    return Intl.message(
+      'Delete Qurbani Posting',
+      name: 'deleteQurbani',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete the {animal} Qurbani?`
+  String areYouSureDeleteQurbani(String animal) {
+    return Intl.message(
+      'Are you sure you want to delete the $animal Qurbani?',
+      name: 'areYouSureDeleteQurbani',
+      desc: '',
+      args: [animal],
+    );
+  }
+
+  /// `This action is irreversible and all partnerships are canceled.`
+  String get areYouSureDeleteQurbaniDesc {
+    return Intl.message(
+      'This action is irreversible and all partnerships are canceled.',
+      name: 'areYouSureDeleteQurbaniDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Qurbani announcement deleted`
+  String get QurbaniPostDeleted {
+    return Intl.message(
+      'Qurbani announcement deleted',
+      name: 'QurbaniPostDeleted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{count} partners remain`
+  String partnersRemain(int count) {
+    return Intl.message(
+      '$count partners remain',
+      name: 'partnersRemain',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `Partnerships completed`
+  String get PartnershipsCompleted {
+    return Intl.message(
+      'Partnerships completed',
+      name: 'PartnershipsCompleted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cut Address`
+  String get cutAddress {
+    return Intl.message(
+      'Cut Address',
+      name: 'cutAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Cut Address`
+  String get noCutAddress {
+    return Intl.message(
+      'No Cut Address',
+      name: 'noCutAddress',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

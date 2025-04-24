@@ -20,6 +20,11 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'tr';
 
+  static String m0(animal) =>
+      "${animal} kurban ilanını silmek istediğinize emin misiniz?";
+
+  static String m1(count) => "${count} ortak kaldı";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "AccountOperations":
@@ -29,9 +34,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "Location": MessageLookupByLibrary.simpleMessage("Konum"),
         "MyPartnerships": MessageLookupByLibrary.simpleMessage("Ortaklıklarım"),
         "MyProfile": MessageLookupByLibrary.simpleMessage("Profilim"),
+        "PartnershipsCompleted":
+            MessageLookupByLibrary.simpleMessage("Ortaklıklar tamamlandı"),
         "ProfileDetails":
             MessageLookupByLibrary.simpleMessage("Profil Bilgileri"),
         "QurbaniAnimal": MessageLookupByLibrary.simpleMessage("Kurban Hayvanı"),
+        "QurbaniPostDeleted":
+            MessageLookupByLibrary.simpleMessage("Kurban ilanı silindi"),
+        "Requests": MessageLookupByLibrary.simpleMessage("İstekler"),
         "SelectDistrict": MessageLookupByLibrary.simpleMessage("İlçe Seçin"),
         "SelectProvince": MessageLookupByLibrary.simpleMessage("İl Seçin"),
         "SigningOut":
@@ -43,8 +53,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "appUpdateRequired": MessageLookupByLibrary.simpleMessage(
             "Uygulama Güncellemesi Gerekli"),
         "apply": MessageLookupByLibrary.simpleMessage("Uygula"),
+        "areYouSureDeleteQurbani": m0,
+        "areYouSureDeleteQurbaniDesc": MessageLookupByLibrary.simpleMessage(
+            "Bu işlem geri alınamaz ve tüm ortaklıklar iptal edilir."),
         "cancel": MessageLookupByLibrary.simpleMessage("İptal"),
         "clear": MessageLookupByLibrary.simpleMessage("Temizle"),
+        "cutAddress": MessageLookupByLibrary.simpleMessage("Kesim Yeri"),
+        "delete": MessageLookupByLibrary.simpleMessage("Kaldır"),
+        "deleteQurbani":
+            MessageLookupByLibrary.simpleMessage("Kurban İlanını Kaldır"),
+        "edit": MessageLookupByLibrary.simpleMessage("Düzenle"),
         "findPartnersQurbani": MessageLookupByLibrary.simpleMessage(
             "Kurban için ortaklarınızı kolayca bulun"),
         "help": MessageLookupByLibrary.simpleMessage("Yardım ve Destek"),
@@ -56,7 +74,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Çıkış yapmak istediğinizden emin misiniz?"),
         "myQurbanies": MessageLookupByLibrary.simpleMessage("Kurbanlarım"),
         "newQurbani": MessageLookupByLibrary.simpleMessage("Yeni Kurban"),
+        "noCutAddress":
+            MessageLookupByLibrary.simpleMessage("Kesim Yeri belirtilmemiş"),
+        "noMyQurbaniAds": MessageLookupByLibrary.simpleMessage(
+            "Henüz kurban ilanınız bulunmuyor"),
+        "noMyQurbaniAdsDesc": MessageLookupByLibrary.simpleMessage(
+            "Kurban paylaşmak için ana sayfadaki \"Kurban Paylaş\" butonunu kullanabilirsiniz"),
         "partners": MessageLookupByLibrary.simpleMessage("Ortak"),
+        "partnersRemain": m1,
         "pleaseUpdateToContinue": MessageLookupByLibrary.simpleMessage(
             "Uygulamayı kullanmaya devam etmek için lütfen güncelleyin."),
         "settings": MessageLookupByLibrary.simpleMessage("Ayarlar"),
