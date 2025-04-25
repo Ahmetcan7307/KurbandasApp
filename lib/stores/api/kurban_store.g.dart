@@ -121,6 +121,14 @@ mixin _$KurbanStore on _KurbanStore, Store {
         .run(() => super.approveOrDeclineRequest(documentId, isApprove));
   }
 
+  late final _$deleteAsyncAction =
+      AsyncAction('_KurbanStore.delete', context: context);
+
+  @override
+  Future<List<Kurban>> delete(String documentId) {
+    return _$deleteAsyncAction.run(() => super.delete(documentId));
+  }
+
   late final _$_KurbanStoreActionController =
       ActionController(name: '_KurbanStore', context: context);
 

@@ -52,4 +52,8 @@ abstract class _KurbanStore with Store {
   @action
   Future approveOrDeclineRequest(String documentId, bool isApprove) async =>
       requests = await service.approveOrDeclineRequest(documentId, isApprove);
+
+  @action
+  Future<List<Kurban>> delete(String documentId) async =>
+      myKurbans = await service.delete(documentId);
 }

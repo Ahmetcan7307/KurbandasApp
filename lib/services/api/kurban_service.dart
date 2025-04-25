@@ -90,4 +90,6 @@ class KurbanService {
   Future<List<KurbanRequest>> approveOrDeclineRequest(
           String documentId, bool isApprove) async =>
       await getRequests(documentId);
+
+  Future<List<Kurban>> delete(String documentId) async => await getMyKurbans();
 }

@@ -1,6 +1,8 @@
+// ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/utils/components/kurban/kurban_card.dart';
+import 'package:kurbandas/core/utils/components/my_snackbar.dart';
 import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/routes.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
@@ -91,7 +93,8 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
                   },
                 ),
                 buildActionButtons(
-                    kurban.documentId!, kurban.animal.name!, index)
+                    kurban.documentId!, kurban.animal.name!, index),
+                const SizedBox(height: 16)
               ],
             );
           }),
@@ -99,13 +102,32 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
   }
 
   Widget buildActionButtons(String documentId, String animalName, int index) =>
-      buildActionButton(
-          icon: Icons.people,
-          label: lang.Requests,
-          onTap: () {
-            kurbanStore.selectMyKurban(index);
-            Navigator.pushNamed(context, Routes.kurbanRequests);
-          });
+      Padding(
+        padding: const EdgeInsets.only(top: 8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            buildActionButton(
+                icon: Icons.people,
+                label: lang.Requests,
+                onTap: () {
+                  kurbanStore.selectMyKurban(index);
+                  Navigator.pushNamed(context, Routes.kurbanRequests);
+                }),
+            buildActionButton(
+                icon: Icons.edit,
+                label: lang.edit,
+                onTap: () {
+                  // Todo
+                }),
+            buildActionButton(
+                icon: Icons.delete,
+                label: lang.delete,
+                color: Colors.red,
+                onTap: () => delete(animalName, documentId))
+          ],
+        ),
+      );
 
   Widget buildActionButton(
           {required IconData icon,
@@ -114,6 +136,7 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
           Color? color}) =>
       InkWell(
         onTap: onTap,
+        borderRadius: BorderRadius.circular(8),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -125,9 +148,49 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
                 size: 20,
               ),
               const SizedBox(height: 4),
-              Text(label)
+              Text(
+                label,
+                style: TextStyle(
+                    fontSize: 12, color: color ?? Colors.grey.shade700),
+              )
             ],
           ),
         ),
+      );
+
+  Future delete(String animalName, String documentId) async {
+    if (await showDialog<bool>(
+            context: context,
+            builder: (context) => buildAreYouSureDeleteAlertDialog(animalName))
+        as bool) {
+      await kurbanStore.delete(documentId);
+
+      showSnackBar(context, text: lang.QurbaniPostDeleted);
+    }
+  }
+
+  Widget buildAreYouSureDeleteAlertDialog(String animalName) => AlertDialog(
+        title: Text(lang.deleteQurbani),
+        content: SingleChildScrollView(
+          child: ListBody(children: [
+            Text(lang.areYouSureDeleteQurbani(animalName.toString())),
+            const SizedBox(height: 8),
+            Text(
+              lang.areYouSureDeleteQurbaniDesc,
+              style: TextStyle(fontSize: 12, color: Colors.grey),
+            )
+          ]),
+        ),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: Text(lang.cancel)),
+          TextButton(
+              onPressed: () => Navigator.pop(context, true),
+              child: Text(
+                lang.delete,
+                style: TextStyle(color: Colors.red),
+              ))
+        ],
       );
 }
