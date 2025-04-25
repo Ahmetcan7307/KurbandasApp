@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
+import 'package:kurbandas/core/domain/entities/kurban_request.dart';
+import 'package:kurbandas/core/domain/entities/user.dart';
 
 class KurbanService {
   final Dio dio;
@@ -45,4 +47,47 @@ class KurbanService {
           ..remainPartnersCount = 5
           ..status = KurbanStatus.waiting
       ]);
+
+  Future<List<KurbanRequest>> getRequests(String documentId) => Future.value([
+        KurbanRequest(
+            user: User(
+                name: "Test",
+                surname: "Testoğlu",
+                email: "test@test.com",
+                phoneNo: "905551234567"),
+            createdAt: DateTime.now(),
+            state: KurbanRequestState.waiting)
+          ..documentId = "1",
+        KurbanRequest(
+            user: User(
+                name: "Test1",
+                surname: "Testoğlu",
+                email: "test1@test.com",
+                phoneNo: "905551234567"),
+            createdAt: DateTime.now(),
+            state: KurbanRequestState.waiting)
+          ..documentId = "2",
+        KurbanRequest(
+            user: User(
+                name: "Test2",
+                surname: "Testoğlu",
+                email: "test2@test.com",
+                phoneNo: "905551234567"),
+            createdAt: DateTime.now(),
+            state: KurbanRequestState.approved)
+          ..documentId = "3",
+        KurbanRequest(
+            user: User(
+                name: "Test3",
+                surname: "Testoğlu",
+                email: "test3@test.com",
+                phoneNo: "905551234567"),
+            createdAt: DateTime.now(),
+            state: KurbanRequestState.approved)
+          ..documentId = "4"
+      ]);
+
+  Future<List<KurbanRequest>> approveOrDeclineRequest(
+          String documentId, bool isApprove) async =>
+      await getRequests(documentId);
 }

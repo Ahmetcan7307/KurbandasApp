@@ -68,5 +68,48 @@
   },
   "PartnershipsCompleted": "Partnerships completed",
   "cutAddress": "Cut Address",
-  "noCutAddress": "No Cut Address"
+  "noCutAddress": "No Cut Address",
+  "partnershipRequests": "Partnership Requests",
+  "waiting": "Waiting",
+  "approved": "Approved",
+  "noWaitingRequests": "There is not any Waiting Requests",
+  "noApprovedRequests": "There is not any Approved Requests",
+  "requestDate": "Request Date",
+  "approve": "Approve",
+  "decline": "Decline",
+  "call": "Call",
+  "approveRequest": "Approve Request",
+  "areYouSureApproveRequest": "Are you sure you want to approve {name}'s request for partnership?",
+  "@areYouSureApproveRequest": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "requestApproved": "{name}'s request approved",
+  "@requestApproved": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "declineRequest": "Decline Request",
+  "areYouSureDeclineRequest": "Are you sure you want to approve {name}'s request for partnership?",
+  "@areYouSureDeclineRequest": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "requestDeclined": "{name}'s request approved",
+  "@requestDeclined": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }

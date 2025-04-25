@@ -44,7 +44,7 @@ class _KurbanCardState extends State<KurbanCard> {
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
-                      widget.kurban.animal.toString().split(".").last,
+                      widget.kurban.animal.name!,
                       style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,

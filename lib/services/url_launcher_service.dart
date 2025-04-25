@@ -6,4 +6,11 @@ class UrlLauncherService {
       await launchUrl(storeUrl, mode: LaunchMode.externalApplication);
     }
   }
+
+  Future launchTel(String phoneNo) async {
+    Uri scheme = Uri.parse("tel:$phoneNo");
+    if (await canLaunchUrl(scheme)) {
+      await launchUrl(scheme);
+    }
+  }
 }

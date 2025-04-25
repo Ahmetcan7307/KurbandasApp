@@ -11,4 +11,6 @@ abstract class _UrlLauncherStore with Store {
   final UrlLauncherService _service = serviceLocator.get<UrlLauncherService>();
 
   Future launchStore(Uri storeUrl) async => _service.launchStore(storeUrl);
+
+  Future launchTel(String phoneNo) async => _service.launchTel(phoneNo);
 }

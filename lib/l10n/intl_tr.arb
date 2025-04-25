@@ -68,5 +68,48 @@
   },
   "PartnershipsCompleted": "Ortaklıklar tamamlandı",
   "cutAddress": "Kesim Yeri",
-  "noCutAddress": "Kesim Yeri belirtilmemiş"
+  "noCutAddress": "Kesim Yeri belirtilmemiş",
+  "partnershipRequests": "Ortaklık İstekleri",
+  "waiting": "Bekleyen",
+  "approved": "Onaylanmış",
+  "noWaitingRequests": "Bekleyen hiçbir isteğiniz yok",
+  "noApprovedRequests": "Onaylanmış hiçbir isteğiniz yok",
+  "requestDate": "İstek Tarihi",
+  "approve": "Onayla",
+  "decline": "Reddet",
+  "call": "Ara",
+  "approveRequest": "İsteği Onayla",
+  "areYouSureApproveRequest": "{name} kişisinin ortaklık talebini onaylamak istediğinize emin misiniz?",
+  "@areYouSureApproveRequest": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "requestApproved": "{name} kişisinin talebi onaylandı",
+  "@requestApproved": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "declineRequest": "İsteği Reddet",
+  "areYouSureDeclineRequest": "{name} kişisinin ortaklık talebini reddetmek istediğinize emin misiniz?",
+  "@areYouSureDeclineRequest": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "requestDeclined": "{name} kişisinin talebi reddedildi",
+  "@requestDeclined": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }

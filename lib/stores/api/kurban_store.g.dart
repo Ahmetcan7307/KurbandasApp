@@ -56,6 +56,38 @@ mixin _$KurbanStore on _KurbanStore, Store {
     });
   }
 
+  late final _$selectedKurbanAtom =
+      Atom(name: '_KurbanStore.selectedKurban', context: context);
+
+  @override
+  Kurban? get selectedKurban {
+    _$selectedKurbanAtom.reportRead();
+    return super.selectedKurban;
+  }
+
+  @override
+  set selectedKurban(Kurban? value) {
+    _$selectedKurbanAtom.reportWrite(value, super.selectedKurban, () {
+      super.selectedKurban = value;
+    });
+  }
+
+  late final _$requestsAtom =
+      Atom(name: '_KurbanStore.requests', context: context);
+
+  @override
+  List<KurbanRequest>? get requests {
+    _$requestsAtom.reportRead();
+    return super.requests;
+  }
+
+  @override
+  set requests(List<KurbanRequest>? value) {
+    _$requestsAtom.reportWrite(value, super.requests, () {
+      super.requests = value;
+    });
+  }
+
   late final _$getAnimalsAsyncAction =
       AsyncAction('_KurbanStore.getAnimals', context: context);
 
@@ -70,6 +102,23 @@ mixin _$KurbanStore on _KurbanStore, Store {
   @override
   Future<dynamic> getMyKurbans() {
     return _$getMyKurbansAsyncAction.run(() => super.getMyKurbans());
+  }
+
+  late final _$getRequestsAsyncAction =
+      AsyncAction('_KurbanStore.getRequests', context: context);
+
+  @override
+  Future<dynamic> getRequests() {
+    return _$getRequestsAsyncAction.run(() => super.getRequests());
+  }
+
+  late final _$approveOrDeclineRequestAsyncAction =
+      AsyncAction('_KurbanStore.approveOrDeclineRequest', context: context);
+
+  @override
+  Future<dynamic> approveOrDeclineRequest(String documentId, bool isApprove) {
+    return _$approveOrDeclineRequestAsyncAction
+        .run(() => super.approveOrDeclineRequest(documentId, isApprove));
   }
 
   late final _$_KurbanStoreActionController =
@@ -91,11 +140,24 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
+  dynamic selectMyKurban(int index) {
+    final _$actionInfo = _$_KurbanStoreActionController.startAction(
+        name: '_KurbanStore.selectMyKurban');
+    try {
+      return super.selectMyKurban(index);
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 animals: ${animals},
 filter: ${filter},
-myKurbans: ${myKurbans}
+myKurbans: ${myKurbans},
+selectedKurban: ${selectedKurban},
+requests: ${requests}
     ''';
   }
 }

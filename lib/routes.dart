@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kurbandas/screens/home_page.dart';
+import 'package:kurbandas/screens/profile/kurban_requests_page.dart';
 import 'package:kurbandas/screens/profile/settings_page.dart';
 
 import 'screens/auth/login_page.dart';
@@ -14,7 +15,8 @@ class Routes {
   static const String home = "/home",
       login = "/login",
       profile = "/profile",
-      settings = "/settings";
+      settings = "/settings",
+      kurbanRequests = "/kurbanRequests";
 
   Route onGenerateRoute(RouteSettings settings) {
     Widget page = const Scaffold(
@@ -35,6 +37,9 @@ class Routes {
         break;
       case Routes.settings:
         page = SettingsPage();
+        break;
+      case Routes.kurbanRequests:
+        page = KurbanRequestsPage();
         break;
     }
 

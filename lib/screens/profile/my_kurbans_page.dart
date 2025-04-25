@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/utils/components/kurban/kurban_card.dart';
 import 'package:kurbandas/generated/l10n.dart';
+import 'package:kurbandas/routes.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
 import 'package:kurbandas/stores/root_store.dart';
 import 'package:provider/provider.dart';
@@ -78,16 +80,54 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
       child: ListView.builder(
           itemCount: kurbanStore.myKurbans!.length,
           padding: const EdgeInsets.all(16),
-          itemBuilder: (context, index) => Column(
-                children: [
-                  KurbanCard(
-                    kurban: kurbanStore.myKurbans![index],
-                    onTap: () {
-                      // Todo
-                    },
-                  ),
-                ],
-              )),
+          itemBuilder: (context, index) {
+            Kurban kurban = kurbanStore.myKurbans![index];
+            return Column(
+              children: [
+                KurbanCard(
+                  kurban: kurban,
+                  onTap: () {
+                    // Todo
+                  },
+                ),
+                buildActionButtons(
+                    kurban.documentId!, kurban.animal.name!, index)
+              ],
+            );
+          }),
     );
   }
+
+  Widget buildActionButtons(String documentId, String animalName, int index) =>
+      buildActionButton(
+          icon: Icons.people,
+          label: lang.Requests,
+          onTap: () {
+            kurbanStore.selectMyKurban(index);
+            Navigator.pushNamed(context, Routes.kurbanRequests);
+          });
+
+  Widget buildActionButton(
+          {required IconData icon,
+          required String label,
+          required VoidCallback onTap,
+          Color? color}) =>
+      InkWell(
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                icon,
+                color: color ?? Theme.of(context).primaryColor,
+                size: 20,
+              ),
+              const SizedBox(height: 4),
+              Text(label)
+            ],
+          ),
+        ),
+      );
 }

@@ -1,4 +1,5 @@
 import 'package:kurbandas/core/domain/entities/kurban.dart';
+import 'package:kurbandas/core/domain/entities/kurban_request.dart';
 import 'package:kurbandas/core/models/filter.dart';
 import 'package:kurbandas/injector.dart';
 import 'package:kurbandas/services/api/kurban_service.dart';
@@ -18,6 +19,12 @@ abstract class _KurbanStore with Store {
   @observable
   List<Kurban>? myKurbans;
 
+  @observable
+  Kurban? selectedKurban;
+
+  @observable
+  List<KurbanRequest>? requests;
+
   KurbanService service = serviceLocator.get<KurbanService>();
 
   @action
@@ -34,4 +41,15 @@ abstract class _KurbanStore with Store {
 
   @action
   Future getMyKurbans() async => myKurbans = await service.getMyKurbans();
+
+  @action
+  selectMyKurban(int index) => selectedKurban = myKurbans![index];
+
+  @action
+  Future getRequests() async =>
+      requests = await service.getRequests(selectedKurban!.documentId!);
+
+  @action
+  Future approveOrDeclineRequest(String documentId, bool isApprove) async =>
+      requests = await service.approveOrDeclineRequest(documentId, isApprove);
 }

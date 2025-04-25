@@ -479,6 +479,156 @@ class S {
       args: [],
     );
   }
+
+  /// `Partnership Requests`
+  String get partnershipRequests {
+    return Intl.message(
+      'Partnership Requests',
+      name: 'partnershipRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Waiting`
+  String get waiting {
+    return Intl.message(
+      'Waiting',
+      name: 'waiting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Approved`
+  String get approved {
+    return Intl.message(
+      'Approved',
+      name: 'approved',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There is not any Waiting Requests`
+  String get noWaitingRequests {
+    return Intl.message(
+      'There is not any Waiting Requests',
+      name: 'noWaitingRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There is not any Approved Requests`
+  String get noApprovedRequests {
+    return Intl.message(
+      'There is not any Approved Requests',
+      name: 'noApprovedRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Request Date`
+  String get requestDate {
+    return Intl.message(
+      'Request Date',
+      name: 'requestDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Approve`
+  String get approve {
+    return Intl.message(
+      'Approve',
+      name: 'approve',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Decline`
+  String get decline {
+    return Intl.message(
+      'Decline',
+      name: 'decline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Call`
+  String get call {
+    return Intl.message(
+      'Call',
+      name: 'call',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Approve Request`
+  String get approveRequest {
+    return Intl.message(
+      'Approve Request',
+      name: 'approveRequest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to approve {name}'s request for partnership?`
+  String areYouSureApproveRequest(String name) {
+    return Intl.message(
+      'Are you sure you want to approve $name\'s request for partnership?',
+      name: 'areYouSureApproveRequest',
+      desc: '',
+      args: [name],
+    );
+  }
+
+  /// `{name}'s request approved`
+  String requestApproved(String name) {
+    return Intl.message(
+      '$name\'s request approved',
+      name: 'requestApproved',
+      desc: '',
+      args: [name],
+    );
+  }
+
+  /// `Decline Request`
+  String get declineRequest {
+    return Intl.message(
+      'Decline Request',
+      name: 'declineRequest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to approve {name}'s request for partnership?`
+  String areYouSureDeclineRequest(String name) {
+    return Intl.message(
+      'Are you sure you want to approve $name\'s request for partnership?',
+      name: 'areYouSureDeclineRequest',
+      desc: '',
+      args: [name],
+    );
+  }
+
+  /// `{name}'s request approved`
+  String requestDeclined(String name) {
+    return Intl.message(
+      '$name\'s request approved',
+      name: 'requestDeclined',
+      desc: '',
+      args: [name],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
