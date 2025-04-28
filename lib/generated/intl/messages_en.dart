@@ -20,24 +20,101 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(name) =>
+      "Are you sure you want to approve ${name}\'s request for partnership?";
+
+  static String m1(name) =>
+      "Are you sure you want to approve ${name}\'s request for partnership?";
+
+  static String m2(animal) =>
+      "Are you sure you want to delete the ${animal} Qurbani?";
+
+  static String m3(count) => "${count} partners remain";
+
+  static String m4(name) => "${name}\'s request approved";
+
+  static String m5(name) => "${name}\'s request approved";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "AccountOperations":
+            MessageLookupByLibrary.simpleMessage("Account Operations"),
+        "FilterQurbani": MessageLookupByLibrary.simpleMessage("Filter Qurbani"),
+        "Location": MessageLookupByLibrary.simpleMessage("Location"),
+        "MyPartnerships":
+            MessageLookupByLibrary.simpleMessage("My Partnerships"),
+        "MyProfile": MessageLookupByLibrary.simpleMessage("My Profile"),
+        "PartnershipsCompleted":
+            MessageLookupByLibrary.simpleMessage("Partnerships completed"),
+        "ProfileDetails":
+            MessageLookupByLibrary.simpleMessage("Profile Details"),
+        "QurbaniAnimal": MessageLookupByLibrary.simpleMessage("Qurbani Animal"),
+        "QurbaniPostDeleted": MessageLookupByLibrary.simpleMessage(
+            "Qurbani announcement deleted"),
+        "Requests": MessageLookupByLibrary.simpleMessage("Requests"),
+        "SelectDistrict":
+            MessageLookupByLibrary.simpleMessage("Select District"),
+        "SelectProvince":
+            MessageLookupByLibrary.simpleMessage("Select Province"),
         "SigningOut": MessageLookupByLibrary.simpleMessage("Signing out..."),
         "SigninwithGoogle":
             MessageLookupByLibrary.simpleMessage("Sign in with Google"),
+        "account": MessageLookupByLibrary.simpleMessage("Account"),
+        "app": MessageLookupByLibrary.simpleMessage("Application"),
         "appUpdateRequired":
             MessageLookupByLibrary.simpleMessage("App Update Required"),
+        "apply": MessageLookupByLibrary.simpleMessage("Apply"),
+        "approve": MessageLookupByLibrary.simpleMessage("Approve"),
+        "approveRequest":
+            MessageLookupByLibrary.simpleMessage("Approve Request"),
+        "approved": MessageLookupByLibrary.simpleMessage("Approved"),
+        "areYouSureApproveRequest": m0,
+        "areYouSureDeclineRequest": m1,
+        "areYouSureDeleteQurbani": m2,
+        "areYouSureDeleteQurbaniDesc": MessageLookupByLibrary.simpleMessage(
+            "This action is irreversible and all partnerships are canceled."),
+        "call": MessageLookupByLibrary.simpleMessage("Call"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "clear": MessageLookupByLibrary.simpleMessage("Clear"),
+        "cutAddress": MessageLookupByLibrary.simpleMessage("Cut Address"),
+        "decline": MessageLookupByLibrary.simpleMessage("Decline"),
+        "declineRequest":
+            MessageLookupByLibrary.simpleMessage("Decline Request"),
+        "delete": MessageLookupByLibrary.simpleMessage("Delete"),
+        "deleteQurbani":
+            MessageLookupByLibrary.simpleMessage("Delete Qurbani Posting"),
+        "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "findPartnersQurbani": MessageLookupByLibrary.simpleMessage(
             "Easily find your partners for Qurbani"),
+        "help": MessageLookupByLibrary.simpleMessage("Help and Support"),
+        "info": MessageLookupByLibrary.simpleMessage("Information"),
+        "lang": MessageLookupByLibrary.simpleMessage("Language"),
         "later": MessageLookupByLibrary.simpleMessage("Later"),
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "logoutConfirmation": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to log out?"),
+        "myQurbanies": MessageLookupByLibrary.simpleMessage("My Qurbanies"),
         "newQurbani": MessageLookupByLibrary.simpleMessage("New Qurbani"),
+        "noApprovedRequests": MessageLookupByLibrary.simpleMessage(
+            "There is not any Approved Requests"),
+        "noCutAddress": MessageLookupByLibrary.simpleMessage("No Cut Address"),
+        "noMyQurbaniAds": MessageLookupByLibrary.simpleMessage(
+            "You do not have any sacrifice announcements yet"),
+        "noMyQurbaniAdsDesc": MessageLookupByLibrary.simpleMessage(
+            "You can use the “Share Qurbani” button on the home page to share your Qurbani"),
+        "noWaitingRequests": MessageLookupByLibrary.simpleMessage(
+            "There is not any Waiting Requests"),
         "partners": MessageLookupByLibrary.simpleMessage("Partners"),
+        "partnersRemain": m3,
+        "partnershipRequests":
+            MessageLookupByLibrary.simpleMessage("Partnership Requests"),
         "pleaseUpdateToContinue": MessageLookupByLibrary.simpleMessage(
             "Please update to continue using the app."),
-        "updateNow": MessageLookupByLibrary.simpleMessage("Update Now")
+        "requestApproved": m4,
+        "requestDate": MessageLookupByLibrary.simpleMessage("Request Date"),
+        "requestDeclined": m5,
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "updateNow": MessageLookupByLibrary.simpleMessage("Update Now"),
+        "waiting": MessageLookupByLibrary.simpleMessage("Waiting")
       };
 }

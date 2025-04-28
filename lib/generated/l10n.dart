@@ -169,6 +169,466 @@ class S {
       args: [],
     );
   }
+
+  /// `Filter Qurbani`
+  String get FilterQurbani {
+    return Intl.message(
+      'Filter Qurbani',
+      name: 'FilterQurbani',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Qurbani Animal`
+  String get QurbaniAnimal {
+    return Intl.message(
+      'Qurbani Animal',
+      name: 'QurbaniAnimal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location`
+  String get Location {
+    return Intl.message(
+      'Location',
+      name: 'Location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Province`
+  String get SelectProvince {
+    return Intl.message(
+      'Select Province',
+      name: 'SelectProvince',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select District`
+  String get SelectDistrict {
+    return Intl.message(
+      'Select District',
+      name: 'SelectDistrict',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Clear`
+  String get clear {
+    return Intl.message(
+      'Clear',
+      name: 'clear',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Apply`
+  String get apply {
+    return Intl.message(
+      'Apply',
+      name: 'apply',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Profile`
+  String get MyProfile {
+    return Intl.message(
+      'My Profile',
+      name: 'MyProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account`
+  String get account {
+    return Intl.message(
+      'Account',
+      name: 'account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile Details`
+  String get ProfileDetails {
+    return Intl.message(
+      'Profile Details',
+      name: 'ProfileDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Application`
+  String get app {
+    return Intl.message(
+      'Application',
+      name: 'app',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get lang {
+    return Intl.message(
+      'Language',
+      name: 'lang',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Information`
+  String get info {
+    return Intl.message(
+      'Information',
+      name: 'info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help and Support`
+  String get help {
+    return Intl.message(
+      'Help and Support',
+      name: 'help',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account Operations`
+  String get AccountOperations {
+    return Intl.message(
+      'Account Operations',
+      name: 'AccountOperations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Qurbanies`
+  String get myQurbanies {
+    return Intl.message(
+      'My Qurbanies',
+      name: 'myQurbanies',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Partnerships`
+  String get MyPartnerships {
+    return Intl.message(
+      'My Partnerships',
+      name: 'MyPartnerships',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You do not have any sacrifice announcements yet`
+  String get noMyQurbaniAds {
+    return Intl.message(
+      'You do not have any sacrifice announcements yet',
+      name: 'noMyQurbaniAds',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can use the “Share Qurbani” button on the home page to share your Qurbani`
+  String get noMyQurbaniAdsDesc {
+    return Intl.message(
+      'You can use the “Share Qurbani” button on the home page to share your Qurbani',
+      name: 'noMyQurbaniAdsDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Requests`
+  String get Requests {
+    return Intl.message(
+      'Requests',
+      name: 'Requests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get edit {
+    return Intl.message(
+      'Edit',
+      name: 'edit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get delete {
+    return Intl.message(
+      'Delete',
+      name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Qurbani Posting`
+  String get deleteQurbani {
+    return Intl.message(
+      'Delete Qurbani Posting',
+      name: 'deleteQurbani',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete the {animal} Qurbani?`
+  String areYouSureDeleteQurbani(String animal) {
+    return Intl.message(
+      'Are you sure you want to delete the $animal Qurbani?',
+      name: 'areYouSureDeleteQurbani',
+      desc: '',
+      args: [animal],
+    );
+  }
+
+  /// `This action is irreversible and all partnerships are canceled.`
+  String get areYouSureDeleteQurbaniDesc {
+    return Intl.message(
+      'This action is irreversible and all partnerships are canceled.',
+      name: 'areYouSureDeleteQurbaniDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Qurbani announcement deleted`
+  String get QurbaniPostDeleted {
+    return Intl.message(
+      'Qurbani announcement deleted',
+      name: 'QurbaniPostDeleted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{count} partners remain`
+  String partnersRemain(int count) {
+    return Intl.message(
+      '$count partners remain',
+      name: 'partnersRemain',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `Partnerships completed`
+  String get PartnershipsCompleted {
+    return Intl.message(
+      'Partnerships completed',
+      name: 'PartnershipsCompleted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cut Address`
+  String get cutAddress {
+    return Intl.message(
+      'Cut Address',
+      name: 'cutAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Cut Address`
+  String get noCutAddress {
+    return Intl.message(
+      'No Cut Address',
+      name: 'noCutAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Partnership Requests`
+  String get partnershipRequests {
+    return Intl.message(
+      'Partnership Requests',
+      name: 'partnershipRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Waiting`
+  String get waiting {
+    return Intl.message(
+      'Waiting',
+      name: 'waiting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Approved`
+  String get approved {
+    return Intl.message(
+      'Approved',
+      name: 'approved',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There is not any Waiting Requests`
+  String get noWaitingRequests {
+    return Intl.message(
+      'There is not any Waiting Requests',
+      name: 'noWaitingRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There is not any Approved Requests`
+  String get noApprovedRequests {
+    return Intl.message(
+      'There is not any Approved Requests',
+      name: 'noApprovedRequests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Request Date`
+  String get requestDate {
+    return Intl.message(
+      'Request Date',
+      name: 'requestDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Approve`
+  String get approve {
+    return Intl.message(
+      'Approve',
+      name: 'approve',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Decline`
+  String get decline {
+    return Intl.message(
+      'Decline',
+      name: 'decline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Call`
+  String get call {
+    return Intl.message(
+      'Call',
+      name: 'call',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Approve Request`
+  String get approveRequest {
+    return Intl.message(
+      'Approve Request',
+      name: 'approveRequest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to approve {name}'s request for partnership?`
+  String areYouSureApproveRequest(String name) {
+    return Intl.message(
+      'Are you sure you want to approve $name\'s request for partnership?',
+      name: 'areYouSureApproveRequest',
+      desc: '',
+      args: [name],
+    );
+  }
+
+  /// `{name}'s request approved`
+  String requestApproved(String name) {
+    return Intl.message(
+      '$name\'s request approved',
+      name: 'requestApproved',
+      desc: '',
+      args: [name],
+    );
+  }
+
+  /// `Decline Request`
+  String get declineRequest {
+    return Intl.message(
+      'Decline Request',
+      name: 'declineRequest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to approve {name}'s request for partnership?`
+  String areYouSureDeclineRequest(String name) {
+    return Intl.message(
+      'Are you sure you want to approve $name\'s request for partnership?',
+      name: 'areYouSureDeclineRequest',
+      desc: '',
+      args: [name],
+    );
+  }
+
+  /// `{name}'s request approved`
+  String requestDeclined(String name) {
+    return Intl.message(
+      '$name\'s request approved',
+      name: 'requestDeclined',
+      desc: '',
+      args: [name],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

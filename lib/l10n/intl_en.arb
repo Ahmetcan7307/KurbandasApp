@@ -23,5 +23,93 @@
   "SigningOut": "Signing out...",
   "findPartnersQurbani": "Easily find your partners for Qurbani",
   "partners": "Partners",
-  "newQurbani": "New Qurbani"
+  "newQurbani": "New Qurbani",
+  "FilterQurbani": "Filter Qurbani",
+  "QurbaniAnimal": "Qurbani Animal",
+  "Location": "Location",
+  "SelectProvince": "Select Province",
+  "SelectDistrict": "Select District",
+  "clear": "Clear",
+  "apply": "Apply",
+  "MyProfile": "My Profile",
+  "settings": "Settings",
+  "account": "Account",
+  "ProfileDetails": "Profile Details",
+  "app": "Application",
+  "lang": "Language",
+  "info": "Information",
+  "help": "Help and Support",
+  "AccountOperations": "Account Operations",
+  "myQurbanies": "My Qurbanies",
+  "MyPartnerships": "My Partnerships",
+  "noMyQurbaniAds": "You do not have any sacrifice announcements yet",
+  "noMyQurbaniAdsDesc": "You can use the “Share Qurbani” button on the home page to share your Qurbani",
+  "Requests": "Requests",
+  "edit": "Edit",
+  "delete": "Delete",
+  "deleteQurbani": "Delete Qurbani Posting",
+  "areYouSureDeleteQurbani": "Are you sure you want to delete the {animal} Qurbani?",
+  "@areYouSureDeleteQurbani": {
+    "placeholders": {
+      "animal": {
+        "type": "String"
+      }
+    }
+  },
+  "areYouSureDeleteQurbaniDesc": "This action is irreversible and all partnerships are canceled.",
+  "QurbaniPostDeleted": "Qurbani announcement deleted",
+  "partnersRemain": "{count} partners remain",
+  "@partnersRemain": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "PartnershipsCompleted": "Partnerships completed",
+  "cutAddress": "Cut Address",
+  "noCutAddress": "No Cut Address",
+  "partnershipRequests": "Partnership Requests",
+  "waiting": "Waiting",
+  "approved": "Approved",
+  "noWaitingRequests": "There is not any Waiting Requests",
+  "noApprovedRequests": "There is not any Approved Requests",
+  "requestDate": "Request Date",
+  "approve": "Approve",
+  "decline": "Decline",
+  "call": "Call",
+  "approveRequest": "Approve Request",
+  "areYouSureApproveRequest": "Are you sure you want to approve {name}'s request for partnership?",
+  "@areYouSureApproveRequest": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "requestApproved": "{name}'s request approved",
+  "@requestApproved": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "declineRequest": "Decline Request",
+  "areYouSureDeclineRequest": "Are you sure you want to approve {name}'s request for partnership?",
+  "@areYouSureDeclineRequest": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "requestDeclined": "{name}'s request approved",
+  "@requestDeclined": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -15,10 +15,11 @@ class Kurban extends EntityBase {
   double price;
   KurbanStatus? status;
   DateTime? cutDate;
-  String address; // County/District -> 90/2051
+  String? address;
   int totalPartnersCount;
   int remainPartnersCount = 0;
   List<User>? partners;
+  List<String> photoUrls;
 
   Kurban(
       {this.owner,
@@ -27,9 +28,10 @@ class Kurban extends EntityBase {
       required this.price,
       this.status,
       this.cutDate,
-      required this.address,
+      this.address,
       required this.totalPartnersCount,
-      this.partners}) {
+      this.partners,
+      required this.photoUrls}) {
     remainPartnersCount = totalPartnersCount;
   }
 
@@ -56,4 +58,17 @@ class KurbanAnimal extends EntityBase {
     json.clearNulls();
     return json;
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is KurbanAnimal &&
+          runtimeType == other.runtimeType &&
+          documentId == other.documentId;
+
+  @override
+  int get hashCode => name.hashCode;
+
+  @override
+  String toString() => name ?? "";
 }

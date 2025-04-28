@@ -23,5 +23,93 @@
   "SigningOut": "Çıkış Yapılıyor...",
   "findPartnersQurbani": "Kurban için ortaklarınızı kolayca bulun",
   "partners": "Ortak",
-  "newQurbani": "Yeni Kurban"
+  "newQurbani": "Yeni Kurban",
+  "FilterQurbani": "Kurbanları Filtrele",
+  "QurbaniAnimal": "Kurban Hayvanı",
+  "Location": "Konum",
+  "SelectProvince": "İl Seçin",
+  "SelectDistrict": "İlçe Seçin",
+  "clear": "Temizle",
+  "apply": "Uygula",
+  "MyProfile": "Profilim",
+  "settings": "Ayarlar",
+  "account": "Hesap",
+  "ProfileDetails": "Profil Bilgileri",
+  "app": "Uygulama",
+  "lang": "Dil",
+  "info": "Hakkında",
+  "help": "Yardım ve Destek",
+  "AccountOperations": "Hesap İşlemleri",
+  "myQurbanies": "Kurbanlarım",
+  "MyPartnerships": "Ortaklıklarım",
+  "noMyQurbaniAds": "Henüz kurban ilanınız bulunmuyor",
+  "noMyQurbaniAdsDesc": "Kurban paylaşmak için ana sayfadaki \"Kurban Paylaş\" butonunu kullanabilirsiniz",
+  "Requests": "İstekler",
+  "edit": "Düzenle",
+  "delete": "Kaldır",
+  "deleteQurbani": "Kurban İlanını Kaldır",
+  "areYouSureDeleteQurbani": "{animal} kurban ilanını silmek istediğinize emin misiniz?",
+  "@areYouSureDeleteQurbani": {
+    "placeholders": {
+      "animal": {
+        "type": "String"
+      }
+    }
+  },
+  "areYouSureDeleteQurbaniDesc": "Bu işlem geri alınamaz ve tüm ortaklıklar iptal edilir.",
+  "QurbaniPostDeleted": "Kurban ilanı silindi",
+  "partnersRemain": "{count} ortak kaldı",
+  "@partnersRemain": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "PartnershipsCompleted": "Ortaklıklar tamamlandı",
+  "cutAddress": "Kesim Yeri",
+  "noCutAddress": "Kesim Yeri belirtilmemiş",
+  "partnershipRequests": "Ortaklık İstekleri",
+  "waiting": "Bekleyen",
+  "approved": "Onaylanmış",
+  "noWaitingRequests": "Bekleyen hiçbir isteğiniz yok",
+  "noApprovedRequests": "Onaylanmış hiçbir isteğiniz yok",
+  "requestDate": "İstek Tarihi",
+  "approve": "Onayla",
+  "decline": "Reddet",
+  "call": "Ara",
+  "approveRequest": "İsteği Onayla",
+  "areYouSureApproveRequest": "{name} kişisinin ortaklık talebini onaylamak istediğinize emin misiniz?",
+  "@areYouSureApproveRequest": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "requestApproved": "{name} kişisinin talebi onaylandı",
+  "@requestApproved": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "declineRequest": "İsteği Reddet",
+  "areYouSureDeclineRequest": "{name} kişisinin ortaklık talebini reddetmek istediğinize emin misiniz?",
+  "@areYouSureDeclineRequest": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "requestDeclined": "{name} kişisinin talebi reddedildi",
+  "@requestDeclined": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }

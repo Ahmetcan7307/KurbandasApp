@@ -1,13 +1,8 @@
-// ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
-import 'package:kurbandas/core/utils/components/dialogs/logout_confirmation_dialog.dart';
+import 'package:kurbandas/core/utils/components/filter_bottom_sheet.dart';
 import 'package:kurbandas/core/utils/components/kurban/kurban_list.dart';
-import 'package:kurbandas/core/utils/components/my_snackbar.dart';
 import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/routes.dart';
-import 'package:kurbandas/stores/root_store.dart';
-import 'package:kurbandas/stores/supabase/auth_store.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,33 +11,56 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   late S lang;
 
-  late AuthStore authStore;
+  late TabController tabController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    tabController = TabController(length: 3, vsync: this);
+  }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
 
     lang = S.of(context);
+  }
 
-    authStore = Provider.of<RootStore>(context).authStore;
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         title: const Text(
           "Kurbandaş",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
+        backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
         actions: [
           IconButton(
-              onPressed: () => logoutOnPressed(context),
-              icon: const Icon(Icons.logout))
+              onPressed: showFilterBottomSheet,
+              icon: const Icon(
+                Icons.filter_list,
+                color: Colors.white,
+              )),
+          IconButton(
+              onPressed: () => Navigator.pushNamed(context, Routes.profile),
+              icon: const Icon(
+                Icons.person,
+                color: Colors.white,
+              ))
         ],
       ),
       body: Column(
@@ -76,15 +94,12 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Future logoutOnPressed(BuildContext context) async {
-    if (await showDialog(
+  Future showFilterBottomSheet() async {
+    showModalBottomSheet(
         context: context,
-        builder: (context) => LogoutConfirmationDialog()) as bool) {
-      showSnackBar(context, text: lang.SigningOut, seconds: 2);
-
-      await authStore.logout();
-
-      Navigator.pushReplacementNamed(context, Routes.login);
-    }
+        isScrollControlled: true,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+        builder: (context) => FilterBottomSheet());
   }
 }
