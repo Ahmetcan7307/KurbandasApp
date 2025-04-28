@@ -1,3 +1,4 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:kurbandas/core/domain/entities/user.dart' as user_c;
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -20,11 +21,15 @@ class AuthService {
   }
 
   Future<user_c.User?> signInWithGoogle() async {
-    GoogleSignInAccount? googleAccount = (await GoogleSignIn(scopes: [
-      "email",
-      "https://www.googleapis.com/auth/userinfo.profile",
-      "https://www.googleapis.com/auth/user.phonenumbers.read"
-    ]).signIn())!;
+    GoogleSignInAccount? googleAccount = (await GoogleSignIn(
+            scopes: [
+          "email",
+          "https://www.googleapis.com/auth/userinfo.profile",
+          "https://www.googleapis.com/auth/user.phonenumbers.read"
+        ],
+            clientId: dotenv.env["clientId"],
+            serverClientId: dotenv.env["serverClientId"])
+        .signIn())!;
     GoogleSignInAuthentication googleAuth = await googleAccount.authentication;
 
     if (googleAuth.accessToken == null) {
@@ -37,7 +42,7 @@ class AuthService {
     User? user = (await _supabaseAuth.signInWithIdToken(
             provider: OAuthProvider.google,
             idToken: googleAuth.idToken!,
-            accessToken: googleAuth.idToken!))
+            accessToken: googleAuth.accessToken!))
         .user;
     if (user != null) {
       return user_c.User.fromGoogle(

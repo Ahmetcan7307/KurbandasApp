@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => Navigator.pushNamed(context, Routes.createKurban),
+        onPressed: () {},
         icon: const Icon(Icons.add),
         label: Text(lang.newQurbani),
         backgroundColor: Theme.of(context).primaryColor,
