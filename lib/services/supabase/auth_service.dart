@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:kurbandas/core/domain/entities/user.dart' as user_c;
@@ -27,8 +29,9 @@ class AuthService {
           "https://www.googleapis.com/auth/userinfo.profile",
           "https://www.googleapis.com/auth/user.phonenumbers.read"
         ],
-            clientId: dotenv.env["clientId"],
-            serverClientId: dotenv.env["serverClientId"])
+            clientId: Platform.isIOS ? dotenv.env["clientId"] : null,
+            serverClientId:
+                Platform.isIOS ? dotenv.env["serverClientId"] : null)
         .signIn())!;
     GoogleSignInAuthentication googleAuth = await googleAccount.authentication;
 
