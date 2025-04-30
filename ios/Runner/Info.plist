@@ -61,5 +61,10 @@
 		<!-- TODO Replace this value: -->
 		<!-- Copied from GoogleService-Info.plist key CLIENT_ID -->
 		<string>200448057057-ku04ts7ifdn1v6gej9n9dh593j7d837p.apps.googleusercontent.com</string>
+		<key>LSApplicationQueriesSchemes</key>
+        <array>
+          <string>sms</string>
+          <string>tel</string>
+        </array>
 	</dict>
 </plist>

@@ -7,10 +7,10 @@ class UrlLauncherService {
     }
   }
 
-  Future launchTel(String phoneNo) async {
-    Uri scheme = Uri.parse("tel:$phoneNo");
-    if (await canLaunchUrl(scheme)) {
-      await launchUrl(scheme);
+  Future launchScheme(String scheme, String phoneNo) async {
+    Uri uri = Uri.parse("$scheme:$phoneNo");
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
     }
   }
 }

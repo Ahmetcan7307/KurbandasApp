@@ -11,27 +11,27 @@ enum KurbanStatus { waiting, cut, shared }
 class Kurban extends EntityBase {
   User? owner;
   KurbanAnimal animal;
-  double weight;
-  double price;
+  double? weight;
+  double? price;
   KurbanStatus? status;
   DateTime? cutDate;
   String? address;
-  int totalPartnersCount;
-  int remainPartnersCount = 0;
+  int? totalPartnersCount;
+  int? remainPartnersCount = 0;
   List<User>? partners;
-  List<String> photoUrls;
+  List<String>? photoUrls;
 
   Kurban(
       {this.owner,
       required this.animal,
-      required this.weight,
-      required this.price,
+      this.weight,
+      this.price,
       this.status,
       this.cutDate,
       this.address,
-      required this.totalPartnersCount,
+      this.totalPartnersCount,
       this.partners,
-      required this.photoUrls}) {
+      this.photoUrls}) {
     remainPartnersCount = totalPartnersCount;
   }
 

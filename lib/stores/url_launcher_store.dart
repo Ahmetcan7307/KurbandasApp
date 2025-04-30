@@ -12,5 +12,9 @@ abstract class _UrlLauncherStore with Store {
 
   Future launchStore(Uri storeUrl) async => _service.launchStore(storeUrl);
 
-  Future launchTel(String phoneNo) async => _service.launchTel(phoneNo);
+  Future launchTel(String phoneNo) async =>
+      _service.launchScheme("tel", phoneNo);
+
+  Future launchSms(String phoneNo) async =>
+      _service.launchScheme("sms", phoneNo);
 }

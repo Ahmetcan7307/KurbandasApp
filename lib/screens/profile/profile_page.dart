@@ -107,7 +107,7 @@ class _ProfilePageState extends State<ProfilePage>
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    authStore.user!.email,
+                    authStore.user!.email!,
                     style: TextStyle(fontSize: 14, color: Colors.grey.shade600),
                   )
                 ],

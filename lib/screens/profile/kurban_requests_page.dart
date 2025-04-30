@@ -144,7 +144,7 @@ class _KurbanRequestsPageState extends State<KurbanRequestsPage>
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      request.user.email,
+                      request.user.email!,
                       style:
                           TextStyle(color: Colors.grey.shade600, fontSize: 14),
                     ),

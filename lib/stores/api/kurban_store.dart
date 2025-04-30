@@ -25,6 +25,9 @@ abstract class _KurbanStore with Store {
   @observable
   List<KurbanRequest>? requests;
 
+  @observable
+  List<Kurban>? myPartnerships;
+
   KurbanService service = serviceLocator.get<KurbanService>();
 
   @action
@@ -56,4 +59,8 @@ abstract class _KurbanStore with Store {
   @action
   Future<List<Kurban>> delete(String documentId) async =>
       myKurbans = await service.delete(documentId);
+
+  @action
+  Future getMyPartnerships() async =>
+      myPartnerships = await service.getMyPartnerships();
 }

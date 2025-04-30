@@ -88,6 +88,22 @@ mixin _$KurbanStore on _KurbanStore, Store {
     });
   }
 
+  late final _$myPartnershipsAtom =
+      Atom(name: '_KurbanStore.myPartnerships', context: context);
+
+  @override
+  List<Kurban>? get myPartnerships {
+    _$myPartnershipsAtom.reportRead();
+    return super.myPartnerships;
+  }
+
+  @override
+  set myPartnerships(List<Kurban>? value) {
+    _$myPartnershipsAtom.reportWrite(value, super.myPartnerships, () {
+      super.myPartnerships = value;
+    });
+  }
+
   late final _$getAnimalsAsyncAction =
       AsyncAction('_KurbanStore.getAnimals', context: context);
 
@@ -129,6 +145,14 @@ mixin _$KurbanStore on _KurbanStore, Store {
     return _$deleteAsyncAction.run(() => super.delete(documentId));
   }
 
+  late final _$getMyPartnershipsAsyncAction =
+      AsyncAction('_KurbanStore.getMyPartnerships', context: context);
+
+  @override
+  Future<dynamic> getMyPartnerships() {
+    return _$getMyPartnershipsAsyncAction.run(() => super.getMyPartnerships());
+  }
+
   late final _$_KurbanStoreActionController =
       ActionController(name: '_KurbanStore', context: context);
 
@@ -165,7 +189,8 @@ animals: ${animals},
 filter: ${filter},
 myKurbans: ${myKurbans},
 selectedKurban: ${selectedKurban},
-requests: ${requests}
+requests: ${requests},
+myPartnerships: ${myPartnerships}
     ''';
   }
 }

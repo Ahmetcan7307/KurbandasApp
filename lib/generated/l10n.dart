@@ -629,6 +629,56 @@ class S {
       args: [name],
     );
   }
+
+  /// `There is no Qurbani you have participated in yet`
+  String get noPartnerships {
+    return Intl.message(
+      'There is no Qurbani you have participated in yet',
+      name: 'noPartnerships',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can browse the Qurbani announcements on the homepage and become a partner`
+  String get noPartnershipsDesc {
+    return Intl.message(
+      'You can browse the Qurbani announcements on the homepage and become a partner',
+      name: 'noPartnershipsDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Message`
+  String get message {
+    return Intl.message(
+      'Message',
+      name: 'message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cut`
+  String get cut {
+    return Intl.message(
+      'Cut',
+      name: 'cut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shared`
+  String get shared {
+    return Intl.message(
+      'Shared',
+      name: 'shared',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

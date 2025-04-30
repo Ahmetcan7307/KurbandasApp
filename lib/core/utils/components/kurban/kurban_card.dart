@@ -97,7 +97,7 @@ class _KurbanCardState extends State<KurbanCard> {
                     ),
                     const SizedBox(width: 6),
                     Text(
-                      "${widget.kurban.totalPartnersCount - widget.kurban.remainPartnersCount}/${widget.kurban.totalPartnersCount} ${lang.partners}",
+                      "${widget.kurban.totalPartnersCount! - widget.kurban.remainPartnersCount!}/${widget.kurban.totalPartnersCount} ${lang.partners}",
                       style: const TextStyle(
                           fontSize: 15,
                           color: Colors.white,
@@ -121,9 +121,9 @@ class _KurbanCardState extends State<KurbanCard> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: LinearProgressIndicator(
-                    value: (widget.kurban.totalPartnersCount -
-                            widget.kurban.remainPartnersCount) /
-                        widget.kurban.totalPartnersCount,
+                    value: (widget.kurban.totalPartnersCount! -
+                            widget.kurban.remainPartnersCount!) /
+                        widget.kurban.totalPartnersCount!,
                     backgroundColor: Colors.white.withValues(alpha: .4),
                     valueColor:
                         AlwaysStoppedAnimation<Color>(Colors.green.shade400),
@@ -135,13 +135,13 @@ class _KurbanCardState extends State<KurbanCard> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      widget.kurban.remainPartnersCount > 0
-                          ? lang
-                              .partnersRemain(widget.kurban.remainPartnersCount)
+                      widget.kurban.remainPartnersCount! > 0
+                          ? lang.partnersRemain(
+                              widget.kurban.remainPartnersCount!)
                           : lang.PartnershipsCompleted,
                       style: TextStyle(
                           fontSize: 13,
-                          color: widget.kurban.remainPartnersCount > 0
+                          color: widget.kurban.remainPartnersCount! > 0
                               ? Colors.yellow
                               : Colors.white70,
                           fontWeight: FontWeight.bold),
@@ -166,7 +166,7 @@ class _KurbanCardState extends State<KurbanCard> {
             ]).createShader(rect),
         blendMode: BlendMode.darken,
         child: Image.network(
-          widget.kurban.photoUrls[0],
+          widget.kurban.photoUrls![0],
           width: double.infinity,
           height: 200,
           fit: BoxFit.cover,

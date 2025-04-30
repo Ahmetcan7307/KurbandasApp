@@ -76,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "call": MessageLookupByLibrary.simpleMessage("Call"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "clear": MessageLookupByLibrary.simpleMessage("Clear"),
+        "cut": MessageLookupByLibrary.simpleMessage("Cut"),
         "cutAddress": MessageLookupByLibrary.simpleMessage("Cut Address"),
         "decline": MessageLookupByLibrary.simpleMessage("Decline"),
         "declineRequest":
@@ -93,6 +94,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "logoutConfirmation": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to log out?"),
+        "message": MessageLookupByLibrary.simpleMessage("Message"),
         "myQurbanies": MessageLookupByLibrary.simpleMessage("My Qurbanies"),
         "newQurbani": MessageLookupByLibrary.simpleMessage("New Qurbani"),
         "noApprovedRequests": MessageLookupByLibrary.simpleMessage(
@@ -102,6 +104,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "You do not have any sacrifice announcements yet"),
         "noMyQurbaniAdsDesc": MessageLookupByLibrary.simpleMessage(
             "You can use the “Share Qurbani” button on the home page to share your Qurbani"),
+        "noPartnerships": MessageLookupByLibrary.simpleMessage(
+            "There is no Qurbani you have participated in yet"),
+        "noPartnershipsDesc": MessageLookupByLibrary.simpleMessage(
+            "You can browse the Qurbani announcements on the homepage and become a partner"),
         "noWaitingRequests": MessageLookupByLibrary.simpleMessage(
             "There is not any Waiting Requests"),
         "partners": MessageLookupByLibrary.simpleMessage("Partners"),
@@ -114,6 +120,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "requestDate": MessageLookupByLibrary.simpleMessage("Request Date"),
         "requestDeclined": m5,
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "shared": MessageLookupByLibrary.simpleMessage("Shared"),
         "updateNow": MessageLookupByLibrary.simpleMessage("Update Now"),
         "waiting": MessageLookupByLibrary.simpleMessage("Waiting")
       };

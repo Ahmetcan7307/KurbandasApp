@@ -92,4 +92,22 @@ class KurbanService {
       await getRequests(documentId);
 
   Future<List<Kurban>> delete(String documentId) async => await getMyKurbans();
+
+  Future<List<Kurban>> getMyPartnerships() async => await Future.value([
+        Kurban(
+            animal: KurbanAnimal(name: "Sığır"),
+            address: "İstanbul / Beylikdüzü Beylikdüzü Kesim Alanı",
+            status: KurbanStatus.waiting,
+            owner: User(phoneNo: "901234567890")),
+        Kurban(
+            animal: KurbanAnimal(name: "Manda"),
+            address: "İstanbul / Esenyurt Esenyurt Kesim Alanı",
+            status: KurbanStatus.cut,
+            owner: User(phoneNo: "901234567890")),
+        Kurban(
+            animal: KurbanAnimal(name: "Deve"),
+            address: "İstanbul / Fatih Fatih Kesim Alanı",
+            status: KurbanStatus.shared,
+            owner: User(phoneNo: "901234567890"))
+      ]);
 }

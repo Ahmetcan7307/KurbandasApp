@@ -74,6 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "call": MessageLookupByLibrary.simpleMessage("Ara"),
         "cancel": MessageLookupByLibrary.simpleMessage("İptal"),
         "clear": MessageLookupByLibrary.simpleMessage("Temizle"),
+        "cut": MessageLookupByLibrary.simpleMessage("Kesildi"),
         "cutAddress": MessageLookupByLibrary.simpleMessage("Kesim Yeri"),
         "decline": MessageLookupByLibrary.simpleMessage("Reddet"),
         "declineRequest": MessageLookupByLibrary.simpleMessage("İsteği Reddet"),
@@ -90,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "logout": MessageLookupByLibrary.simpleMessage("Çıkış Yap"),
         "logoutConfirmation": MessageLookupByLibrary.simpleMessage(
             "Çıkış yapmak istediğinizden emin misiniz?"),
+        "message": MessageLookupByLibrary.simpleMessage("Mesaj"),
         "myQurbanies": MessageLookupByLibrary.simpleMessage("Kurbanlarım"),
         "newQurbani": MessageLookupByLibrary.simpleMessage("Yeni Kurban"),
         "noApprovedRequests": MessageLookupByLibrary.simpleMessage(
@@ -100,6 +102,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Henüz kurban ilanınız bulunmuyor"),
         "noMyQurbaniAdsDesc": MessageLookupByLibrary.simpleMessage(
             "Kurban paylaşmak için ana sayfadaki \"Kurban Paylaş\" butonunu kullanabilirsiniz"),
+        "noPartnerships": MessageLookupByLibrary.simpleMessage(
+            "Henüz katıldığınız bir kurban bulunmuyor"),
+        "noPartnershipsDesc": MessageLookupByLibrary.simpleMessage(
+            "Ana sayfadan kurban ilanlarına göz atıp hisse satın alabilirsiniz"),
         "noWaitingRequests": MessageLookupByLibrary.simpleMessage(
             "Bekleyen hiçbir isteğiniz yok"),
         "partners": MessageLookupByLibrary.simpleMessage("Ortak"),
@@ -112,6 +118,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "requestDate": MessageLookupByLibrary.simpleMessage("İstek Tarihi"),
         "requestDeclined": m5,
         "settings": MessageLookupByLibrary.simpleMessage("Ayarlar"),
+        "shared": MessageLookupByLibrary.simpleMessage("Paylaşıldı"),
         "updateNow": MessageLookupByLibrary.simpleMessage("Şimdi Güncelle"),
         "waiting": MessageLookupByLibrary.simpleMessage("Bekleyen")
       };

@@ -9,6 +9,8 @@ import 'package:kurbandas/stores/api/kurban_store.dart';
 import 'package:kurbandas/stores/root_store.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/utils/components/kurban/action_button.dart';
+
 class MyKurbansPage extends StatefulWidget {
   const MyKurbansPage({super.key});
 
@@ -107,54 +109,25 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            buildActionButton(
+            ActionButton(
                 icon: Icons.people,
                 label: lang.Requests,
                 onTap: () {
                   kurbanStore.selectMyKurban(index);
                   Navigator.pushNamed(context, Routes.kurbanRequests);
                 }),
-            buildActionButton(
+            ActionButton(
                 icon: Icons.edit,
                 label: lang.edit,
                 onTap: () {
                   // Todo
                 }),
-            buildActionButton(
+            ActionButton(
                 icon: Icons.delete,
                 label: lang.delete,
                 color: Colors.red,
                 onTap: () => delete(animalName, documentId))
           ],
-        ),
-      );
-
-  Widget buildActionButton(
-          {required IconData icon,
-          required String label,
-          required VoidCallback onTap,
-          Color? color}) =>
-      InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(8),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(
-                icon,
-                color: color ?? Theme.of(context).primaryColor,
-                size: 20,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                label,
-                style: TextStyle(
-                    fontSize: 12, color: color ?? Colors.grey.shade700),
-              )
-            ],
-          ),
         ),
       );
 

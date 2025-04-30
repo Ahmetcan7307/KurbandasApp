@@ -111,5 +111,10 @@
         "type": "String"
       }
     }
-  }
+  },
+  "noPartnerships": "There is no Qurbani you have participated in yet",
+  "noPartnershipsDesc": "You can browse the Qurbani announcements on the homepage and become a partner",
+  "message": "Message",
+  "cut": "Cut",
+  "shared": "Shared"
 }

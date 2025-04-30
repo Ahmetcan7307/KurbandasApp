@@ -8,18 +8,13 @@ part 'user.g.dart';
 class User extends EntityBase {
   String? name;
   String? surname;
-  String email;
+  String? email;
   String? token;
   String? phoneNo;
   String? photoUrl;
   String? accessToken;
 
-  User(
-      {this.name,
-      this.surname,
-      required this.email,
-      this.phoneNo,
-      this.accessToken});
+  User({this.name, this.surname, this.email, this.phoneNo, this.accessToken});
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
