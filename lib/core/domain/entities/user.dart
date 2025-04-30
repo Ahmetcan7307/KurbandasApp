@@ -12,13 +12,21 @@ class User extends EntityBase {
   String? token;
   String? phoneNo;
   String? photoUrl;
+  String? accessToken;
 
-  User({this.name, this.surname, required this.email, this.phoneNo});
+  User(
+      {this.name,
+      this.surname,
+      required this.email,
+      this.phoneNo,
+      this.accessToken});
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
   factory User.fromGoogle(
-      {required String displayName, required String email, String? phoneNo}) {
+      {required String displayName,
+      required String email,
+      required String accessToken}) {
     List<String>? nameSurname = splitName(displayName);
     String? name, surname;
     if (nameSurname != null) {
@@ -27,7 +35,8 @@ class User extends EntityBase {
     } else {
       name = displayName;
     }
-    return User(name: name, surname: surname, email: email, phoneNo: phoneNo);
+    return User(
+        name: name, surname: surname, email: email, accessToken: accessToken);
   }
 
   Map<String, dynamic> toJson() {

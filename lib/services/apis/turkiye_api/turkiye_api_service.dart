@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:kurbandas/services/turkiye_api/turkiye_api.dart';
+import 'package:kurbandas/services/apis/turkiye_api/turkiye_api.dart';
 
-import '../../core/domain/entities/turkiye_api_province.dart';
+import '../../../core/domain/entities/turkiye_api_province.dart';
 
 class TurkiyeAPIService {
   final Dio dio;

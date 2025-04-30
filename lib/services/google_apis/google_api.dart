@@ -1,16 +1,16 @@
 import 'package:dio/dio.dart';
+import 'package:kurbandas/services/apis/api/api.dart';
+import 'package:kurbandas/services/apis/api/query.dart';
 
-import '../api.dart';
+enum Controllers { me }
 
-enum Controllers { province }
-
-class TurkiyeAPI {
+class GoogleApi {
   static String getUrl(Controllers controllers, {List<Query>? queries}) {
-    String url = "https://turkiyeapi.dev/api/v1/";
+    String url = "https://people.googleapis.com/v1/people/";
 
     switch (controllers) {
-      case Controllers.province:
-        url += "provinces";
+      case Controllers.me:
+        url += "me";
         break;
     }
 
@@ -32,11 +32,4 @@ class TurkiyeAPI {
       API.getError(url, response);
 
   static Exception getDioException(DioException e) => API.getDioException(e);
-}
-
-class Query {
-  String name;
-  String value;
-
-  Query({required this.name, required this.value});
 }

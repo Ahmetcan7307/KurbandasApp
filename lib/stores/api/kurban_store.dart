@@ -2,7 +2,7 @@ import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/domain/entities/kurban_request.dart';
 import 'package:kurbandas/core/models/filter.dart';
 import 'package:kurbandas/injector.dart';
-import 'package:kurbandas/services/api/kurban_service.dart';
+import 'package:kurbandas/services/apis/my_api/kurban_service.dart';
 import 'package:mobx/mobx.dart';
 
 part 'kurban_store.g.dart';

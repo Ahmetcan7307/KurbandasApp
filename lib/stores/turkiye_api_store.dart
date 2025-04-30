@@ -1,7 +1,7 @@
 import 'package:kurbandas/core/domain/entities/turkiye_api_district.dart';
 import 'package:kurbandas/core/domain/entities/turkiye_api_province.dart';
 import 'package:kurbandas/injector.dart';
-import 'package:kurbandas/services/turkiye_api/turkiye_api_service.dart';
+import 'package:kurbandas/services/apis/turkiye_api/turkiye_api_service.dart';
 import 'package:mobx/mobx.dart';
 
 part 'turkiye_api_store.g.dart';

@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
-
-import '../core/domain/entities/api_error.dart';
+import 'package:kurbandas/core/domain/entities/api_error.dart';
 
 abstract class API {
   static Exception getError(String url, Response? response) =>

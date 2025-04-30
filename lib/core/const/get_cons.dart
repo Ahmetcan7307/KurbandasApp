@@ -1,3 +1,3 @@
 class GetCons {
-  static const String myAPIDio = "MyAPI", turkiyeAPIDio = "TurkiyeAPI";
+  static const String myAPIDio = "MyAPI", othersDio = "others";
 }

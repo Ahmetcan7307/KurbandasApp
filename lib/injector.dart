@@ -4,12 +4,13 @@ import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:kurbandas/core/const/get_cons.dart';
 import 'package:kurbandas/core/const/hive_cons.dart';
-import 'package:kurbandas/services/api/app_setting_service.dart';
-import 'package:kurbandas/services/api/kurban_service.dart';
-import 'package:kurbandas/services/api/user_service.dart';
+import 'package:kurbandas/services/apis/google_apis/google_api_service.dart';
+import 'package:kurbandas/services/apis/my_api/app_setting_service.dart';
+import 'package:kurbandas/services/apis/my_api/kurban_service.dart';
+import 'package:kurbandas/services/apis/my_api/user_service.dart';
 import 'package:kurbandas/services/package_info_service.dart';
 import 'package:kurbandas/services/supabase/auth_service.dart';
-import 'package:kurbandas/services/turkiye_api/turkiye_api_service.dart';
+import 'package:kurbandas/services/apis/turkiye_api/turkiye_api_service.dart';
 import 'package:kurbandas/services/url_launcher_service.dart';
 import 'package:kurbandas/stores/api/app_setting_store.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
@@ -30,7 +31,7 @@ Future init() async {
   serviceLocator.registerLazySingleton(() => Dio(),
       instanceName: GetCons.myAPIDio);
   serviceLocator.registerLazySingleton(() => Dio(),
-      instanceName: GetCons.turkiyeAPIDio);
+      instanceName: GetCons.othersDio);
 
   await Hive.initFlutter();
   await Hive.openBox<String>(HiveCons.settings);
@@ -44,9 +45,11 @@ Future init() async {
   serviceLocator.registerLazySingleton(() =>
       UserService(serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)));
   serviceLocator.registerLazySingleton(() => TurkiyeAPIService(
-      dio: serviceLocator.get<Dio>(instanceName: GetCons.turkiyeAPIDio)));
+      dio: serviceLocator.get<Dio>(instanceName: GetCons.othersDio)));
   serviceLocator.registerLazySingleton(() => KurbanService(
       dio: serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)));
+  serviceLocator.registerLazySingleton(() => GoogleApiService(
+      serviceLocator.get<Dio>(instanceName: GetCons.othersDio)));
 
   serviceLocator.registerLazySingleton(() => RootStore(
       urlLauncherStore: serviceLocator.get<UrlLauncherStore>(),
