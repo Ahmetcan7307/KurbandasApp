@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -10,6 +11,8 @@ import 'package:kurbandas/stores/api/app_setting_store.dart';
 import 'package:kurbandas/stores/root_store.dart';
 import 'package:provider/provider.dart';
 
+import 'firebase_options.dart';
+
 class App extends StatefulWidget {
   const App({super.key});
 
@@ -19,6 +22,17 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   late AppSettingStore appSettingStore;
+
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await Future.wait([
+        Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
+      ]);
+    });
+  }
 
   @override
   void didChangeDependencies() {
