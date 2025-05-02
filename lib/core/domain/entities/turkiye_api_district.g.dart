@@ -8,6 +8,6 @@ part of 'turkiye_api_district.dart';
 
 TurkiyeAPIDistrict _$TurkiyeAPIDistrictFromJson(Map<String, dynamic> json) =>
     TurkiyeAPIDistrict(
-      (json['id'] as num).toInt(),
-      json['name'] as String,
+      id: (json['id'] as num).toInt(),
+      name: json['name'] as String,
     );

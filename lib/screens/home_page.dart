@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:kurbandas/core/utils/components/filter_bottom_sheet.dart';
 import 'package:kurbandas/core/utils/components/kurban/kurban_list.dart';
 import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/routes.dart';
+import 'package:kurbandas/stores/api/kurban_store.dart';
+import 'package:kurbandas/stores/root_store.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,6 +21,8 @@ class _HomePageState extends State<HomePage>
 
   late TabController tabController;
 
+  late KurbanStore kurbanStore;
+
   @override
   void initState() {
     super.initState();
@@ -29,6 +35,8 @@ class _HomePageState extends State<HomePage>
     super.didChangeDependencies();
 
     lang = S.of(context);
+
+    kurbanStore = Provider.of<RootStore>(context).kurbanStore;
   }
 
   @override
@@ -62,29 +70,82 @@ class _HomePageState extends State<HomePage>
                 color: Colors.white,
               ))
         ],
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(56),
+          child: TabBar(
+              controller: tabController,
+              indicatorColor: Colors.white,
+              labelColor: Colors.white,
+              unselectedLabelColor: Colors.white.withValues(alpha: .7),
+              tabs: [
+                Tab(text: lang.all),
+                Tab(text: lang.active),
+                Tab(text: lang.completed)
+              ]),
+        ),
       ),
-      body: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(16),
-            color: Theme.of(context).primaryColor.withValues(alpha: .1),
-            child: Row(children: [
-              const Icon(
-                Icons.info_outline,
-                color: Colors.green,
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: Text(
-                  lang.findPartnersQurbani,
-                  style: Theme.of(context).textTheme.bodyLarge,
+      body: Observer(builder: (context) {
+        return Column(
+          children: [
+            // Aktif filtreler
+            if (kurbanStore.filter != null)
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                color: Theme.of(context).primaryColor.withValues(alpha: .1),
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.filter_alt,
+                      size: 18,
+                      color: Colors.green,
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      "${lang.filters}:",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            if (kurbanStore.filter!.animal != null)
+                              buildFilterChip(
+                                  kurbanStore.filter!.animal!.name!),
+                            if (kurbanStore.filter!.selectedProvince != null)
+                              buildFilterChip(
+                                  kurbanStore.filter!.selectedProvince!.name),
+                            if (kurbanStore.filter!.selectedDistrict != null)
+                              buildFilterChip(
+                                  kurbanStore.filter!.selectedDistrict!.name)
+                          ],
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: clearFilter,
+                      icon: Icon(
+                        Icons.clear,
+                        size: 18,
+                      ),
+                      padding: EdgeInsets.zero,
+                      constraints: const BoxConstraints(),
+                    )
+                  ],
                 ),
-              )
-            ]),
-          ),
-          Expanded(child: const KurbanList())
-        ],
-      ),
+              ),
+            Expanded(
+              child: TabBarView(controller: tabController, children: [
+                KurbanList(),
+                KurbanList(isActive: true),
+                KurbanList(isActive: false)
+              ]),
+            )
+          ],
+        );
+      }),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
         icon: const Icon(Icons.add),
@@ -95,11 +156,29 @@ class _HomePageState extends State<HomePage>
   }
 
   Future showFilterBottomSheet() async {
-    showModalBottomSheet(
+    if (await showModalBottomSheet(
         context: context,
         isScrollControlled: true,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-        builder: (context) => FilterBottomSheet());
+        builder: (context) => FilterBottomSheet()) as bool) {
+      setState(() {});
+    }
   }
+
+  Widget buildFilterChip(String label) => Padding(
+        padding: const EdgeInsets.only(right: 8),
+        child: Chip(
+          label: Text(
+            label,
+            style: const TextStyle(fontSize: 12),
+          ),
+          backgroundColor: Colors.white,
+          visualDensity: VisualDensity.compact,
+          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
+        ),
+      );
+
+  clearFilter() => kurbanStore.clearFilter();
 }

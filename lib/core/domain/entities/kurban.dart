@@ -42,6 +42,16 @@ class Kurban extends EntityBase {
     json.clearNulls();
     return json;
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Kurban &&
+          runtimeType == other.runtimeType &&
+          documentId == other.documentId;
+
+  @override
+  int get hashCode => totalPartnersCount.hashCode;
 }
 
 @JsonSerializable()

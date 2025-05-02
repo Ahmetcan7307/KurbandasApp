@@ -9,7 +9,7 @@ class TurkiyeAPIProvince {
   String name;
   List<TurkiyeAPIDistrict>? districts;
 
-  TurkiyeAPIProvince(this.id, this.name, this.districts);
+  TurkiyeAPIProvince({required this.id, required this.name, this.districts});
 
   factory TurkiyeAPIProvince.fromJson(Map<String, dynamic> json) =>
       _$TurkiyeAPIProvinceFromJson(json);

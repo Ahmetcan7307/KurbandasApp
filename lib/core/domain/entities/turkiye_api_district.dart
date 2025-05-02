@@ -7,7 +7,7 @@ class TurkiyeAPIDistrict {
   int id;
   String name;
 
-  TurkiyeAPIDistrict(this.id, this.name);
+  TurkiyeAPIDistrict({required this.id, required this.name});
 
   factory TurkiyeAPIDistrict.fromJson(Map<String, dynamic> json) =>
       _$TurkiyeAPIDistrictFromJson(json);

@@ -44,6 +44,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "Location": MessageLookupByLibrary.simpleMessage("Konum"),
         "MyPartnerships": MessageLookupByLibrary.simpleMessage("Ortaklıklarım"),
         "MyProfile": MessageLookupByLibrary.simpleMessage("Profilim"),
+        "NoQurbani":
+            MessageLookupByLibrary.simpleMessage("Hiç kurban bulunamadı"),
+        "NoQurbaniDesc": MessageLookupByLibrary.simpleMessage(
+            "Kurban paylaşmak için \"Yeni Kurban\" butonuna tıklayın"),
         "PartnershipsCompleted":
             MessageLookupByLibrary.simpleMessage("Ortaklıklar tamamlandı"),
         "ProfileDetails":
@@ -59,6 +63,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "SigninwithGoogle":
             MessageLookupByLibrary.simpleMessage("Google ile Giriş Yap"),
         "account": MessageLookupByLibrary.simpleMessage("Hesap"),
+        "active": MessageLookupByLibrary.simpleMessage("Aktif"),
+        "all": MessageLookupByLibrary.simpleMessage("Tümü"),
         "app": MessageLookupByLibrary.simpleMessage("Uygulama"),
         "appUpdateRequired": MessageLookupByLibrary.simpleMessage(
             "Uygulama Güncellemesi Gerekli"),
@@ -74,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "call": MessageLookupByLibrary.simpleMessage("Ara"),
         "cancel": MessageLookupByLibrary.simpleMessage("İptal"),
         "clear": MessageLookupByLibrary.simpleMessage("Temizle"),
+        "completed": MessageLookupByLibrary.simpleMessage("Tamamlanan"),
         "cut": MessageLookupByLibrary.simpleMessage("Kesildi"),
         "cutAddress": MessageLookupByLibrary.simpleMessage("Kesim Yeri"),
         "decline": MessageLookupByLibrary.simpleMessage("Reddet"),
@@ -81,7 +88,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "delete": MessageLookupByLibrary.simpleMessage("Kaldır"),
         "deleteQurbani":
             MessageLookupByLibrary.simpleMessage("Kurban İlanını Kaldır"),
+        "differentFilters": MessageLookupByLibrary.simpleMessage(
+            "Farklı filtreler deneyebilirsiniz"),
         "edit": MessageLookupByLibrary.simpleMessage("Düzenle"),
+        "filters": MessageLookupByLibrary.simpleMessage("Filtreler"),
         "findPartnersQurbani": MessageLookupByLibrary.simpleMessage(
             "Kurban için ortaklarınızı kolayca bulun"),
         "help": MessageLookupByLibrary.simpleMessage("Yardım ve Destek"),

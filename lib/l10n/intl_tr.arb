@@ -116,5 +116,12 @@
   "noPartnershipsDesc": "Ana sayfadan kurban ilanlarına göz atıp hisse satın alabilirsiniz",
   "message": "Mesaj",
   "cut": "Kesildi",
-  "shared": "Paylaşıldı"
+  "shared": "Paylaşıldı",
+  "all": "Tümü",
+  "active": "Aktif",
+  "completed": "Tamamlanan",
+  "filters": "Filtreler",
+  "NoQurbani": "Hiç kurban bulunamadı",
+  "differentFilters": "Farklı filtreler deneyebilirsiniz",
+  "NoQurbaniDesc": "Kurban paylaşmak için \"Yeni Kurban\" butonuna tıklayın"
 }

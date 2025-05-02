@@ -116,5 +116,12 @@
   "noPartnershipsDesc": "You can browse the Qurbani announcements on the homepage and become a partner",
   "message": "Message",
   "cut": "Cut",
-  "shared": "Shared"
+  "shared": "Shared",
+  "all": "All",
+  "active": "Actives",
+  "completed": "Completed",
+  "filters": "Filters",
+  "NoQurbani": "No Qurbanis were found",
+  "differentFilters": "You can try different filters",
+  "NoQurbaniDesc": "Click on the “New Qurbani” button to share the Qurbani"
 }

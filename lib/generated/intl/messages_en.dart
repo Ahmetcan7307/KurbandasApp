@@ -44,6 +44,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "MyPartnerships":
             MessageLookupByLibrary.simpleMessage("My Partnerships"),
         "MyProfile": MessageLookupByLibrary.simpleMessage("My Profile"),
+        "NoQurbani":
+            MessageLookupByLibrary.simpleMessage("No Qurbanis were found"),
+        "NoQurbaniDesc": MessageLookupByLibrary.simpleMessage(
+            "Click on the “New Qurbani” button to share the Qurbani"),
         "PartnershipsCompleted":
             MessageLookupByLibrary.simpleMessage("Partnerships completed"),
         "ProfileDetails":
@@ -60,6 +64,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "SigninwithGoogle":
             MessageLookupByLibrary.simpleMessage("Sign in with Google"),
         "account": MessageLookupByLibrary.simpleMessage("Account"),
+        "active": MessageLookupByLibrary.simpleMessage("Actives"),
+        "all": MessageLookupByLibrary.simpleMessage("All"),
         "app": MessageLookupByLibrary.simpleMessage("Application"),
         "appUpdateRequired":
             MessageLookupByLibrary.simpleMessage("App Update Required"),
@@ -76,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "call": MessageLookupByLibrary.simpleMessage("Call"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "clear": MessageLookupByLibrary.simpleMessage("Clear"),
+        "completed": MessageLookupByLibrary.simpleMessage("Completed"),
         "cut": MessageLookupByLibrary.simpleMessage("Cut"),
         "cutAddress": MessageLookupByLibrary.simpleMessage("Cut Address"),
         "decline": MessageLookupByLibrary.simpleMessage("Decline"),
@@ -84,7 +91,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "deleteQurbani":
             MessageLookupByLibrary.simpleMessage("Delete Qurbani Posting"),
+        "differentFilters": MessageLookupByLibrary.simpleMessage(
+            "You can try different filters"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "filters": MessageLookupByLibrary.simpleMessage("Filters"),
         "findPartnersQurbani": MessageLookupByLibrary.simpleMessage(
             "Easily find your partners for Qurbani"),
         "help": MessageLookupByLibrary.simpleMessage("Help and Support"),

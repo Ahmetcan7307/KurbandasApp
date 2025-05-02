@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/domain/entities/kurban_request.dart';
 import 'package:kurbandas/core/domain/entities/user.dart';
+import 'package:kurbandas/core/models/filter.dart';
 
 class KurbanService {
   final Dio dio;
@@ -110,4 +111,20 @@ class KurbanService {
             status: KurbanStatus.shared,
             owner: User(phoneNo: "901234567890"))
       ]);
+
+  Future<List<Kurban>> getKurbans(
+          bool? isActive, Filter? filter, int page, int pageSize) async =>
+      await Future.value(List.generate(
+          5,
+          (index) => Kurban(
+                  animal: KurbanAnimal(name: "Sheep"),
+                  weight: 50,
+                  price: 1000,
+                  address: "İstanbul / Beylikdüzü",
+                  totalPartnersCount: 7,
+                  status: KurbanStatus.waiting,
+                  photoUrls: [
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg"
+                  ])
+                ..documentId = index.toString()));
 }

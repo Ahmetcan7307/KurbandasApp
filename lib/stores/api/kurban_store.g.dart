@@ -104,6 +104,54 @@ mixin _$KurbanStore on _KurbanStore, Store {
     });
   }
 
+  late final _$allKurbansAtom =
+      Atom(name: '_KurbanStore.allKurbans', context: context);
+
+  @override
+  Set<Kurban> get allKurbans {
+    _$allKurbansAtom.reportRead();
+    return super.allKurbans;
+  }
+
+  @override
+  set allKurbans(Set<Kurban> value) {
+    _$allKurbansAtom.reportWrite(value, super.allKurbans, () {
+      super.allKurbans = value;
+    });
+  }
+
+  late final _$activeKurbansAtom =
+      Atom(name: '_KurbanStore.activeKurbans', context: context);
+
+  @override
+  Set<Kurban> get activeKurbans {
+    _$activeKurbansAtom.reportRead();
+    return super.activeKurbans;
+  }
+
+  @override
+  set activeKurbans(Set<Kurban> value) {
+    _$activeKurbansAtom.reportWrite(value, super.activeKurbans, () {
+      super.activeKurbans = value;
+    });
+  }
+
+  late final _$deactiveKurbansAtom =
+      Atom(name: '_KurbanStore.deactiveKurbans', context: context);
+
+  @override
+  Set<Kurban> get deactiveKurbans {
+    _$deactiveKurbansAtom.reportRead();
+    return super.deactiveKurbans;
+  }
+
+  @override
+  set deactiveKurbans(Set<Kurban> value) {
+    _$deactiveKurbansAtom.reportWrite(value, super.deactiveKurbans, () {
+      super.deactiveKurbans = value;
+    });
+  }
+
   late final _$getAnimalsAsyncAction =
       AsyncAction('_KurbanStore.getAnimals', context: context);
 
@@ -153,12 +201,40 @@ mixin _$KurbanStore on _KurbanStore, Store {
     return _$getMyPartnershipsAsyncAction.run(() => super.getMyPartnerships());
   }
 
+  late final _$getAllKurbansAsyncAction =
+      AsyncAction('_KurbanStore.getAllKurbans', context: context);
+
+  @override
+  Future<bool> getAllKurbans(int page) {
+    return _$getAllKurbansAsyncAction.run(() => super.getAllKurbans(page));
+  }
+
+  late final _$getActiveKurbansAsyncAction =
+      AsyncAction('_KurbanStore.getActiveKurbans', context: context);
+
+  @override
+  Future<bool> getActiveKurbans(int page) {
+    return _$getActiveKurbansAsyncAction
+        .run(() => super.getActiveKurbans(page));
+  }
+
+  late final _$getDeactiveKurbansAsyncAction =
+      AsyncAction('_KurbanStore.getDeactiveKurbans', context: context);
+
+  @override
+  Future<bool> getDeactiveKurbans(int page) {
+    return _$getDeactiveKurbansAsyncAction
+        .run(() => super.getDeactiveKurbans(page));
+  }
+
   late final _$_KurbanStoreActionController =
       ActionController(name: '_KurbanStore', context: context);
 
   @override
   dynamic createFilter(
-      {KurbanAnimal? animal, int? selectedProvince, int? selectedDistrict}) {
+      {KurbanAnimal? animal,
+      TurkiyeAPIProvince? selectedProvince,
+      TurkiyeAPIDistrict? selectedDistrict}) {
     final _$actionInfo = _$_KurbanStoreActionController.startAction(
         name: '_KurbanStore.createFilter');
     try {
@@ -183,6 +259,28 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
+  dynamic clearFilter() {
+    final _$actionInfo = _$_KurbanStoreActionController.startAction(
+        name: '_KurbanStore.clearFilter');
+    try {
+      return super.clearFilter();
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic clearKurbanses() {
+    final _$actionInfo = _$_KurbanStoreActionController.startAction(
+        name: '_KurbanStore.clearKurbanses');
+    try {
+      return super.clearKurbanses();
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 animals: ${animals},
@@ -190,7 +288,10 @@ filter: ${filter},
 myKurbans: ${myKurbans},
 selectedKurban: ${selectedKurban},
 requests: ${requests},
-myPartnerships: ${myPartnerships}
+myPartnerships: ${myPartnerships},
+allKurbans: ${allKurbans},
+activeKurbans: ${activeKurbans},
+deactiveKurbans: ${deactiveKurbans}
     ''';
   }
 }

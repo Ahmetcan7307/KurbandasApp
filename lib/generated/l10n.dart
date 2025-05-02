@@ -679,6 +679,76 @@ class S {
       args: [],
     );
   }
+
+  /// `All`
+  String get all {
+    return Intl.message(
+      'All',
+      name: 'all',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Actives`
+  String get active {
+    return Intl.message(
+      'Actives',
+      name: 'active',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Completed`
+  String get completed {
+    return Intl.message(
+      'Completed',
+      name: 'completed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Filters`
+  String get filters {
+    return Intl.message(
+      'Filters',
+      name: 'filters',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Qurbanis were found`
+  String get NoQurbani {
+    return Intl.message(
+      'No Qurbanis were found',
+      name: 'NoQurbani',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can try different filters`
+  String get differentFilters {
+    return Intl.message(
+      'You can try different filters',
+      name: 'differentFilters',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Click on the “New Qurbani” button to share the Qurbani`
+  String get NoQurbaniDesc {
+    return Intl.message(
+      'Click on the “New Qurbani” button to share the Qurbani',
+      name: 'NoQurbaniDesc',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

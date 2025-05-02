@@ -26,7 +26,8 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
 
   KurbanAnimal? selectedAnimal;
 
-  int? selectedProvince, selectedDistrict;
+  TurkiyeAPIProvince? selectedProvince;
+  TurkiyeAPIDistrict? selectedDistrict;
 
   @override
   void initState() {
@@ -105,18 +106,18 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
-                DropdownButtonFormField<int>(
+                DropdownButtonFormField<TurkiyeAPIProvince>(
                     value: selectedProvince,
                     decoration: InputDecoration(
                         labelText: lang.SelectProvince,
                         prefixIcon: Icon(Icons.location_city)),
                     items: turkiyeAPIStore.provinces!
                         .map((TurkiyeAPIProvince province) =>
-                            DropdownMenuItem<int>(
-                                value: province.id, child: Text(province.name)))
+                            DropdownMenuItem<TurkiyeAPIProvince>(
+                                value: province, child: Text(province.name)))
                         .toList(),
-                    onChanged: (int? provinceId) {
-                      turkiyeAPIStore.selectProvince(provinceId!);
+                    onChanged: (TurkiyeAPIProvince? provinceId) {
+                      turkiyeAPIStore.selectProvince(provinceId!.id);
                       setState(() {
                         selectedProvince = provinceId;
                         selectedDistrict = null;
@@ -124,18 +125,18 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                     }),
                 const SizedBox(height: 16),
                 if (selectedProvince != null)
-                  DropdownButtonFormField<int>(
+                  DropdownButtonFormField<TurkiyeAPIDistrict>(
                       value: selectedDistrict,
                       decoration: InputDecoration(
                           labelText: lang.SelectDistrict,
                           prefixIcon: Icon(Icons.location_on)),
                       items: turkiyeAPIStore.districts!
                           .map((TurkiyeAPIDistrict district) =>
-                              DropdownMenuItem<int>(
-                                  value: district.id,
-                                  child: Text(district.name)))
+                              DropdownMenuItem<TurkiyeAPIDistrict>(
+                                  value: district, child: Text(district.name)))
                           .toList(),
-                      onChanged: (int? districtId) => setState(() {
+                      onChanged: (TurkiyeAPIDistrict? districtId) =>
+                          setState(() {
                             selectedDistrict = districtId;
                           })),
                 const SizedBox(height: 24),
@@ -187,6 +188,6 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
         selectedProvince: selectedProvince,
         selectedDistrict: selectedDistrict);
 
-    Navigator.pop(context);
+    Navigator.pop(context, true);
   }
 }
