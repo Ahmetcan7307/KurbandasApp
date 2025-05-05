@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/generated/l10n.dart';
 
+import '../../../../routes.dart';
+
 class KurbanCard extends StatefulWidget {
   final Kurban kurban;
-  final VoidCallback? onTap;
+  final VoidCallback onTap;
 
-  const KurbanCard({super.key, required this.kurban, this.onTap});
+  const KurbanCard({super.key, required this.kurban, required this.onTap});
 
   @override
   State<KurbanCard> createState() => _KurbanCardState();
@@ -29,7 +31,11 @@ class _KurbanCardState extends State<KurbanCard> {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       clipBehavior: Clip.antiAlias,
       child: InkWell(
-        onTap: widget.onTap,
+        onTap: () {
+          widget.onTap();
+
+          Navigator.pushNamed(context, Routes.kurbanDetail);
+        },
         borderRadius: BorderRadius.circular(12),
         child: Stack(children: [
           // Arkaplan fotoğrafı ve üzerine gölge ekliyoruz
@@ -107,9 +113,7 @@ class _KurbanCardState extends State<KurbanCard> {
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  widget.kurban.address == null
-                      ? lang.noCutAddress
-                      : "${lang.cutAddress}: ${widget.kurban.address}",
+                  "${lang.cutAddress}: ${widget.kurban.address}",
                   style: const TextStyle(
                       fontSize: 14,
                       color: Colors.white,

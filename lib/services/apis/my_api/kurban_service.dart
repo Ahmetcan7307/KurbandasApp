@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/domain/entities/kurban_request.dart';
+import 'package:kurbandas/core/domain/entities/partner.dart';
 import 'package:kurbandas/core/domain/entities/user.dart';
 import 'package:kurbandas/core/models/filter.dart';
 
@@ -32,7 +33,8 @@ class KurbanService {
             totalPartnersCount: 7,
             photoUrls: [
               "https://media.barchart.com/contributors-admin/common-images/images/Livestock/Cattle%20%26%20Beef/Two%20cows%20on%20green%20pasture%20by%20Photo%20Mix%20via%20Pixabay.jpg"
-            ])
+            ],
+            partners: [])
           ..documentId = "1"
           ..remainPartnersCount = 0
           ..status = KurbanStatus.waiting,
@@ -43,7 +45,9 @@ class KurbanService {
             totalPartnersCount: 7,
             photoUrls: [
               "https://isbh.tmgrup.com.tr/sbh/2020/06/13/650x344/sifa-kaynagi-urunlere-talep-cok-manda-az-1592033428910.jpg"
-            ])
+            ],
+            address: "İstanbul / Esenyurt Esenyurt Kesim Alanı",
+            partners: [])
           ..documentId = "1"
           ..remainPartnersCount = 5
           ..status = KurbanStatus.waiting

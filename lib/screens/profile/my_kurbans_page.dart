@@ -90,9 +90,7 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
               children: [
                 KurbanCard(
                   kurban: kurban,
-                  onTap: () {
-                    // Todo
-                  },
+                  onTap: () => kurbanStore.selectKurban(true, null, index),
                 ),
                 buildActionButtons(
                     kurban.documentId!, kurban.animal.name!, index),
@@ -113,7 +111,7 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
                 icon: Icons.people,
                 label: lang.Requests,
                 onTap: () {
-                  kurbanStore.selectMyKurban(index);
+                  kurbanStore.selectKurban(true, null, index);
                   Navigator.pushNamed(context, Routes.kurbanRequests);
                 }),
             ActionButton(

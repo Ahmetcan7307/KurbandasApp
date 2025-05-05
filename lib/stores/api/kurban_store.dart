@@ -1,8 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/domain/entities/kurban_request.dart';
 import 'package:kurbandas/core/domain/entities/turkiye_api_district.dart';
 import 'package:kurbandas/core/domain/entities/turkiye_api_province.dart';
 import 'package:kurbandas/core/models/filter.dart';
+import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/injector.dart';
 import 'package:kurbandas/services/apis/my_api/kurban_service.dart';
 import 'package:mobx/mobx.dart';
@@ -22,9 +24,6 @@ abstract class _KurbanStore with Store {
   List<Kurban>? myKurbans;
 
   @observable
-  Kurban? selectedKurban;
-
-  @observable
   List<KurbanRequest>? requests;
 
   @observable
@@ -38,6 +37,9 @@ abstract class _KurbanStore with Store {
 
   @observable
   Set<Kurban> deactiveKurbans = ObservableSet();
+
+  @observable
+  Kurban? selectedKurban;
 
   KurbanService service = serviceLocator.get<KurbanService>();
 
@@ -61,9 +63,6 @@ abstract class _KurbanStore with Store {
 
   @action
   Future getMyKurbans() async => myKurbans = await service.getMyKurbans();
-
-  @action
-  selectMyKurban(int index) => selectedKurban = myKurbans![index];
 
   @action
   Future getRequests() async =>
@@ -123,4 +122,31 @@ abstract class _KurbanStore with Store {
     activeKurbans.clear();
     deactiveKurbans.clear();
   }
+
+  @action
+  selectKurban(bool isMy, bool? isActive, int index) {
+    if (isMy) {
+      selectedKurban = myKurbans![index];
+    } else {
+      selectedKurban = isActive == null
+          ? allKurbans.elementAt(index)
+          : isActive == true
+              ? activeKurbans.elementAt(index)
+              : deactiveKurbans.elementAt(index);
+    }
+  }
+
+  String getKurbanStatus(S lang, {KurbanStatus? kurbanStatus}) =>
+      switch (kurbanStatus ?? selectedKurban!.status!) {
+        KurbanStatus.waiting => lang.waiting,
+        KurbanStatus.cut => lang.cut,
+        KurbanStatus.shared => lang.shared,
+      };
+
+  Color getStatusColor({KurbanStatus? status}) =>
+      switch (status ?? selectedKurban!.status!) {
+        KurbanStatus.waiting => Colors.orange,
+        KurbanStatus.cut => Colors.blue,
+        KurbanStatus.shared => Colors.green,
+      };
 }

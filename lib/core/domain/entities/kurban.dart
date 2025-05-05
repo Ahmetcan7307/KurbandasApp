@@ -20,6 +20,7 @@ class Kurban extends EntityBase {
   int? remainPartnersCount = 0;
   List<User>? partners;
   List<String>? photoUrls;
+  bool? isMy;
 
   Kurban(
       {this.owner,
@@ -31,7 +32,8 @@ class Kurban extends EntityBase {
       this.address,
       this.totalPartnersCount,
       this.partners,
-      this.photoUrls}) {
+      this.photoUrls,
+      this.isMy}) {
     remainPartnersCount = totalPartnersCount;
   }
 
