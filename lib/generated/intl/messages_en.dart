@@ -63,6 +63,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "SigningOut": MessageLookupByLibrary.simpleMessage("Signing out..."),
         "SigninwithGoogle":
             MessageLookupByLibrary.simpleMessage("Sign in with Google"),
+        "SuccessfullySentRequest":
+            MessageLookupByLibrary.simpleMessage("Successfully sent request"),
         "account": MessageLookupByLibrary.simpleMessage("Account"),
         "active": MessageLookupByLibrary.simpleMessage("Actives"),
         "all": MessageLookupByLibrary.simpleMessage("All"),
@@ -83,8 +85,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "clear": MessageLookupByLibrary.simpleMessage("Clear"),
         "completed": MessageLookupByLibrary.simpleMessage("Completed"),
+        "count": MessageLookupByLibrary.simpleMessage("Count"),
         "cut": MessageLookupByLibrary.simpleMessage("Cut"),
         "cutAddress": MessageLookupByLibrary.simpleMessage("Cut Address"),
+        "cutDate": MessageLookupByLibrary.simpleMessage("Cut Date"),
         "decline": MessageLookupByLibrary.simpleMessage("Decline"),
         "declineRequest":
             MessageLookupByLibrary.simpleMessage("Decline Request"),
@@ -94,6 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "differentFilters": MessageLookupByLibrary.simpleMessage(
             "You can try different filters"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "error": MessageLookupByLibrary.simpleMessage("Error"),
         "filters": MessageLookupByLibrary.simpleMessage("Filters"),
         "findPartnersQurbani": MessageLookupByLibrary.simpleMessage(
             "Easily find your partners for Qurbani"),
@@ -109,7 +114,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "newQurbani": MessageLookupByLibrary.simpleMessage("New Qurbani"),
         "noApprovedRequests": MessageLookupByLibrary.simpleMessage(
             "There is not any Approved Requests"),
-        "noCutAddress": MessageLookupByLibrary.simpleMessage("No Cut Address"),
+        "noCutDate": MessageLookupByLibrary.simpleMessage("No Cut Date"),
         "noMyQurbaniAds": MessageLookupByLibrary.simpleMessage(
             "You do not have any sacrifice announcements yet"),
         "noMyQurbaniAdsDesc": MessageLookupByLibrary.simpleMessage(
@@ -120,17 +125,28 @@ class MessageLookup extends MessageLookupByLibrary {
             "You can browse the Qurbani announcements on the homepage and become a partner"),
         "noWaitingRequests": MessageLookupByLibrary.simpleMessage(
             "There is not any Waiting Requests"),
+        "owner": MessageLookupByLibrary.simpleMessage("Owner"),
+        "partner": MessageLookupByLibrary.simpleMessage("Partner"),
         "partners": MessageLookupByLibrary.simpleMessage("Partners"),
         "partnersRemain": m3,
+        "partnershipDate":
+            MessageLookupByLibrary.simpleMessage("Partnership Date"),
         "partnershipRequests":
             MessageLookupByLibrary.simpleMessage("Partnership Requests"),
+        "partnershipState":
+            MessageLookupByLibrary.simpleMessage("Partnership State"),
         "pleaseUpdateToContinue": MessageLookupByLibrary.simpleMessage(
             "Please update to continue using the app."),
+        "price": MessageLookupByLibrary.simpleMessage("Price"),
+        "remain": MessageLookupByLibrary.simpleMessage("Remain"),
         "requestApproved": m4,
         "requestDate": MessageLookupByLibrary.simpleMessage("Request Date"),
         "requestDeclined": m5,
+        "sendRequest": MessageLookupByLibrary.simpleMessage(
+            "Send Request To Become a Partner"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "shared": MessageLookupByLibrary.simpleMessage("Shared"),
+        "total": MessageLookupByLibrary.simpleMessage("Total"),
         "updateNow": MessageLookupByLibrary.simpleMessage("Update Now"),
         "waiting": MessageLookupByLibrary.simpleMessage("Waiting")
       };

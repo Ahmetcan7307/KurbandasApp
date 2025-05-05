@@ -62,6 +62,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Çıkış Yapılıyor..."),
         "SigninwithGoogle":
             MessageLookupByLibrary.simpleMessage("Google ile Giriş Yap"),
+        "SuccessfullySentRequest": MessageLookupByLibrary.simpleMessage(
+            "Başarılı bir şekilde istek gönderildi"),
         "account": MessageLookupByLibrary.simpleMessage("Hesap"),
         "active": MessageLookupByLibrary.simpleMessage("Aktif"),
         "all": MessageLookupByLibrary.simpleMessage("Tümü"),
@@ -81,8 +83,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("İptal"),
         "clear": MessageLookupByLibrary.simpleMessage("Temizle"),
         "completed": MessageLookupByLibrary.simpleMessage("Tamamlanan"),
+        "count": MessageLookupByLibrary.simpleMessage("Sayısı"),
         "cut": MessageLookupByLibrary.simpleMessage("Kesildi"),
         "cutAddress": MessageLookupByLibrary.simpleMessage("Kesim Yeri"),
+        "cutDate": MessageLookupByLibrary.simpleMessage("Kesim Tarihi"),
         "decline": MessageLookupByLibrary.simpleMessage("Reddet"),
         "declineRequest": MessageLookupByLibrary.simpleMessage("İsteği Reddet"),
         "delete": MessageLookupByLibrary.simpleMessage("Kaldır"),
@@ -91,6 +95,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "differentFilters": MessageLookupByLibrary.simpleMessage(
             "Farklı filtreler deneyebilirsiniz"),
         "edit": MessageLookupByLibrary.simpleMessage("Düzenle"),
+        "error": MessageLookupByLibrary.simpleMessage("Hata"),
         "filters": MessageLookupByLibrary.simpleMessage("Filtreler"),
         "findPartnersQurbani": MessageLookupByLibrary.simpleMessage(
             "Kurban için ortaklarınızı kolayca bulun"),
@@ -106,8 +111,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "newQurbani": MessageLookupByLibrary.simpleMessage("Yeni Kurban"),
         "noApprovedRequests": MessageLookupByLibrary.simpleMessage(
             "Onaylanmış hiçbir isteğiniz yok"),
-        "noCutAddress":
-            MessageLookupByLibrary.simpleMessage("Kesim Yeri belirtilmemiş"),
+        "noCutDate":
+            MessageLookupByLibrary.simpleMessage("Kesim Tarihi belirtilmemiş"),
         "noMyQurbaniAds": MessageLookupByLibrary.simpleMessage(
             "Henüz kurban ilanınız bulunmuyor"),
         "noMyQurbaniAdsDesc": MessageLookupByLibrary.simpleMessage(
@@ -118,17 +123,28 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ana sayfadan kurban ilanlarına göz atıp hisse satın alabilirsiniz"),
         "noWaitingRequests": MessageLookupByLibrary.simpleMessage(
             "Bekleyen hiçbir isteğiniz yok"),
-        "partners": MessageLookupByLibrary.simpleMessage("Ortak"),
+        "owner": MessageLookupByLibrary.simpleMessage("Sahip"),
+        "partner": MessageLookupByLibrary.simpleMessage("Ortak"),
+        "partners": MessageLookupByLibrary.simpleMessage("Ortaklar"),
         "partnersRemain": m3,
+        "partnershipDate":
+            MessageLookupByLibrary.simpleMessage("Ortaklık Tarihi"),
         "partnershipRequests":
             MessageLookupByLibrary.simpleMessage("Ortaklık İstekleri"),
+        "partnershipState":
+            MessageLookupByLibrary.simpleMessage("Ortaklık Durumu"),
         "pleaseUpdateToContinue": MessageLookupByLibrary.simpleMessage(
             "Uygulamayı kullanmaya devam etmek için lütfen güncelleyin."),
+        "price": MessageLookupByLibrary.simpleMessage("Fiyat"),
+        "remain": MessageLookupByLibrary.simpleMessage("Kalan"),
         "requestApproved": m4,
         "requestDate": MessageLookupByLibrary.simpleMessage("İstek Tarihi"),
         "requestDeclined": m5,
+        "sendRequest":
+            MessageLookupByLibrary.simpleMessage("Ortak Olma İsteği Gönder"),
         "settings": MessageLookupByLibrary.simpleMessage("Ayarlar"),
         "shared": MessageLookupByLibrary.simpleMessage("Paylaşıldı"),
+        "total": MessageLookupByLibrary.simpleMessage("Toplam"),
         "updateNow": MessageLookupByLibrary.simpleMessage("Şimdi Güncelle"),
         "waiting": MessageLookupByLibrary.simpleMessage("Bekleyen")
       };

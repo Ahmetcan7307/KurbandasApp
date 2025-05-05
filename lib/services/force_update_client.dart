@@ -1,5 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:kurbandas/services/package_info_service.dart';
+import 'package:kurbandas/services/store_service.dart';
 import 'package:pub_semver/pub_semver.dart';
 
 import '../injector.dart';
@@ -12,6 +12,7 @@ class ForceUpdateClient {
 
   final PackageInfoService _packageInfoService =
       serviceLocator.get<PackageInfoService>();
+  final StoreService storeService = serviceLocator.get<StoreService>();
 
   Future<bool> isAppUpdateRequired() async {
     return Version.parse(RegExp(r'\d+\.\d+\.\d+')
@@ -20,12 +21,6 @@ class ForceUpdateClient {
         Version.parse(await fetchRequiredVersion());
   }
 
-  Future<String?> getStoreUrl() async => defaultTargetPlatform ==
-          TargetPlatform.iOS
-      ? iosAppStoreId != null
-          ? "https://apps.apple.com/app/id$iosAppStoreId"
-          : null
-      : defaultTargetPlatform == TargetPlatform.android
-          ? "https://play.google.com/store/apps/details?id=${await _packageInfoService.getPackageName()}"
-          : null;
+  Future<String?> getStoreUrl() async => storeService.getStoreUrl(
+      iosAppStoreId, await _packageInfoService.getPackageName());
 }

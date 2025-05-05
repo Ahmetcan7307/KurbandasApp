@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kurbandas/core/domain/common/entity_base.dart';
+import 'package:kurbandas/core/domain/entities/partner.dart';
 import 'package:kurbandas/core/domain/entities/user.dart';
 import 'package:kurbandas/core/utils/extensions/map_extensions.dart';
 
@@ -15,10 +16,10 @@ class Kurban extends EntityBase {
   double? price;
   KurbanStatus? status;
   DateTime? cutDate;
-  String? address;
+  String? address; // null olamaz. Sadece create esnasında null olabilir
   int? totalPartnersCount;
   int? remainPartnersCount = 0;
-  List<User>? partners;
+  List<Partner>? partners;
   List<String>? photoUrls;
   bool? isMy;
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
+import 'package:kurbandas/core/utils/components/kurban/kurban_background_image.dart';
+import 'package:kurbandas/core/utils/components/kurban/kurban_status_linear_progress_indicator.dart';
 import 'package:kurbandas/generated/l10n.dart';
 
 import '../../../../routes.dart';
@@ -39,7 +41,14 @@ class _KurbanCardState extends State<KurbanCard> {
         borderRadius: BorderRadius.circular(12),
         child: Stack(children: [
           // Arkaplan fotoğrafı ve üzerine gölge ekliyoruz
-          buildBackgroundImage(),
+          KurbanBackgroundImage(
+              linearGradientColors: [
+                Colors.black.withValues(alpha: .4),
+                Colors.black.withValues(alpha: .6)
+              ],
+              photoUrl: widget.kurban.photoUrls![0],
+              width: double.infinity,
+              height: 200),
           Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -122,18 +131,12 @@ class _KurbanCardState extends State<KurbanCard> {
                   overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(height: 12),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: LinearProgressIndicator(
-                    value: (widget.kurban.totalPartnersCount! -
-                            widget.kurban.remainPartnersCount!) /
-                        widget.kurban.totalPartnersCount!,
-                    backgroundColor: Colors.white.withValues(alpha: .4),
-                    valueColor:
-                        AlwaysStoppedAnimation<Color>(Colors.green.shade400),
+                KurbanStatusLinearProgressIndicator(
+                    totalPartnersCount: widget.kurban.totalPartnersCount!,
+                    remainPartnersCount: widget.kurban.remainPartnersCount!,
                     minHeight: 8,
-                  ),
-                ),
+                    backgroundColor: Colors.white.withValues(alpha: .4),
+                    valueColor: Colors.green.shade400),
                 const SizedBox(height: 8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -159,32 +162,6 @@ class _KurbanCardState extends State<KurbanCard> {
       ),
     );
   }
-
-  Widget buildBackgroundImage() => ShaderMask(
-        shaderCallback: (rect) => LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Colors.black.withValues(alpha: .4),
-              Colors.black.withValues(alpha: .6)
-            ]).createShader(rect),
-        blendMode: BlendMode.darken,
-        child: Image.network(
-          widget.kurban.photoUrls![0],
-          width: double.infinity,
-          height: 200,
-          fit: BoxFit.cover,
-          errorBuilder: (context, error, stackTrace) => Container(
-            width: double.infinity,
-            height: 200,
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [Colors.green.shade700, Colors.green.shade900])),
-          ),
-        ),
-      );
 
   Widget buildStatus() {
     late Color color;

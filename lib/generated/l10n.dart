@@ -470,11 +470,11 @@ class S {
     );
   }
 
-  /// `No Cut Address`
-  String get noCutAddress {
+  /// `No Cut Date`
+  String get noCutDate {
     return Intl.message(
-      'No Cut Address',
-      name: 'noCutAddress',
+      'No Cut Date',
+      name: 'noCutDate',
       desc: '',
       args: [],
     );
@@ -745,6 +745,126 @@ class S {
     return Intl.message(
       'Click on the “New Qurbani” button to share the Qurbani',
       name: 'NoQurbaniDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price`
+  String get price {
+    return Intl.message(
+      'Price',
+      name: 'price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Owner`
+  String get owner {
+    return Intl.message(
+      'Owner',
+      name: 'owner',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cut Date`
+  String get cutDate {
+    return Intl.message(
+      'Cut Date',
+      name: 'cutDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Partnership State`
+  String get partnershipState {
+    return Intl.message(
+      'Partnership State',
+      name: 'partnershipState',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Count`
+  String get count {
+    return Intl.message(
+      'Count',
+      name: 'count',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remain`
+  String get remain {
+    return Intl.message(
+      'Remain',
+      name: 'remain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total`
+  String get total {
+    return Intl.message(
+      'Total',
+      name: 'total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Request To Become a Partner`
+  String get sendRequest {
+    return Intl.message(
+      'Send Request To Become a Partner',
+      name: 'sendRequest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Partner`
+  String get partner {
+    return Intl.message(
+      'Partner',
+      name: 'partner',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Partnership Date`
+  String get partnershipDate {
+    return Intl.message(
+      'Partnership Date',
+      name: 'partnershipDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get error {
+    return Intl.message(
+      'Error',
+      name: 'error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Successfully sent request`
+  String get SuccessfullySentRequest {
+    return Intl.message(
+      'Successfully sent request',
+      name: 'SuccessfullySentRequest',
       desc: '',
       args: [],
     );

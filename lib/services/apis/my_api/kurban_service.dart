@@ -34,7 +34,8 @@ class KurbanService {
             photoUrls: [
               "https://media.barchart.com/contributors-admin/common-images/images/Livestock/Cattle%20%26%20Beef/Two%20cows%20on%20green%20pasture%20by%20Photo%20Mix%20via%20Pixabay.jpg"
             ],
-            partners: [])
+            partners: [],
+            isMy: true)
           ..documentId = "1"
           ..remainPartnersCount = 0
           ..status = KurbanStatus.waiting,
@@ -47,8 +48,9 @@ class KurbanService {
               "https://isbh.tmgrup.com.tr/sbh/2020/06/13/650x344/sifa-kaynagi-urunlere-talep-cok-manda-az-1592033428910.jpg"
             ],
             address: "İstanbul / Esenyurt Esenyurt Kesim Alanı",
-            partners: [])
-          ..documentId = "1"
+            partners: [],
+            isMy: true)
+          ..documentId = "2"
           ..remainPartnersCount = 5
           ..status = KurbanStatus.waiting
       ]);
@@ -121,14 +123,28 @@ class KurbanService {
       await Future.value(List.generate(
           5,
           (index) => Kurban(
-                  animal: KurbanAnimal(name: "Sheep"),
-                  weight: 50,
-                  price: 1000,
-                  address: "İstanbul / Beylikdüzü",
-                  totalPartnersCount: 7,
-                  status: KurbanStatus.waiting,
-                  photoUrls: [
-                    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg"
-                  ])
-                ..documentId = index.toString()));
+              animal: KurbanAnimal(name: "Sheep"),
+              weight: 40 + (index % 300).toDouble(),
+              price: 1000 + (index * 100).toDouble(),
+              address: "İstanbul / Beylikdüzü",
+              totalPartnersCount: 7,
+              status: KurbanStatus.values[index % KurbanStatus.values.length],
+              photoUrls: [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg"
+              ],
+              owner: User(name: "User", surname: index.toString()),
+              cutDate: DateTime.now().add(const Duration(days: 10)),
+              partners: List.generate(
+                  7 - (index % 8),
+                  (partnerIndex) => Partner(
+                      fullName: "User ${partnerIndex + 1}",
+                      createdAt: DateTime.now())),
+              isMy: index % 2 == 0)
+            ..documentId = index.toString()
+            ..remainPartnersCount = index % 8));
+
+  Future<bool> isRequestSend(String documentId) async =>
+      await Future.value(false);
+
+  Future postRequest(String documentId) async {}
 }

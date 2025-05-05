@@ -3,7 +3,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:kurbandas/core/utils/components/kurban/kurban_card.dart';
 import 'package:kurbandas/core/utils/components/kurban/kurban_shimmer.dart';
 import 'package:kurbandas/generated/l10n.dart';
-import 'package:kurbandas/routes.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
 import 'package:kurbandas/stores/root_store.dart';
 import 'package:provider/provider.dart';
@@ -131,7 +130,7 @@ class _KurbanListState extends State<KurbanList> {
                           ? kurbanStore.activeKurbans.elementAt(index)
                           : kurbanStore.deactiveKurbans.elementAt(index),
                   onTap: () =>
-                      Navigator.pushNamed(context, Routes.kurbanDetail),
+                      kurbanStore.selectKurban(false, widget.isActive, index),
                 ),
               );
             });

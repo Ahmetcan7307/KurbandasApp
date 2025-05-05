@@ -149,4 +149,10 @@ abstract class _KurbanStore with Store {
         KurbanStatus.cut => Colors.blue,
         KurbanStatus.shared => Colors.green,
       };
+
+  Future<bool> isRequestSend() async =>
+      await service.isRequestSend(selectedKurban!.documentId!);
+
+  Future postRequest() async =>
+      await service.postRequest(selectedKurban!.documentId!);
 }

@@ -68,7 +68,7 @@
   },
   "PartnershipsCompleted": "Partnerships completed",
   "cutAddress": "Cut Address",
-  "noCutAddress": "No Cut Address",
+  "noCutDate": "No Cut Date",
   "partnershipRequests": "Partnership Requests",
   "waiting": "Waiting",
   "approved": "Approved",
@@ -123,5 +123,17 @@
   "filters": "Filters",
   "NoQurbani": "No Qurbanis were found",
   "differentFilters": "You can try different filters",
-  "NoQurbaniDesc": "Click on the “New Qurbani” button to share the Qurbani"
+  "NoQurbaniDesc": "Click on the “New Qurbani” button to share the Qurbani",
+  "price": "Price",
+  "owner": "Owner",
+  "cutDate": "Cut Date",
+  "partnershipState": "Partnership State",
+  "count": "Count",
+  "remain": "Remain",
+  "total": "Total",
+  "sendRequest": "Send Request To Become a Partner",
+  "partner": "Partner",
+  "partnershipDate": "Partnership Date",
+  "error": "Error",
+  "SuccessfullySentRequest": "Successfully sent request"
 }

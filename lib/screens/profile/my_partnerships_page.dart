@@ -120,9 +120,7 @@ class _MyPartnershipsPageState extends State<MyPartnershipsPage> {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    kurban.address == null
-                        ? lang.noCutAddress
-                        : "${lang.cutAddress}: ${kurban.address}",
+                    "${lang.cutAddress}: ${kurban.address}",
                     style: TextStyle(color: Colors.grey.shade600, fontSize: 14),
                   )
                 ],
@@ -131,10 +129,10 @@ class _MyPartnershipsPageState extends State<MyPartnershipsPage> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
-                  color: getStatusColor(kurban.status!),
+                  color: kurbanStore.getStatusColor(status: kurban.status!),
                   borderRadius: BorderRadius.circular(20)),
               child: Text(
-                getStatus(kurban.status!),
+                kurbanStore.getKurbanStatus(lang, kurbanStatus: kurban.status!),
                 style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -144,18 +142,6 @@ class _MyPartnershipsPageState extends State<MyPartnershipsPage> {
           ],
         ),
       );
-
-  Color getStatusColor(KurbanStatus status) => switch (status) {
-        KurbanStatus.waiting => Colors.orange,
-        KurbanStatus.cut => Colors.blue,
-        KurbanStatus.shared => Colors.green,
-      };
-
-  String getStatus(KurbanStatus status) => switch (status) {
-        KurbanStatus.waiting => lang.waiting,
-        KurbanStatus.cut => lang.cut,
-        KurbanStatus.shared => lang.shared,
-      };
 
   Widget buildActionButtons(String phoneNo) => Padding(
         padding: const EdgeInsets.all(8.0),
