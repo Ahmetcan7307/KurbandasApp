@@ -3,6 +3,8 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/domain/entities/turkiye_api_district.dart';
 import 'package:kurbandas/core/domain/entities/turkiye_api_province.dart';
+import 'package:kurbandas/core/utils/components/turkiyeAPI/district_dropdown_button_form_field.dart';
+import 'package:kurbandas/core/utils/components/turkiyeAPI/province_dropdown_button_form_field.dart';
 import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
 import 'package:kurbandas/stores/root_store.dart';
@@ -34,8 +36,6 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await turkiyeAPIStore.getProvince();
-
       await kurbanStore.getAnimals();
 
       setState(() {
@@ -106,35 +106,20 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
-                DropdownButtonFormField<TurkiyeAPIProvince>(
-                    value: selectedProvince,
-                    decoration: InputDecoration(
-                        labelText: lang.SelectProvince,
-                        prefixIcon: Icon(Icons.location_city)),
-                    items: turkiyeAPIStore.provinces!
-                        .map((TurkiyeAPIProvince province) =>
-                            DropdownMenuItem<TurkiyeAPIProvince>(
-                                value: province, child: Text(province.name)))
-                        .toList(),
-                    onChanged: (TurkiyeAPIProvince? provinceId) {
-                      turkiyeAPIStore.selectProvince(provinceId!.id);
-                      setState(() {
-                        selectedProvince = provinceId;
-                        selectedDistrict = null;
-                      });
-                    }),
+                ProvinceDropdownButtonFormField(
+                  value: selectedProvince,
+                  onChanged: (TurkiyeAPIProvince? province) {
+                    turkiyeAPIStore.selectProvince(province!.id);
+                    setState(() {
+                      selectedProvince = province;
+                      selectedDistrict = null;
+                    });
+                  },
+                ),
                 const SizedBox(height: 16),
                 if (selectedProvince != null)
-                  DropdownButtonFormField<TurkiyeAPIDistrict>(
+                  DistrictDropdownButtonFormField(
                       value: selectedDistrict,
-                      decoration: InputDecoration(
-                          labelText: lang.SelectDistrict,
-                          prefixIcon: Icon(Icons.location_on)),
-                      items: turkiyeAPIStore.districts!
-                          .map((TurkiyeAPIDistrict district) =>
-                              DropdownMenuItem<TurkiyeAPIDistrict>(
-                                  value: district, child: Text(district.name)))
-                          .toList(),
                       onChanged: (TurkiyeAPIDistrict? districtId) =>
                           setState(() {
                             selectedDistrict = districtId;
@@ -183,10 +168,14 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
   }
 
   apply() {
-    kurbanStore.createFilter(
-        animal: selectedAnimal,
-        selectedProvince: selectedProvince,
-        selectedDistrict: selectedDistrict);
+    if (selectedAnimal != null ||
+        selectedProvince != null ||
+        selectedDistrict != null) {
+      kurbanStore.createFilter(
+          animal: selectedAnimal,
+          selectedProvince: selectedProvince,
+          selectedDistrict: selectedDistrict);
+    }
 
     Navigator.pop(context, true);
   }

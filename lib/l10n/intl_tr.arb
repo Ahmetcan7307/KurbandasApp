@@ -155,5 +155,13 @@
   "pleaseTotalPartnersCount": "Lütfen Ortak Sayısını giriniz",
   "validTotalPartnersCount": "Geçerli bir ortak sayısı giriniz",
   "MaximumPartners7": "En fazla 7 ortak sayısı olabilir",
-  "continueTxt": "Devam Et"
+  "continueTxt": "Devam Et",
+  "EnterInfoPlace": "Kurbanınızın kesileceği yer hakkında bilgi girin",
+  "province": "İl",
+  "pleaseProvince": "Lütfen ili seçin",
+  "district": "İlçe",
+  "pleaseDistrict": "Lütfen ilçeyi seçin",
+  "enterCutAddress": "Kesim alanının adını giriniz",
+  "pleaseCutAddress": "Lütfen kesim alanının adını giriniz",
+  "previous": "Geri"
 }

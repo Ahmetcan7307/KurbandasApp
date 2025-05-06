@@ -1,4 +1,6 @@
 import 'package:kurbandas/core/domain/entities/kurban.dart';
+import 'package:kurbandas/core/domain/entities/turkiye_api_district.dart';
+import 'package:kurbandas/core/domain/entities/turkiye_api_province.dart';
 
 class Validator {
   static String? checkKurbanAnimal(KurbanAnimal? animal, String message) {
@@ -36,6 +38,32 @@ class Validator {
     }
     if (totalPartnersCount > 7) {
       return maxPartnersCountMessage;
+    }
+
+    return null;
+  }
+
+  static String? checkProvince(
+      TurkiyeAPIProvince? province, String pleaseMessage) {
+    if (province == null) {
+      return pleaseMessage;
+    }
+
+    return null;
+  }
+
+  static String? checkCutAddress(String? cutAddress, String pleaseMessage) {
+    if (cutAddress == null || cutAddress.isEmpty) {
+      return pleaseMessage;
+    }
+
+    return null;
+  }
+
+  static String? checkDistrict(
+      TurkiyeAPIDistrict? district, String pleaseMessage) {
+    if (district == null) {
+      return pleaseMessage;
     }
 
     return null;

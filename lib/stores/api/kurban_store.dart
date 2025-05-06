@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kurbandas/core/domain/entities/address.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/domain/entities/kurban_request.dart';
 import 'package:kurbandas/core/domain/entities/turkiye_api_district.dart';
@@ -163,7 +164,11 @@ abstract class _KurbanStore with Store {
 
   @action
   selectNewKurbanAnimal(KurbanAnimal animal) {
-    newKurban ??= Kurban();
-    newKurban!.animal = animal;
+    newKurban ??= Kurban(animal: animal);
+  }
+
+  @action
+  selectNewKurbanProvince(TurkiyeAPIProvince province) {
+    newKurban!.address ??= Address(province: province);
   }
 }

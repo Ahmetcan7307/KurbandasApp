@@ -155,5 +155,13 @@
   "pleaseTotalPartnersCount": "Please enter the total partners count",
   "validTotalPartnersCount": "Enter the valid total partners count",
   "MaximumPartners7": "Maximum number of partners can be 7",
-  "continueTxt": "Continue"
+  "continueTxt": "Continue",
+  "EnterInfoPlace": "Enter information about the place where your Qurbani will be slaughtered",
+  "province": "Province",
+  "pleaseProvince": "Please select province",
+  "district": "District",
+  "pleaseDistrict": "Please select district",
+  "enterCutAddress": "Enter cut address",
+  "pleaseCutAddress": "Please enter cut address",
+  "previous": "Previous"
 }

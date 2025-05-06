@@ -308,6 +308,17 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
+  dynamic selectNewKurbanProvince(TurkiyeAPIProvince province) {
+    final _$actionInfo = _$_KurbanStoreActionController.startAction(
+        name: '_KurbanStore.selectNewKurbanProvince');
+    try {
+      return super.selectNewKurbanProvince(province);
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 animals: ${animals},

@@ -39,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "AccountOperations":
             MessageLookupByLibrary.simpleMessage("Hesap İşlemleri"),
+        "EnterInfoPlace": MessageLookupByLibrary.simpleMessage(
+            "Kurbanınızın kesileceği yer hakkında bilgi girin"),
         "FilterQurbani":
             MessageLookupByLibrary.simpleMessage("Kurbanları Filtrele"),
         "Location": MessageLookupByLibrary.simpleMessage("Konum"),
@@ -100,7 +102,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Kurban İlanını Kaldır"),
         "differentFilters": MessageLookupByLibrary.simpleMessage(
             "Farklı filtreler deneyebilirsiniz"),
+        "district": MessageLookupByLibrary.simpleMessage("İlçe"),
         "edit": MessageLookupByLibrary.simpleMessage("Düzenle"),
+        "enterCutAddress": MessageLookupByLibrary.simpleMessage(
+            "Kesim alanının adını giriniz"),
         "enterPrice":
             MessageLookupByLibrary.simpleMessage("Kurbanın fiyatını giriniz"),
         "enterTotalPartnersCount":
@@ -146,8 +151,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ortaklık İstekleri"),
         "partnershipState":
             MessageLookupByLibrary.simpleMessage("Ortaklık Durumu"),
+        "pleaseCutAddress": MessageLookupByLibrary.simpleMessage(
+            "Lütfen kesim alanının adını giriniz"),
+        "pleaseDistrict":
+            MessageLookupByLibrary.simpleMessage("Lütfen ilçeyi seçin"),
         "pleasePrice": MessageLookupByLibrary.simpleMessage(
             "Lütfen Kurbanın fiyatını giriniz"),
+        "pleaseProvince":
+            MessageLookupByLibrary.simpleMessage("Lütfen ili seçin"),
         "pleaseSelectAnimal": MessageLookupByLibrary.simpleMessage(
             "Lütfen Kurban hayvanını seçin"),
         "pleaseTotalPartnersCount": MessageLookupByLibrary.simpleMessage(
@@ -156,7 +167,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Uygulamayı kullanmaya devam etmek için lütfen güncelleyin."),
         "pleaseWeight": MessageLookupByLibrary.simpleMessage(
             "Lütfen Kurbanın ağırlığını girin"),
+        "previous": MessageLookupByLibrary.simpleMessage("Geri"),
         "price": MessageLookupByLibrary.simpleMessage("Fiyat"),
+        "province": MessageLookupByLibrary.simpleMessage("İl"),
         "remain": MessageLookupByLibrary.simpleMessage("Kalan"),
         "requestApproved": m4,
         "requestDate": MessageLookupByLibrary.simpleMessage("İstek Tarihi"),

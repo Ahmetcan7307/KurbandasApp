@@ -39,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "AccountOperations":
             MessageLookupByLibrary.simpleMessage("Account Operations"),
+        "EnterInfoPlace": MessageLookupByLibrary.simpleMessage(
+            "Enter information about the place where your Qurbani will be slaughtered"),
         "FilterQurbani": MessageLookupByLibrary.simpleMessage("Filter Qurbani"),
         "Location": MessageLookupByLibrary.simpleMessage("Location"),
         "LocationInfo":
@@ -105,7 +107,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Delete Qurbani Posting"),
         "differentFilters": MessageLookupByLibrary.simpleMessage(
             "You can try different filters"),
+        "district": MessageLookupByLibrary.simpleMessage("District"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "enterCutAddress":
+            MessageLookupByLibrary.simpleMessage("Enter cut address"),
         "enterPrice":
             MessageLookupByLibrary.simpleMessage("Enter the Qurbani\'s price"),
         "enterTotalPartnersCount": MessageLookupByLibrary.simpleMessage(
@@ -150,8 +155,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Partnership Requests"),
         "partnershipState":
             MessageLookupByLibrary.simpleMessage("Partnership State"),
+        "pleaseCutAddress":
+            MessageLookupByLibrary.simpleMessage("Please enter cut address"),
+        "pleaseDistrict":
+            MessageLookupByLibrary.simpleMessage("Please select district"),
         "pleasePrice": MessageLookupByLibrary.simpleMessage(
             "Please enter the Qurbani\'s price"),
+        "pleaseProvince":
+            MessageLookupByLibrary.simpleMessage("Please select province"),
         "pleaseSelectAnimal": MessageLookupByLibrary.simpleMessage(
             "Please select Qurbani animal"),
         "pleaseTotalPartnersCount": MessageLookupByLibrary.simpleMessage(
@@ -160,7 +171,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please update to continue using the app."),
         "pleaseWeight": MessageLookupByLibrary.simpleMessage(
             "Please enter the Qurbani\'s weight"),
+        "previous": MessageLookupByLibrary.simpleMessage("Previous"),
         "price": MessageLookupByLibrary.simpleMessage("Price"),
+        "province": MessageLookupByLibrary.simpleMessage("Province"),
         "remain": MessageLookupByLibrary.simpleMessage("Remain"),
         "requestApproved": m4,
         "requestDate": MessageLookupByLibrary.simpleMessage("Request Date"),

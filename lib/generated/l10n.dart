@@ -1069,6 +1069,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Enter information about the place where your Qurbani will be slaughtered`
+  String get EnterInfoPlace {
+    return Intl.message(
+      'Enter information about the place where your Qurbani will be slaughtered',
+      name: 'EnterInfoPlace',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Province`
+  String get province {
+    return Intl.message(
+      'Province',
+      name: 'province',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select province`
+  String get pleaseProvince {
+    return Intl.message(
+      'Please select province',
+      name: 'pleaseProvince',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `District`
+  String get district {
+    return Intl.message(
+      'District',
+      name: 'district',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select district`
+  String get pleaseDistrict {
+    return Intl.message(
+      'Please select district',
+      name: 'pleaseDistrict',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter cut address`
+  String get enterCutAddress {
+    return Intl.message(
+      'Enter cut address',
+      name: 'enterCutAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter cut address`
+  String get pleaseCutAddress {
+    return Intl.message(
+      'Please enter cut address',
+      name: 'pleaseCutAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Previous`
+  String get previous {
+    return Intl.message(
+      'Previous',
+      name: 'previous',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
