@@ -43,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Kurbanları Filtrele"),
         "Location": MessageLookupByLibrary.simpleMessage("Konum"),
         "LocationInfo": MessageLookupByLibrary.simpleMessage("Konum Bilgileri"),
+        "MaximumPartners7": MessageLookupByLibrary.simpleMessage(
+            "En fazla 7 ortak sayısı olabilir"),
         "MyPartnerships": MessageLookupByLibrary.simpleMessage("Ortaklıklarım"),
         "MyProfile": MessageLookupByLibrary.simpleMessage("Profilim"),
         "NoQurbani":
@@ -86,6 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("İptal"),
         "clear": MessageLookupByLibrary.simpleMessage("Temizle"),
         "completed": MessageLookupByLibrary.simpleMessage("Tamamlanan"),
+        "continueTxt": MessageLookupByLibrary.simpleMessage("Devam Et"),
         "count": MessageLookupByLibrary.simpleMessage("Sayısı"),
         "cut": MessageLookupByLibrary.simpleMessage("Kesildi"),
         "cutAddress": MessageLookupByLibrary.simpleMessage("Kesim Yeri"),
@@ -98,6 +101,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "differentFilters": MessageLookupByLibrary.simpleMessage(
             "Farklı filtreler deneyebilirsiniz"),
         "edit": MessageLookupByLibrary.simpleMessage("Düzenle"),
+        "enterPrice":
+            MessageLookupByLibrary.simpleMessage("Kurbanın fiyatını giriniz"),
+        "enterTotalPartnersCount":
+            MessageLookupByLibrary.simpleMessage("Ortak Sayısını giriniz"),
+        "enterWeight":
+            MessageLookupByLibrary.simpleMessage("Kurbanın ağırlığını girin"),
         "error": MessageLookupByLibrary.simpleMessage("Hata"),
         "fillRequiredInfo": MessageLookupByLibrary.simpleMessage(
             "Lütfen tüm gerekli bilgileri doldurun"),
@@ -137,13 +146,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ortaklık İstekleri"),
         "partnershipState":
             MessageLookupByLibrary.simpleMessage("Ortaklık Durumu"),
+        "pleasePrice": MessageLookupByLibrary.simpleMessage(
+            "Lütfen Kurbanın fiyatını giriniz"),
+        "pleaseSelectAnimal": MessageLookupByLibrary.simpleMessage(
+            "Lütfen Kurban hayvanını seçin"),
+        "pleaseTotalPartnersCount": MessageLookupByLibrary.simpleMessage(
+            "Lütfen Ortak Sayısını giriniz"),
         "pleaseUpdateToContinue": MessageLookupByLibrary.simpleMessage(
             "Uygulamayı kullanmaya devam etmek için lütfen güncelleyin."),
+        "pleaseWeight": MessageLookupByLibrary.simpleMessage(
+            "Lütfen Kurbanın ağırlığını girin"),
         "price": MessageLookupByLibrary.simpleMessage("Fiyat"),
         "remain": MessageLookupByLibrary.simpleMessage("Kalan"),
         "requestApproved": m4,
         "requestDate": MessageLookupByLibrary.simpleMessage("İstek Tarihi"),
         "requestDeclined": m5,
+        "selectAnimal":
+            MessageLookupByLibrary.simpleMessage("Kurban hayvanını seçin"),
         "sendRequest":
             MessageLookupByLibrary.simpleMessage("Ortak Olma İsteği Gönder"),
         "settings": MessageLookupByLibrary.simpleMessage("Ayarlar"),
@@ -152,7 +171,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "successfullyShared":
             MessageLookupByLibrary.simpleMessage("Kurban başarıyla paylaşıldı"),
         "total": MessageLookupByLibrary.simpleMessage("Toplam"),
+        "totalPartnersCountMax":
+            MessageLookupByLibrary.simpleMessage("Ortak Sayısı (max 7)"),
         "updateNow": MessageLookupByLibrary.simpleMessage("Şimdi Güncelle"),
-        "waiting": MessageLookupByLibrary.simpleMessage("Bekleyen")
+        "validPrice":
+            MessageLookupByLibrary.simpleMessage("Geçerli bir fiyat giriniz"),
+        "validTotalPartnersCount": MessageLookupByLibrary.simpleMessage(
+            "Geçerli bir ortak sayısı giriniz"),
+        "validWeight":
+            MessageLookupByLibrary.simpleMessage("Geçerli bir ağırlık giriniz"),
+        "waiting": MessageLookupByLibrary.simpleMessage("Bekleyen"),
+        "weight": MessageLookupByLibrary.simpleMessage("Ağırlık")
       };
 }

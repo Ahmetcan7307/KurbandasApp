@@ -140,5 +140,20 @@
   "LocationInfo": "Konum Bilgileri",
   "Preview": "Önizleme",
   "successfullyShared": "Kurban başarıyla paylaşıldı",
-  "fillRequiredInfo": "Lütfen tüm gerekli bilgileri doldurun"
+  "fillRequiredInfo": "Lütfen tüm gerekli bilgileri doldurun",
+  "selectAnimal": "Kurban hayvanını seçin",
+  "pleaseSelectAnimal": "Lütfen Kurban hayvanını seçin",
+  "weight": "Ağırlık",
+  "enterWeight": "Kurbanın ağırlığını girin",
+  "pleaseWeight": "Lütfen Kurbanın ağırlığını girin",
+  "validWeight": "Geçerli bir ağırlık giriniz",
+  "enterPrice": "Kurbanın fiyatını giriniz",
+  "pleasePrice": "Lütfen Kurbanın fiyatını giriniz",
+  "validPrice": "Geçerli bir fiyat giriniz",
+  "totalPartnersCountMax": "Ortak Sayısı (max 7)",
+  "enterTotalPartnersCount": "Ortak Sayısını giriniz",
+  "pleaseTotalPartnersCount": "Lütfen Ortak Sayısını giriniz",
+  "validTotalPartnersCount": "Geçerli bir ortak sayısı giriniz",
+  "MaximumPartners7": "En fazla 7 ortak sayısı olabilir",
+  "continueTxt": "Devam Et"
 }

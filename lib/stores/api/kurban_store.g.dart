@@ -297,6 +297,17 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
+  dynamic selectNewKurbanAnimal(KurbanAnimal animal) {
+    final _$actionInfo = _$_KurbanStoreActionController.startAction(
+        name: '_KurbanStore.selectNewKurbanAnimal');
+    try {
+      return super.selectNewKurbanAnimal(animal);
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 animals: ${animals},

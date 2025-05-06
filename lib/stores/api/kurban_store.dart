@@ -160,4 +160,10 @@ abstract class _KurbanStore with Store {
       await service.postRequest(selectedKurban!.documentId!);
 
   Future createKurban() async => await service.postKurban(newKurban!.toJson());
+
+  @action
+  selectNewKurbanAnimal(KurbanAnimal animal) {
+    newKurban ??= Kurban();
+    newKurban!.animal = animal;
+  }
 }

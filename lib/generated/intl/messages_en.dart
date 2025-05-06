@@ -43,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Location": MessageLookupByLibrary.simpleMessage("Location"),
         "LocationInfo":
             MessageLookupByLibrary.simpleMessage("Location Information"),
+        "MaximumPartners7": MessageLookupByLibrary.simpleMessage(
+            "Maximum number of partners can be 7"),
         "MyPartnerships":
             MessageLookupByLibrary.simpleMessage("My Partnerships"),
         "MyProfile": MessageLookupByLibrary.simpleMessage("My Profile"),
@@ -90,6 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "clear": MessageLookupByLibrary.simpleMessage("Clear"),
         "completed": MessageLookupByLibrary.simpleMessage("Completed"),
+        "continueTxt": MessageLookupByLibrary.simpleMessage("Continue"),
         "count": MessageLookupByLibrary.simpleMessage("Count"),
         "cut": MessageLookupByLibrary.simpleMessage("Cut"),
         "cutAddress": MessageLookupByLibrary.simpleMessage("Cut Address"),
@@ -103,6 +106,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "differentFilters": MessageLookupByLibrary.simpleMessage(
             "You can try different filters"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "enterPrice":
+            MessageLookupByLibrary.simpleMessage("Enter the Qurbani\'s price"),
+        "enterTotalPartnersCount": MessageLookupByLibrary.simpleMessage(
+            "Enter the total partners count"),
+        "enterWeight":
+            MessageLookupByLibrary.simpleMessage("Enter the Qurbani\'s weight"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
         "fillRequiredInfo": MessageLookupByLibrary.simpleMessage(
             "Please fill in all required information"),
@@ -141,13 +150,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Partnership Requests"),
         "partnershipState":
             MessageLookupByLibrary.simpleMessage("Partnership State"),
+        "pleasePrice": MessageLookupByLibrary.simpleMessage(
+            "Please enter the Qurbani\'s price"),
+        "pleaseSelectAnimal": MessageLookupByLibrary.simpleMessage(
+            "Please select Qurbani animal"),
+        "pleaseTotalPartnersCount": MessageLookupByLibrary.simpleMessage(
+            "Please enter the total partners count"),
         "pleaseUpdateToContinue": MessageLookupByLibrary.simpleMessage(
             "Please update to continue using the app."),
+        "pleaseWeight": MessageLookupByLibrary.simpleMessage(
+            "Please enter the Qurbani\'s weight"),
         "price": MessageLookupByLibrary.simpleMessage("Price"),
         "remain": MessageLookupByLibrary.simpleMessage("Remain"),
         "requestApproved": m4,
         "requestDate": MessageLookupByLibrary.simpleMessage("Request Date"),
         "requestDeclined": m5,
+        "selectAnimal":
+            MessageLookupByLibrary.simpleMessage("Select Qurbani animal"),
         "sendRequest": MessageLookupByLibrary.simpleMessage(
             "Send Request To Become a Partner"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
@@ -156,7 +175,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "successfullyShared": MessageLookupByLibrary.simpleMessage(
             "Qurbani was successfully shared"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
+        "totalPartnersCountMax": MessageLookupByLibrary.simpleMessage(
+            "Total Partners count (max 7)"),
         "updateNow": MessageLookupByLibrary.simpleMessage("Update Now"),
-        "waiting": MessageLookupByLibrary.simpleMessage("Waiting")
+        "validPrice":
+            MessageLookupByLibrary.simpleMessage("Enter the valid price"),
+        "validTotalPartnersCount": MessageLookupByLibrary.simpleMessage(
+            "Enter the valid total partners count"),
+        "validWeight":
+            MessageLookupByLibrary.simpleMessage("Enter the valid weight"),
+        "waiting": MessageLookupByLibrary.simpleMessage("Waiting"),
+        "weight": MessageLookupByLibrary.simpleMessage("Weight")
       };
 }

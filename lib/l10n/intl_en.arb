@@ -140,5 +140,20 @@
   "LocationInfo": "Location Information",
   "Preview": "Preview",
   "successfullyShared": "Qurbani was successfully shared",
-  "fillRequiredInfo": "Please fill in all required information"
+  "fillRequiredInfo": "Please fill in all required information",
+  "selectAnimal": "Select Qurbani animal",
+  "pleaseSelectAnimal": "Please select Qurbani animal",
+  "weight": "Weight",
+  "enterWeight": "Enter the Qurbani's weight",
+  "pleaseWeight": "Please enter the Qurbani's weight",
+  "validWeight": "Enter the valid weight",
+  "enterPrice": "Enter the Qurbani's price",
+  "pleasePrice": "Please enter the Qurbani's price",
+  "validPrice": "Enter the valid price",
+  "totalPartnersCountMax": "Total Partners count (max 7)",
+  "enterTotalPartnersCount": "Enter the total partners count",
+  "pleaseTotalPartnersCount": "Please enter the total partners count",
+  "validTotalPartnersCount": "Enter the valid total partners count",
+  "MaximumPartners7": "Maximum number of partners can be 7",
+  "continueTxt": "Continue"
 }

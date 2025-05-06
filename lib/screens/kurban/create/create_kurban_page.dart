@@ -16,6 +16,7 @@ class CreateKurbanPage extends StatefulWidget {
   State<CreateKurbanPage> createState() => _CreateKurbanPageState();
 }
 
+// Todo cutDate, photos
 class _CreateKurbanPageState extends State<CreateKurbanPage> {
   PageController controller = PageController();
 

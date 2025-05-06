@@ -919,6 +919,156 @@ class S {
       args: [],
     );
   }
+
+  /// `Select Qurbani animal`
+  String get selectAnimal {
+    return Intl.message(
+      'Select Qurbani animal',
+      name: 'selectAnimal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select Qurbani animal`
+  String get pleaseSelectAnimal {
+    return Intl.message(
+      'Please select Qurbani animal',
+      name: 'pleaseSelectAnimal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weight`
+  String get weight {
+    return Intl.message(
+      'Weight',
+      name: 'weight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter the Qurbani's weight`
+  String get enterWeight {
+    return Intl.message(
+      'Enter the Qurbani\'s weight',
+      name: 'enterWeight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the Qurbani's weight`
+  String get pleaseWeight {
+    return Intl.message(
+      'Please enter the Qurbani\'s weight',
+      name: 'pleaseWeight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter the valid weight`
+  String get validWeight {
+    return Intl.message(
+      'Enter the valid weight',
+      name: 'validWeight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter the Qurbani's price`
+  String get enterPrice {
+    return Intl.message(
+      'Enter the Qurbani\'s price',
+      name: 'enterPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the Qurbani's price`
+  String get pleasePrice {
+    return Intl.message(
+      'Please enter the Qurbani\'s price',
+      name: 'pleasePrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter the valid price`
+  String get validPrice {
+    return Intl.message(
+      'Enter the valid price',
+      name: 'validPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Partners count (max 7)`
+  String get totalPartnersCountMax {
+    return Intl.message(
+      'Total Partners count (max 7)',
+      name: 'totalPartnersCountMax',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter the total partners count`
+  String get enterTotalPartnersCount {
+    return Intl.message(
+      'Enter the total partners count',
+      name: 'enterTotalPartnersCount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the total partners count`
+  String get pleaseTotalPartnersCount {
+    return Intl.message(
+      'Please enter the total partners count',
+      name: 'pleaseTotalPartnersCount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter the valid total partners count`
+  String get validTotalPartnersCount {
+    return Intl.message(
+      'Enter the valid total partners count',
+      name: 'validTotalPartnersCount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Maximum number of partners can be 7`
+  String get MaximumPartners7 {
+    return Intl.message(
+      'Maximum number of partners can be 7',
+      name: 'MaximumPartners7',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get continueTxt {
+    return Intl.message(
+      'Continue',
+      name: 'continueTxt',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
