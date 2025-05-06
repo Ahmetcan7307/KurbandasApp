@@ -152,6 +152,22 @@ mixin _$KurbanStore on _KurbanStore, Store {
     });
   }
 
+  late final _$newKurbanAtom =
+      Atom(name: '_KurbanStore.newKurban', context: context);
+
+  @override
+  Kurban? get newKurban {
+    _$newKurbanAtom.reportRead();
+    return super.newKurban;
+  }
+
+  @override
+  set newKurban(Kurban? value) {
+    _$newKurbanAtom.reportWrite(value, super.newKurban, () {
+      super.newKurban = value;
+    });
+  }
+
   late final _$getAnimalsAsyncAction =
       AsyncAction('_KurbanStore.getAnimals', context: context);
 
@@ -291,7 +307,8 @@ myPartnerships: ${myPartnerships},
 allKurbans: ${allKurbans},
 activeKurbans: ${activeKurbans},
 deactiveKurbans: ${deactiveKurbans},
-selectedKurban: ${selectedKurban}
+selectedKurban: ${selectedKurban},
+newKurban: ${newKurban}
     ''';
   }
 }

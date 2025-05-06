@@ -23,7 +23,7 @@
   "SigningOut": "Çıkış Yapılıyor...",
   "findPartnersQurbani": "Kurban için ortaklarınızı kolayca bulun",
   "partners": "Ortaklar",
-  "newQurbani": "Yeni Kurban",
+  "shareQurbani": "Kurban Paylaş",
   "FilterQurbani": "Kurbanları Filtrele",
   "QurbaniAnimal": "Kurban Hayvanı",
   "Location": "Konum",
@@ -135,5 +135,10 @@
   "partner": "Ortak",
   "partnershipDate": "Ortaklık Tarihi",
   "error": "Hata",
-  "SuccessfullySentRequest": "Başarılı bir şekilde istek gönderildi"
+  "SuccessfullySentRequest": "Başarılı bir şekilde istek gönderildi",
+  "QurbaniInfo": "Kurban Bilgileri",
+  "LocationInfo": "Konum Bilgileri",
+  "Preview": "Önizleme",
+  "successfullyShared": "Kurban başarıyla paylaşıldı",
+  "fillRequiredInfo": "Lütfen tüm gerekli bilgileri doldurun"
 }

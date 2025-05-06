@@ -41,6 +41,9 @@ abstract class _KurbanStore with Store {
   @observable
   Kurban? selectedKurban;
 
+  @observable
+  Kurban? newKurban;
+
   KurbanService service = serviceLocator.get<KurbanService>();
 
   int pageSize = 10;
@@ -155,4 +158,6 @@ abstract class _KurbanStore with Store {
 
   Future postRequest() async =>
       await service.postRequest(selectedKurban!.documentId!);
+
+  Future createKurban() async => await service.postKurban(newKurban!.toJson());
 }

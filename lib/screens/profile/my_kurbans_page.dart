@@ -93,7 +93,7 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
                   onTap: () => kurbanStore.selectKurban(true, null, index),
                 ),
                 buildActionButtons(
-                    kurban.documentId!, kurban.animal.name!, index),
+                    kurban.documentId!, kurban.animal!.name!, index),
                 const SizedBox(height: 16)
               ],
             );

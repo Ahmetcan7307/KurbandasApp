@@ -29,7 +29,7 @@ class KurbanService {
             animal: KurbanAnimal(name: "Sığır")..documentId = "1",
             weight: 450,
             price: 45000,
-            address: "İstanbul / Beylikdüzü Beylikdüzü Kesim Alanı",
+            addressStr: "İstanbul / Beylikdüzü Beylikdüzü Kesim Alanı",
             totalPartnersCount: 7,
             photoUrls: [
               "https://media.barchart.com/contributors-admin/common-images/images/Livestock/Cattle%20%26%20Beef/Two%20cows%20on%20green%20pasture%20by%20Photo%20Mix%20via%20Pixabay.jpg"
@@ -47,7 +47,7 @@ class KurbanService {
             photoUrls: [
               "https://isbh.tmgrup.com.tr/sbh/2020/06/13/650x344/sifa-kaynagi-urunlere-talep-cok-manda-az-1592033428910.jpg"
             ],
-            address: "İstanbul / Esenyurt Esenyurt Kesim Alanı",
+            addressStr: "İstanbul / Esenyurt Esenyurt Kesim Alanı",
             partners: [],
             isMy: true)
           ..documentId = "2"
@@ -103,17 +103,17 @@ class KurbanService {
   Future<List<Kurban>> getMyPartnerships() async => await Future.value([
         Kurban(
             animal: KurbanAnimal(name: "Sığır"),
-            address: "İstanbul / Beylikdüzü Beylikdüzü Kesim Alanı",
+            addressStr: "İstanbul / Beylikdüzü Beylikdüzü Kesim Alanı",
             status: KurbanStatus.waiting,
             owner: User(phoneNo: "901234567890")),
         Kurban(
             animal: KurbanAnimal(name: "Manda"),
-            address: "İstanbul / Esenyurt Esenyurt Kesim Alanı",
+            addressStr: "İstanbul / Esenyurt Esenyurt Kesim Alanı",
             status: KurbanStatus.cut,
             owner: User(phoneNo: "901234567890")),
         Kurban(
             animal: KurbanAnimal(name: "Deve"),
-            address: "İstanbul / Fatih Fatih Kesim Alanı",
+            addressStr: "İstanbul / Fatih Fatih Kesim Alanı",
             status: KurbanStatus.shared,
             owner: User(phoneNo: "901234567890"))
       ]);
@@ -126,7 +126,7 @@ class KurbanService {
               animal: KurbanAnimal(name: "Sheep"),
               weight: 40 + (index % 300).toDouble(),
               price: 1000 + (index * 100).toDouble(),
-              address: "İstanbul / Beylikdüzü",
+              addressStr: "İstanbul / Beylikdüzü",
               totalPartnersCount: 7,
               status: KurbanStatus.values[index % KurbanStatus.values.length],
               photoUrls: [
@@ -147,4 +147,6 @@ class KurbanService {
       await Future.value(false);
 
   Future postRequest(String documentId) async {}
+
+  Future postKurban(Map<String, dynamic> data) async {}
 }

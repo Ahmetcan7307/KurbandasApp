@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'turkiye_api_district.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class TurkiyeAPIDistrict {
   int id;
   String name;
@@ -11,4 +11,6 @@ class TurkiyeAPIDistrict {
 
   factory TurkiyeAPIDistrict.fromJson(Map<String, dynamic> json) =>
       _$TurkiyeAPIDistrictFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TurkiyeAPIDistrictToJson(this);
 }

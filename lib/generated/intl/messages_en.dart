@@ -41,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Account Operations"),
         "FilterQurbani": MessageLookupByLibrary.simpleMessage("Filter Qurbani"),
         "Location": MessageLookupByLibrary.simpleMessage("Location"),
+        "LocationInfo":
+            MessageLookupByLibrary.simpleMessage("Location Information"),
         "MyPartnerships":
             MessageLookupByLibrary.simpleMessage("My Partnerships"),
         "MyProfile": MessageLookupByLibrary.simpleMessage("My Profile"),
@@ -50,9 +52,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Click on the “New Qurbani” button to share the Qurbani"),
         "PartnershipsCompleted":
             MessageLookupByLibrary.simpleMessage("Partnerships completed"),
+        "Preview": MessageLookupByLibrary.simpleMessage("Preview"),
         "ProfileDetails":
             MessageLookupByLibrary.simpleMessage("Profile Details"),
         "QurbaniAnimal": MessageLookupByLibrary.simpleMessage("Qurbani Animal"),
+        "QurbaniInfo":
+            MessageLookupByLibrary.simpleMessage("Qurbani Information"),
         "QurbaniPostDeleted": MessageLookupByLibrary.simpleMessage(
             "Qurbani announcement deleted"),
         "Requests": MessageLookupByLibrary.simpleMessage("Requests"),
@@ -99,6 +104,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "You can try different filters"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
+        "fillRequiredInfo": MessageLookupByLibrary.simpleMessage(
+            "Please fill in all required information"),
         "filters": MessageLookupByLibrary.simpleMessage("Filters"),
         "findPartnersQurbani": MessageLookupByLibrary.simpleMessage(
             "Easily find your partners for Qurbani"),
@@ -111,7 +118,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Are you sure you want to log out?"),
         "message": MessageLookupByLibrary.simpleMessage("Message"),
         "myQurbanies": MessageLookupByLibrary.simpleMessage("My Qurbanies"),
-        "newQurbani": MessageLookupByLibrary.simpleMessage("New Qurbani"),
         "noApprovedRequests": MessageLookupByLibrary.simpleMessage(
             "There is not any Approved Requests"),
         "noCutDate": MessageLookupByLibrary.simpleMessage("No Cut Date"),
@@ -145,7 +151,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendRequest": MessageLookupByLibrary.simpleMessage(
             "Send Request To Become a Partner"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "shareQurbani": MessageLookupByLibrary.simpleMessage("Share Qurbani"),
         "shared": MessageLookupByLibrary.simpleMessage("Shared"),
+        "successfullyShared": MessageLookupByLibrary.simpleMessage(
+            "Qurbani was successfully shared"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
         "updateNow": MessageLookupByLibrary.simpleMessage("Update Now"),
         "waiting": MessageLookupByLibrary.simpleMessage("Waiting")

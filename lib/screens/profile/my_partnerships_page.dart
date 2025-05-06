@@ -103,7 +103,7 @@ class _MyPartnershipsPageState extends State<MyPartnershipsPage> {
             CircleAvatar(
               backgroundColor: Theme.of(context).primaryColor,
               child: Text(
-                kurban.animal.name!.substring(0, 1),
+                kurban.animal!.name!.substring(0, 1),
                 style: const TextStyle(
                     color: Colors.white, fontWeight: FontWeight.bold),
               ),
@@ -114,13 +114,13 @@ class _MyPartnershipsPageState extends State<MyPartnershipsPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    kurban.animal.name!,
+                    kurban.animal!.name!,
                     style: const TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    "${lang.cutAddress}: ${kurban.address}",
+                    "${lang.cutAddress}: ${kurban.addressStr}",
                     style: TextStyle(color: Colors.grey.shade600, fontSize: 14),
                   )
                 ],

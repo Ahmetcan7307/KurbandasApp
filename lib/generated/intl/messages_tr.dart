@@ -42,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "FilterQurbani":
             MessageLookupByLibrary.simpleMessage("Kurbanları Filtrele"),
         "Location": MessageLookupByLibrary.simpleMessage("Konum"),
+        "LocationInfo": MessageLookupByLibrary.simpleMessage("Konum Bilgileri"),
         "MyPartnerships": MessageLookupByLibrary.simpleMessage("Ortaklıklarım"),
         "MyProfile": MessageLookupByLibrary.simpleMessage("Profilim"),
         "NoQurbani":
@@ -50,9 +51,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Kurban paylaşmak için \"Yeni Kurban\" butonuna tıklayın"),
         "PartnershipsCompleted":
             MessageLookupByLibrary.simpleMessage("Ortaklıklar tamamlandı"),
+        "Preview": MessageLookupByLibrary.simpleMessage("Önizleme"),
         "ProfileDetails":
             MessageLookupByLibrary.simpleMessage("Profil Bilgileri"),
         "QurbaniAnimal": MessageLookupByLibrary.simpleMessage("Kurban Hayvanı"),
+        "QurbaniInfo": MessageLookupByLibrary.simpleMessage("Kurban Bilgileri"),
         "QurbaniPostDeleted":
             MessageLookupByLibrary.simpleMessage("Kurban ilanı silindi"),
         "Requests": MessageLookupByLibrary.simpleMessage("İstekler"),
@@ -96,6 +99,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Farklı filtreler deneyebilirsiniz"),
         "edit": MessageLookupByLibrary.simpleMessage("Düzenle"),
         "error": MessageLookupByLibrary.simpleMessage("Hata"),
+        "fillRequiredInfo": MessageLookupByLibrary.simpleMessage(
+            "Lütfen tüm gerekli bilgileri doldurun"),
         "filters": MessageLookupByLibrary.simpleMessage("Filtreler"),
         "findPartnersQurbani": MessageLookupByLibrary.simpleMessage(
             "Kurban için ortaklarınızı kolayca bulun"),
@@ -108,7 +113,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Çıkış yapmak istediğinizden emin misiniz?"),
         "message": MessageLookupByLibrary.simpleMessage("Mesaj"),
         "myQurbanies": MessageLookupByLibrary.simpleMessage("Kurbanlarım"),
-        "newQurbani": MessageLookupByLibrary.simpleMessage("Yeni Kurban"),
         "noApprovedRequests": MessageLookupByLibrary.simpleMessage(
             "Onaylanmış hiçbir isteğiniz yok"),
         "noCutDate":
@@ -143,7 +147,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendRequest":
             MessageLookupByLibrary.simpleMessage("Ortak Olma İsteği Gönder"),
         "settings": MessageLookupByLibrary.simpleMessage("Ayarlar"),
+        "shareQurbani": MessageLookupByLibrary.simpleMessage("Kurban Paylaş"),
         "shared": MessageLookupByLibrary.simpleMessage("Paylaşıldı"),
+        "successfullyShared":
+            MessageLookupByLibrary.simpleMessage("Kurban başarıyla paylaşıldı"),
         "total": MessageLookupByLibrary.simpleMessage("Toplam"),
         "updateNow": MessageLookupByLibrary.simpleMessage("Şimdi Güncelle"),
         "waiting": MessageLookupByLibrary.simpleMessage("Bekleyen")

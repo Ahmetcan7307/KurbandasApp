@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kurbandas/core/domain/common/entity_base.dart';
+import 'package:kurbandas/core/domain/entities/address.dart';
 import 'package:kurbandas/core/domain/entities/partner.dart';
 import 'package:kurbandas/core/domain/entities/user.dart';
 import 'package:kurbandas/core/utils/extensions/map_extensions.dart';
@@ -11,12 +12,13 @@ enum KurbanStatus { waiting, cut, shared }
 @JsonSerializable()
 class Kurban extends EntityBase {
   User? owner;
-  KurbanAnimal animal;
+  KurbanAnimal? animal;
   double? weight;
   double? price;
   KurbanStatus? status;
   DateTime? cutDate;
-  String? address; // null olamaz. Sadece create esnasında null olabilir
+  String? addressStr; // null olamaz. Sadece create esnasında null olabilir
+  Address? address;
   int? totalPartnersCount;
   int? remainPartnersCount = 0;
   List<Partner>? partners;
@@ -25,16 +27,17 @@ class Kurban extends EntityBase {
 
   Kurban(
       {this.owner,
-      required this.animal,
+      this.animal,
       this.weight,
       this.price,
       this.status,
       this.cutDate,
-      this.address,
+      this.addressStr,
       this.totalPartnersCount,
       this.partners,
       this.photoUrls,
-      this.isMy}) {
+      this.isMy,
+      this.address}) {
     remainPartnersCount = totalPartnersCount;
   }
 
@@ -55,6 +58,19 @@ class Kurban extends EntityBase {
 
   @override
   int get hashCode => totalPartnersCount.hashCode;
+
+  bool get isComplete =>
+      isBasicInfoComplete && address != null && address!.isComplete;
+
+  bool get isBasicInfoComplete =>
+      animal != null &&
+      weight != null &&
+      weight! > 0 &&
+      price != null &&
+      price! > 0 &&
+      totalPartnersCount != null &&
+      totalPartnersCount! > 0 &&
+      totalPartnersCount! <= 7;
 }
 
 @JsonSerializable()

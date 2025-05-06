@@ -23,7 +23,7 @@
   "SigningOut": "Signing out...",
   "findPartnersQurbani": "Easily find your partners for Qurbani",
   "partners": "Partners",
-  "newQurbani": "New Qurbani",
+  "shareQurbani": "Share Qurbani",
   "FilterQurbani": "Filter Qurbani",
   "QurbaniAnimal": "Qurbani Animal",
   "Location": "Location",
@@ -135,5 +135,10 @@
   "partner": "Partner",
   "partnershipDate": "Partnership Date",
   "error": "Error",
-  "SuccessfullySentRequest": "Successfully sent request"
+  "SuccessfullySentRequest": "Successfully sent request",
+  "QurbaniInfo": "Qurbani Information",
+  "LocationInfo": "Location Information",
+  "Preview": "Preview",
+  "successfullyShared": "Qurbani was successfully shared",
+  "fillRequiredInfo": "Please fill in all required information"
 }

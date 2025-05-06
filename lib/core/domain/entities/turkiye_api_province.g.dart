@@ -14,3 +14,10 @@ TurkiyeAPIProvince _$TurkiyeAPIProvinceFromJson(Map<String, dynamic> json) =>
           ?.map((e) => TurkiyeAPIDistrict.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
+
+Map<String, dynamic> _$TurkiyeAPIProvinceToJson(TurkiyeAPIProvince instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'districts': instance.districts,
+    };

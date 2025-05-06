@@ -147,10 +147,11 @@ class _HomePageState extends State<HomePage>
         );
       }),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () => Navigator.pushNamed(context, Routes.createKurban),
         icon: const Icon(Icons.add),
-        label: Text(lang.newQurbani),
+        label: Text(lang.shareQurbani),
         backgroundColor: Theme.of(context).primaryColor,
+        elevation: 4,
       ),
     );
   }

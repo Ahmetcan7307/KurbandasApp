@@ -160,11 +160,11 @@ class S {
     );
   }
 
-  /// `New Qurbani`
-  String get newQurbani {
+  /// `Share Qurbani`
+  String get shareQurbani {
     return Intl.message(
-      'New Qurbani',
-      name: 'newQurbani',
+      'Share Qurbani',
+      name: 'shareQurbani',
       desc: '',
       args: [],
     );
@@ -865,6 +865,56 @@ class S {
     return Intl.message(
       'Successfully sent request',
       name: 'SuccessfullySentRequest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Qurbani Information`
+  String get QurbaniInfo {
+    return Intl.message(
+      'Qurbani Information',
+      name: 'QurbaniInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location Information`
+  String get LocationInfo {
+    return Intl.message(
+      'Location Information',
+      name: 'LocationInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Preview`
+  String get Preview {
+    return Intl.message(
+      'Preview',
+      name: 'Preview',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Qurbani was successfully shared`
+  String get successfullyShared {
+    return Intl.message(
+      'Qurbani was successfully shared',
+      name: 'successfullyShared',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please fill in all required information`
+  String get fillRequiredInfo {
+    return Intl.message(
+      'Please fill in all required information',
+      name: 'fillRequiredInfo',
       desc: '',
       args: [],
     );

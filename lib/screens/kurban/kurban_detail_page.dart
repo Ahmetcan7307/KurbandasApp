@@ -68,7 +68,7 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "${kurbanStore.selectedKurban!.animal.name!} - ${kurbanStore.selectedKurban!.weight!} kg",
+                      "${kurbanStore.selectedKurban!.animal!.name!} - ${kurbanStore.selectedKurban!.weight!} kg",
                       style: Theme.of(context)
                           .textTheme
                           .titleLarge
@@ -101,7 +101,7 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
                       kurbanStore.selectedKurban!.owner?.fullName ??
                           authStore.user!.fullName),
                   buildInfoRow(
-                      lang.cutAddress, kurbanStore.selectedKurban!.address!),
+                      lang.cutAddress, kurbanStore.selectedKurban!.addressStr!),
                   buildInfoRow(
                       lang.cutDate,
                       kurbanStore.selectedKurban!.cutDate?.formatDate() ??
@@ -190,7 +190,7 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
         pinned: true,
         flexibleSpace: FlexibleSpaceBar(
           title: Text(
-            kurbanStore.selectedKurban!.animal.name!,
+            kurbanStore.selectedKurban!.animal!.name!,
             style: const TextStyle(
                 fontWeight: FontWeight.bold, color: Colors.white),
           ), // Todo birden fazla foto gösterilmeli

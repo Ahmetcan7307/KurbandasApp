@@ -59,7 +59,7 @@ class _KurbanCardState extends State<KurbanCard> {
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
-                      widget.kurban.animal.name!,
+                      widget.kurban.animal!.name!,
                       style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -122,7 +122,7 @@ class _KurbanCardState extends State<KurbanCard> {
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  "${lang.cutAddress}: ${widget.kurban.address}",
+                  "${lang.cutAddress}: ${widget.kurban.addressStr}",
                   style: const TextStyle(
                       fontSize: 14,
                       color: Colors.white,

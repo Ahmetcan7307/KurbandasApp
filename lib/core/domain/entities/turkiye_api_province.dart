@@ -1,9 +1,10 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kurbandas/core/domain/entities/turkiye_api_district.dart';
+import 'package:kurbandas/core/utils/extensions/map_extensions.dart';
 
 part 'turkiye_api_province.g.dart';
 
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class TurkiyeAPIProvince {
   int id;
   String name;
@@ -13,4 +14,10 @@ class TurkiyeAPIProvince {
 
   factory TurkiyeAPIProvince.fromJson(Map<String, dynamic> json) =>
       _$TurkiyeAPIProvinceFromJson(json);
+
+  Map<String, dynamic> toJson() {
+    Map<String, dynamic> json = _$TurkiyeAPIProvinceToJson(this);
+    json.clearNulls();
+    return json;
+  }
 }
