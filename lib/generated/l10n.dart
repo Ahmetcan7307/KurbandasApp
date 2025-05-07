@@ -260,41 +260,11 @@ class S {
     );
   }
 
-  /// `Account`
-  String get account {
-    return Intl.message(
-      'Account',
-      name: 'account',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Profile Details`
-  String get ProfileDetails {
-    return Intl.message(
-      'Profile Details',
-      name: 'ProfileDetails',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Application`
   String get app {
     return Intl.message(
       'Application',
       name: 'app',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Language`
-  String get lang {
-    return Intl.message(
-      'Language',
-      name: 'lang',
       desc: '',
       args: [],
     );

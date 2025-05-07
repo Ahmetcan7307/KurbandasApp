@@ -37,34 +37,18 @@ class _SettingsPageState extends State<SettingsPage> {
         title: Text(lang.settings),
       ),
       body: ListView(children: [
-        buildSection(title: lang.account, items: [
-          buildItem(
-              icon: Icons.person,
-              title: lang.ProfileDetails,
-              onTap: () {
-                // Todo
-              })
-        ]),
         buildSection(title: lang.app, items: [
-          buildItem(
-              icon: Icons.language,
-              title: lang.lang,
-              subTitle: WidgetsBinding
-                  .instance.platformDispatcher.locale.languageCode,
-              onTap: () {
-                // Todo
-              }),
           buildItem(
               icon: Icons.info,
               title: lang.info,
               onTap: () {
-                // Todo
+                // Todo Hakkında kısmının sayfasını oluştur. Gerekli bilgiler verilecek sonra
               }),
           buildItem(
               icon: Icons.help,
               title: lang.help,
               onTap: () {
-                // Todo
+                // Todo Yardım kısmının sayfasını oluştur.
               })
         ]),
         buildSection(title: lang.AccountOperations, items: [

@@ -59,8 +59,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "PartnershipsCompleted":
             MessageLookupByLibrary.simpleMessage("Ortaklıklar tamamlandı"),
         "Preview": MessageLookupByLibrary.simpleMessage("Önizleme"),
-        "ProfileDetails":
-            MessageLookupByLibrary.simpleMessage("Profil Bilgileri"),
         "QurbaniAnimal": MessageLookupByLibrary.simpleMessage("Kurban Hayvanı"),
         "QurbaniInfo": MessageLookupByLibrary.simpleMessage("Kurban Bilgileri"),
         "QurbaniPostDeleted":
@@ -74,7 +72,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Google ile Giriş Yap"),
         "SuccessfullySentRequest": MessageLookupByLibrary.simpleMessage(
             "Başarılı bir şekilde istek gönderildi"),
-        "account": MessageLookupByLibrary.simpleMessage("Hesap"),
         "active": MessageLookupByLibrary.simpleMessage("Aktif"),
         "all": MessageLookupByLibrary.simpleMessage("Tümü"),
         "app": MessageLookupByLibrary.simpleMessage("Uygulama"),
@@ -125,7 +122,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Kurban için ortaklarınızı kolayca bulun"),
         "help": MessageLookupByLibrary.simpleMessage("Yardım ve Destek"),
         "info": MessageLookupByLibrary.simpleMessage("Hakkında"),
-        "lang": MessageLookupByLibrary.simpleMessage("Dil"),
         "later": MessageLookupByLibrary.simpleMessage("Daha Sonra"),
         "logout": MessageLookupByLibrary.simpleMessage("Çıkış Yap"),
         "logoutConfirmation": MessageLookupByLibrary.simpleMessage(

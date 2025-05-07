@@ -61,8 +61,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "PartnershipsCompleted":
             MessageLookupByLibrary.simpleMessage("Partnerships completed"),
         "Preview": MessageLookupByLibrary.simpleMessage("Preview"),
-        "ProfileDetails":
-            MessageLookupByLibrary.simpleMessage("Profile Details"),
         "QurbaniAnimal": MessageLookupByLibrary.simpleMessage("Qurbani Animal"),
         "QurbaniInfo":
             MessageLookupByLibrary.simpleMessage("Qurbani Information"),
@@ -78,7 +76,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sign in with Google"),
         "SuccessfullySentRequest":
             MessageLookupByLibrary.simpleMessage("Successfully sent request"),
-        "account": MessageLookupByLibrary.simpleMessage("Account"),
         "active": MessageLookupByLibrary.simpleMessage("Actives"),
         "all": MessageLookupByLibrary.simpleMessage("All"),
         "app": MessageLookupByLibrary.simpleMessage("Application"),
@@ -131,7 +128,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "Easily find your partners for Qurbani"),
         "help": MessageLookupByLibrary.simpleMessage("Help and Support"),
         "info": MessageLookupByLibrary.simpleMessage("Information"),
-        "lang": MessageLookupByLibrary.simpleMessage("Language"),
         "later": MessageLookupByLibrary.simpleMessage("Later"),
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "logoutConfirmation": MessageLookupByLibrary.simpleMessage(

@@ -118,7 +118,7 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
                 icon: Icons.edit,
                 label: lang.edit,
                 onTap: () {
-                  // Todo
+                  // Todo Edit sayfasına yönlendirme. ve edit sayfası oluşturma
                 }),
             ActionButton(
                 icon: Icons.delete,

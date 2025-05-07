@@ -16,7 +16,7 @@ class CreateKurbanPage extends StatefulWidget {
   State<CreateKurbanPage> createState() => _CreateKurbanPageState();
 }
 
-// Todo cutDate, photos
+// Todo cutDate(Kesim tarihi): kullanıcının kesim tarihi ekleneceği bir alan eklenecek, photos(fotoğraflar): Kullanıcı birden fazla fotoğraf ekleyebilecek.
 class _CreateKurbanPageState extends State<CreateKurbanPage> {
   PageController controller = PageController();
 

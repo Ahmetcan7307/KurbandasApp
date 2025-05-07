@@ -101,7 +101,7 @@ class _ProfilePageState extends State<ProfilePage>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    authStore.user!.name!,
+                    authStore.user!.fullName,
                     style: const TextStyle(
                         fontSize: 18, fontWeight: FontWeight.bold),
                   ),

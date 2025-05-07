@@ -193,7 +193,7 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
             kurbanStore.selectedKurban!.animal!.name!,
             style: const TextStyle(
                 fontWeight: FontWeight.bold, color: Colors.white),
-          ), // Todo birden fazla foto gösterilmeli
+          ), // Todo birden fazla fotoğraf gösterilmeli
           background: KurbanBackgroundImage(linearGradientColors: [
             Colors.black.withValues(alpha: .3),
             Colors.black.withValues(alpha: .5)
