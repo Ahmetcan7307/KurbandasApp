@@ -243,6 +243,14 @@ mixin _$KurbanStore on _KurbanStore, Store {
         .run(() => super.getDeactiveKurbans(page));
   }
 
+  late final _$createKurbanAsyncAction =
+      AsyncAction('_KurbanStore.createKurban', context: context);
+
+  @override
+  Future<dynamic> createKurban() {
+    return _$createKurbanAsyncAction.run(() => super.createKurban());
+  }
+
   late final _$_KurbanStoreActionController =
       ActionController(name: '_KurbanStore', context: context);
 

@@ -163,5 +163,9 @@
   "pleaseDistrict": "Lütfen ilçeyi seçin",
   "enterCutAddress": "Kesim alanının adını giriniz",
   "pleaseCutAddress": "Lütfen kesim alanının adını giriniz",
-  "previous": "Geri"
+  "previous": "Geri",
+  "confirmQurbaniInfo": "Kurban Bilgilerini Onaylayın",
+  "ImportantInfo": "Önemli Bilgi",
+  "ImportantInfoDesc": "Bir kurban maksimum 7 ortak olabilir.",
+  "totalPartnersCount": "Toplam Ortak Sayısı"
 }

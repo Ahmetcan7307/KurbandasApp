@@ -42,6 +42,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "EnterInfoPlace": MessageLookupByLibrary.simpleMessage(
             "Enter information about the place where your Qurbani will be slaughtered"),
         "FilterQurbani": MessageLookupByLibrary.simpleMessage("Filter Qurbani"),
+        "ImportantInfo":
+            MessageLookupByLibrary.simpleMessage("Important Information"),
+        "ImportantInfoDesc": MessageLookupByLibrary.simpleMessage(
+            "One sacrifice can have a maximum of 7 partners."),
         "Location": MessageLookupByLibrary.simpleMessage("Location"),
         "LocationInfo":
             MessageLookupByLibrary.simpleMessage("Location Information"),
@@ -94,6 +98,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "clear": MessageLookupByLibrary.simpleMessage("Clear"),
         "completed": MessageLookupByLibrary.simpleMessage("Completed"),
+        "confirmQurbaniInfo": MessageLookupByLibrary.simpleMessage(
+            "Confirm Qurbani informations"),
         "continueTxt": MessageLookupByLibrary.simpleMessage("Continue"),
         "count": MessageLookupByLibrary.simpleMessage("Count"),
         "cut": MessageLookupByLibrary.simpleMessage("Cut"),
@@ -188,6 +194,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "successfullyShared": MessageLookupByLibrary.simpleMessage(
             "Qurbani was successfully shared"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
+        "totalPartnersCount":
+            MessageLookupByLibrary.simpleMessage("Total Partners Count"),
         "totalPartnersCountMax": MessageLookupByLibrary.simpleMessage(
             "Total Partners count (max 7)"),
         "updateNow": MessageLookupByLibrary.simpleMessage("Update Now"),

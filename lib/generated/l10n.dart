@@ -1149,6 +1149,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Confirm Qurbani informations`
+  String get confirmQurbaniInfo {
+    return Intl.message(
+      'Confirm Qurbani informations',
+      name: 'confirmQurbaniInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Important Information`
+  String get ImportantInfo {
+    return Intl.message(
+      'Important Information',
+      name: 'ImportantInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `One sacrifice can have a maximum of 7 partners.`
+  String get ImportantInfoDesc {
+    return Intl.message(
+      'One sacrifice can have a maximum of 7 partners.',
+      name: 'ImportantInfoDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total Partners Count`
+  String get totalPartnersCount {
+    return Intl.message(
+      'Total Partners Count',
+      name: 'totalPartnersCount',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

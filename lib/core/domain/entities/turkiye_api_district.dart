@@ -13,4 +13,14 @@ class TurkiyeAPIDistrict {
       _$TurkiyeAPIDistrictFromJson(json);
 
   Map<String, dynamic> toJson() => _$TurkiyeAPIDistrictToJson(this);
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TurkiyeAPIDistrict &&
+          runtimeType == other.runtimeType &&
+          id == other.id;
+
+  @override
+  int get hashCode => id.hashCode;
 }

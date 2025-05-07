@@ -43,6 +43,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Kurbanınızın kesileceği yer hakkında bilgi girin"),
         "FilterQurbani":
             MessageLookupByLibrary.simpleMessage("Kurbanları Filtrele"),
+        "ImportantInfo": MessageLookupByLibrary.simpleMessage("Önemli Bilgi"),
+        "ImportantInfoDesc": MessageLookupByLibrary.simpleMessage(
+            "Bir kurban maksimum 7 ortak olabilir."),
         "Location": MessageLookupByLibrary.simpleMessage("Konum"),
         "LocationInfo": MessageLookupByLibrary.simpleMessage("Konum Bilgileri"),
         "MaximumPartners7": MessageLookupByLibrary.simpleMessage(
@@ -90,6 +93,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("İptal"),
         "clear": MessageLookupByLibrary.simpleMessage("Temizle"),
         "completed": MessageLookupByLibrary.simpleMessage("Tamamlanan"),
+        "confirmQurbaniInfo": MessageLookupByLibrary.simpleMessage(
+            "Kurban Bilgilerini Onaylayın"),
         "continueTxt": MessageLookupByLibrary.simpleMessage("Devam Et"),
         "count": MessageLookupByLibrary.simpleMessage("Sayısı"),
         "cut": MessageLookupByLibrary.simpleMessage("Kesildi"),
@@ -184,6 +189,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "successfullyShared":
             MessageLookupByLibrary.simpleMessage("Kurban başarıyla paylaşıldı"),
         "total": MessageLookupByLibrary.simpleMessage("Toplam"),
+        "totalPartnersCount":
+            MessageLookupByLibrary.simpleMessage("Toplam Ortak Sayısı"),
         "totalPartnersCountMax":
             MessageLookupByLibrary.simpleMessage("Ortak Sayısı (max 7)"),
         "updateNow": MessageLookupByLibrary.simpleMessage("Şimdi Güncelle"),

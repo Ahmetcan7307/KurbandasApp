@@ -163,5 +163,9 @@
   "pleaseDistrict": "Please select district",
   "enterCutAddress": "Enter cut address",
   "pleaseCutAddress": "Please enter cut address",
-  "previous": "Previous"
+  "previous": "Previous",
+  "confirmQurbaniInfo": "Confirm Qurbani informations",
+  "ImportantInfo": "Important Information",
+  "ImportantInfoDesc": "One sacrifice can have a maximum of 7 partners.",
+  "totalPartnersCount": "Total Partners Count"
 }

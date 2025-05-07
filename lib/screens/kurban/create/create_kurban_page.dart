@@ -188,6 +188,8 @@ class _CreateKurbanPageState extends State<CreateKurbanPage> {
 
         showSnackBar(context,
             text: lang.successfullyShared, color: Colors.green);
+
+        Navigator.pop(context);
       } catch (e) {
         showSnackBar(context, text: "${lang.error}: $e");
       }

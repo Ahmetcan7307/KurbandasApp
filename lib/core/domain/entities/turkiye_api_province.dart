@@ -20,4 +20,14 @@ class TurkiyeAPIProvince {
     json.clearNulls();
     return json;
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TurkiyeAPIProvince &&
+          runtimeType == other.runtimeType &&
+          id == other.id;
+
+  @override
+  int get hashCode => id.hashCode;
 }
