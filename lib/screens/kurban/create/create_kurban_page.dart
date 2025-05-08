@@ -183,7 +183,7 @@ class _CreateKurbanPageState extends State<CreateKurbanPage> {
   Future submitKurban() async {
     if (kurbanStore.newKurban != null && kurbanStore.newKurban!.isComplete) {
       try {
-        await kurbanStore.createKurban();
+        await kurbanStore.create();
 
         showSnackBar(context,
             text: lang.successfullyShared, color: Colors.green);

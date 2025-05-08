@@ -22,6 +22,8 @@ class _CreateKurbanPreviewPageState extends State<CreateKurbanPreviewPage> {
 
   late KurbanStore kurbanStore;
 
+  bool isLoading = false;
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -125,12 +127,14 @@ class _CreateKurbanPreviewPageState extends State<CreateKurbanPreviewPage> {
               const SizedBox(width: 16),
               Expanded(
                 child: ElevatedButton(
-                    onPressed: widget.onSubmit,
+                    onPressed: isLoading ? null : widget.onSubmit,
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Theme.of(context).primaryColor,
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(vertical: 16)),
-                    child: Text(lang.shareQurbani)),
+                    child: isLoading
+                        ? CircularProgressIndicator()
+                        : Text(lang.shareQurbani)),
               )
             ],
           )
@@ -224,4 +228,16 @@ class _CreateKurbanPreviewPageState extends State<CreateKurbanPreviewPage> {
           ],
         ),
       );
+
+  submit() {
+    setState(() {
+      isLoading = true;
+    });
+
+    widget.onSubmit();
+
+    setState(() {
+      isLoading = false;
+    });
+  }
 }

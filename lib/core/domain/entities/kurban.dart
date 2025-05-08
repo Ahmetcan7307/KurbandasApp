@@ -71,6 +71,16 @@ class Kurban extends EntityBase {
       totalPartnersCount != null &&
       totalPartnersCount! > 0 &&
       totalPartnersCount! <= 7;
+
+  clear() {
+    animal = null;
+    weight = null;
+    price = null;
+    cutDate = null;
+    address = null;
+    totalPartnersCount = null;
+    remainPartnersCount = null;
+  }
 }
 
 @JsonSerializable()

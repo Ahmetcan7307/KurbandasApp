@@ -14,7 +14,13 @@ class User extends EntityBase {
   String? photoUrl;
   String? accessToken;
 
-  User({this.name, this.surname, this.email, this.phoneNo, this.accessToken});
+  User(
+      {this.name,
+      this.surname,
+      this.email,
+      this.phoneNo,
+      this.accessToken,
+      this.token});
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 

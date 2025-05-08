@@ -151,7 +151,9 @@ class KurbanService {
 
   Future postRequest(String documentId) async {}
 
-  Future postKurban(Map<String, dynamic> data) async {}
+  // returns DocumentId
+  Future<String> postKurban(Map<String, dynamic> data) async =>
+      await Future.value("vqyyv08hsxf49vcymrioulcc");
 
   Future updateKurban(Map<String, dynamic> data) async {
     // API entegrasyon kodu eklenmeli

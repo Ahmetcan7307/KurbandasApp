@@ -267,12 +267,12 @@ mixin _$KurbanStore on _KurbanStore, Store {
         .run(() => super.getDeactiveKurbans(page));
   }
 
-  late final _$createKurbanAsyncAction =
-      AsyncAction('_KurbanStore.createKurban', context: context);
+  late final _$createAsyncAction =
+      AsyncAction('_KurbanStore.create', context: context);
 
   @override
-  Future<dynamic> createKurban() {
-    return _$createKurbanAsyncAction.run(() => super.createKurban());
+  Future<dynamic> create() {
+    return _$createAsyncAction.run(() => super.create());
   }
 
   late final _$pickImageAsyncAction =

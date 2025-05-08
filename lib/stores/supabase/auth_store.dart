@@ -1,7 +1,9 @@
+import 'package:hive/hive.dart';
 import 'package:kurbandas/services/apis/google_apis/google_api_service.dart';
 import 'package:kurbandas/services/apis/my_api/user_service.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../core/const/hive_cons.dart';
 import '../../core/domain/entities/user.dart';
 import '../../injector.dart';
 import '../../services/supabase/auth_service.dart';
@@ -24,7 +26,7 @@ abstract class _AuthStore with Store {
 
   @action
   Future currentUser() async {
-    User? authUser = User(email: "ahmet@test.com");
+    User? authUser = await authService.currentUser();
     if (authUser != null) {
       user = await userService.get();
     }
@@ -39,13 +41,14 @@ abstract class _AuthStore with Store {
 
   @action
   Future signInWithGoogle() async {
-    User? authUser =
-        User(name: "Ahmet", surname: "Balaman", email: "ahmet@test.com");
+    User? authUser = await authService.signInWithGoogle();
     if (authUser != null) {
-      //authUser.phoneNo = await googleApiService.getPhoneNumber(authUser.accessToken!);
+      authUser.phoneNo =
+          await googleApiService.getPhoneNumber(authUser.accessToken!);
       User dbUser = await userService.signIn(authUser.toJson());
       user = dbUser;
-      //await Hive.box<String>(HiveCons.settings).put(HiveCons.token, user!.token!);
+      await Hive.box<String>(HiveCons.settings)
+          .put(HiveCons.token, user!.token!);
     }
   }
 }

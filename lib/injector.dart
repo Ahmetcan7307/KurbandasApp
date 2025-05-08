@@ -13,6 +13,7 @@ import 'package:kurbandas/services/image_picker_service.dart';
 import 'package:kurbandas/services/package_info_service.dart';
 import 'package:kurbandas/services/store_service.dart';
 import 'package:kurbandas/services/supabase/auth_service.dart';
+import 'package:kurbandas/services/supabase/storage_service.dart';
 import 'package:kurbandas/services/url_launcher_service.dart';
 import 'package:kurbandas/stores/api/app_setting_store.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
@@ -54,6 +55,7 @@ Future init() async {
       serviceLocator.get<Dio>(instanceName: GetCons.othersDio)));
   serviceLocator.registerLazySingleton(() => StoreService());
   serviceLocator.registerLazySingleton(() => ImagePickerService());
+  serviceLocator.registerLazySingleton(() => StorageService());
 
   serviceLocator.registerLazySingleton(() => RootStore(
       urlLauncherStore: serviceLocator.get<UrlLauncherStore>(),

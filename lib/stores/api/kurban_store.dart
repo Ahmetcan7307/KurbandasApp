@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:kurbandas/core/const/storage_cons.dart';
 import 'package:kurbandas/core/domain/entities/address.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/domain/entities/kurban_request.dart';
@@ -12,6 +13,7 @@ import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/injector.dart';
 import 'package:kurbandas/services/apis/my_api/kurban_service.dart';
 import 'package:kurbandas/services/image_picker_service.dart';
+import 'package:kurbandas/services/supabase/storage_service.dart';
 import 'package:mobx/mobx.dart';
 
 part 'kurban_store.g.dart';
@@ -55,6 +57,7 @@ abstract class _KurbanStore with Store {
   KurbanService service = serviceLocator.get<KurbanService>();
   ImagePickerService imagePickerService =
       serviceLocator.get<ImagePickerService>();
+  StorageService storageService = serviceLocator.get<StorageService>();
 
   int pageSize = 10;
 
@@ -184,8 +187,24 @@ abstract class _KurbanStore with Store {
       await service.postRequest(selectedKurban!.documentId!);
 
   @action
-  Future createKurban() async {
-    await service.postKurban(newKurban!.toJson());
+  Future create() async {
+    String documentId = await service.postKurban(newKurban!.toJson());
+    newKurban!.clear();
+
+    newKurban!.documentId = documentId;
+    newKurban!.photoUrls = [];
+    for (int i = 0; i < selectedPhotos.length; i++) {
+      File photo = selectedPhotos[i];
+      String path =
+          "$documentId/$i.${photo.path.split("/").last.split(".").last}";
+      await storageService.uploadFile(
+          StorageCons.kurbansBucketName, path, photo);
+
+      newKurban!.photoUrls!.add(
+          storageService.getPublicUrl(StorageCons.kurbansBucketName, path));
+    }
+
+    await service.updateKurban(newKurban!.toJson());
 
     newKurban = null;
   }
