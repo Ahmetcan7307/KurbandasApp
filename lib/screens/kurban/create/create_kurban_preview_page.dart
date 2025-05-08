@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
 import 'package:kurbandas/stores/root_store.dart';
 import 'package:provider/provider.dart';
-import 'package:intl/intl.dart';
-import 'dart:io';
 
 class CreateKurbanPreviewPage extends StatefulWidget {
   final VoidCallback onSubmit;
@@ -87,35 +86,30 @@ class _CreateKurbanPreviewPageState extends State<CreateKurbanPreviewPage> {
                 )),
           if (kurbanStore.newKurban!.cutDate != null)
             const SizedBox(height: 16),
-          if (kurbanStore.newKurban!.photoUrls != null &&
-              kurbanStore.newKurban!.photoUrls!.isNotEmpty)
-            buildCard(
-                title: "Fotoğraflar",
-                icon: Icons.photo_library,
-                content: SizedBox(
-                  height: 120,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: kurbanStore.newKurban!.photoUrls!.length,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        margin: EdgeInsets.all(5),
-                        width: 100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          image: DecorationImage(
-                            image: FileImage(
-                                File(kurbanStore.newKurban!.photoUrls![index])),
-                            fit: BoxFit.cover,
-                          ),
+          buildCard(
+              title: lang.photos,
+              icon: Icons.photo_library,
+              content: SizedBox(
+                height: 120,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: kurbanStore.selectedPhotos.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: EdgeInsets.all(5),
+                      width: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        image: DecorationImage(
+                          image: FileImage(kurbanStore.selectedPhotos[index]),
+                          fit: BoxFit.cover,
                         ),
-                      );
-                    },
-                  ),
-                )),
-          if (kurbanStore.newKurban!.photoUrls != null &&
-              kurbanStore.newKurban!.photoUrls!.isNotEmpty)
-            const SizedBox(height: 16),
+                      ),
+                    );
+                  },
+                ),
+              )),
+          const SizedBox(height: 16),
           buildNoticeCard(
               title: lang.ImportantInfo, content: lang.ImportantInfoDesc),
           const SizedBox(height: 32),
