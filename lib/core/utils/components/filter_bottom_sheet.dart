@@ -74,7 +74,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       IconButton(
-                          onPressed: () => Navigator.pop(context),
+                          onPressed: () => Navigator.pop(context, false),
                           icon: const Icon(Icons.close))
                     ],
                   ),
@@ -99,31 +99,36 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                       .toList(),
                 ),
                 const SizedBox(height: 16),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8),
-                  child: Text(
-                    lang.Location,
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 8),
+                      child: Text(
+                        lang.Location,
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    ProvinceDropdownButtonFormField(
+                      value: selectedProvince,
+                      onChanged: (TurkiyeAPIProvince? province) {
+                        turkiyeAPIStore.selectProvince(province!.id);
+                        setState(() {
+                          selectedProvince = province;
+                          selectedDistrict = null;
+                        });
+                      },
+                    ),
+                    const SizedBox(height: 16),
+                    if (selectedProvince != null)
+                      DistrictDropdownButtonFormField(
+                          value: selectedDistrict,
+                          onChanged: (TurkiyeAPIDistrict? districtId) =>
+                              setState(() {
+                                selectedDistrict = districtId;
+                              })),
+                  ],
                 ),
-                ProvinceDropdownButtonFormField(
-                  value: selectedProvince,
-                  onChanged: (TurkiyeAPIProvince? province) {
-                    turkiyeAPIStore.selectProvince(province!.id);
-                    setState(() {
-                      selectedProvince = province;
-                      selectedDistrict = null;
-                    });
-                  },
-                ),
-                const SizedBox(height: 16),
-                if (selectedProvince != null)
-                  DistrictDropdownButtonFormField(
-                      value: selectedDistrict,
-                      onChanged: (TurkiyeAPIDistrict? districtId) =>
-                          setState(() {
-                            selectedDistrict = districtId;
-                          })),
                 const SizedBox(height: 24),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,

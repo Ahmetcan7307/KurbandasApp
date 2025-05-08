@@ -68,4 +68,11 @@ class Validator {
 
     return null;
   }
+
+  static String? checkString(String? value, String errorMessage) {
+    if (value == null || value.isEmpty) {
+      return errorMessage;
+    }
+    return null;
+  }
 }

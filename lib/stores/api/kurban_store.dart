@@ -9,6 +9,7 @@ import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/injector.dart';
 import 'package:kurbandas/services/apis/my_api/kurban_service.dart';
 import 'package:mobx/mobx.dart';
+import 'dart:io';
 
 part 'kurban_store.g.dart';
 
@@ -79,6 +80,20 @@ abstract class _KurbanStore with Store {
   @action
   Future<List<Kurban>> delete(String documentId) async =>
       myKurbans = await service.delete(documentId);
+
+  @action
+  Future updateKurban(Kurban kurban) async {
+    await service.updateKurban(kurban.toJson());
+    // Kurban başarıyla güncellendikten sonra eğer Kurbanlarım listesi dolu ise
+    // güncellenen kurbanı listede bul ve güncelle
+    if (myKurbans != null && myKurbans!.isNotEmpty) {
+      final index =
+          myKurbans!.indexWhere((k) => k.documentId == kurban.documentId);
+      if (index != -1) {
+        myKurbans![index] = kurban;
+      }
+    }
+  }
 
   @action
   Future getMyPartnerships() async =>
@@ -175,5 +190,16 @@ abstract class _KurbanStore with Store {
   @action
   selectNewKurbanProvince(TurkiyeAPIProvince province) {
     newKurban!.address ??= Address(province: province);
+  }
+
+  @action
+  setImages(List<File> images) {
+    if (images.isNotEmpty) {
+      newKurban!.photoUrls ??= [];
+
+      List<String> paths = images.map((file) => file.path).toList();
+
+      newKurban!.photoUrls = paths;
+    }
   }
 }

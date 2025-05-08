@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage>
   void initState() {
     super.initState();
 
-    tabController = TabController(length: 3, vsync: this);
+    tabController = TabController(length: 2, vsync: this);
   }
 
   @override
@@ -77,11 +77,7 @@ class _HomePageState extends State<HomePage>
               indicatorColor: Colors.white,
               labelColor: Colors.white,
               unselectedLabelColor: Colors.white.withValues(alpha: .7),
-              tabs: [
-                Tab(text: lang.all),
-                Tab(text: lang.active),
-                Tab(text: lang.completed)
-              ]),
+              tabs: [Tab(text: lang.active), Tab(text: lang.completed)]),
         ),
       ),
       body: Observer(builder: (context) {
@@ -138,7 +134,6 @@ class _HomePageState extends State<HomePage>
               ),
             Expanded(
               child: TabBarView(controller: tabController, children: [
-                KurbanList(),
                 KurbanList(isActive: true),
                 KurbanList(isActive: false)
               ]),
@@ -158,11 +153,12 @@ class _HomePageState extends State<HomePage>
 
   Future showFilterBottomSheet() async {
     if (await showModalBottomSheet(
-        context: context,
-        isScrollControlled: true,
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-        builder: (context) => FilterBottomSheet()) as bool) {
+            context: context,
+            isScrollControlled: true,
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+            builder: (context) => FilterBottomSheet()) as bool? ??
+        false) {
       setState(() {});
     }
   }

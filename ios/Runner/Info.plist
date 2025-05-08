@@ -66,5 +66,13 @@
           <string>sms</string>
           <string>tel</string>
         </array>
+        
+        <!-- Kamera ve fotoğraf kitaplığı erişim izinleri -->
+        <key>NSCameraUsageDescription</key>
+        <string>Kurban kaydı için fotoğraf çekmenize izin veriliyor</string>
+        <key>NSPhotoLibraryUsageDescription</key>
+        <string>Kurban kaydı için fotoğraflarınızı seçmenize izin veriliyor</string>
+        <key>NSMicrophoneUsageDescription</key>
+        <string>Kurban kaydı için video çekmenize izin veriliyor</string>
 	</dict>
 </plist>

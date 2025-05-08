@@ -5,6 +5,7 @@ import 'package:kurbandas/core/utils/components/kurban/kurban_card.dart';
 import 'package:kurbandas/core/utils/components/my_snackbar.dart';
 import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/routes.dart';
+import 'package:kurbandas/screens/kurban/edit/edit_kurban_page.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
 import 'package:kurbandas/stores/root_store.dart';
 import 'package:provider/provider.dart';
@@ -118,7 +119,12 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
                 icon: Icons.edit,
                 label: lang.edit,
                 onTap: () {
-                  // Todo Edit sayfasına yönlendirme. ve edit sayfası oluşturma
+                  kurbanStore.selectKurban(true, null, index);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const EditKurbanPage()),
+                  );
                 }),
             ActionButton(
                 icon: Icons.delete,

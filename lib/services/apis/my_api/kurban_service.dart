@@ -130,6 +130,9 @@ class KurbanService {
               totalPartnersCount: 7,
               status: KurbanStatus.values[index % KurbanStatus.values.length],
               photoUrls: [
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg",
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg",
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg"
               ],
               owner: User(name: "User", surname: index.toString()),
@@ -149,4 +152,10 @@ class KurbanService {
   Future postRequest(String documentId) async {}
 
   Future postKurban(Map<String, dynamic> data) async {}
+
+  Future updateKurban(Map<String, dynamic> data) async {
+    // API entegrasyon kodu eklenmeli
+    // Şimdilik simulasyon olarak boş fonksiyon
+    await Future.delayed(Duration(milliseconds: 500));
+  }
 }

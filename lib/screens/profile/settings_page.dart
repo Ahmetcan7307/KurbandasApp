@@ -1,6 +1,8 @@
 // ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
 import 'package:kurbandas/generated/l10n.dart';
+import 'package:kurbandas/screens/profile/about_page.dart';
+import 'package:kurbandas/screens/profile/help_page.dart';
 import 'package:kurbandas/stores/root_store.dart';
 import 'package:kurbandas/stores/supabase/auth_store.dart';
 import 'package:provider/provider.dart';
@@ -42,13 +44,19 @@ class _SettingsPageState extends State<SettingsPage> {
               icon: Icons.info,
               title: lang.info,
               onTap: () {
-                // Todo Hakkında kısmının sayfasını oluştur. Gerekli bilgiler verilecek sonra
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AboutPage()),
+                );
               }),
           buildItem(
               icon: Icons.help,
               title: lang.help,
               onTap: () {
-                // Todo Yardım kısmının sayfasını oluştur.
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HelpPage()),
+                );
               })
         ]),
         buildSection(title: lang.AccountOperations, items: [

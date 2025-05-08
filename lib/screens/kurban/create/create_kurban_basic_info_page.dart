@@ -7,6 +7,9 @@ import 'package:kurbandas/services/validator.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
 import 'package:kurbandas/stores/root_store.dart';
 import 'package:provider/provider.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
+import 'package:intl/intl.dart';
 
 class CreateKurbanBasicInfoPage extends StatefulWidget {
   final VoidCallback onContinue;
@@ -23,7 +26,12 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
 
   TextEditingController weightCnt = TextEditingController(),
       priceCnt = TextEditingController(),
-      totalPartnersCountCnt = TextEditingController();
+      totalPartnersCountCnt = TextEditingController(),
+      cutDateCnt = TextEditingController();
+
+  DateTime? selectedCutDate;
+  List<File> selectedImages = [];
+  final ImagePicker _picker = ImagePicker();
 
   late KurbanStore kurbanStore;
 
@@ -46,6 +54,10 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
         if (kurbanStore.newKurban!.totalPartnersCount != null) {
           totalPartnersCountCnt.text =
               kurbanStore.newKurban!.totalPartnersCount!.toString();
+        }
+        if (kurbanStore.newKurban!.cutDate != null) {
+          selectedCutDate = kurbanStore.newKurban!.cutDate;
+          cutDateCnt.text = DateFormat('dd.MM.yyyy').format(selectedCutDate!);
         }
       }
 
@@ -71,6 +83,7 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
     weightCnt.dispose();
     priceCnt.dispose();
     totalPartnersCountCnt.dispose();
+    cutDateCnt.dispose();
     super.dispose();
   }
 
@@ -172,6 +185,51 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
                               lang.validTotalPartnersCount,
                               lang.MaximumPartners7),
                     ),
+                    const SizedBox(height: 16),
+                    Text(
+                      lang.cutDate,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 8),
+                    TextFormField(
+                      controller: cutDateCnt,
+                      readOnly: true,
+                      decoration: InputDecoration(
+                        hintText: "lang.selectCutDate",
+                        prefixIcon: Icon(Icons.calendar_today),
+                        suffixIcon: IconButton(
+                          icon: Icon(Icons.clear),
+                          onPressed: () {
+                            setState(() {
+                              selectedCutDate = null;
+                              cutDateCnt.clear();
+                            });
+                          },
+                        ),
+                      ),
+                      onTap: () async {
+                        final DateTime? picked = await showDatePicker(
+                          context: context,
+                          initialDate: selectedCutDate ?? DateTime.now(),
+                          firstDate: DateTime.now(),
+                          lastDate: DateTime.now().add(Duration(days: 365)),
+                        );
+                        if (picked != null && picked != selectedCutDate) {
+                          setState(() {
+                            selectedCutDate = picked;
+                            cutDateCnt.text =
+                                DateFormat('dd.MM.yyyy').format(picked);
+                          });
+                        }
+                      },
+                    ),
+                    const SizedBox(height: 24),
+                    Text(
+                      "lang.photos",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 8),
+                    imagePickerWidget(),
                     const SizedBox(height: 32),
                     SizedBox(
                       width: double.infinity,
@@ -194,12 +252,158 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
     );
   }
 
+  Widget imagePickerWidget() {
+    final int remainingPhotos = 7 - selectedImages.length;
+
+    return Column(
+      children: [
+        Container(
+          height: 120,
+          decoration: BoxDecoration(
+            color: Colors.grey[200],
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: selectedImages.isEmpty
+              ? Center(
+                  child: Text(
+                    "Fotoğraf eklemek için aşağıdaki butonları kullanın (max 7)",
+                    style: TextStyle(color: Colors.grey[600]),
+                    textAlign: TextAlign.center,
+                  ),
+                )
+              : ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: selectedImages.length,
+                  itemBuilder: (context, index) {
+                    return Stack(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.all(5),
+                          width: 100,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            image: DecorationImage(
+                              image: FileImage(selectedImages[index]),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          top: 0,
+                          right: 0,
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                selectedImages.removeAt(index);
+                              });
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.red,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                Icons.close,
+                                color: Colors.white,
+                                size: 20,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                ),
+        ),
+        if (selectedImages.isNotEmpty)
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: Text(
+              "Kalan fotoğraf sayısı: $remainingPhotos",
+              style: TextStyle(
+                  color: remainingPhotos > 0 ? Colors.grey[600] : Colors.red),
+            ),
+          ),
+        SizedBox(height: 16),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            OutlinedButton.icon(
+              onPressed: remainingPhotos > 0
+                  ? () => getImages(ImageSource.camera)
+                  : null,
+              icon: Icon(Icons.camera_alt),
+              label: Text("Kamera"),
+            ),
+            SizedBox(width: 16),
+            OutlinedButton.icon(
+              onPressed: remainingPhotos > 0
+                  ? () => getImages(ImageSource.gallery)
+                  : null,
+              icon: Icon(Icons.photo_library),
+              label: Text("Galeri"),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Future<void> getImages(ImageSource source) async {
+    // Maksimum 7 fotoğraf sınırı
+    if (selectedImages.length >= 7) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Maksimum 7 fotoğraf ekleyebilirsiniz'),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
+    if (source == ImageSource.camera) {
+      final XFile? photo = await _picker.pickImage(source: source);
+      if (photo != null) {
+        setState(() {
+          selectedImages.add(File(photo.path));
+        });
+      }
+    } else {
+      final List<XFile>? photos = await _picker.pickMultiImage();
+      if (photos != null && photos.isNotEmpty) {
+        // Toplam fotoğraf sayısı 7'yi geçmeyecek şekilde ekleyelim
+        final int remainingSlots = 7 - selectedImages.length;
+        final int photosToAdd =
+            photos.length > remainingSlots ? remainingSlots : photos.length;
+
+        if (photosToAdd < photos.length) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                  'Maksimum 7 fotoğraf ekleyebilirsiniz. İlk $photosToAdd fotoğraf eklendi.'),
+              backgroundColor: Colors.orange,
+            ),
+          );
+        }
+
+        setState(() {
+          selectedImages
+              .addAll(photos.sublist(0, photosToAdd).map((e) => File(e.path)));
+        });
+      }
+    }
+  }
+
   saveAndContinue() {
     if (formKey.currentState!.validate()) {
       kurbanStore.newKurban!.weight = double.parse(weightCnt.text);
       kurbanStore.newKurban!.price = double.parse(priceCnt.text);
       kurbanStore.newKurban!.totalPartnersCount =
           int.parse(totalPartnersCountCnt.text);
+      kurbanStore.newKurban!.cutDate = selectedCutDate;
+
+      // Fotoğrafları kurbanStore'a kaydetme işlemi (gerçek implementasyon uygulamanın yapısına göre farklı olabilir)
+      kurbanStore.setImages(selectedImages);
 
       widget.onContinue();
     }

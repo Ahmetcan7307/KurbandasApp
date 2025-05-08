@@ -193,11 +193,53 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
             kurbanStore.selectedKurban!.animal!.name!,
             style: const TextStyle(
                 fontWeight: FontWeight.bold, color: Colors.white),
-          ), // Todo birden fazla fotoğraf gösterilmeli
-          background: KurbanBackgroundImage(linearGradientColors: [
-            Colors.black.withValues(alpha: .3),
-            Colors.black.withValues(alpha: .5)
-          ], photoUrl: kurbanStore.selectedKurban!.photoUrls![0]),
+          ),
+          background: Stack(
+            children: [
+              // Eğer birden fazla fotoğraf varsa PageView ile göster
+              if (kurbanStore.selectedKurban!.photoUrls != null &&
+                  kurbanStore.selectedKurban!.photoUrls!.length > 1)
+                PageView.builder(
+                  itemCount: kurbanStore.selectedKurban!.photoUrls!.length,
+                  itemBuilder: (context, index) {
+                    return KurbanBackgroundImage(linearGradientColors: [
+                      Colors.black.withValues(alpha: .3),
+                      Colors.black.withValues(alpha: .5)
+                    ], photoUrl: kurbanStore.selectedKurban!.photoUrls![index]);
+                  },
+                )
+              // Tek fotoğraf varsa normal olarak göster
+              else
+                KurbanBackgroundImage(linearGradientColors: [
+                  Colors.black.withValues(alpha: .3),
+                  Colors.black.withValues(alpha: .5)
+                ], photoUrl: kurbanStore.selectedKurban!.photoUrls![0]),
+
+              // Sayfa göstergesi (indicator) ekle
+              if (kurbanStore.selectedKurban!.photoUrls != null &&
+                  kurbanStore.selectedKurban!.photoUrls!.length > 1)
+                Positioned(
+                  bottom: 10,
+                  left: 0,
+                  right: 0,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      kurbanStore.selectedKurban!.photoUrls!.length,
+                      (index) => Container(
+                        width: 8,
+                        height: 8,
+                        margin: EdgeInsets.symmetric(horizontal: 2),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white.withOpacity(0.8),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          ),
         ),
         actions: [IconButton(onPressed: share, icon: Icon(Icons.share))],
       );

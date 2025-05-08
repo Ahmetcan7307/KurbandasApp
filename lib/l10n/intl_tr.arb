@@ -65,7 +65,9 @@
   },
   "PartnershipsCompleted": "Ortaklıklar tamamlandı",
   "cutAddress": "Kesim Yeri",
-  "noCutDate": "Kesim Tarihi belirtilmemiş",
+  "cutDate": "Kesim Tarihi",
+  "selectCutDate": "Kesim tarihi seçin",
+  "noCutDate": "Kesim tarihi belirtilmemiş",
   "partnershipRequests": "Ortaklık İstekleri",
   "waiting": "Bekleyen",
   "approved": "Onaylanmış",
@@ -123,7 +125,6 @@
   "NoQurbaniDesc": "Kurban paylaşmak için \"Yeni Kurban\" butonuna tıklayın",
   "price": "Fiyat",
   "owner": "Sahip",
-  "cutDate": "Kesim Tarihi",
   "partnershipState": "Ortaklık Durumu",
   "count": "Sayısı",
   "remain": "Kalan",
@@ -164,5 +165,9 @@
   "confirmQurbaniInfo": "Kurban Bilgilerini Onaylayın",
   "ImportantInfo": "Önemli Bilgi",
   "ImportantInfoDesc": "Bir kurban maksimum 7 ortak olabilir.",
-  "totalPartnersCount": "Toplam Ortak Sayısı"
+  "totalPartnersCount": "Toplam Ortak Sayısı",
+  "photos": "Fotoğraflar",
+  "addPhotos": "Fotoğraf ekleyin (max 7)",
+  "camera": "Kamera",
+  "gallery": "Galeri"
 }
