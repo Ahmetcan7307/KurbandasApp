@@ -57,7 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "NoQurbani":
             MessageLookupByLibrary.simpleMessage("No Qurbanis were found"),
         "NoQurbaniDesc": MessageLookupByLibrary.simpleMessage(
-            "Click on the “New Qurbani” button to share the Qurbani"),
+            "Click on the \'Share Qurbani\' button to share the Qurbani"),
         "PartnershipsCompleted":
             MessageLookupByLibrary.simpleMessage("Partnerships completed"),
         "Preview": MessageLookupByLibrary.simpleMessage("Preview"),
@@ -76,8 +76,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sign in with Google"),
         "SuccessfullySentRequest":
             MessageLookupByLibrary.simpleMessage("Successfully sent request"),
+        "UseButtonsAddPhotos": MessageLookupByLibrary.simpleMessage(
+            "Use the buttons below to add photos (max 7)"),
         "active": MessageLookupByLibrary.simpleMessage("Actives"),
-        "all": MessageLookupByLibrary.simpleMessage("All"),
+        "addPhotos": MessageLookupByLibrary.simpleMessage("Add photos"),
         "app": MessageLookupByLibrary.simpleMessage("Application"),
         "appUpdateRequired":
             MessageLookupByLibrary.simpleMessage("App Update Required"),
@@ -92,6 +94,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "areYouSureDeleteQurbaniDesc": MessageLookupByLibrary.simpleMessage(
             "This action is irreversible and all partnerships are canceled."),
         "call": MessageLookupByLibrary.simpleMessage("Call"),
+        "camera": MessageLookupByLibrary.simpleMessage("Camera"),
+        "canAdd7Photos":
+            MessageLookupByLibrary.simpleMessage("You can add up to 7 photos"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "clear": MessageLookupByLibrary.simpleMessage("Clear"),
         "completed": MessageLookupByLibrary.simpleMessage("Completed"),
@@ -126,6 +131,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "filters": MessageLookupByLibrary.simpleMessage("Filters"),
         "findPartnersQurbani": MessageLookupByLibrary.simpleMessage(
             "Easily find your partners for Qurbani"),
+        "gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "help": MessageLookupByLibrary.simpleMessage("Help and Support"),
         "info": MessageLookupByLibrary.simpleMessage("Information"),
         "later": MessageLookupByLibrary.simpleMessage("Later"),
@@ -140,7 +146,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "noMyQurbaniAds": MessageLookupByLibrary.simpleMessage(
             "You do not have any sacrifice announcements yet"),
         "noMyQurbaniAdsDesc": MessageLookupByLibrary.simpleMessage(
-            "You can use the “Share Qurbani” button on the home page to share your Qurbani"),
+            "You can use the \'Share Qurbani\' button on the home page to share your Qurbani"),
         "noPartnerships": MessageLookupByLibrary.simpleMessage(
             "There is no Qurbani you have participated in yet"),
         "noPartnershipsDesc": MessageLookupByLibrary.simpleMessage(
@@ -157,10 +163,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Partnership Requests"),
         "partnershipState":
             MessageLookupByLibrary.simpleMessage("Partnership State"),
+        "photos": MessageLookupByLibrary.simpleMessage("Photos"),
         "pleaseCutAddress":
             MessageLookupByLibrary.simpleMessage("Please enter cut address"),
         "pleaseDistrict":
             MessageLookupByLibrary.simpleMessage("Please select district"),
+        "pleasePhoto": MessageLookupByLibrary.simpleMessage(
+            "Please attach at least 1 photo"),
         "pleasePrice": MessageLookupByLibrary.simpleMessage(
             "Please enter the Qurbani\'s price"),
         "pleaseProvince":
@@ -177,11 +186,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "price": MessageLookupByLibrary.simpleMessage("Price"),
         "province": MessageLookupByLibrary.simpleMessage("Province"),
         "remain": MessageLookupByLibrary.simpleMessage("Remain"),
+        "remainingPhotoCount":
+            MessageLookupByLibrary.simpleMessage("Remaining photo count"),
         "requestApproved": m4,
         "requestDate": MessageLookupByLibrary.simpleMessage("Request Date"),
         "requestDeclined": m5,
         "selectAnimal":
             MessageLookupByLibrary.simpleMessage("Select Qurbani animal"),
+        "selectCutDate":
+            MessageLookupByLibrary.simpleMessage("Select cut date"),
         "sendRequest": MessageLookupByLibrary.simpleMessage(
             "Send Request To Become a Partner"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),

@@ -1,15 +1,17 @@
+// ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/services/validator.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
 import 'package:kurbandas/stores/root_store.dart';
 import 'package:provider/provider.dart';
-import 'package:image_picker/image_picker.dart';
-import 'dart:io';
-import 'package:intl/intl.dart';
+
+import '../../../core/utils/components/my_snackbar.dart';
 
 class CreateKurbanBasicInfoPage extends StatefulWidget {
   final VoidCallback onContinue;
@@ -30,8 +32,6 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
       cutDateCnt = TextEditingController();
 
   DateTime? selectedCutDate;
-  List<File> selectedImages = [];
-  final ImagePicker _picker = ImagePicker();
 
   late KurbanStore kurbanStore;
 
@@ -140,7 +140,7 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
                           const TextInputType.numberWithOptions(decimal: true),
                       inputFormatters: [
                         FilteringTextInputFormatter.allow(
-                            RegExp(r'^\d+\.?\d{0,2}'))
+                            RegExp(r"^\d+\.?\d{0,2}"))
                       ],
                       validator: (weight) => Validator.checkDouble(
                           weight, lang.pleaseWeight, lang.validWeight),
@@ -195,7 +195,7 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
                       controller: cutDateCnt,
                       readOnly: true,
                       decoration: InputDecoration(
-                        hintText: "lang.selectCutDate",
+                        hintText: lang.selectCutDate,
                         prefixIcon: Icon(Icons.calendar_today),
                         suffixIcon: IconButton(
                           icon: Icon(Icons.clear),
@@ -225,7 +225,7 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
                     ),
                     const SizedBox(height: 24),
                     Text(
-                      "lang.photos",
+                      lang.photos,
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
@@ -253,7 +253,7 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
   }
 
   Widget imagePickerWidget() {
-    final int remainingPhotos = 7 - selectedImages.length;
+    final int remainingPhotos = 7 - kurbanStore.selectedPhotos.length;
 
     return Column(
       children: [
@@ -263,17 +263,17 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
             color: Colors.grey[200],
             borderRadius: BorderRadius.circular(8),
           ),
-          child: selectedImages.isEmpty
+          child: kurbanStore.selectedPhotos.isEmpty
               ? Center(
                   child: Text(
-                    "Fotoğraf eklemek için aşağıdaki butonları kullanın (max 7)",
+                    lang.UseButtonsAddPhotos,
                     style: TextStyle(color: Colors.grey[600]),
                     textAlign: TextAlign.center,
                   ),
                 )
               : ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: selectedImages.length,
+                  itemCount: kurbanStore.selectedPhotos.length,
                   itemBuilder: (context, index) {
                     return Stack(
                       children: [
@@ -283,7 +283,8 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
                             image: DecorationImage(
-                              image: FileImage(selectedImages[index]),
+                              image:
+                                  FileImage(kurbanStore.selectedPhotos[index]),
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -292,11 +293,7 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
                           top: 0,
                           right: 0,
                           child: GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selectedImages.removeAt(index);
-                              });
-                            },
+                            onTap: () => kurbanStore.removePhoto(index),
                             child: Container(
                               decoration: BoxDecoration(
                                 color: Colors.red,
@@ -315,11 +312,11 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
                   },
                 ),
         ),
-        if (selectedImages.isNotEmpty)
+        if (kurbanStore.selectedPhotos.isNotEmpty)
           Padding(
             padding: const EdgeInsets.only(top: 8.0),
             child: Text(
-              "Kalan fotoğraf sayısı: $remainingPhotos",
+              "${lang.remainingPhotoCount}: $remainingPhotos",
               style: TextStyle(
                   color: remainingPhotos > 0 ? Colors.grey[600] : Colors.red),
             ),
@@ -333,7 +330,7 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
                   ? () => getImages(ImageSource.camera)
                   : null,
               icon: Icon(Icons.camera_alt),
-              label: Text("Kamera"),
+              label: Text(lang.camera),
             ),
             SizedBox(width: 16),
             OutlinedButton.icon(
@@ -341,7 +338,7 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
                   ? () => getImages(ImageSource.gallery)
                   : null,
               icon: Icon(Icons.photo_library),
-              label: Text("Galeri"),
+              label: Text(lang.gallery),
             ),
           ],
         ),
@@ -349,63 +346,34 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
     );
   }
 
-  Future<void> getImages(ImageSource source) async {
+  Future getImages(ImageSource source) async {
     // Maksimum 7 fotoğraf sınırı
-    if (selectedImages.length >= 7) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Maksimum 7 fotoğraf ekleyebilirsiniz'),
-          backgroundColor: Colors.red,
-        ),
-      );
+    if (kurbanStore.selectedPhotos.length >= 7) {
+      showSnackBar(context, text: lang.canAdd7Photos, color: Colors.red);
       return;
     }
 
     if (source == ImageSource.camera) {
-      final XFile? photo = await _picker.pickImage(source: source);
-      if (photo != null) {
-        setState(() {
-          selectedImages.add(File(photo.path));
-        });
-      }
+      await kurbanStore.pickImage(source);
     } else {
-      final List<XFile>? photos = await _picker.pickMultiImage();
-      if (photos != null && photos.isNotEmpty) {
-        // Toplam fotoğraf sayısı 7'yi geçmeyecek şekilde ekleyelim
-        final int remainingSlots = 7 - selectedImages.length;
-        final int photosToAdd =
-            photos.length > remainingSlots ? remainingSlots : photos.length;
-
-        if (photosToAdd < photos.length) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                  'Maksimum 7 fotoğraf ekleyebilirsiniz. İlk $photosToAdd fotoğraf eklendi.'),
-              backgroundColor: Colors.orange,
-            ),
-          );
-        }
-
-        setState(() {
-          selectedImages
-              .addAll(photos.sublist(0, photosToAdd).map((e) => File(e.path)));
-        });
+      if (!(await kurbanStore.pickMultiImage())) {
+        showSnackBar(context, text: lang.canAdd7Photos, color: Colors.orange);
       }
     }
   }
 
   saveAndContinue() {
-    if (formKey.currentState!.validate()) {
+    if (formKey.currentState!.validate() &&
+        kurbanStore.selectedPhotos.isNotEmpty) {
       kurbanStore.newKurban!.weight = double.parse(weightCnt.text);
       kurbanStore.newKurban!.price = double.parse(priceCnt.text);
       kurbanStore.newKurban!.totalPartnersCount =
           int.parse(totalPartnersCountCnt.text);
       kurbanStore.newKurban!.cutDate = selectedCutDate;
 
-      // Fotoğrafları kurbanStore'a kaydetme işlemi (gerçek implementasyon uygulamanın yapısına göre farklı olabilir)
-      kurbanStore.setImages(selectedImages);
-
       widget.onContinue();
+    } else {
+      showSnackBar(context, text: lang.pleasePhoto, color: Colors.orange);
     }
   }
 }

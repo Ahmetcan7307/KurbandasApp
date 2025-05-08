@@ -168,6 +168,22 @@ mixin _$KurbanStore on _KurbanStore, Store {
     });
   }
 
+  late final _$selectedPhotosAtom =
+      Atom(name: '_KurbanStore.selectedPhotos', context: context);
+
+  @override
+  List<File> get selectedPhotos {
+    _$selectedPhotosAtom.reportRead();
+    return super.selectedPhotos;
+  }
+
+  @override
+  set selectedPhotos(List<File> value) {
+    _$selectedPhotosAtom.reportWrite(value, super.selectedPhotos, () {
+      super.selectedPhotos = value;
+    });
+  }
+
   late final _$getAnimalsAsyncAction =
       AsyncAction('_KurbanStore.getAnimals', context: context);
 
@@ -207,6 +223,14 @@ mixin _$KurbanStore on _KurbanStore, Store {
   @override
   Future<List<Kurban>> delete(String documentId) {
     return _$deleteAsyncAction.run(() => super.delete(documentId));
+  }
+
+  late final _$updateKurbanAsyncAction =
+      AsyncAction('_KurbanStore.updateKurban', context: context);
+
+  @override
+  Future<dynamic> updateKurban(Kurban kurban) {
+    return _$updateKurbanAsyncAction.run(() => super.updateKurban(kurban));
   }
 
   late final _$getMyPartnershipsAsyncAction =
@@ -249,6 +273,22 @@ mixin _$KurbanStore on _KurbanStore, Store {
   @override
   Future<dynamic> createKurban() {
     return _$createKurbanAsyncAction.run(() => super.createKurban());
+  }
+
+  late final _$pickImageAsyncAction =
+      AsyncAction('_KurbanStore.pickImage', context: context);
+
+  @override
+  Future<dynamic> pickImage(ImageSource source) {
+    return _$pickImageAsyncAction.run(() => super.pickImage(source));
+  }
+
+  late final _$pickMultiImageAsyncAction =
+      AsyncAction('_KurbanStore.pickMultiImage', context: context);
+
+  @override
+  Future<bool> pickMultiImage() {
+    return _$pickMultiImageAsyncAction.run(() => super.pickMultiImage());
   }
 
   late final _$_KurbanStoreActionController =
@@ -327,6 +367,28 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
+  dynamic setImages(List<File> images) {
+    final _$actionInfo = _$_KurbanStoreActionController.startAction(
+        name: '_KurbanStore.setImages');
+    try {
+      return super.setImages(images);
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic removePhoto(int index) {
+    final _$actionInfo = _$_KurbanStoreActionController.startAction(
+        name: '_KurbanStore.removePhoto');
+    try {
+      return super.removePhoto(index);
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 animals: ${animals},
@@ -338,7 +400,8 @@ allKurbans: ${allKurbans},
 activeKurbans: ${activeKurbans},
 deactiveKurbans: ${deactiveKurbans},
 selectedKurban: ${selectedKurban},
-newKurban: ${newKurban}
+newKurban: ${newKurban},
+selectedPhotos: ${selectedPhotos}
     ''';
   }
 }

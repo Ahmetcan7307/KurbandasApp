@@ -72,8 +72,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Google ile Giriş Yap"),
         "SuccessfullySentRequest": MessageLookupByLibrary.simpleMessage(
             "Başarılı bir şekilde istek gönderildi"),
+        "UseButtonsAddPhotos": MessageLookupByLibrary.simpleMessage(
+            "Fotoğraf eklemek için aşağıdaki butonları kullanın (max 7)"),
         "active": MessageLookupByLibrary.simpleMessage("Aktif"),
-        "all": MessageLookupByLibrary.simpleMessage("Tümü"),
+        "addPhotos":
+            MessageLookupByLibrary.simpleMessage("Fotoğraf ekleyin (max 7)"),
         "app": MessageLookupByLibrary.simpleMessage("Uygulama"),
         "appUpdateRequired": MessageLookupByLibrary.simpleMessage(
             "Uygulama Güncellemesi Gerekli"),
@@ -87,6 +90,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "areYouSureDeleteQurbaniDesc": MessageLookupByLibrary.simpleMessage(
             "Bu işlem geri alınamaz ve tüm ortaklıklar iptal edilir."),
         "call": MessageLookupByLibrary.simpleMessage("Ara"),
+        "camera": MessageLookupByLibrary.simpleMessage("Kamera"),
+        "canAdd7Photos": MessageLookupByLibrary.simpleMessage(
+            "Maksimum 7 fotoğraf ekleyebilirsiniz"),
         "cancel": MessageLookupByLibrary.simpleMessage("İptal"),
         "clear": MessageLookupByLibrary.simpleMessage("Temizle"),
         "completed": MessageLookupByLibrary.simpleMessage("Tamamlanan"),
@@ -120,6 +126,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "filters": MessageLookupByLibrary.simpleMessage("Filtreler"),
         "findPartnersQurbani": MessageLookupByLibrary.simpleMessage(
             "Kurban için ortaklarınızı kolayca bulun"),
+        "gallery": MessageLookupByLibrary.simpleMessage("Galeri"),
         "help": MessageLookupByLibrary.simpleMessage("Yardım ve Destek"),
         "info": MessageLookupByLibrary.simpleMessage("Hakkında"),
         "later": MessageLookupByLibrary.simpleMessage("Daha Sonra"),
@@ -131,7 +138,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "noApprovedRequests": MessageLookupByLibrary.simpleMessage(
             "Onaylanmış hiçbir isteğiniz yok"),
         "noCutDate":
-            MessageLookupByLibrary.simpleMessage("Kesim Tarihi belirtilmemiş"),
+            MessageLookupByLibrary.simpleMessage("Kesim tarihi belirtilmemiş"),
         "noMyQurbaniAds": MessageLookupByLibrary.simpleMessage(
             "Henüz kurban ilanınız bulunmuyor"),
         "noMyQurbaniAdsDesc": MessageLookupByLibrary.simpleMessage(
@@ -152,10 +159,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ortaklık İstekleri"),
         "partnershipState":
             MessageLookupByLibrary.simpleMessage("Ortaklık Durumu"),
+        "photos": MessageLookupByLibrary.simpleMessage("Fotoğraflar"),
         "pleaseCutAddress": MessageLookupByLibrary.simpleMessage(
             "Lütfen kesim alanının adını giriniz"),
         "pleaseDistrict":
             MessageLookupByLibrary.simpleMessage("Lütfen ilçeyi seçin"),
+        "pleasePhoto": MessageLookupByLibrary.simpleMessage(
+            "Lütfen en az 1 fotoğraf ekleyiniz"),
         "pleasePrice": MessageLookupByLibrary.simpleMessage(
             "Lütfen Kurbanın fiyatını giriniz"),
         "pleaseProvince":
@@ -172,11 +182,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "price": MessageLookupByLibrary.simpleMessage("Fiyat"),
         "province": MessageLookupByLibrary.simpleMessage("İl"),
         "remain": MessageLookupByLibrary.simpleMessage("Kalan"),
+        "remainingPhotoCount":
+            MessageLookupByLibrary.simpleMessage("Kalan fotoğraf sayısı"),
         "requestApproved": m4,
         "requestDate": MessageLookupByLibrary.simpleMessage("İstek Tarihi"),
         "requestDeclined": m5,
         "selectAnimal":
             MessageLookupByLibrary.simpleMessage("Kurban hayvanını seçin"),
+        "selectCutDate":
+            MessageLookupByLibrary.simpleMessage("Kesim tarihi seçin"),
         "sendRequest":
             MessageLookupByLibrary.simpleMessage("Ortak Olma İsteği Gönder"),
         "settings": MessageLookupByLibrary.simpleMessage("Ayarlar"),

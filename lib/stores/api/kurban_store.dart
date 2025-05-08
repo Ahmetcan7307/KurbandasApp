@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:kurbandas/core/domain/entities/address.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/domain/entities/kurban_request.dart';
@@ -8,8 +11,8 @@ import 'package:kurbandas/core/models/filter.dart';
 import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/injector.dart';
 import 'package:kurbandas/services/apis/my_api/kurban_service.dart';
+import 'package:kurbandas/services/image_picker_service.dart';
 import 'package:mobx/mobx.dart';
-import 'dart:io';
 
 part 'kurban_store.g.dart';
 
@@ -46,7 +49,12 @@ abstract class _KurbanStore with Store {
   @observable
   Kurban? newKurban;
 
+  @observable
+  List<File> selectedPhotos = ObservableList.of([]);
+
   KurbanService service = serviceLocator.get<KurbanService>();
+  ImagePickerService imagePickerService =
+      serviceLocator.get<ImagePickerService>();
 
   int pageSize = 10;
 
@@ -201,5 +209,35 @@ abstract class _KurbanStore with Store {
 
       newKurban!.photoUrls = paths;
     }
+  }
+
+  @action
+  Future pickImage(ImageSource source) async {
+    File? selectedPhoto = await imagePickerService.pickImage(source);
+    if (selectedPhoto != null) {
+      selectedPhotos.add(selectedPhoto);
+    }
+  }
+
+  @action
+  removePhoto(int index) => selectedPhotos.removeAt(index);
+
+  @action
+  Future<bool> pickMultiImage() async {
+    List<File>? photos = await imagePickerService.pickMultiImage();
+    if (photos != null) {
+      // Toplam fotoğraf sayısı 7'yi geçmeyecek şekilde ekleyelim
+      int remaingSlots = 7 - selectedPhotos.length,
+          photosToAdd =
+              photos.length > remaingSlots ? remaingSlots : photos.length;
+      if (photosToAdd < photos.length) {
+        return false;
+      }
+
+      selectedPhotos.addAll(photos);
+      return true;
+    }
+
+    return false;
   }
 }

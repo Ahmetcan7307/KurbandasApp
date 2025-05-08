@@ -330,10 +330,10 @@ class S {
     );
   }
 
-  /// `You can use the “Share Qurbani” button on the home page to share your Qurbani`
+  /// `You can use the 'Share Qurbani' button on the home page to share your Qurbani`
   String get noMyQurbaniAdsDesc {
     return Intl.message(
-      'You can use the “Share Qurbani” button on the home page to share your Qurbani',
+      'You can use the \'Share Qurbani\' button on the home page to share your Qurbani',
       name: 'noMyQurbaniAdsDesc',
       desc: '',
       args: [],
@@ -650,16 +650,6 @@ class S {
     );
   }
 
-  /// `All`
-  String get all {
-    return Intl.message(
-      'All',
-      name: 'all',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Actives`
   String get active {
     return Intl.message(
@@ -710,10 +700,10 @@ class S {
     );
   }
 
-  /// `Click on the “New Qurbani” button to share the Qurbani`
+  /// `Click on the 'Share Qurbani' button to share the Qurbani`
   String get NoQurbaniDesc {
     return Intl.message(
-      'Click on the “New Qurbani” button to share the Qurbani',
+      'Click on the \'Share Qurbani\' button to share the Qurbani',
       name: 'NoQurbaniDesc',
       desc: '',
       args: [],
@@ -745,6 +735,16 @@ class S {
     return Intl.message(
       'Cut Date',
       name: 'cutDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select cut date`
+  String get selectCutDate {
+    return Intl.message(
+      'Select cut date',
+      name: 'selectCutDate',
       desc: '',
       args: [],
     );
@@ -1155,6 +1155,86 @@ class S {
     return Intl.message(
       'Total Partners Count',
       name: 'totalPartnersCount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Photos`
+  String get photos {
+    return Intl.message(
+      'Photos',
+      name: 'photos',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add photos`
+  String get addPhotos {
+    return Intl.message(
+      'Add photos',
+      name: 'addPhotos',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Camera`
+  String get camera {
+    return Intl.message(
+      'Camera',
+      name: 'camera',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gallery`
+  String get gallery {
+    return Intl.message(
+      'Gallery',
+      name: 'gallery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Use the buttons below to add photos (max 7)`
+  String get UseButtonsAddPhotos {
+    return Intl.message(
+      'Use the buttons below to add photos (max 7)',
+      name: 'UseButtonsAddPhotos',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remaining photo count`
+  String get remainingPhotoCount {
+    return Intl.message(
+      'Remaining photo count',
+      name: 'remainingPhotoCount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can add up to 7 photos`
+  String get canAdd7Photos {
+    return Intl.message(
+      'You can add up to 7 photos',
+      name: 'canAdd7Photos',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please attach at least 1 photo`
+  String get pleasePhoto {
+    return Intl.message(
+      'Please attach at least 1 photo',
+      name: 'pleasePhoto',
       desc: '',
       args: [],
     );

@@ -9,6 +9,7 @@ import 'package:kurbandas/services/apis/my_api/app_setting_service.dart';
 import 'package:kurbandas/services/apis/my_api/kurban_service.dart';
 import 'package:kurbandas/services/apis/my_api/user_service.dart';
 import 'package:kurbandas/services/apis/turkiye_api/turkiye_api_service.dart';
+import 'package:kurbandas/services/image_picker_service.dart';
 import 'package:kurbandas/services/package_info_service.dart';
 import 'package:kurbandas/services/store_service.dart';
 import 'package:kurbandas/services/supabase/auth_service.dart';
@@ -52,6 +53,7 @@ Future init() async {
   serviceLocator.registerLazySingleton(() => GoogleApiService(
       serviceLocator.get<Dio>(instanceName: GetCons.othersDio)));
   serviceLocator.registerLazySingleton(() => StoreService());
+  serviceLocator.registerLazySingleton(() => ImagePickerService());
 
   serviceLocator.registerLazySingleton(() => RootStore(
       urlLauncherStore: serviceLocator.get<UrlLauncherStore>(),
