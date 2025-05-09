@@ -80,6 +80,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Başarılı bir şekilde istek gönderildi"),
         "UseButtonsAddPhotos": MessageLookupByLibrary.simpleMessage(
             "Fotoğraf eklemek için aşağıdaki butonları kullanın (max 7)"),
+        "aboutApp": MessageLookupByLibrary.simpleMessage("Uygulama Hakkında"),
+        "aboutAppDesc": MessageLookupByLibrary.simpleMessage(
+            "Kurbandaş uygulaması, kurban bayramlarında kurban ortaklığı bulmak ve paylaşmak için geliştirilmiş bir platformdur. Kullanıcılar kendi kurbanlarını ilan edebilir ve diğer kullanıcıların kurbanlarına ortak olabilirler."),
         "active": MessageLookupByLibrary.simpleMessage("Aktif"),
         "addPhotos":
             MessageLookupByLibrary.simpleMessage("Fotoğraf ekleyin (max 7)"),
@@ -104,6 +107,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "completed": MessageLookupByLibrary.simpleMessage("Tamamlanan"),
         "confirmQurbaniInfo": MessageLookupByLibrary.simpleMessage(
             "Kurban Bilgilerini Onaylayın"),
+        "contactUs": MessageLookupByLibrary.simpleMessage("İletişim"),
+        "contactUsDesc": MessageLookupByLibrary.simpleMessage(
+            "Öneri, şikayet ve sorularınız için"),
         "continueTxt": MessageLookupByLibrary.simpleMessage("Devam Et"),
         "count": MessageLookupByLibrary.simpleMessage("Sayısı"),
         "cut": MessageLookupByLibrary.simpleMessage("Kesildi"),
@@ -136,6 +142,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Kurban için ortaklarınızı kolayca bulun"),
         "gallery": MessageLookupByLibrary.simpleMessage("Galeri"),
         "help": MessageLookupByLibrary.simpleMessage("Yardım ve Destek"),
+        "howToWorks": MessageLookupByLibrary.simpleMessage("Nasıl Çalışır?"),
+        "howToWorksDesc": MessageLookupByLibrary.simpleMessage(
+            "Ana sayfadan mevcut kurban ilanlarını görebilir, filtreleyebilir ve ilan detaylarına ulaşabilirsiniz. Ortak olmak istediğiniz kurban için istek gönderebilirsiniz. Kendi kurbanınızı paylaşmak için \'Kurban Paylaş\' butonunu kullanabilirsiniz. Profilinizden kendi kurbanlarınızı ve ortaklıklarınızı yönetebilirsiniz."),
         "info": MessageLookupByLibrary.simpleMessage("Hakkında"),
         "later": MessageLookupByLibrary.simpleMessage("Daha Sonra"),
         "logout": MessageLookupByLibrary.simpleMessage("Çıkış Yap"),
@@ -219,6 +228,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Geçerli bir ortak sayısı giriniz"),
         "validWeight":
             MessageLookupByLibrary.simpleMessage("Geçerli bir ağırlık giriniz"),
+        "version": MessageLookupByLibrary.simpleMessage("Versiyon"),
         "waiting": MessageLookupByLibrary.simpleMessage("Bekleyen"),
         "weight": MessageLookupByLibrary.simpleMessage("Ağırlık")
       };

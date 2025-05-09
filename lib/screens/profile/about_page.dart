@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kurbandas/generated/l10n.dart';
-import 'package:package_info_plus/package_info_plus.dart';
+import 'package:kurbandas/stores/package_store.dart';
+import 'package:kurbandas/stores/root_store.dart';
+import 'package:provider/provider.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});
@@ -11,17 +13,23 @@ class AboutPage extends StatefulWidget {
 
 class _AboutPageState extends State<AboutPage> {
   late S lang;
-  PackageInfo? packageInfo;
+
   bool isLoading = true;
+
+  late String version;
+
+  late PackageStore packageStore;
 
   @override
   void initState() {
     super.initState();
-    _loadPackageInfo();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => loadPackageInfo());
   }
 
-  Future<void> _loadPackageInfo() async {
-    packageInfo = await PackageInfo.fromPlatform();
+  Future<void> loadPackageInfo() async {
+    version = await packageStore.getVersion();
+
     if (mounted) {
       setState(() {
         isLoading = false;
@@ -32,7 +40,10 @@ class _AboutPageState extends State<AboutPage> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+
     lang = S.of(context);
+
+    packageStore = Provider.of<RootStore>(context).packageStore;
   }
 
   @override
@@ -52,7 +63,7 @@ class _AboutPageState extends State<AboutPage> {
                   CircleAvatar(
                     radius: 50,
                     backgroundColor:
-                        Theme.of(context).primaryColor.withOpacity(0.1),
+                        Theme.of(context).primaryColor.withValues(alpha: .1),
                     child: Icon(
                       Icons.eco_outlined,
                       size: 60,
@@ -61,7 +72,7 @@ class _AboutPageState extends State<AboutPage> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'KurbanDaş',
+                    'Kurbandaş',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -70,7 +81,7 @@ class _AboutPageState extends State<AboutPage> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Versiyon ${packageInfo!.version}',
+                    '${lang.version} $version',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.grey[600],
@@ -78,25 +89,22 @@ class _AboutPageState extends State<AboutPage> {
                   ),
                   const SizedBox(height: 32),
                   _buildInfoCard(
-                    title: 'Uygulama Hakkında',
-                    content:
-                        'KurbanDaş uygulaması, kurban bayramlarında kurban ortaklığı bulmak ve paylaşmak için geliştirilmiş bir platformdur. Kullanıcılar kendi kurbanlarını ilan edebilir ve diğer kullanıcıların kurbanlarına ortak olabilirler.',
+                    title: lang.aboutApp,
+                    content: lang.aboutAppDesc,
                   ),
                   const SizedBox(height: 16),
                   _buildInfoCard(
-                    title: 'Nasıl Çalışır?',
-                    content:
-                        'Ana sayfadan mevcut kurban ilanlarını görebilir, filtreleyebilir ve ilan detaylarına ulaşabilirsiniz. Ortak olmak istediğiniz kurban için istek gönderebilirsiniz. Kendi kurbanınızı paylaşmak için "Kurban Paylaş" butonunu kullanabilirsiniz. Profilinizden kendi kurbanlarınızı ve ortaklıklarınızı yönetebilirsiniz.',
+                    title: lang.howToWorks,
+                    content: lang.howToWorksDesc,
                   ),
                   const SizedBox(height: 16),
                   _buildInfoCard(
-                    title: 'İletişim',
-                    content:
-                        'Öneri, şikayet ve sorularınız için: support@kurbandas.com',
+                    title: lang.contactUs,
+                    content: "${lang.contactUsDesc}: hakkicanbuluc@gmail.com",
                   ),
                   const SizedBox(height: 24),
                   Text(
-                    '© 2023-2024 KurbanDaş',
+                    '© 2024-2025 Kurbandaş',
                     style: TextStyle(
                       fontSize: 14,
                       color: Colors.grey[600],

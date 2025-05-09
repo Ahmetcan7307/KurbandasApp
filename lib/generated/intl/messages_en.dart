@@ -47,7 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ImportantInfo":
             MessageLookupByLibrary.simpleMessage("Important Information"),
         "ImportantInfoDesc": MessageLookupByLibrary.simpleMessage(
-            "One sacrifice can have a maximum of 7 partners."),
+            "One Qurbani can have a maximum of 7 partners."),
         "Location": MessageLookupByLibrary.simpleMessage("Location"),
         "LocationInfo":
             MessageLookupByLibrary.simpleMessage("Location Information"),
@@ -83,6 +83,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Successfully sent request"),
         "UseButtonsAddPhotos": MessageLookupByLibrary.simpleMessage(
             "Use the buttons below to add photos (max 7)"),
+        "aboutApp": MessageLookupByLibrary.simpleMessage("About App"),
+        "aboutAppDesc": MessageLookupByLibrary.simpleMessage(
+            "Kurbandaş application is a platform developed to find and share Qurbani partnerships during Eid al-Adha. Users can declare their own Qurbanis and become partners in other users\' Qurbanis."),
         "active": MessageLookupByLibrary.simpleMessage("Actives"),
         "addPhotos": MessageLookupByLibrary.simpleMessage("Add photos"),
         "app": MessageLookupByLibrary.simpleMessage("Application"),
@@ -107,6 +110,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "completed": MessageLookupByLibrary.simpleMessage("Completed"),
         "confirmQurbaniInfo": MessageLookupByLibrary.simpleMessage(
             "Confirm Qurbani informations"),
+        "contactUs": MessageLookupByLibrary.simpleMessage("Contact Us"),
+        "contactUsDesc": MessageLookupByLibrary.simpleMessage(
+            "For suggestions, complaints and questions"),
         "continueTxt": MessageLookupByLibrary.simpleMessage("Continue"),
         "count": MessageLookupByLibrary.simpleMessage("Count"),
         "cut": MessageLookupByLibrary.simpleMessage("Cut"),
@@ -140,6 +146,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Easily find your partners for Qurbani"),
         "gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "help": MessageLookupByLibrary.simpleMessage("Help and Support"),
+        "howToWorks": MessageLookupByLibrary.simpleMessage("How to Works?"),
+        "howToWorksDesc": MessageLookupByLibrary.simpleMessage(
+            "From the home page, you can view and filter the available Qurbani ads and access the details of the ads. You can send a request for the Qurbani you want to be a partner. You can use the “Share Qurbani” button to share your own Qurbani. You can manage your own Qurbanis and partnerships from your profile."),
         "info": MessageLookupByLibrary.simpleMessage("Information"),
         "later": MessageLookupByLibrary.simpleMessage("Later"),
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
@@ -152,7 +161,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "There is not any Approved Requests"),
         "noCutDate": MessageLookupByLibrary.simpleMessage("No Cut Date"),
         "noMyQurbaniAds": MessageLookupByLibrary.simpleMessage(
-            "You do not have any sacrifice announcements yet"),
+            "You do not have any Qurbani announcements yet"),
         "noMyQurbaniAdsDesc": MessageLookupByLibrary.simpleMessage(
             "You can use the \'Share Qurbani\' button on the home page to share your Qurbani"),
         "noPartnerships": MessageLookupByLibrary.simpleMessage(
@@ -222,6 +231,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Enter the valid total partners count"),
         "validWeight":
             MessageLookupByLibrary.simpleMessage("Enter the valid weight"),
+        "version": MessageLookupByLibrary.simpleMessage("Version"),
         "waiting": MessageLookupByLibrary.simpleMessage("Waiting"),
         "weight": MessageLookupByLibrary.simpleMessage("Weight")
       };

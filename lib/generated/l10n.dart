@@ -320,10 +320,10 @@ class S {
     );
   }
 
-  /// `You do not have any sacrifice announcements yet`
+  /// `You do not have any Qurbani announcements yet`
   String get noMyQurbaniAds {
     return Intl.message(
-      'You do not have any sacrifice announcements yet',
+      'You do not have any Qurbani announcements yet',
       name: 'noMyQurbaniAds',
       desc: '',
       args: [],
@@ -1140,10 +1140,10 @@ class S {
     );
   }
 
-  /// `One sacrifice can have a maximum of 7 partners.`
+  /// `One Qurbani can have a maximum of 7 partners.`
   String get ImportantInfoDesc {
     return Intl.message(
-      'One sacrifice can have a maximum of 7 partners.',
+      'One Qurbani can have a maximum of 7 partners.',
       name: 'ImportantInfoDesc',
       desc: '',
       args: [],
@@ -1285,6 +1285,76 @@ class S {
     return Intl.message(
       'Save Changes',
       name: 'SaveChanges',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Version`
+  String get version {
+    return Intl.message(
+      'Version',
+      name: 'version',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About App`
+  String get aboutApp {
+    return Intl.message(
+      'About App',
+      name: 'aboutApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kurbandaş application is a platform developed to find and share Qurbani partnerships during Eid al-Adha. Users can declare their own Qurbanis and become partners in other users' Qurbanis.`
+  String get aboutAppDesc {
+    return Intl.message(
+      'Kurbandaş application is a platform developed to find and share Qurbani partnerships during Eid al-Adha. Users can declare their own Qurbanis and become partners in other users\' Qurbanis.',
+      name: 'aboutAppDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `How to Works?`
+  String get howToWorks {
+    return Intl.message(
+      'How to Works?',
+      name: 'howToWorks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `From the home page, you can view and filter the available Qurbani ads and access the details of the ads. You can send a request for the Qurbani you want to be a partner. You can use the “Share Qurbani” button to share your own Qurbani. You can manage your own Qurbanis and partnerships from your profile.`
+  String get howToWorksDesc {
+    return Intl.message(
+      'From the home page, you can view and filter the available Qurbani ads and access the details of the ads. You can send a request for the Qurbani you want to be a partner. You can use the “Share Qurbani” button to share your own Qurbani. You can manage your own Qurbanis and partnerships from your profile.',
+      name: 'howToWorksDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact Us`
+  String get contactUs {
+    return Intl.message(
+      'Contact Us',
+      name: 'contactUs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `For suggestions, complaints and questions`
+  String get contactUsDesc {
+    return Intl.message(
+      'For suggestions, complaints and questions',
+      name: 'contactUsDesc',
       desc: '',
       args: [],
     );

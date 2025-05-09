@@ -17,6 +17,7 @@ import 'package:kurbandas/services/supabase/storage_service.dart';
 import 'package:kurbandas/services/url_launcher_service.dart';
 import 'package:kurbandas/stores/api/app_setting_store.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
+import 'package:kurbandas/stores/package_store.dart';
 import 'package:kurbandas/stores/root_store.dart';
 import 'package:kurbandas/stores/supabase/auth_store.dart';
 import 'package:kurbandas/stores/turkiye_api_store.dart';
@@ -30,6 +31,7 @@ Future init() async {
   serviceLocator.registerFactory(() => AuthStore());
   serviceLocator.registerFactory(() => TurkiyeAPIStore());
   serviceLocator.registerFactory(() => KurbanStore());
+  serviceLocator.registerFactory(() => PackageStore());
 
   serviceLocator.registerLazySingleton(() => Dio(),
       instanceName: GetCons.myAPIDio);
@@ -62,7 +64,8 @@ Future init() async {
       appSettingStore: serviceLocator.get<AppSettingStore>(),
       authStore: serviceLocator.get<AuthStore>(),
       turkiyeAPIStore: serviceLocator.get<TurkiyeAPIStore>(),
-      kurbanStore: serviceLocator.get<KurbanStore>()));
+      kurbanStore: serviceLocator.get<KurbanStore>(),
+      packageStore: serviceLocator.get<PackageStore>()));
 }
 
 initDio() {

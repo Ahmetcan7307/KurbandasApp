@@ -39,7 +39,7 @@
   "AccountOperations": "Account Operations",
   "myQurbanies": "My Qurbanies",
   "MyPartnerships": "My Partnerships",
-  "noMyQurbaniAds": "You do not have any sacrifice announcements yet",
+  "noMyQurbaniAds": "You do not have any Qurbani announcements yet",
   "noMyQurbaniAdsDesc": "You can use the 'Share Qurbani' button on the home page to share your Qurbani",
   "Requests": "Requests",
   "edit": "Edit",
@@ -163,7 +163,7 @@
   "previous": "Previous",
   "confirmQurbaniInfo": "Confirm Qurbani informations",
   "ImportantInfo": "Important Information",
-  "ImportantInfoDesc": "One sacrifice can have a maximum of 7 partners.",
+  "ImportantInfoDesc": "One Qurbani can have a maximum of 7 partners.",
   "totalPartnersCount": "Total Partners Count",
   "photos": "Photos",
   "addPhotos": "Add photos",
@@ -177,5 +177,12 @@
   "ExistingPhotos": "Existing Photos",
   "newPhotos": "New Photos",
   "QurbaniInfoSuccessfullyUpdated": "Qurbani information successfully updated",
-  "SaveChanges": "Save Changes"
+  "SaveChanges": "Save Changes",
+  "version": "Version",
+  "aboutApp": "About App",
+  "aboutAppDesc": "Kurbandaş application is a platform developed to find and share Qurbani partnerships during Eid al-Adha. Users can declare their own Qurbanis and become partners in other users' Qurbanis.",
+  "howToWorks": "How to Works?",
+  "howToWorksDesc": "From the home page, you can view and filter the available Qurbani ads and access the details of the ads. You can send a request for the Qurbani you want to be a partner. You can use the “Share Qurbani” button to share your own Qurbani. You can manage your own Qurbanis and partnerships from your profile.",
+  "contactUs": "Contact Us",
+  "contactUsDesc": "For suggestions, complaints and questions"
 }
