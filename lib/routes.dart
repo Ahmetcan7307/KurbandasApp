@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kurbandas/screens/home_page.dart';
 import 'package:kurbandas/screens/kurban/create/create_kurban_page.dart';
-import 'package:kurbandas/screens/kurban/edit/edit_kurban_page.dart';
+import 'package:kurbandas/screens/kurban/edit_kurban_page.dart';
 import 'package:kurbandas/screens/kurban/kurban_detail_page.dart';
 import 'package:kurbandas/screens/profile/about_page.dart';
 import 'package:kurbandas/screens/profile/help_page.dart';

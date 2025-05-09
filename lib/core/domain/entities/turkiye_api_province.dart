@@ -16,6 +16,7 @@ class TurkiyeAPIProvince {
       _$TurkiyeAPIProvinceFromJson(json);
 
   Map<String, dynamic> toJson() {
+    districts = null;
     Map<String, dynamic> json = _$TurkiyeAPIProvinceToJson(this);
     json.clearNulls();
     return json;

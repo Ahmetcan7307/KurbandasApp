@@ -130,8 +130,9 @@ class _CreateKurbanLocationPageState extends State<CreateKurbanLocationPage> {
                       hintText: lang.enterCutAddress,
                       prefixIcon: Icon(Icons.home)),
                   textCapitalization: TextCapitalization.words,
-                  validator: (cutAddress) => Validator.checkCutAddress(
-                      cutAddress, lang.pleaseCutAddress)),
+                  validator: (cutAddress) =>
+                      Validator.checkStringNullAndIsEmpty(
+                          cutAddress, lang.pleaseCutAddress)),
               const SizedBox(height: 32),
               Row(
                 children: [

@@ -52,14 +52,6 @@ class Validator {
     return null;
   }
 
-  static String? checkCutAddress(String? cutAddress, String pleaseMessage) {
-    if (cutAddress == null || cutAddress.isEmpty) {
-      return pleaseMessage;
-    }
-
-    return null;
-  }
-
   static String? checkDistrict(
       TurkiyeAPIDistrict? district, String pleaseMessage) {
     if (district == null) {
@@ -69,7 +61,7 @@ class Validator {
     return null;
   }
 
-  static String? checkString(String? value, String errorMessage) {
+  static String? checkStringNullAndIsEmpty(String? value, String errorMessage) {
     if (value == null || value.isEmpty) {
       return errorMessage;
     }

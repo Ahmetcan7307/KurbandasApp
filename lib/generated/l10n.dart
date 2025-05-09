@@ -1239,6 +1239,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Edit Qurbani Information`
+  String get editQurbaniInfo {
+    return Intl.message(
+      'Edit Qurbani Information',
+      name: 'editQurbaniInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Existing Photos`
+  String get ExistingPhotos {
+    return Intl.message(
+      'Existing Photos',
+      name: 'ExistingPhotos',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Photos`
+  String get newPhotos {
+    return Intl.message(
+      'New Photos',
+      name: 'newPhotos',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Qurbani information successfully updated`
+  String get QurbaniInfoSuccessfullyUpdated {
+    return Intl.message(
+      'Qurbani information successfully updated',
+      name: 'QurbaniInfoSuccessfullyUpdated',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save Changes`
+  String get SaveChanges {
+    return Intl.message(
+      'Save Changes',
+      name: 'SaveChanges',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -41,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Account Operations"),
         "EnterInfoPlace": MessageLookupByLibrary.simpleMessage(
             "Enter information about the place where your Qurbani will be slaughtered"),
+        "ExistingPhotos":
+            MessageLookupByLibrary.simpleMessage("Existing Photos"),
         "FilterQurbani": MessageLookupByLibrary.simpleMessage("Filter Qurbani"),
         "ImportantInfo":
             MessageLookupByLibrary.simpleMessage("Important Information"),
@@ -64,9 +66,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "QurbaniAnimal": MessageLookupByLibrary.simpleMessage("Qurbani Animal"),
         "QurbaniInfo":
             MessageLookupByLibrary.simpleMessage("Qurbani Information"),
+        "QurbaniInfoSuccessfullyUpdated": MessageLookupByLibrary.simpleMessage(
+            "Qurbani information successfully updated"),
         "QurbaniPostDeleted": MessageLookupByLibrary.simpleMessage(
             "Qurbani announcement deleted"),
         "Requests": MessageLookupByLibrary.simpleMessage("Requests"),
+        "SaveChanges": MessageLookupByLibrary.simpleMessage("Save Changes"),
         "SelectDistrict":
             MessageLookupByLibrary.simpleMessage("Select District"),
         "SelectProvince":
@@ -117,6 +122,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "You can try different filters"),
         "district": MessageLookupByLibrary.simpleMessage("District"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "editQurbaniInfo":
+            MessageLookupByLibrary.simpleMessage("Edit Qurbani Information"),
         "enterCutAddress":
             MessageLookupByLibrary.simpleMessage("Enter cut address"),
         "enterPrice":
@@ -140,6 +147,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Are you sure you want to log out?"),
         "message": MessageLookupByLibrary.simpleMessage("Message"),
         "myQurbanies": MessageLookupByLibrary.simpleMessage("My Qurbanies"),
+        "newPhotos": MessageLookupByLibrary.simpleMessage("New Photos"),
         "noApprovedRequests": MessageLookupByLibrary.simpleMessage(
             "There is not any Approved Requests"),
         "noCutDate": MessageLookupByLibrary.simpleMessage("No Cut Date"),

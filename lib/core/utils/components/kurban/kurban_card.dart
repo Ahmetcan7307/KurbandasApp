@@ -122,7 +122,7 @@ class _KurbanCardState extends State<KurbanCard> {
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  "${lang.cutAddress}: ${widget.kurban.addressStr}",
+                  "${lang.cutAddress}: ${widget.kurban.addressStr ?? widget.kurban.address}",
                   style: const TextStyle(
                       fontSize: 14,
                       color: Colors.white,

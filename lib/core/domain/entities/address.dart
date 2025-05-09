@@ -15,6 +15,17 @@ class Address {
   factory Address.fromJson(Map<String, dynamic> json) =>
       _$AddressFromJson(json);
 
+  Map<String, dynamic> toJson() {
+    Map<String, dynamic> json = _$AddressToJson(this);
+    json["province"] = province?.toJson();
+    json["district"] = district?.toJson();
+
+    return json;
+  }
+
   bool get isComplete =>
       province != null && district != null && cutAddress != null;
+
+  @override
+  String toString() => "${province!.name} / ${district!.name} $cutAddress";
 }

@@ -172,5 +172,10 @@
   "UseButtonsAddPhotos": "Fotoğraf eklemek için aşağıdaki butonları kullanın (max 7)",
   "remainingPhotoCount": "Kalan fotoğraf sayısı",
   "canAdd7Photos": "Maksimum 7 fotoğraf ekleyebilirsiniz",
-  "pleasePhoto": "Lütfen en az 1 fotoğraf ekleyiniz"
+  "pleasePhoto": "Lütfen en az 1 fotoğraf ekleyiniz",
+  "editQurbaniInfo": "Kurban Bilgilerini Düzenle",
+  "ExistingPhotos": "Mevcut Fotoğraflar",
+  "newPhotos": "Yeni Fotoğraflar",
+  "QurbaniInfoSuccessfullyUpdated": "Kurban bilgileri başarıyla güncellendi",
+  "SaveChanges": "Değişiklikleri Kaydet"
 }

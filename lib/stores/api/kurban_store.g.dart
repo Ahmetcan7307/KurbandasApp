@@ -9,6 +9,14 @@ part of 'kurban_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$KurbanStore on _KurbanStore, Store {
+  Computed<int>? _$totalPhotosCountComputed;
+
+  @override
+  int get totalPhotosCount => (_$totalPhotosCountComputed ??= Computed<int>(
+          () => super.totalPhotosCount,
+          name: '_KurbanStore.totalPhotosCount'))
+      .value;
+
   late final _$animalsAtom =
       Atom(name: '_KurbanStore.animals', context: context);
 
@@ -229,8 +237,8 @@ mixin _$KurbanStore on _KurbanStore, Store {
       AsyncAction('_KurbanStore.updateKurban', context: context);
 
   @override
-  Future<dynamic> updateKurban(Kurban kurban) {
-    return _$updateKurbanAsyncAction.run(() => super.updateKurban(kurban));
+  Future<dynamic> updateKurban() {
+    return _$updateKurbanAsyncAction.run(() => super.updateKurban());
   }
 
   late final _$getMyPartnershipsAsyncAction =
@@ -289,6 +297,15 @@ mixin _$KurbanStore on _KurbanStore, Store {
   @override
   Future<bool> pickMultiImage() {
     return _$pickMultiImageAsyncAction.run(() => super.pickMultiImage());
+  }
+
+  late final _$getImagesAsyncAction =
+      AsyncAction('_KurbanStore.getImages', context: context);
+
+  @override
+  Future<dynamic> getImages(BuildContext context, S lang, ImageSource source) {
+    return _$getImagesAsyncAction
+        .run(() => super.getImages(context, lang, source));
   }
 
   late final _$_KurbanStoreActionController =
@@ -389,6 +406,28 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
+  dynamic selectSelectedKurbanProvince(TurkiyeAPIProvince province) {
+    final _$actionInfo = _$_KurbanStoreActionController.startAction(
+        name: '_KurbanStore.selectSelectedKurbanProvince');
+    try {
+      return super.selectSelectedKurbanProvince(province);
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic removePhotoUrl(int index) {
+    final _$actionInfo = _$_KurbanStoreActionController.startAction(
+        name: '_KurbanStore.removePhotoUrl');
+    try {
+      return super.removePhotoUrl(index);
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 animals: ${animals},
@@ -401,7 +440,8 @@ activeKurbans: ${activeKurbans},
 deactiveKurbans: ${deactiveKurbans},
 selectedKurban: ${selectedKurban},
 newKurban: ${newKurban},
-selectedPhotos: ${selectedPhotos}
+selectedPhotos: ${selectedPhotos},
+totalPhotosCount: ${totalPhotosCount}
     ''';
   }
 }

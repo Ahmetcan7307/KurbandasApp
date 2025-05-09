@@ -1,11 +1,11 @@
 // ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/utils/components/kurban/kurban_card.dart';
 import 'package:kurbandas/core/utils/components/my_snackbar.dart';
 import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/routes.dart';
-import 'package:kurbandas/screens/kurban/edit/edit_kurban_page.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
 import 'package:kurbandas/stores/root_store.dart';
 import 'package:provider/provider.dart';
@@ -82,23 +82,25 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
     }
     return RefreshIndicator(
       onRefresh: kurbanStore.getMyKurbans,
-      child: ListView.builder(
-          itemCount: kurbanStore.myKurbans!.length,
-          padding: const EdgeInsets.all(16),
-          itemBuilder: (context, index) {
-            Kurban kurban = kurbanStore.myKurbans![index];
-            return Column(
-              children: [
-                KurbanCard(
-                  kurban: kurban,
-                  onTap: () => kurbanStore.selectKurban(true, null, index),
-                ),
-                buildActionButtons(
-                    kurban.documentId!, kurban.animal!.name!, index),
-                const SizedBox(height: 16)
-              ],
-            );
-          }),
+      child: Observer(builder: (context) {
+        return ListView.builder(
+            itemCount: kurbanStore.myKurbans!.length,
+            padding: const EdgeInsets.all(16),
+            itemBuilder: (context, index) {
+              Kurban kurban = kurbanStore.myKurbans![index];
+              return Column(
+                children: [
+                  KurbanCard(
+                    kurban: kurban,
+                    onTap: () => kurbanStore.selectKurban(true, null, index),
+                  ),
+                  buildActionButtons(
+                      kurban.documentId!, kurban.animal!.name!, index),
+                  const SizedBox(height: 16)
+                ],
+              );
+            });
+      }),
     );
   }
 
@@ -118,13 +120,14 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
             ActionButton(
                 icon: Icons.edit,
                 label: lang.edit,
-                onTap: () {
+                onTap: () async {
                   kurbanStore.selectKurban(true, null, index);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const EditKurbanPage()),
-                  );
+
+                  if (await Navigator.pushNamed(context, Routes.editKurban)
+                          as bool? ??
+                      false) {
+                    setState(() {});
+                  }
                 }),
             ActionButton(
                 icon: Icons.delete,

@@ -172,5 +172,10 @@
   "UseButtonsAddPhotos": "Use the buttons below to add photos (max 7)",
   "remainingPhotoCount": "Remaining photo count",
   "canAdd7Photos": "You can add up to 7 photos",
-  "pleasePhoto": "Please attach at least 1 photo"
+  "pleasePhoto": "Please attach at least 1 photo",
+  "editQurbaniInfo": "Edit Qurbani Information",
+  "ExistingPhotos": "Existing Photos",
+  "newPhotos": "New Photos",
+  "QurbaniInfoSuccessfullyUpdated": "Qurbani information successfully updated",
+  "SaveChanges": "Save Changes"
 }

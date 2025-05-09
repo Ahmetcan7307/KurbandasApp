@@ -33,7 +33,10 @@ Kurban _$KurbanFromJson(Map<String, dynamic> json) => Kurban(
           : Address.fromJson(json['address'] as Map<String, dynamic>),
     )
       ..documentId = json['documentId'] as String?
-      ..remainPartnersCount = (json['remainPartnersCount'] as num?)?.toInt();
+      ..remainPartnersCount = (json['remainPartnersCount'] as num?)?.toInt()
+      ..removedPhotoUrls = (json['removedPhotoUrls'] as List<dynamic>?)
+          ?.map((e) => e as String?)
+          .toList();
 
 Map<String, dynamic> _$KurbanToJson(Kurban instance) => <String, dynamic>{
       'documentId': instance.documentId,
@@ -49,6 +52,7 @@ Map<String, dynamic> _$KurbanToJson(Kurban instance) => <String, dynamic>{
       'remainPartnersCount': instance.remainPartnersCount,
       'partners': instance.partners,
       'photoUrls': instance.photoUrls,
+      'removedPhotoUrls': instance.removedPhotoUrls,
       'isMy': instance.isMy,
     };
 

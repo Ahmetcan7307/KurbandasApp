@@ -1,10 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:kurbandas/core/domain/entities/address.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/domain/entities/kurban_request.dart';
 import 'package:kurbandas/core/domain/entities/partner.dart';
+import 'package:kurbandas/core/domain/entities/turkiye_api_province.dart';
 import 'package:kurbandas/core/domain/entities/user.dart';
 import 'package:kurbandas/core/models/filter.dart';
+
+import '../../../core/domain/entities/turkiye_api_district.dart';
 
 class KurbanService {
   final Dio dio;
@@ -29,13 +33,24 @@ class KurbanService {
             animal: KurbanAnimal(name: "Sığır")..documentId = "1",
             weight: 450,
             price: 45000,
-            addressStr: "İstanbul / Beylikdüzü Beylikdüzü Kesim Alanı",
             totalPartnersCount: 7,
             photoUrls: [
-              "https://media.barchart.com/contributors-admin/common-images/images/Livestock/Cattle%20%26%20Beef/Two%20cows%20on%20green%20pasture%20by%20Photo%20Mix%20via%20Pixabay.jpg"
+              "https://kpnhlnwftdzzhemluekd.supabase.co/storage/v1/object/public/kurbans/vqyyv08hsxf49vcymrioulcc/0.jpg",
+              "https://kpnhlnwftdzzhemluekd.supabase.co/storage/v1/object/public/kurbans/vqyyv08hsxf49vcymrioulcc/1.webp",
+              "https://kpnhlnwftdzzhemluekd.supabase.co/storage/v1/object/public/kurbans/vqyyv08hsxf49vcymrioulcc/2.jpg",
+              "https://kpnhlnwftdzzhemluekd.supabase.co/storage/v1/object/public/kurbans/vqyyv08hsxf49vcymrioulcc/3.jpg",
+              "https://kpnhlnwftdzzhemluekd.supabase.co/storage/v1/object/public/kurbans/vqyyv08hsxf49vcymrioulcc/4.jpg",
+              "https://kpnhlnwftdzzhemluekd.supabase.co/storage/v1/object/public/kurbans/vqyyv08hsxf49vcymrioulcc/5.webp",
+              "https://kpnhlnwftdzzhemluekd.supabase.co/storage/v1/object/public/kurbans/vqyyv08hsxf49vcymrioulcc/6.jpg"
             ],
+            // Detail syfsında gösteriyoruz
             partners: [],
-            isMy: true)
+            isMy: true,
+            address: Address(
+                province: TurkiyeAPIProvince(id: 1, name: "Adana"),
+                district: TurkiyeAPIDistrict(id: 1757, name: "Aladağ"),
+                cutAddress: "Aladağ"),
+            cutDate: DateTime.now())
           ..documentId = "1"
           ..remainPartnersCount = 0
           ..status = KurbanStatus.waiting,
@@ -47,7 +62,10 @@ class KurbanService {
             photoUrls: [
               "https://isbh.tmgrup.com.tr/sbh/2020/06/13/650x344/sifa-kaynagi-urunlere-talep-cok-manda-az-1592033428910.jpg"
             ],
-            addressStr: "İstanbul / Esenyurt Esenyurt Kesim Alanı",
+            address: Address(
+                province: TurkiyeAPIProvince(id: 1, name: "Adana"),
+                district: TurkiyeAPIDistrict(id: 1219, name: "Ceyhan"),
+                cutAddress: "Ceyhan"),
             partners: [],
             isMy: true)
           ..documentId = "2"
@@ -152,10 +170,10 @@ class KurbanService {
   Future postRequest(String documentId) async {}
 
   // returns DocumentId
-  Future<String> postKurban(Map<String, dynamic> data) async =>
+  Future<String> post(Map<String, dynamic> data) async =>
       await Future.value("vqyyv08hsxf49vcymrioulcc");
 
-  Future updateKurban(Map<String, dynamic> data) async {
+  Future put(Map<String, dynamic> data) async {
     // API entegrasyon kodu eklenmeli
     // Şimdilik simulasyon olarak boş fonksiyon
     await Future.delayed(Duration(milliseconds: 500));

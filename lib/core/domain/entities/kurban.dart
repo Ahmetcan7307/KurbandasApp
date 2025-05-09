@@ -23,6 +23,7 @@ class Kurban extends EntityBase {
   int? remainPartnersCount = 0;
   List<Partner>? partners;
   List<String>? photoUrls;
+  List<String?>? removedPhotoUrls;
   bool? isMy;
 
   Kurban(
@@ -45,6 +46,8 @@ class Kurban extends EntityBase {
 
   Map<String, dynamic> toJson() {
     Map<String, dynamic> json = _$KurbanToJson(this);
+    json["animal"] = animal?.documentId;
+    json["address"] = address?.toJson();
     json.clearNulls();
     return json;
   }

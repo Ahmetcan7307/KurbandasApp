@@ -41,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Hesap İşlemleri"),
         "EnterInfoPlace": MessageLookupByLibrary.simpleMessage(
             "Kurbanınızın kesileceği yer hakkında bilgi girin"),
+        "ExistingPhotos":
+            MessageLookupByLibrary.simpleMessage("Mevcut Fotoğraflar"),
         "FilterQurbani":
             MessageLookupByLibrary.simpleMessage("Kurbanları Filtrele"),
         "ImportantInfo": MessageLookupByLibrary.simpleMessage("Önemli Bilgi"),
@@ -61,9 +63,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "Preview": MessageLookupByLibrary.simpleMessage("Önizleme"),
         "QurbaniAnimal": MessageLookupByLibrary.simpleMessage("Kurban Hayvanı"),
         "QurbaniInfo": MessageLookupByLibrary.simpleMessage("Kurban Bilgileri"),
+        "QurbaniInfoSuccessfullyUpdated": MessageLookupByLibrary.simpleMessage(
+            "Kurban bilgileri başarıyla güncellendi"),
         "QurbaniPostDeleted":
             MessageLookupByLibrary.simpleMessage("Kurban ilanı silindi"),
         "Requests": MessageLookupByLibrary.simpleMessage("İstekler"),
+        "SaveChanges":
+            MessageLookupByLibrary.simpleMessage("Değişiklikleri Kaydet"),
         "SelectDistrict": MessageLookupByLibrary.simpleMessage("İlçe Seçin"),
         "SelectProvince": MessageLookupByLibrary.simpleMessage("İl Seçin"),
         "SigningOut":
@@ -112,6 +118,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Farklı filtreler deneyebilirsiniz"),
         "district": MessageLookupByLibrary.simpleMessage("İlçe"),
         "edit": MessageLookupByLibrary.simpleMessage("Düzenle"),
+        "editQurbaniInfo":
+            MessageLookupByLibrary.simpleMessage("Kurban Bilgilerini Düzenle"),
         "enterCutAddress": MessageLookupByLibrary.simpleMessage(
             "Kesim alanının adını giriniz"),
         "enterPrice":
@@ -135,6 +143,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Çıkış yapmak istediğinizden emin misiniz?"),
         "message": MessageLookupByLibrary.simpleMessage("Mesaj"),
         "myQurbanies": MessageLookupByLibrary.simpleMessage("Kurbanlarım"),
+        "newPhotos": MessageLookupByLibrary.simpleMessage("Yeni Fotoğraflar"),
         "noApprovedRequests": MessageLookupByLibrary.simpleMessage(
             "Onaylanmış hiçbir isteğiniz yok"),
         "noCutDate":

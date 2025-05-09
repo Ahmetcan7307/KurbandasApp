@@ -101,7 +101,9 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
                       kurbanStore.selectedKurban!.owner?.fullName ??
                           authStore.user!.fullName),
                   buildInfoRow(
-                      lang.cutAddress, kurbanStore.selectedKurban!.addressStr!),
+                      lang.cutAddress,
+                      kurbanStore.selectedKurban!.addressStr ??
+                          kurbanStore.selectedKurban!.address!.toString()),
                   buildInfoRow(
                       lang.cutDate,
                       kurbanStore.selectedKurban!.cutDate?.formatDate() ??
@@ -232,7 +234,7 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
                         margin: EdgeInsets.symmetric(horizontal: 2),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.white.withOpacity(0.8),
+                          color: Colors.white.withValues(alpha: .8),
                         ),
                       ),
                     ),

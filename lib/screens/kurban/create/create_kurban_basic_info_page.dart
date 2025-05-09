@@ -84,6 +84,8 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
     priceCnt.dispose();
     totalPartnersCountCnt.dispose();
     cutDateCnt.dispose();
+
+    kurbanStore.selectedPhotos.clear();
     super.dispose();
   }
 
@@ -327,7 +329,8 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
           children: [
             OutlinedButton.icon(
               onPressed: remainingPhotos > 0
-                  ? () => getImages(ImageSource.camera)
+                  ? () =>
+                      kurbanStore.getImages(context, lang, ImageSource.camera)
                   : null,
               icon: Icon(Icons.camera_alt),
               label: Text(lang.camera),
@@ -335,7 +338,8 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
             SizedBox(width: 16),
             OutlinedButton.icon(
               onPressed: remainingPhotos > 0
-                  ? () => getImages(ImageSource.gallery)
+                  ? () =>
+                      kurbanStore.getImages(context, lang, ImageSource.gallery)
                   : null,
               icon: Icon(Icons.photo_library),
               label: Text(lang.gallery),
@@ -344,22 +348,6 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
         ),
       ],
     );
-  }
-
-  Future getImages(ImageSource source) async {
-    // Maksimum 7 fotoğraf sınırı
-    if (kurbanStore.selectedPhotos.length >= 7) {
-      showSnackBar(context, text: lang.canAdd7Photos, color: Colors.red);
-      return;
-    }
-
-    if (source == ImageSource.camera) {
-      await kurbanStore.pickImage(source);
-    } else {
-      if (!(await kurbanStore.pickMultiImage())) {
-        showSnackBar(context, text: lang.canAdd7Photos, color: Colors.orange);
-      }
-    }
   }
 
   saveAndContinue() {

@@ -1,3 +1,4 @@
+// ignore_for_file: use_build_context_synchronously
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -15,6 +16,8 @@ import 'package:kurbandas/services/apis/my_api/kurban_service.dart';
 import 'package:kurbandas/services/image_picker_service.dart';
 import 'package:kurbandas/services/supabase/storage_service.dart';
 import 'package:mobx/mobx.dart';
+
+import '../../core/utils/components/my_snackbar.dart';
 
 part 'kurban_store.g.dart';
 
@@ -93,17 +96,22 @@ abstract class _KurbanStore with Store {
       myKurbans = await service.delete(documentId);
 
   @action
-  Future updateKurban(Kurban kurban) async {
-    await service.updateKurban(kurban.toJson());
-    // Kurban başarıyla güncellendikten sonra eğer Kurbanlarım listesi dolu ise
-    // güncellenen kurbanı listede bul ve güncelle
-    if (myKurbans != null && myKurbans!.isNotEmpty) {
-      final index =
-          myKurbans!.indexWhere((k) => k.documentId == kurban.documentId);
-      if (index != -1) {
-        myKurbans![index] = kurban;
-      }
+  Future updateKurban() async {
+    for (File photo in selectedPhotos) {
+      String path =
+          "${selectedKurban!.documentId}/${DateTime.now().millisecondsSinceEpoch}.${photo.path.split("/").last.split(".").last}";
+      await storageService.uploadFile(
+          StorageCons.kurbansBucketName, path, photo);
+
+      selectedKurban!.photoUrls!.add(
+          storageService.getPublicUrl(StorageCons.kurbansBucketName, path));
     }
+
+    await service.put(selectedKurban!.toJson());
+
+    int indexWhere =
+        myKurbans!.indexWhere((kurban) => kurban == selectedKurban);
+    myKurbans![indexWhere] = selectedKurban!;
   }
 
   @action
@@ -188,15 +196,14 @@ abstract class _KurbanStore with Store {
 
   @action
   Future create() async {
-    String documentId = await service.postKurban(newKurban!.toJson());
+    String documentId = await service.post(newKurban!.toJson());
     newKurban!.clear();
 
     newKurban!.documentId = documentId;
     newKurban!.photoUrls = [];
-    for (int i = 0; i < selectedPhotos.length; i++) {
-      File photo = selectedPhotos[i];
+    for (File photo in selectedPhotos) {
       String path =
-          "$documentId/$i.${photo.path.split("/").last.split(".").last}";
+          "$documentId/${DateTime.now().millisecondsSinceEpoch}.${photo.path.split("/").last.split(".").last}";
       await storageService.uploadFile(
           StorageCons.kurbansBucketName, path, photo);
 
@@ -204,9 +211,10 @@ abstract class _KurbanStore with Store {
           storageService.getPublicUrl(StorageCons.kurbansBucketName, path));
     }
 
-    await service.updateKurban(newKurban!.toJson());
+    await service.put(newKurban!.toJson());
 
     newKurban = null;
+    selectedPhotos.clear();
   }
 
   @action
@@ -215,9 +223,8 @@ abstract class _KurbanStore with Store {
   }
 
   @action
-  selectNewKurbanProvince(TurkiyeAPIProvince province) {
-    newKurban!.address ??= Address(province: province);
-  }
+  selectNewKurbanProvince(TurkiyeAPIProvince province) =>
+      newKurban!.address ??= Address(province: province);
 
   @action
   setImages(List<File> images) {
@@ -246,7 +253,11 @@ abstract class _KurbanStore with Store {
     List<File>? photos = await imagePickerService.pickMultiImage();
     if (photos != null) {
       // Toplam fotoğraf sayısı 7'yi geçmeyecek şekilde ekleyelim
-      int remaingSlots = 7 - selectedPhotos.length,
+      int remaingSlots = 7 -
+              (selectedPhotos.length +
+                  (selectedKurban != null
+                      ? selectedKurban!.photoUrls!.length
+                      : 0)),
           photosToAdd =
               photos.length > remaingSlots ? remaingSlots : photos.length;
       if (photosToAdd < photos.length) {
@@ -258,5 +269,37 @@ abstract class _KurbanStore with Store {
     }
 
     return false;
+  }
+
+  @action
+  selectSelectedKurbanProvince(TurkiyeAPIProvince province) =>
+      selectedKurban!.address!.province = province;
+
+  @computed
+  int get totalPhotosCount =>
+      selectedKurban!.photoUrls!.length + selectedPhotos.length;
+
+  @action
+  removePhotoUrl(int index) {
+    selectedKurban!.removedPhotoUrls ??= [];
+    selectedKurban!.removedPhotoUrls!
+        .add(selectedKurban!.photoUrls!.removeAt(index));
+  }
+
+  @action
+  Future getImages(BuildContext context, S lang, ImageSource source) async {
+    // Maksimum 7 fotoğraf sınırı
+    if (selectedPhotos.length >= 7) {
+      showSnackBar(context, text: lang.canAdd7Photos, color: Colors.red);
+      return;
+    }
+
+    if (source == ImageSource.camera) {
+      await pickImage(source);
+    } else {
+      if (!(await pickMultiImage())) {
+        showSnackBar(context, text: lang.canAdd7Photos, color: Colors.orange);
+      }
+    }
   }
 }
