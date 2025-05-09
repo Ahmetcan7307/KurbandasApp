@@ -184,5 +184,20 @@
   "howToWorks": "Nasıl Çalışır?",
   "howToWorksDesc": "Ana sayfadan mevcut kurban ilanlarını görebilir, filtreleyebilir ve ilan detaylarına ulaşabilirsiniz. Ortak olmak istediğiniz kurban için istek gönderebilirsiniz. Kendi kurbanınızı paylaşmak için 'Kurban Paylaş' butonunu kullanabilirsiniz. Profilinizden kendi kurbanlarınızı ve ortaklıklarınızı yönetebilirsiniz.",
   "contactUs": "İletişim",
-  "contactUsDesc": "Öneri, şikayet ve sorularınız için"
+  "contactUsDesc": "Öneri, şikayet ve sorularınız için",
+  "sss": "Sıkça Sorulan Sorular",
+  "WhatQurbaniPartnership": "Kurban ortaklığı nedir?",
+  "WhatQurbaniPartnershipDesc": "İslami kurallara göre büyükbaş hayvanlar (sığır, dana, manda) en fazla 7 kişi tarafından kurban edilebilir. Kurbandaş uygulaması, kurban kesmek isteyen kişilere ortak bulabilmeleri veya ilan edilmiş bir kurbana ortak olabilmeleri için aracılık etmektedir.",
+  "HowBecomePartner": "Nasıl ortak olurum?",
+  "HowBecomePartnerDesc": "Ana sayfada listelenen ilanlardan istediğiniz bir kurbana tıklayarak detay sayfasını açabilirsiniz. Sayfadaki \"Ortak Olma İsteği Gönder\" butonuna basarak isteğinizi iletebilirsiniz. Kurban sahibi isteğinizi onayladığında ortaklık işlemi tamamlanır.",
+  "HowFindPartner": "Kendi kurbanıma nasıl ortak bulabilirim?",
+  "HowFindPartnerDesc": "Ana sayfadaki 'Kurban Paylaş' butonuna tıklayarak kendi kurbanınızın bilgilerini girebilirsiniz. Kurban ilanınız yayınlandıktan sonra isteyen kullanıcılar size ortak olmak için istek gönderebilirler. Bu istekleri 'Profilim > Kurbanlarım' bölümünden yönetebilirsiniz.",
+  "HowSlaughterOperationsTakePlace": "Kurban kesim işlemleri nasıl gerçekleşir?",
+  "HowSlaughterOperationsTakePlaceDesc": "Uygulama yalnızca ortak bulmak için bir aracı platformdur. Kurban kesim işlemleri kurban sahibi tarafından organize edilir. Kurban kesim yeri ve tarih bilgileri ilan detaylarında belirtilir.",
+  "HowPaymentsMade": "Ödemeler nasıl yapılır?",
+  "HowPaymentsMadeDesc": "Uygulama üzerinden herhangi bir ödeme alınmaz veya yapılmaz. Kurban bedelinin ödenmesi, kurban sahibi ve ortaklar arasında uygulamadan bağımsız olarak gerçekleştirilir.",
+  "HowDivideMeat": "Kurban eti nasıl paylaştırılır?",
+  "HowDivideMeatDesc": "Kurban kesildikten sonra etin paylaştırılması, kurban sahibi ve ortakların kendi aralarında belirledikleri şekilde gerçekleştirilir. İslami kurallara göre etin adil bir şekilde paylaştırılması gerekmektedir.",
+  "WhatShouldIDoIHaveProblems": "Uygulamada sorun yaşarsam ne yapmalıyım?",
+  "WhatShouldIDoIHaveProblemsDesc": "Teknik sorunlar, öneriler veya sorularınız için e-posta gönderebilirsiniz"
 }

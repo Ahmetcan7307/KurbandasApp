@@ -10,11 +10,13 @@ class HelpPage extends StatefulWidget {
 
 class _HelpPageState extends State<HelpPage> {
   late S lang;
+
   int _expandedIndex = -1;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+
     lang = S.of(context);
   }
 
@@ -31,7 +33,7 @@ class _HelpPageState extends State<HelpPage> {
           children: [
             const SizedBox(height: 8),
             Text(
-              'Sıkça Sorulan Sorular',
+              lang.sss,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -41,38 +43,38 @@ class _HelpPageState extends State<HelpPage> {
             const SizedBox(height: 16),
             _buildFaqItem(
               0,
-              'Kurban ortaklığı nedir?',
-              'İslami kurallara göre büyükbaş hayvanlar (sığır, dana, manda) en fazla 7 kişi tarafından kurban edilebilir. KurbanDaş uygulaması, kurban kesmek isteyen kişilere ortak bulabilmeleri veya ilan edilmiş bir kurbana ortak olabilmeleri için aracılık etmektedir.',
+              lang.WhatQurbaniPartnership,
+              lang.WhatQurbaniPartnershipDesc,
             ),
             _buildFaqItem(
               1,
-              'Nasıl ortak olurum?',
-              'Ana sayfada listelenen ilanlardan istediğiniz bir kurbana tıklayarak detay sayfasını açabilirsiniz. Sayfadaki "Ortak Olma İsteği Gönder" butonuna basarak isteğinizi iletebilirsiniz. Kurban sahibi isteğinizi onayladığında ortaklık işlemi tamamlanır.',
+              lang.HowBecomePartner,
+              lang.HowBecomePartnerDesc,
             ),
             _buildFaqItem(
               2,
-              'Kendi kurbanıma nasıl ortak bulabilirim?',
-              'Ana sayfadaki "Kurban Paylaş" butonuna tıklayarak kendi kurbanınızın bilgilerini girebilirsiniz. Kurban ilanınız yayınlandıktan sonra isteyen kullanıcılar size ortak olmak için istek gönderebilirler. Bu istekleri "Profilim > Kurbanlarım" bölümünden yönetebilirsiniz.',
+              lang.HowFindPartner,
+              lang.HowFindPartnerDesc,
             ),
             _buildFaqItem(
               3,
-              'Kurban kesim işlemleri nasıl gerçekleşir?',
-              'Uygulama yalnızca ortak bulmak için bir aracı platformdur. Kurban kesim işlemleri kurban sahibi tarafından organize edilir. Kurban kesim yeri ve tarih bilgileri ilan detaylarında belirtilir.',
+              lang.HowSlaughterOperationsTakePlace,
+              lang.HowSlaughterOperationsTakePlaceDesc,
             ),
             _buildFaqItem(
               4,
-              'Ödemeler nasıl yapılır?',
-              'Uygulama üzerinden herhangi bir ödeme alınmaz veya yapılmaz. Kurban bedelinin ödenmesi, kurban sahibi ve ortaklar arasında uygulamadan bağımsız olarak gerçekleştirilir.',
+              lang.HowPaymentsMade,
+              lang.HowPaymentsMadeDesc,
             ),
             _buildFaqItem(
               5,
-              'Kurban eti nasıl paylaştırılır?',
-              'Kurban kesildikten sonra etin paylaştırılması, kurban sahibi ve ortakların kendi aralarında belirledikleri şekilde gerçekleştirilir. İslami kurallara göre etin adil bir şekilde paylaştırılması gerekmektedir.',
+              lang.HowDivideMeat,
+              lang.HowDivideMeatDesc,
             ),
             _buildFaqItem(
               6,
-              'Uygulamada sorun yaşarsam ne yapmalıyım?',
-              'Teknik sorunlar, öneriler veya sorularınız için support@kurbandas.com adresine e-posta gönderebilirsiniz.',
+              lang.WhatShouldIDoIHaveProblems,
+              lang.WhatShouldIDoIHaveProblemsDesc,
             ),
             const SizedBox(height: 24),
             _buildContactCard(),
@@ -131,8 +133,8 @@ class _HelpPageState extends State<HelpPage> {
                   size: 28,
                 ),
                 const SizedBox(width: 12),
-                const Text(
-                  'Bize Ulaşın',
+                Text(
+                  lang.contactUs,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -141,9 +143,7 @@ class _HelpPageState extends State<HelpPage> {
               ],
             ),
             const SizedBox(height: 16),
-            _buildContactItem(Icons.email, 'support@kurbandas.com'),
-            _buildContactItem(Icons.phone, '+90 555 123 4567'),
-            _buildContactItem(Icons.web, 'www.kurbandas.com'),
+            _buildContactItem(Icons.email, "hakkicanbuluc@gmail.com"),
           ],
         ),
       ),

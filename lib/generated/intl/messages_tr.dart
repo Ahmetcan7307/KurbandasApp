@@ -45,6 +45,26 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Mevcut Fotoğraflar"),
         "FilterQurbani":
             MessageLookupByLibrary.simpleMessage("Kurbanları Filtrele"),
+        "HowBecomePartner":
+            MessageLookupByLibrary.simpleMessage("Nasıl ortak olurum?"),
+        "HowBecomePartnerDesc": MessageLookupByLibrary.simpleMessage(
+            "Ana sayfada listelenen ilanlardan istediğiniz bir kurbana tıklayarak detay sayfasını açabilirsiniz. Sayfadaki \"Ortak Olma İsteği Gönder\" butonuna basarak isteğinizi iletebilirsiniz. Kurban sahibi isteğinizi onayladığında ortaklık işlemi tamamlanır."),
+        "HowDivideMeat": MessageLookupByLibrary.simpleMessage(
+            "Kurban eti nasıl paylaştırılır?"),
+        "HowDivideMeatDesc": MessageLookupByLibrary.simpleMessage(
+            "Kurban kesildikten sonra etin paylaştırılması, kurban sahibi ve ortakların kendi aralarında belirledikleri şekilde gerçekleştirilir. İslami kurallara göre etin adil bir şekilde paylaştırılması gerekmektedir."),
+        "HowFindPartner": MessageLookupByLibrary.simpleMessage(
+            "Kendi kurbanıma nasıl ortak bulabilirim?"),
+        "HowFindPartnerDesc": MessageLookupByLibrary.simpleMessage(
+            "Ana sayfadaki \'Kurban Paylaş\' butonuna tıklayarak kendi kurbanınızın bilgilerini girebilirsiniz. Kurban ilanınız yayınlandıktan sonra isteyen kullanıcılar size ortak olmak için istek gönderebilirler. Bu istekleri \'Profilim > Kurbanlarım\' bölümünden yönetebilirsiniz."),
+        "HowPaymentsMade":
+            MessageLookupByLibrary.simpleMessage("Ödemeler nasıl yapılır?"),
+        "HowPaymentsMadeDesc": MessageLookupByLibrary.simpleMessage(
+            "Uygulama üzerinden herhangi bir ödeme alınmaz veya yapılmaz. Kurban bedelinin ödenmesi, kurban sahibi ve ortaklar arasında uygulamadan bağımsız olarak gerçekleştirilir."),
+        "HowSlaughterOperationsTakePlace": MessageLookupByLibrary.simpleMessage(
+            "Kurban kesim işlemleri nasıl gerçekleşir?"),
+        "HowSlaughterOperationsTakePlaceDesc": MessageLookupByLibrary.simpleMessage(
+            "Uygulama yalnızca ortak bulmak için bir aracı platformdur. Kurban kesim işlemleri kurban sahibi tarafından organize edilir. Kurban kesim yeri ve tarih bilgileri ilan detaylarında belirtilir."),
         "ImportantInfo": MessageLookupByLibrary.simpleMessage("Önemli Bilgi"),
         "ImportantInfoDesc": MessageLookupByLibrary.simpleMessage(
             "Bir kurban maksimum 7 ortak olabilir."),
@@ -80,6 +100,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Başarılı bir şekilde istek gönderildi"),
         "UseButtonsAddPhotos": MessageLookupByLibrary.simpleMessage(
             "Fotoğraf eklemek için aşağıdaki butonları kullanın (max 7)"),
+        "WhatQurbaniPartnership":
+            MessageLookupByLibrary.simpleMessage("Kurban ortaklığı nedir?"),
+        "WhatQurbaniPartnershipDesc": MessageLookupByLibrary.simpleMessage(
+            "İslami kurallara göre büyükbaş hayvanlar (sığır, dana, manda) en fazla 7 kişi tarafından kurban edilebilir. Kurbandaş uygulaması, kurban kesmek isteyen kişilere ortak bulabilmeleri veya ilan edilmiş bir kurbana ortak olabilmeleri için aracılık etmektedir."),
+        "WhatShouldIDoIHaveProblems": MessageLookupByLibrary.simpleMessage(
+            "Uygulamada sorun yaşarsam ne yapmalıyım?"),
+        "WhatShouldIDoIHaveProblemsDesc": MessageLookupByLibrary.simpleMessage(
+            "Teknik sorunlar, öneriler veya sorularınız için e-posta gönderebilirsiniz"),
         "aboutApp": MessageLookupByLibrary.simpleMessage("Uygulama Hakkında"),
         "aboutAppDesc": MessageLookupByLibrary.simpleMessage(
             "Kurbandaş uygulaması, kurban bayramlarında kurban ortaklığı bulmak ve paylaşmak için geliştirilmiş bir platformdur. Kullanıcılar kendi kurbanlarını ilan edebilir ve diğer kullanıcıların kurbanlarına ortak olabilirler."),
@@ -214,6 +242,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "settings": MessageLookupByLibrary.simpleMessage("Ayarlar"),
         "shareQurbani": MessageLookupByLibrary.simpleMessage("Kurban Paylaş"),
         "shared": MessageLookupByLibrary.simpleMessage("Paylaşıldı"),
+        "sss": MessageLookupByLibrary.simpleMessage("Sıkça Sorulan Sorular"),
         "successfullyShared":
             MessageLookupByLibrary.simpleMessage("Kurban başarıyla paylaşıldı"),
         "total": MessageLookupByLibrary.simpleMessage("Toplam"),

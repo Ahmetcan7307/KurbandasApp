@@ -1359,6 +1359,156 @@ class S {
       args: [],
     );
   }
+
+  /// `Frequently Asked Questions`
+  String get sss {
+    return Intl.message(
+      'Frequently Asked Questions',
+      name: 'sss',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What is a Qurbani partnership?`
+  String get WhatQurbaniPartnership {
+    return Intl.message(
+      'What is a Qurbani partnership?',
+      name: 'WhatQurbaniPartnership',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `According to Islamic rules, bovine animals (cattle, calf, buffalo) can be sacrificed by a maximum of 7 people. Kurbandaş application mediates for people who want to Qurbani to find a partner or become a partner in an announced Qurbani.`
+  String get WhatQurbaniPartnershipDesc {
+    return Intl.message(
+      'According to Islamic rules, bovine animals (cattle, calf, buffalo) can be sacrificed by a maximum of 7 people. Kurbandaş application mediates for people who want to Qurbani to find a partner or become a partner in an announced Qurbani.',
+      name: 'WhatQurbaniPartnershipDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `How do I become a partner?`
+  String get HowBecomePartner {
+    return Intl.message(
+      'How do I become a partner?',
+      name: 'HowBecomePartner',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can open the detail page by clicking on a Qurbani you want from the ads listed on the main page. You can send your request by clicking the “Send Partnership Request” button on the page. When the Qurbani owner approves your request, the partnership process is completed.`
+  String get HowBecomePartnerDesc {
+    return Intl.message(
+      'You can open the detail page by clicking on a Qurbani you want from the ads listed on the main page. You can send your request by clicking the “Send Partnership Request” button on the page. When the Qurbani owner approves your request, the partnership process is completed.',
+      name: 'HowBecomePartnerDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `How can I find a partner for my Qurbani?`
+  String get HowFindPartner {
+    return Intl.message(
+      'How can I find a partner for my Qurbani?',
+      name: 'HowFindPartner',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can enter the details of your Qurbani by clicking the “Share Qurbani” button on the homepage. After your Qurbani announcement is published, users can send requests to become a partner with you. You can manage these requests from “My Profile > My Qurbanis” section.`
+  String get HowFindPartnerDesc {
+    return Intl.message(
+      'You can enter the details of your Qurbani by clicking the “Share Qurbani” button on the homepage. After your Qurbani announcement is published, users can send requests to become a partner with you. You can manage these requests from “My Profile > My Qurbanis” section.',
+      name: 'HowFindPartnerDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `How do the Qurbani slaughter operations take place?`
+  String get HowSlaughterOperationsTakePlace {
+    return Intl.message(
+      'How do the Qurbani slaughter operations take place?',
+      name: 'HowSlaughterOperationsTakePlace',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The app is only an intermediary platform for finding partners. Qurbani slaughter is organized by the owner of the Qurbani. The place and date of Qurbani are specified in the advertisement details.`
+  String get HowSlaughterOperationsTakePlaceDesc {
+    return Intl.message(
+      'The app is only an intermediary platform for finding partners. Qurbani slaughter is organized by the owner of the Qurbani. The place and date of Qurbani are specified in the advertisement details.',
+      name: 'HowSlaughterOperationsTakePlaceDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `How are payments made?`
+  String get HowPaymentsMade {
+    return Intl.message(
+      'How are payments made?',
+      name: 'HowPaymentsMade',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No payment is received or made through the app. Payment of the Qurbani price is made between the owner and the partners independently of the app.`
+  String get HowPaymentsMadeDesc {
+    return Intl.message(
+      'No payment is received or made through the app. Payment of the Qurbani price is made between the owner and the partners independently of the app.',
+      name: 'HowPaymentsMadeDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `How to divide the Qurbani meat?`
+  String get HowDivideMeat {
+    return Intl.message(
+      'How to divide the Qurbani meat?',
+      name: 'HowDivideMeat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `After the Qurbani is slaughtered, the distribution of the meat is carried out in a manner determined by the owner and the partners among themselves. According to Islamic rules, the meat must be divided fairly.`
+  String get HowDivideMeatDesc {
+    return Intl.message(
+      'After the Qurbani is slaughtered, the distribution of the meat is carried out in a manner determined by the owner and the partners among themselves. According to Islamic rules, the meat must be divided fairly.',
+      name: 'HowDivideMeatDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What should I do if I have problems with the app?`
+  String get WhatShouldIDoIHaveProblems {
+    return Intl.message(
+      'What should I do if I have problems with the app?',
+      name: 'WhatShouldIDoIHaveProblems',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `For technical problems, suggestions or questions, please send an e-mail to`
+  String get WhatShouldIDoIHaveProblemsDesc {
+    return Intl.message(
+      'For technical problems, suggestions or questions, please send an e-mail to',
+      name: 'WhatShouldIDoIHaveProblemsDesc',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,8 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
 import 'package:kurbandas/generated/l10n.dart';
-import 'package:kurbandas/screens/profile/about_page.dart';
-import 'package:kurbandas/screens/profile/help_page.dart';
 import 'package:kurbandas/stores/root_store.dart';
 import 'package:kurbandas/stores/supabase/auth_store.dart';
 import 'package:provider/provider.dart';
@@ -43,21 +41,17 @@ class _SettingsPageState extends State<SettingsPage> {
           buildItem(
               icon: Icons.info,
               title: lang.info,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const AboutPage()),
-                );
-              }),
+              onTap: () => Navigator.pushNamed(
+                    context,
+                    Routes.about,
+                  )),
           buildItem(
               icon: Icons.help,
               title: lang.help,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HelpPage()),
-                );
-              })
+              onTap: () => Navigator.pushNamed(
+                    context,
+                    Routes.help,
+                  ))
         ]),
         buildSection(title: lang.AccountOperations, items: [
           buildItem(

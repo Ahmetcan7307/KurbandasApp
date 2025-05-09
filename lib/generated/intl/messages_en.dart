@@ -44,6 +44,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "ExistingPhotos":
             MessageLookupByLibrary.simpleMessage("Existing Photos"),
         "FilterQurbani": MessageLookupByLibrary.simpleMessage("Filter Qurbani"),
+        "HowBecomePartner":
+            MessageLookupByLibrary.simpleMessage("How do I become a partner?"),
+        "HowBecomePartnerDesc": MessageLookupByLibrary.simpleMessage(
+            "You can open the detail page by clicking on a Qurbani you want from the ads listed on the main page. You can send your request by clicking the “Send Partnership Request” button on the page. When the Qurbani owner approves your request, the partnership process is completed."),
+        "HowDivideMeat": MessageLookupByLibrary.simpleMessage(
+            "How to divide the Qurbani meat?"),
+        "HowDivideMeatDesc": MessageLookupByLibrary.simpleMessage(
+            "After the Qurbani is slaughtered, the distribution of the meat is carried out in a manner determined by the owner and the partners among themselves. According to Islamic rules, the meat must be divided fairly."),
+        "HowFindPartner": MessageLookupByLibrary.simpleMessage(
+            "How can I find a partner for my Qurbani?"),
+        "HowFindPartnerDesc": MessageLookupByLibrary.simpleMessage(
+            "You can enter the details of your Qurbani by clicking the “Share Qurbani” button on the homepage. After your Qurbani announcement is published, users can send requests to become a partner with you. You can manage these requests from “My Profile > My Qurbanis” section."),
+        "HowPaymentsMade":
+            MessageLookupByLibrary.simpleMessage("How are payments made?"),
+        "HowPaymentsMadeDesc": MessageLookupByLibrary.simpleMessage(
+            "No payment is received or made through the app. Payment of the Qurbani price is made between the owner and the partners independently of the app."),
+        "HowSlaughterOperationsTakePlace": MessageLookupByLibrary.simpleMessage(
+            "How do the Qurbani slaughter operations take place?"),
+        "HowSlaughterOperationsTakePlaceDesc": MessageLookupByLibrary.simpleMessage(
+            "The app is only an intermediary platform for finding partners. Qurbani slaughter is organized by the owner of the Qurbani. The place and date of Qurbani are specified in the advertisement details."),
         "ImportantInfo":
             MessageLookupByLibrary.simpleMessage("Important Information"),
         "ImportantInfoDesc": MessageLookupByLibrary.simpleMessage(
@@ -83,6 +103,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Successfully sent request"),
         "UseButtonsAddPhotos": MessageLookupByLibrary.simpleMessage(
             "Use the buttons below to add photos (max 7)"),
+        "WhatQurbaniPartnership": MessageLookupByLibrary.simpleMessage(
+            "What is a Qurbani partnership?"),
+        "WhatQurbaniPartnershipDesc": MessageLookupByLibrary.simpleMessage(
+            "According to Islamic rules, bovine animals (cattle, calf, buffalo) can be sacrificed by a maximum of 7 people. Kurbandaş application mediates for people who want to Qurbani to find a partner or become a partner in an announced Qurbani."),
+        "WhatShouldIDoIHaveProblems": MessageLookupByLibrary.simpleMessage(
+            "What should I do if I have problems with the app?"),
+        "WhatShouldIDoIHaveProblemsDesc": MessageLookupByLibrary.simpleMessage(
+            "For technical problems, suggestions or questions, please send an e-mail to"),
         "aboutApp": MessageLookupByLibrary.simpleMessage("About App"),
         "aboutAppDesc": MessageLookupByLibrary.simpleMessage(
             "Kurbandaş application is a platform developed to find and share Qurbani partnerships during Eid al-Adha. Users can declare their own Qurbanis and become partners in other users\' Qurbanis."),
@@ -217,6 +245,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "shareQurbani": MessageLookupByLibrary.simpleMessage("Share Qurbani"),
         "shared": MessageLookupByLibrary.simpleMessage("Shared"),
+        "sss":
+            MessageLookupByLibrary.simpleMessage("Frequently Asked Questions"),
         "successfullyShared": MessageLookupByLibrary.simpleMessage(
             "Qurbani was successfully shared"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),
