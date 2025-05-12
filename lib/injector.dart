@@ -45,7 +45,8 @@ Future init() async {
 
   serviceLocator.registerLazySingleton(() => PackageInfoService());
   serviceLocator.registerLazySingleton(() => UrlLauncherService());
-  serviceLocator.registerLazySingleton(() => AppSettingService());
+  serviceLocator.registerLazySingleton(() => AppSettingService(
+      serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)));
   serviceLocator.registerLazySingleton(() => AuthService());
   serviceLocator.registerLazySingleton(() =>
       UserService(serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)));

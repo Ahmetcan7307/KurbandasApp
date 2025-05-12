@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:kurbandas/services/apis/api/api.dart';
 
-enum Controllers { users }
+enum Controllers { users, appSettings }
 
 class MyAPI {
   static String getUrl(Controllers controllers, String action) {
@@ -11,6 +11,9 @@ class MyAPI {
     switch (controllers) {
       case Controllers.users:
         url += "AppUsers";
+        break;
+      case Controllers.appSettings:
+        url += "AppSettings";
         break;
     }
 

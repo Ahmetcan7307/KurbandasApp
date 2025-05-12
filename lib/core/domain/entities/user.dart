@@ -11,7 +11,6 @@ class User extends EntityBase {
   String? email;
   String? token;
   String? phoneNo;
-  String? photoUrl;
   String? accessToken;
 
   User(
