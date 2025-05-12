@@ -176,6 +176,23 @@ mixin _$KurbanStore on _KurbanStore, Store {
     });
   }
 
+  late final _$selectedKurbanDocumentIdAtom =
+      Atom(name: '_KurbanStore.selectedKurbanDocumentId', context: context);
+
+  @override
+  String? get selectedKurbanDocumentId {
+    _$selectedKurbanDocumentIdAtom.reportRead();
+    return super.selectedKurbanDocumentId;
+  }
+
+  @override
+  set selectedKurbanDocumentId(String? value) {
+    _$selectedKurbanDocumentIdAtom
+        .reportWrite(value, super.selectedKurbanDocumentId, () {
+      super.selectedKurbanDocumentId = value;
+    });
+  }
+
   late final _$getAnimalsAsyncAction =
       AsyncAction('_KurbanStore.getAnimals', context: context);
 
@@ -282,6 +299,14 @@ mixin _$KurbanStore on _KurbanStore, Store {
   Future<dynamic> getImages(BuildContext context, S lang, ImageSource source) {
     return _$getImagesAsyncAction
         .run(() => super.getImages(context, lang, source));
+  }
+
+  late final _$getAsyncAction =
+      AsyncAction('_KurbanStore.get', context: context);
+
+  @override
+  Future<dynamic> get() {
+    return _$getAsyncAction.run(() => super.get());
   }
 
   late final _$_KurbanStoreActionController =
@@ -393,6 +418,17 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
+  dynamic nullSelectedKurban() {
+    final _$actionInfo = _$_KurbanStoreActionController.startAction(
+        name: '_KurbanStore.nullSelectedKurban');
+    try {
+      return super.nullSelectedKurban();
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 animals: ${animals},
@@ -405,6 +441,7 @@ deactiveKurbans: ${deactiveKurbans},
 selectedKurban: ${selectedKurban},
 newKurban: ${newKurban},
 selectedPhotos: ${selectedPhotos},
+selectedKurbanDocumentId: ${selectedKurbanDocumentId},
 totalPhotosCount: ${totalPhotosCount}
     ''';
   }

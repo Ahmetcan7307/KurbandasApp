@@ -54,6 +54,9 @@ abstract class _KurbanStore with Store {
   @observable
   List<File> selectedPhotos = ObservableList.of([]);
 
+  @observable
+  String? selectedKurbanDocumentId;
+
   KurbanService service = serviceLocator.get<KurbanService>();
   ImagePickerService imagePickerService =
       serviceLocator.get<ImagePickerService>();
@@ -82,7 +85,7 @@ abstract class _KurbanStore with Store {
 
   @action
   Future getRequests() async =>
-      requests = await service.getRequests(selectedKurban!.documentId!);
+      requests = await service.getRequests(selectedKurbanDocumentId!);
 
   @action
   Future approveOrDeclineRequest(String documentId, bool isApprove) async =>
@@ -151,10 +154,11 @@ abstract class _KurbanStore with Store {
   selectKurban(bool isMy, bool isActive, int index) {
     if (isMy) {
       selectedKurban = myKurbans![index];
+      selectedKurbanDocumentId = selectedKurban!.documentId;
     } else {
-      selectedKurban = isActive
-          ? activeKurbans.elementAt(index)
-          : deactiveKurbans.elementAt(index);
+      selectedKurbanDocumentId = isActive
+          ? activeKurbans.elementAt(index).documentId!
+          : deactiveKurbans.elementAt(index).documentId!;
     }
   }
 
@@ -173,10 +177,10 @@ abstract class _KurbanStore with Store {
       };
 
   Future<bool> isRequestSend() async =>
-      await service.isRequestSend(selectedKurban!.documentId!);
+      await service.isRequestSend(selectedKurbanDocumentId!);
 
   Future postRequest() async =>
-      await service.postRequest(selectedKurban!.documentId!);
+      await service.postRequest(selectedKurbanDocumentId!);
 
   @action
   Future create() async {
@@ -275,4 +279,14 @@ abstract class _KurbanStore with Store {
       }
     }
   }
+
+  @action
+  Future get() async {
+    bool isMy = selectedKurban != null;
+    selectedKurban = null;
+    selectedKurban = await service.get(selectedKurbanDocumentId!, isMy);
+  }
+
+  @action
+  nullSelectedKurban() => selectedKurban = null;
 }

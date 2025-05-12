@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/utils/components/kurban/kurban_background_image.dart';
 import 'package:kurbandas/core/utils/components/kurban/kurban_status_linear_progress_indicator.dart';
@@ -27,7 +28,9 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
   late UrlLauncherStore urlLauncherStore;
   late AuthStore authStore;
 
-  bool isClickedRequestSend = false, isLoading = false;
+  bool isClickedRequestSend = false,
+      isLoadingSendRequest = false,
+      isLoading = true;
   late bool isRequestSend;
 
   @override
@@ -35,9 +38,13 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await kurbanStore.get();
+
       isRequestSend = await kurbanStore.isRequestSend();
 
-      setState(() {});
+      setState(() {
+        isLoading = false;
+      });
     });
   }
 
@@ -54,136 +61,156 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
   }
 
   @override
+  void dispose() {
+    kurbanStore.nullSelectedKurban();
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(slivers: [
-        buildSliverAppBar(),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "${kurbanStore.selectedKurban!.animal!.name!} - ${kurbanStore.selectedKurban!.weight!} kg",
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleLarge
-                          ?.copyWith(fontWeight: FontWeight.bold),
-                    ),
-                    buildStatusChip()
-                  ],
-                ),
-                const SizedBox(height: 16),
-                buildCard([
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.currency_lira,
-                        color: Colors.green,
-                      ),
-                      const SizedBox(width: 8),
-                      Text(
-                        "${lang.price}: ${kurbanStore.selectedKurban!.price} TL",
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium
-                            ?.copyWith(fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  ),
-                  const Divider(),
-                  buildInfoRow(
-                      lang.owner,
-                      kurbanStore.selectedKurban!.owner?.fullName ??
-                          authStore.user!.fullName),
-                  buildInfoRow(
-                      lang.cutAddress,
-                      kurbanStore.selectedKurban!.addressStr ??
-                          kurbanStore.selectedKurban!.address!.toString()),
-                  buildInfoRow(
-                      lang.cutDate,
-                      kurbanStore.selectedKurban!.cutDate?.formatDate() ??
-                          lang.noCutDate)
-                ]),
-                const SizedBox(height: 16),
-                buildCard([
-                  Text(
-                    lang.partnershipState,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 16),
-                  KurbanStatusLinearProgressIndicator(
-                      totalPartnersCount:
-                          kurbanStore.selectedKurban!.totalPartnersCount!,
-                      remainPartnersCount:
-                          kurbanStore.selectedKurban!.remainPartnersCount!,
-                      minHeight: 10,
-                      backgroundColor: Colors.grey.shade200,
-                      valueColor: Theme.of(context).primaryColor),
-                  const SizedBox(height: 8),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "${lang.count}: ${kurbanStore.selectedKurban!.totalPartnersCount! - kurbanStore.selectedKurban!.remainPartnersCount!}",
-                        style: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "${lang.remain}: ${kurbanStore.selectedKurban!.remainPartnersCount}",
-                        style: const TextStyle(
-                            color: Colors.red, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "${lang.total}: ${kurbanStore.selectedKurban!.totalPartnersCount!}",
-                        style: const TextStyle(color: Colors.grey),
-                      )
-                    ],
-                  ),
-                ]),
-                const SizedBox(height: 24),
-                if (kurbanStore.selectedKurban!.status ==
-                        KurbanStatus.waiting &&
-                    kurbanStore.selectedKurban!.remainPartnersCount! > 0 &&
-                    !kurbanStore.selectedKurban!.isMy! &&
-                    !isClickedRequestSend &&
-                    !isRequestSend)
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton.icon(
-                      onPressed: sendRequest,
-                      icon: const Icon(
-                        Icons.send,
-                        color: Colors.white,
-                      ),
-                      label: !isLoading
-                          ? Text(lang.sendRequest)
-                          : CircularProgressIndicator(
-                              color: Colors.white,
+      body: isLoading
+          ? Center(child: CircularProgressIndicator())
+          : Observer(builder: (context) {
+              return CustomScrollView(slivers: [
+                buildSliverAppBar(),
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "${kurbanStore.selectedKurban!.animal!.name!} - ${kurbanStore.selectedKurban!.weight!} kg",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleLarge
+                                  ?.copyWith(fontWeight: FontWeight.bold),
                             ),
-                      style: ElevatedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                          backgroundColor: Theme.of(context).primaryColor,
-                          foregroundColor: Colors.white),
+                            buildStatusChip()
+                          ],
+                        ),
+                        const SizedBox(height: 16),
+                        buildCard([
+                          Row(
+                            children: [
+                              const Icon(
+                                Icons.currency_lira,
+                                color: Colors.green,
+                              ),
+                              const SizedBox(width: 8),
+                              Text(
+                                "${lang.price}: ${kurbanStore.selectedKurban!.price} TL",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium
+                                    ?.copyWith(fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
+                          const Divider(),
+                          buildInfoRow(
+                              lang.owner,
+                              kurbanStore.selectedKurban!.owner?.fullName ??
+                                  authStore.user!.fullName),
+                          buildInfoRow(
+                              lang.cutAddress,
+                              kurbanStore.selectedKurban!.addressStr ??
+                                  kurbanStore.selectedKurban!.address!
+                                      .toString()),
+                          buildInfoRow(
+                              lang.cutDate,
+                              kurbanStore.selectedKurban!.cutDate
+                                      ?.formatDate() ??
+                                  lang.noCutDate)
+                        ]),
+                        const SizedBox(height: 16),
+                        buildCard([
+                          Text(
+                            lang.partnershipState,
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(height: 16),
+                          KurbanStatusLinearProgressIndicator(
+                              totalPartnersCount: kurbanStore
+                                  .selectedKurban!.totalPartnersCount!,
+                              remainPartnersCount: kurbanStore
+                                  .selectedKurban!.remainPartnersCount!,
+                              minHeight: 10,
+                              backgroundColor: Colors.grey.shade200,
+                              valueColor: Theme.of(context).primaryColor),
+                          const SizedBox(height: 8),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "${lang.count}: ${kurbanStore.selectedKurban!.totalPartnersCount! - kurbanStore.selectedKurban!.remainPartnersCount!}",
+                                style: TextStyle(
+                                    color: Theme.of(context).primaryColor,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                "${lang.remain}: ${kurbanStore.selectedKurban!.remainPartnersCount}",
+                                style: const TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                "${lang.total}: ${kurbanStore.selectedKurban!.totalPartnersCount!}",
+                                style: const TextStyle(color: Colors.grey),
+                              )
+                            ],
+                          ),
+                        ]),
+                        const SizedBox(height: 24),
+                        if (kurbanStore.selectedKurban!.status ==
+                                KurbanStatus.waiting &&
+                            kurbanStore.selectedKurban!.remainPartnersCount! >
+                                0 &&
+                            !kurbanStore.selectedKurban!.isMy! &&
+                            !isClickedRequestSend &&
+                            !isRequestSend)
+                          SizedBox(
+                            width: double.infinity,
+                            child: ElevatedButton.icon(
+                              onPressed: sendRequest,
+                              icon: const Icon(
+                                Icons.send,
+                                color: Colors.white,
+                              ),
+                              label: !isLoadingSendRequest
+                                  ? Text(lang.sendRequest)
+                                  : CircularProgressIndicator(
+                                      color: Colors.white,
+                                    ),
+                              style: ElevatedButton.styleFrom(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 16),
+                                  backgroundColor:
+                                      Theme.of(context).primaryColor,
+                                  foregroundColor: Colors.white),
+                            ),
+                          ),
+                        const SizedBox(height: 24),
+                        Text(
+                          lang.partners,
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 8),
+                        PartnersList(
+                            partners: kurbanStore.selectedKurban!.partners!)
+                      ],
                     ),
                   ),
-                const SizedBox(height: 24),
-                Text(
-                  lang.partners,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 8),
-                PartnersList(partners: kurbanStore.selectedKurban!.partners!)
-              ],
-            ),
-          ),
-        )
-      ]),
+                )
+              ]);
+            }),
     );
   }
 
@@ -293,7 +320,7 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
 
   Future sendRequest() async {
     setState(() {
-      isLoading = true;
+      isLoadingSendRequest = true;
     });
 
     try {
@@ -306,7 +333,7 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
     }
 
     setState(() {
-      isLoading = false;
+      isLoadingSendRequest = false;
       isClickedRequestSend = true;
     });
   }

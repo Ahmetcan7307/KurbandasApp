@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:kurbandas/core/domain/entities/address.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/domain/entities/kurban_request.dart';
-import 'package:kurbandas/core/domain/entities/partner.dart';
 import 'package:kurbandas/core/domain/entities/turkiye_api_province.dart';
 import 'package:kurbandas/core/domain/entities/user.dart';
 import 'package:kurbandas/core/models/filter.dart';
 
+import '../../../core/domain/entities/partner.dart';
 import '../../../core/domain/entities/turkiye_api_district.dart';
 
 class KurbanService {
@@ -43,15 +43,11 @@ class KurbanService {
               "https://kpnhlnwftdzzhemluekd.supabase.co/storage/v1/object/public/kurbans/vqyyv08hsxf49vcymrioulcc/5.webp",
               "https://kpnhlnwftdzzhemluekd.supabase.co/storage/v1/object/public/kurbans/vqyyv08hsxf49vcymrioulcc/6.jpg"
             ],
-            // Detail syfsında gösteriyoruz
-            partners: [],
-            isMy: true,
             address: Address(
                 province: TurkiyeAPIProvince(id: 1, name: "Adana"),
                 district: TurkiyeAPIDistrict(id: 1757, name: "Aladağ"),
-                cutAddress: "Aladağ"),
-            cutDate: DateTime.now())
-          ..documentId = "1"
+                cutAddress: "Aladağ"))
+          ..documentId = "6"
           ..remainPartnersCount = 0
           ..status = KurbanStatus.waiting,
         Kurban(
@@ -65,10 +61,8 @@ class KurbanService {
             address: Address(
                 province: TurkiyeAPIProvince(id: 1, name: "Adana"),
                 district: TurkiyeAPIDistrict(id: 1219, name: "Ceyhan"),
-                cutAddress: "Ceyhan"),
-            partners: [],
-            isMy: true)
-          ..documentId = "2"
+                cutAddress: "Ceyhan"))
+          ..documentId = "7"
           ..remainPartnersCount = 5
           ..status = KurbanStatus.waiting
       ]);
@@ -137,32 +131,25 @@ class KurbanService {
       ]);
 
   Future<List<Kurban>> getKurbans(
-          bool? isActive, Filter? filter, int page, int pageSize) async =>
+          bool isActive, Filter? filter, int page, int pageSize) async =>
       await Future.value(List.generate(
           5,
           (index) => Kurban(
-              animal: KurbanAnimal(name: "Sheep"),
-              weight: 40 + (index % 300).toDouble(),
-              price: 1000 + (index * 100).toDouble(),
-              addressStr: "İstanbul / Beylikdüzü",
-              totalPartnersCount: 7,
-              status: KurbanStatus.values[index % KurbanStatus.values.length],
-              photoUrls: [
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg",
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg"
-              ],
-              owner: User(name: "User", surname: index.toString()),
-              cutDate: DateTime.now().add(const Duration(days: 10)),
-              partners: List.generate(
-                  7 - (index % 8),
-                  (partnerIndex) => Partner(
-                      fullName: "User ${partnerIndex + 1}",
-                      createdAt: DateTime.now())),
-              isMy: index % 2 == 0)
-            ..documentId = index.toString()
-            ..remainPartnersCount = index % 8));
+                  animal: KurbanAnimal(name: "Sheep"),
+                  weight: 40 + (index % 300).toDouble(),
+                  price: 1000 + (index * 100).toDouble(),
+                  addressStr: "İstanbul / Beylikdüzü",
+                  totalPartnersCount: 7,
+                  status:
+                      KurbanStatus.values[index % KurbanStatus.values.length],
+                  photoUrls: [
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg"
+                  ])
+                ..documentId = index.toString()
+                ..remainPartnersCount = index % 8));
 
   Future<bool> isRequestSend(String documentId) async =>
       await Future.value(false);
@@ -178,4 +165,19 @@ class KurbanService {
     // Şimdilik simulasyon olarak boş fonksiyon
     await Future.delayed(Duration(milliseconds: 500));
   }
+
+  // API, request'i atan kullanıcıya göre isMy propunu doldurmalı
+  Future<Kurban> get(String documentId, bool isMy) async =>
+      (isMy ? await getMyKurbans() : await getKurbans(true, null, 0, 0))
+          .firstWhere((kurban) => kurban.documentId == documentId)
+        ..partners = isMy
+            ? List.empty()
+            : List.generate(
+                7,
+                (partnerIndex) => Partner(
+                    fullName: "User ${partnerIndex + 1}",
+                    createdAt: DateTime.now()))
+        ..isMy = isMy
+        ..cutDate = DateTime.now()
+        ..owner = isMy ? User(name: "User", surname: "0") : null;
 }
