@@ -55,6 +55,14 @@ mixin _$AuthStore on _AuthStore, Store {
     return _$signInWithGoogleAsyncAction.run(() => super.signInWithGoogle());
   }
 
+  late final _$updatePhoneNoAsyncAction =
+      AsyncAction('_AuthStore.updatePhoneNo', context: context);
+
+  @override
+  Future<dynamic> updatePhoneNo(String phoneNo) {
+    return _$updatePhoneNoAsyncAction.run(() => super.updatePhoneNo(phoneNo));
+  }
+
   @override
   String toString() {
     return '''
