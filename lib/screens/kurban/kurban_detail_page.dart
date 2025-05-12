@@ -319,6 +319,7 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
       );
 
   Future sendRequest() async {
+    // Todo phoneNo check
     setState(() {
       isLoadingSendRequest = true;
     });

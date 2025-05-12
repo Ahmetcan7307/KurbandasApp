@@ -51,4 +51,8 @@ abstract class _AuthStore with Store {
           .put(HiveCons.token, user!.token!);
     }
   }
+
+  @action
+  Future updatePhoneNo(String phoneNo) async =>
+      user = await userService.update({"phoneNo": phoneNo});
 }

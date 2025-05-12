@@ -23,7 +23,7 @@ class Kurban extends EntityBase {
   int? remainPartnersCount = 0;
   List<Partner>? partners;
   List<String>? photoUrls;
-  List<String?>? removedPhotoUrls;
+  List<String>? removedPhotoUrls;
   bool? isMy;
 
   Kurban(

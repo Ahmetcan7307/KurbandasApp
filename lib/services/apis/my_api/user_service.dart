@@ -15,4 +15,12 @@ class UserService {
     return Future.value(
         User(name: "Ahmet", surname: "Balaman", email: "ahmet@test.com"));
   }
+
+  Future<User> update(Map<String, dynamic> data) async =>
+      await Future.value(User(
+          name: "Ahmet",
+          surname: "Balaman",
+          email: "ahmet@test.com",
+          token: "",
+          phoneNo: "901234567890"));
 }
