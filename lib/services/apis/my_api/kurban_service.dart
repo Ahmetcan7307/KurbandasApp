@@ -6,6 +6,8 @@ import 'package:kurbandas/core/domain/entities/kurban_request.dart';
 import 'package:kurbandas/core/domain/entities/turkiye_api_province.dart';
 import 'package:kurbandas/core/domain/entities/user.dart';
 import 'package:kurbandas/core/models/filter.dart';
+import 'package:kurbandas/services/apis/api/query.dart';
+import 'package:kurbandas/services/apis/my_api/my_api.dart';
 
 import '../../../core/domain/entities/partner.dart';
 import '../../../core/domain/entities/turkiye_api_district.dart';
@@ -15,18 +17,20 @@ class KurbanService {
 
   KurbanService({required this.dio});
 
-  Future<List<KurbanAnimal>> getAnimals() =>
-      WidgetsBinding.instance.platformDispatcher.locale.languageCode == "tr"
-          ? Future.value([
-              KurbanAnimal(name: "Sığır")..documentId = "1",
-              KurbanAnimal(name: "Manda")..documentId = "2",
-              KurbanAnimal(name: "Deve")..documentId = "3"
-            ])
-          : Future.value([
-              KurbanAnimal(name: "Cattle")..documentId = "1",
-              KurbanAnimal(name: "Buffalo")..documentId = "2",
-              KurbanAnimal(name: "Camel")..documentId = "3"
-            ]);
+  Future<List<KurbanAnimal>> getAnimals() async {
+    String url = MyAPI.getUrl(Controllers.kurbanAnimals, "GetAll", queries: [
+      Query(
+          name: "locale",
+          value: WidgetsBinding.instance.platformDispatcher.locale.languageCode)
+    ]);
+    Response<List> response = await dio.get(url);
+
+    if (response.statusCode == 200) {
+      return response.data!.map((data) => KurbanAnimal.fromJson(data)).toList();
+    }
+
+    throw MyAPI.getError(url, response);
+  }
 
   Future<List<Kurban>> getMyKurbans() => Future.value([
         Kurban(
