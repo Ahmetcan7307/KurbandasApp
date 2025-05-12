@@ -40,9 +40,6 @@ abstract class _KurbanStore with Store {
   List<Kurban>? myPartnerships;
 
   @observable
-  Set<Kurban> allKurbans = ObservableSet();
-
-  @observable
   Set<Kurban> activeKurbans = ObservableSet();
 
   @observable
@@ -122,14 +119,6 @@ abstract class _KurbanStore with Store {
   clearFilter() => filter = null;
 
   @action
-  Future<bool> getAllKurbans(int page) async {
-    List<Kurban> newKurbans =
-        await service.getKurbans(null, filter, page, pageSize);
-    allKurbans.addAll(newKurbans);
-    return newKurbans.length < pageSize;
-  }
-
-  @action
   Future<bool> getActiveKurbans(int page) async {
     List<Kurban> newKurbans =
         await service.getKurbans(true, filter, page, pageSize);
@@ -145,10 +134,8 @@ abstract class _KurbanStore with Store {
     return newKurbans.length < pageSize;
   }
 
-  int getKurbansLength(bool? isActive) {
-    if (isActive == null) {
-      return allKurbans.length;
-    } else if (isActive) {
+  int getKurbansLength(bool isActive) {
+    if (isActive) {
       return activeKurbans.length;
     }
     return deactiveKurbans.length;
@@ -156,21 +143,18 @@ abstract class _KurbanStore with Store {
 
   @action
   clearKurbanses() {
-    allKurbans.clear();
     activeKurbans.clear();
     deactiveKurbans.clear();
   }
 
   @action
-  selectKurban(bool isMy, bool? isActive, int index) {
+  selectKurban(bool isMy, bool isActive, int index) {
     if (isMy) {
       selectedKurban = myKurbans![index];
     } else {
-      selectedKurban = isActive == null
-          ? allKurbans.elementAt(index)
-          : isActive == true
-              ? activeKurbans.elementAt(index)
-              : deactiveKurbans.elementAt(index);
+      selectedKurban = isActive
+          ? activeKurbans.elementAt(index)
+          : deactiveKurbans.elementAt(index);
     }
   }
 
@@ -225,17 +209,6 @@ abstract class _KurbanStore with Store {
   @action
   selectNewKurbanProvince(TurkiyeAPIProvince province) =>
       newKurban!.address ??= Address(province: province);
-
-  @action
-  setImages(List<File> images) {
-    if (images.isNotEmpty) {
-      newKurban!.photoUrls ??= [];
-
-      List<String> paths = images.map((file) => file.path).toList();
-
-      newKurban!.photoUrls = paths;
-    }
-  }
 
   @action
   Future pickImage(ImageSource source) async {

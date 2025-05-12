@@ -8,9 +8,9 @@ import 'package:kurbandas/stores/root_store.dart';
 import 'package:provider/provider.dart';
 
 class KurbanList extends StatefulWidget {
-  final bool? isActive;
+  final bool isActive;
 
-  const KurbanList({super.key, this.isActive});
+  const KurbanList({super.key, required this.isActive});
 
   @override
   State<KurbanList> createState() => _KurbanListState();
@@ -57,11 +57,9 @@ class _KurbanListState extends State<KurbanList> {
     }
   }
 
-  Future<bool> fetchKurbans(int page) async => widget.isActive == null
-      ? await kurbanStore.getAllKurbans(page)
-      : widget.isActive == true
-          ? await kurbanStore.getActiveKurbans(page)
-          : await kurbanStore.getDeactiveKurbans(page);
+  Future<bool> fetchKurbans(int page) async => widget.isActive
+      ? await kurbanStore.getActiveKurbans(page)
+      : await kurbanStore.getDeactiveKurbans(page);
 
   setupController() {
     controller.addListener(() {
@@ -124,11 +122,9 @@ class _KurbanListState extends State<KurbanList> {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 16),
                 child: KurbanCard(
-                  kurban: widget.isActive == null
-                      ? kurbanStore.allKurbans.elementAt(index)
-                      : widget.isActive == true
-                          ? kurbanStore.activeKurbans.elementAt(index)
-                          : kurbanStore.deactiveKurbans.elementAt(index),
+                  kurban: widget.isActive
+                      ? kurbanStore.activeKurbans.elementAt(index)
+                      : kurbanStore.deactiveKurbans.elementAt(index),
                   onTap: () =>
                       kurbanStore.selectKurban(false, widget.isActive, index),
                 ),

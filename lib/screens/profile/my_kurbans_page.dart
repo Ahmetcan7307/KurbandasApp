@@ -92,7 +92,7 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
                 children: [
                   KurbanCard(
                     kurban: kurban,
-                    onTap: () => kurbanStore.selectKurban(true, null, index),
+                    onTap: () => kurbanStore.selectKurban(true, true, index),
                   ),
                   buildActionButtons(
                       kurban.documentId!, kurban.animal!.name!, index),
@@ -114,14 +114,14 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
                 icon: Icons.people,
                 label: lang.Requests,
                 onTap: () {
-                  kurbanStore.selectKurban(true, null, index);
+                  kurbanStore.selectKurban(true, true, index);
                   Navigator.pushNamed(context, Routes.kurbanRequests);
                 }),
             ActionButton(
                 icon: Icons.edit,
                 label: lang.edit,
                 onTap: () async {
-                  kurbanStore.selectKurban(true, null, index);
+                  kurbanStore.selectKurban(true, true, index);
 
                   if (await Navigator.pushNamed(context, Routes.editKurban)
                           as bool? ??

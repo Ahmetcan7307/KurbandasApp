@@ -96,22 +96,6 @@ mixin _$KurbanStore on _KurbanStore, Store {
     });
   }
 
-  late final _$allKurbansAtom =
-      Atom(name: '_KurbanStore.allKurbans', context: context);
-
-  @override
-  Set<Kurban> get allKurbans {
-    _$allKurbansAtom.reportRead();
-    return super.allKurbans;
-  }
-
-  @override
-  set allKurbans(Set<Kurban> value) {
-    _$allKurbansAtom.reportWrite(value, super.allKurbans, () {
-      super.allKurbans = value;
-    });
-  }
-
   late final _$activeKurbansAtom =
       Atom(name: '_KurbanStore.activeKurbans', context: context);
 
@@ -249,14 +233,6 @@ mixin _$KurbanStore on _KurbanStore, Store {
     return _$getMyPartnershipsAsyncAction.run(() => super.getMyPartnerships());
   }
 
-  late final _$getAllKurbansAsyncAction =
-      AsyncAction('_KurbanStore.getAllKurbans', context: context);
-
-  @override
-  Future<bool> getAllKurbans(int page) {
-    return _$getAllKurbansAsyncAction.run(() => super.getAllKurbans(page));
-  }
-
   late final _$getActiveKurbansAsyncAction =
       AsyncAction('_KurbanStore.getActiveKurbans', context: context);
 
@@ -351,7 +327,7 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
-  dynamic selectKurban(bool isMy, bool? isActive, int index) {
+  dynamic selectKurban(bool isMy, bool isActive, int index) {
     final _$actionInfo = _$_KurbanStoreActionController.startAction(
         name: '_KurbanStore.selectKurban');
     try {
@@ -378,17 +354,6 @@ mixin _$KurbanStore on _KurbanStore, Store {
         name: '_KurbanStore.selectNewKurbanProvince');
     try {
       return super.selectNewKurbanProvince(province);
-    } finally {
-      _$_KurbanStoreActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
-  dynamic setImages(List<File> images) {
-    final _$actionInfo = _$_KurbanStoreActionController.startAction(
-        name: '_KurbanStore.setImages');
-    try {
-      return super.setImages(images);
     } finally {
       _$_KurbanStoreActionController.endAction(_$actionInfo);
     }
@@ -435,7 +400,6 @@ filter: ${filter},
 myKurbans: ${myKurbans},
 requests: ${requests},
 myPartnerships: ${myPartnerships},
-allKurbans: ${allKurbans},
 activeKurbans: ${activeKurbans},
 deactiveKurbans: ${deactiveKurbans},
 selectedKurban: ${selectedKurban},
