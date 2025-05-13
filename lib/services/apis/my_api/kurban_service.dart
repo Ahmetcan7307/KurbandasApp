@@ -1,16 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:kurbandas/core/domain/entities/address.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/domain/entities/kurban_request.dart';
-import 'package:kurbandas/core/domain/entities/turkiye_api_province.dart';
 import 'package:kurbandas/core/domain/entities/user.dart';
 import 'package:kurbandas/core/models/filter.dart';
 import 'package:kurbandas/services/apis/api/query.dart';
 import 'package:kurbandas/services/apis/my_api/my_api.dart';
 
 import '../../../core/domain/entities/partner.dart';
-import '../../../core/domain/entities/turkiye_api_district.dart';
 
 class KurbanService {
   final Dio dio;
@@ -32,44 +29,16 @@ class KurbanService {
     throw MyAPI.getError(url, response);
   }
 
-  Future<List<Kurban>> getMyKurbans() => Future.value([
-        Kurban(
-            animal: KurbanAnimal(name: "Sığır")..documentId = "1",
-            weight: 450,
-            price: 45000,
-            totalPartnersCount: 7,
-            photoUrls: [
-              "https://kpnhlnwftdzzhemluekd.supabase.co/storage/v1/object/public/kurbans/vqyyv08hsxf49vcymrioulcc/0.jpg",
-              "https://kpnhlnwftdzzhemluekd.supabase.co/storage/v1/object/public/kurbans/vqyyv08hsxf49vcymrioulcc/1.webp",
-              "https://kpnhlnwftdzzhemluekd.supabase.co/storage/v1/object/public/kurbans/vqyyv08hsxf49vcymrioulcc/2.jpg",
-              "https://kpnhlnwftdzzhemluekd.supabase.co/storage/v1/object/public/kurbans/vqyyv08hsxf49vcymrioulcc/3.jpg",
-              "https://kpnhlnwftdzzhemluekd.supabase.co/storage/v1/object/public/kurbans/vqyyv08hsxf49vcymrioulcc/4.jpg",
-              "https://kpnhlnwftdzzhemluekd.supabase.co/storage/v1/object/public/kurbans/vqyyv08hsxf49vcymrioulcc/5.webp",
-              "https://kpnhlnwftdzzhemluekd.supabase.co/storage/v1/object/public/kurbans/vqyyv08hsxf49vcymrioulcc/6.jpg"
-            ],
-            address: Address(
-                province: TurkiyeAPIProvince(id: 1, name: "Adana"),
-                district: TurkiyeAPIDistrict(id: 1757, name: "Aladağ"),
-                cutAddress: "Aladağ"))
-          ..documentId = "6"
-          ..remainPartnersCount = 0
-          ..status = KurbanStatus.waiting,
-        Kurban(
-            animal: KurbanAnimal(name: "Manda")..documentId = "2",
-            weight: 600,
-            price: 60000,
-            totalPartnersCount: 7,
-            photoUrls: [
-              "https://isbh.tmgrup.com.tr/sbh/2020/06/13/650x344/sifa-kaynagi-urunlere-talep-cok-manda-az-1592033428910.jpg"
-            ],
-            address: Address(
-                province: TurkiyeAPIProvince(id: 1, name: "Adana"),
-                district: TurkiyeAPIDistrict(id: 1219, name: "Ceyhan"),
-                cutAddress: "Ceyhan"))
-          ..documentId = "7"
-          ..remainPartnersCount = 5
-          ..status = KurbanStatus.waiting
-      ]);
+  Future<List<Kurban>> getMyKurbans() async {
+    String url = MyAPI.getUrl(Controllers.kurbans, "GetMines");
+    Response<List> response = await dio.get(url);
+
+    if (response.statusCode == 200) {
+      return response.data!.map((data) => Kurban.fromJson(data)).toList();
+    }
+
+    throw MyAPI.getError(url, response);
+  }
 
   Future<List<KurbanRequest>> getRequests(String documentId) => Future.value([
         KurbanRequest(

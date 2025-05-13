@@ -8,7 +8,7 @@ part of 'turkiye_api_province.dart';
 
 TurkiyeAPIProvince _$TurkiyeAPIProvinceFromJson(Map<String, dynamic> json) =>
     TurkiyeAPIProvince(
-      id: (json['id'] as num).toInt(),
+      turkiyeAPIId: (json['turkiyeAPIId'] as num).toInt(),
       name: json['name'] as String,
       districts: (json['districts'] as List<dynamic>?)
           ?.map((e) => TurkiyeAPIDistrict.fromJson(e as Map<String, dynamic>))
@@ -17,7 +17,7 @@ TurkiyeAPIProvince _$TurkiyeAPIProvinceFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$TurkiyeAPIProvinceToJson(TurkiyeAPIProvince instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'turkiyeAPIId': instance.turkiyeAPIId,
       'name': instance.name,
       'districts': instance.districts,
     };

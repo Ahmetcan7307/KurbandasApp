@@ -63,8 +63,8 @@ class _EditKurbanPageState extends State<EditKurbanPage> {
       cutDateCnt.text = DateFormat('dd.MM.yyyy').format(selectedCutDate!);
     }
 
-    turkiyeAPIStore
-        .selectProvince(kurbanStore.selectedKurban!.address!.province!.id);
+    turkiyeAPIStore.selectProvince(
+        kurbanStore.selectedKurban!.address!.province!.turkiyeAPIId);
 
     selectedDistrict = kurbanStore.selectedKurban!.address!.district;
 
@@ -219,7 +219,8 @@ class _EditKurbanPageState extends State<EditKurbanPage> {
                       ProvinceDropdownButtonFormField(
                           value: kurbanStore.selectedKurban!.address!.province,
                           onChanged: (TurkiyeAPIProvince? province) {
-                            turkiyeAPIStore.selectProvince(province!.id);
+                            turkiyeAPIStore
+                                .selectProvince(province!.turkiyeAPIId);
 
                             kurbanStore.selectSelectedKurbanProvince(province);
 

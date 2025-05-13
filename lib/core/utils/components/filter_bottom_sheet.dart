@@ -112,7 +112,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
                     ProvinceDropdownButtonFormField(
                       value: selectedProvince,
                       onChanged: (TurkiyeAPIProvince? province) {
-                        turkiyeAPIStore.selectProvince(province!.id);
+                        turkiyeAPIStore.selectProvince(province!.turkiyeAPIId);
                         setState(() {
                           selectedProvince = province;
                           selectedDistrict = null;

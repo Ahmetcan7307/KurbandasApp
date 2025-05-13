@@ -94,7 +94,7 @@ class _CreateKurbanLocationPageState extends State<CreateKurbanLocationPage> {
               ProvinceDropdownButtonFormField(
                   value: kurbanStore.newKurban!.address?.province,
                   onChanged: (TurkiyeAPIProvince? province) {
-                    turkiyeAPIStore.selectProvince(province!.id);
+                    turkiyeAPIStore.selectProvince(province!.turkiyeAPIId);
 
                     kurbanStore.selectNewKurbanProvince(province);
 

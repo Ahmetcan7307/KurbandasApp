@@ -6,11 +6,12 @@ part 'turkiye_api_province.g.dart';
 
 @JsonSerializable()
 class TurkiyeAPIProvince {
-  int id;
+  int turkiyeAPIId;
   String name;
   List<TurkiyeAPIDistrict>? districts;
 
-  TurkiyeAPIProvince({required this.id, required this.name, this.districts});
+  TurkiyeAPIProvince(
+      {required this.turkiyeAPIId, required this.name, this.districts});
 
   factory TurkiyeAPIProvince.fromJson(Map<String, dynamic> json) =>
       _$TurkiyeAPIProvinceFromJson(json);
@@ -27,8 +28,8 @@ class TurkiyeAPIProvince {
       identical(this, other) ||
       other is TurkiyeAPIProvince &&
           runtimeType == other.runtimeType &&
-          id == other.id;
+          turkiyeAPIId == other.turkiyeAPIId;
 
   @override
-  int get hashCode => id.hashCode;
+  int get hashCode => turkiyeAPIId.hashCode;
 }
