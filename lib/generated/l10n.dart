@@ -1509,6 +1509,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Phone Number Required`
+  String get PhoneNoRequired {
+    return Intl.message(
+      'Phone Number Required',
+      name: 'PhoneNoRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your phone number to continue`
+  String get PhoneNoRequiredDesc {
+    return Intl.message(
+      'Please enter your phone number to continue',
+      name: 'PhoneNoRequiredDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phoneNo {
+    return Intl.message(
+      'Phone Number',
+      name: 'phoneNo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid phone number format`
+  String get InvalidPhoneNoFormat {
+    return Intl.message(
+      'Invalid phone number format',
+      name: 'InvalidPhoneNoFormat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid phone number with the format`
+  String get PleasePhoneNo {
+    return Intl.message(
+      'Please enter a valid phone number with the format',
+      name: 'PleasePhoneNo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update Phone Number`
+  String get addPhoneNo {
+    return Intl.message(
+      'Update Phone Number',
+      name: 'addPhoneNo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Country`
+  String get country {
+    return Intl.message(
+      'Country',
+      name: 'country',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

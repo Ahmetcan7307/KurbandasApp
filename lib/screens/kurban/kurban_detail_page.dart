@@ -319,23 +319,24 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
       );
 
   Future sendRequest() async {
-    // Todo phoneNo check
-    setState(() {
-      isLoadingSendRequest = true;
-    });
+    if (await authStore.checkPhoneNo(context)) {
+      setState(() {
+        isLoadingSendRequest = true;
+      });
 
-    try {
-      await kurbanStore.postRequest();
+      try {
+        await kurbanStore.postRequest();
 
-      showSnackBar(context,
-          text: lang.SuccessfullySentRequest, color: Colors.green);
-    } catch (e) {
-      showSnackBar(context, text: "${lang.error}: $e");
+        showSnackBar(context,
+            text: lang.SuccessfullySentRequest, color: Colors.green);
+      } catch (e) {
+        showSnackBar(context, text: "${lang.error}: $e");
+      }
+
+      setState(() {
+        isLoadingSendRequest = false;
+        isClickedRequestSend = true;
+      });
     }
-
-    setState(() {
-      isLoadingSendRequest = false;
-      isClickedRequestSend = true;
-    });
   }
 }

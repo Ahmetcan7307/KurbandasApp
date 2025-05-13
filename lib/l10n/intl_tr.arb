@@ -199,5 +199,12 @@
   "HowDivideMeat": "Kurban eti nasıl paylaştırılır?",
   "HowDivideMeatDesc": "Kurban kesildikten sonra etin paylaştırılması, kurban sahibi ve ortakların kendi aralarında belirledikleri şekilde gerçekleştirilir. İslami kurallara göre etin adil bir şekilde paylaştırılması gerekmektedir.",
   "WhatShouldIDoIHaveProblems": "Uygulamada sorun yaşarsam ne yapmalıyım?",
-  "WhatShouldIDoIHaveProblemsDesc": "Teknik sorunlar, öneriler veya sorularınız için e-posta gönderebilirsiniz"
+  "WhatShouldIDoIHaveProblemsDesc": "Teknik sorunlar, öneriler veya sorularınız için e-posta gönderebilirsiniz",
+  "PhoneNoRequired": "Telefon Numarası Gerekli",
+  "PhoneNoRequiredDesc": "Devam etmek için lütfen telefon numaranızı girin",
+  "phoneNo": "Telefon Numarası",
+  "InvalidPhoneNoFormat": "Geçersiz telefon numarası formatı",
+  "PleasePhoneNo": "Lütfen bu format ile geçerli bir telefon numarası girin",
+  "addPhoneNo": "Telefon No Ekle",
+  "country": "Ülke"
 }

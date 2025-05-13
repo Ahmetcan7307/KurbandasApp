@@ -68,6 +68,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "ImportantInfo": MessageLookupByLibrary.simpleMessage("Önemli Bilgi"),
         "ImportantInfoDesc": MessageLookupByLibrary.simpleMessage(
             "Bir kurban maksimum 7 ortak olabilir."),
+        "InvalidPhoneNoFormat": MessageLookupByLibrary.simpleMessage(
+            "Geçersiz telefon numarası formatı"),
         "Location": MessageLookupByLibrary.simpleMessage("Konum"),
         "LocationInfo": MessageLookupByLibrary.simpleMessage("Konum Bilgileri"),
         "MaximumPartners7": MessageLookupByLibrary.simpleMessage(
@@ -80,6 +82,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Kurban paylaşmak için \"Yeni Kurban\" butonuna tıklayın"),
         "PartnershipsCompleted":
             MessageLookupByLibrary.simpleMessage("Ortaklıklar tamamlandı"),
+        "PhoneNoRequired":
+            MessageLookupByLibrary.simpleMessage("Telefon Numarası Gerekli"),
+        "PhoneNoRequiredDesc": MessageLookupByLibrary.simpleMessage(
+            "Devam etmek için lütfen telefon numaranızı girin"),
+        "PleasePhoneNo": MessageLookupByLibrary.simpleMessage(
+            "Lütfen bu format ile geçerli bir telefon numarası girin"),
         "Preview": MessageLookupByLibrary.simpleMessage("Önizleme"),
         "QurbaniAnimal": MessageLookupByLibrary.simpleMessage("Kurban Hayvanı"),
         "QurbaniInfo": MessageLookupByLibrary.simpleMessage("Kurban Bilgileri"),
@@ -112,6 +120,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutAppDesc": MessageLookupByLibrary.simpleMessage(
             "Kurbandaş uygulaması, kurban bayramlarında kurban ortaklığı bulmak ve paylaşmak için geliştirilmiş bir platformdur. Kullanıcılar kendi kurbanlarını ilan edebilir ve diğer kullanıcıların kurbanlarına ortak olabilirler."),
         "active": MessageLookupByLibrary.simpleMessage("Aktif"),
+        "addPhoneNo": MessageLookupByLibrary.simpleMessage("Telefon No Ekle"),
         "addPhotos":
             MessageLookupByLibrary.simpleMessage("Fotoğraf ekleyin (max 7)"),
         "app": MessageLookupByLibrary.simpleMessage("Uygulama"),
@@ -140,6 +149,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Öneri, şikayet ve sorularınız için"),
         "continueTxt": MessageLookupByLibrary.simpleMessage("Devam Et"),
         "count": MessageLookupByLibrary.simpleMessage("Sayısı"),
+        "country": MessageLookupByLibrary.simpleMessage("Ülke"),
         "cut": MessageLookupByLibrary.simpleMessage("Kesildi"),
         "cutAddress": MessageLookupByLibrary.simpleMessage("Kesim Yeri"),
         "cutDate": MessageLookupByLibrary.simpleMessage("Kesim Tarihi"),
@@ -205,6 +215,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ortaklık İstekleri"),
         "partnershipState":
             MessageLookupByLibrary.simpleMessage("Ortaklık Durumu"),
+        "phoneNo": MessageLookupByLibrary.simpleMessage("Telefon Numarası"),
         "photos": MessageLookupByLibrary.simpleMessage("Fotoğraflar"),
         "pleaseCutAddress": MessageLookupByLibrary.simpleMessage(
             "Lütfen kesim alanının adını giriniz"),

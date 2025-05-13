@@ -6,17 +6,20 @@ import 'package:kurbandas/core/const/get_cons.dart';
 import 'package:kurbandas/core/const/hive_cons.dart';
 import 'package:kurbandas/services/apis/google_apis/google_api_service.dart';
 import 'package:kurbandas/services/apis/my_api/app_setting_service.dart';
+import 'package:kurbandas/services/apis/my_api/country_service.dart';
 import 'package:kurbandas/services/apis/my_api/kurban_service.dart';
 import 'package:kurbandas/services/apis/my_api/user_service.dart';
 import 'package:kurbandas/services/apis/turkiye_api/turkiye_api_service.dart';
 import 'package:kurbandas/services/image_picker_service.dart';
 import 'package:kurbandas/services/package_info_service.dart';
 import 'package:kurbandas/services/store_service.dart';
+import 'package:kurbandas/services/string_service.dart';
 import 'package:kurbandas/services/supabase/auth_service.dart';
 import 'package:kurbandas/services/supabase/storage_service.dart';
 import 'package:kurbandas/services/url_launcher_service.dart';
 import 'package:kurbandas/stores/api/app_setting_store.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
+import 'package:kurbandas/stores/country_store.dart';
 import 'package:kurbandas/stores/package_store.dart';
 import 'package:kurbandas/stores/root_store.dart';
 import 'package:kurbandas/stores/supabase/auth_store.dart';
@@ -32,6 +35,7 @@ Future init() async {
   serviceLocator.registerFactory(() => TurkiyeAPIStore());
   serviceLocator.registerFactory(() => KurbanStore());
   serviceLocator.registerFactory(() => PackageStore());
+  serviceLocator.registerFactory(() => CountryStore());
 
   serviceLocator.registerLazySingleton(() => Dio(),
       instanceName: GetCons.myAPIDio);
@@ -59,6 +63,9 @@ Future init() async {
   serviceLocator.registerLazySingleton(() => StoreService());
   serviceLocator.registerLazySingleton(() => ImagePickerService());
   serviceLocator.registerLazySingleton(() => StorageService());
+  serviceLocator.registerLazySingleton(() =>
+      CountryService(serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)));
+  serviceLocator.registerLazySingleton(() => StringService());
 
   serviceLocator.registerLazySingleton(() => RootStore(
       urlLauncherStore: serviceLocator.get<UrlLauncherStore>(),
@@ -66,7 +73,8 @@ Future init() async {
       authStore: serviceLocator.get<AuthStore>(),
       turkiyeAPIStore: serviceLocator.get<TurkiyeAPIStore>(),
       kurbanStore: serviceLocator.get<KurbanStore>(),
-      packageStore: serviceLocator.get<PackageStore>()));
+      packageStore: serviceLocator.get<PackageStore>(),
+      countryStore: serviceLocator.get<CountryStore>()));
 }
 
 initDio() {

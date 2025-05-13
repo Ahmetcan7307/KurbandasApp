@@ -63,6 +63,14 @@ mixin _$AuthStore on _AuthStore, Store {
     return _$updatePhoneNoAsyncAction.run(() => super.updatePhoneNo(phoneNo));
   }
 
+  late final _$checkPhoneNoAsyncAction =
+      AsyncAction('_AuthStore.checkPhoneNo', context: context);
+
+  @override
+  Future<bool> checkPhoneNo(BuildContext context) {
+    return _$checkPhoneNoAsyncAction.run(() => super.checkPhoneNo(context));
+  }
+
   @override
   String toString() {
     return '''

@@ -132,6 +132,26 @@ mixin _$RootStore on _RootStore, Store {
     });
   }
 
+  late final _$countryStoreAtom =
+      Atom(name: '_RootStore.countryStore', context: context);
+
+  @override
+  CountryStore get countryStore {
+    _$countryStoreAtom.reportRead();
+    return super.countryStore;
+  }
+
+  bool _countryStoreIsInitialized = false;
+
+  @override
+  set countryStore(CountryStore value) {
+    _$countryStoreAtom.reportWrite(
+        value, _countryStoreIsInitialized ? super.countryStore : null, () {
+      super.countryStore = value;
+      _countryStoreIsInitialized = true;
+    });
+  }
+
   @override
   String toString() {
     return '''
@@ -140,7 +160,8 @@ appSettingStore: ${appSettingStore},
 authStore: ${authStore},
 turkiyeAPIStore: ${turkiyeAPIStore},
 kurbanStore: ${kurbanStore},
-packageStore: ${packageStore}
+packageStore: ${packageStore},
+countryStore: ${countryStore}
     ''';
   }
 }

@@ -68,6 +68,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Important Information"),
         "ImportantInfoDesc": MessageLookupByLibrary.simpleMessage(
             "One Qurbani can have a maximum of 7 partners."),
+        "InvalidPhoneNoFormat":
+            MessageLookupByLibrary.simpleMessage("Invalid phone number format"),
         "Location": MessageLookupByLibrary.simpleMessage("Location"),
         "LocationInfo":
             MessageLookupByLibrary.simpleMessage("Location Information"),
@@ -82,6 +84,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Click on the \'Share Qurbani\' button to share the Qurbani"),
         "PartnershipsCompleted":
             MessageLookupByLibrary.simpleMessage("Partnerships completed"),
+        "PhoneNoRequired":
+            MessageLookupByLibrary.simpleMessage("Phone Number Required"),
+        "PhoneNoRequiredDesc": MessageLookupByLibrary.simpleMessage(
+            "Please enter your phone number to continue"),
+        "PleasePhoneNo": MessageLookupByLibrary.simpleMessage(
+            "Please enter a valid phone number with the format"),
         "Preview": MessageLookupByLibrary.simpleMessage("Preview"),
         "QurbaniAnimal": MessageLookupByLibrary.simpleMessage("Qurbani Animal"),
         "QurbaniInfo":
@@ -115,6 +123,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutAppDesc": MessageLookupByLibrary.simpleMessage(
             "Kurbandaş application is a platform developed to find and share Qurbani partnerships during Eid al-Adha. Users can declare their own Qurbanis and become partners in other users\' Qurbanis."),
         "active": MessageLookupByLibrary.simpleMessage("Actives"),
+        "addPhoneNo":
+            MessageLookupByLibrary.simpleMessage("Update Phone Number"),
         "addPhotos": MessageLookupByLibrary.simpleMessage("Add photos"),
         "app": MessageLookupByLibrary.simpleMessage("Application"),
         "appUpdateRequired":
@@ -143,6 +153,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "For suggestions, complaints and questions"),
         "continueTxt": MessageLookupByLibrary.simpleMessage("Continue"),
         "count": MessageLookupByLibrary.simpleMessage("Count"),
+        "country": MessageLookupByLibrary.simpleMessage("Country"),
         "cut": MessageLookupByLibrary.simpleMessage("Cut"),
         "cutAddress": MessageLookupByLibrary.simpleMessage("Cut Address"),
         "cutDate": MessageLookupByLibrary.simpleMessage("Cut Date"),
@@ -208,6 +219,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Partnership Requests"),
         "partnershipState":
             MessageLookupByLibrary.simpleMessage("Partnership State"),
+        "phoneNo": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "photos": MessageLookupByLibrary.simpleMessage("Photos"),
         "pleaseCutAddress":
             MessageLookupByLibrary.simpleMessage("Please enter cut address"),

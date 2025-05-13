@@ -1,3 +1,4 @@
+// ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:kurbandas/core/utils/components/filter_bottom_sheet.dart';
@@ -6,6 +7,7 @@ import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/routes.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
 import 'package:kurbandas/stores/root_store.dart';
+import 'package:kurbandas/stores/supabase/auth_store.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,6 +24,7 @@ class _HomePageState extends State<HomePage>
   late TabController tabController;
 
   late KurbanStore kurbanStore;
+  late AuthStore authStore;
 
   @override
   void initState() {
@@ -36,7 +39,9 @@ class _HomePageState extends State<HomePage>
 
     lang = S.of(context);
 
-    kurbanStore = Provider.of<RootStore>(context).kurbanStore;
+    RootStore rootStore = Provider.of<RootStore>(context);
+    kurbanStore = rootStore.kurbanStore;
+    authStore = rootStore.authStore;
   }
 
   @override
@@ -142,8 +147,7 @@ class _HomePageState extends State<HomePage>
         );
       }),
       floatingActionButton: FloatingActionButton.extended(
-        // Todo phoneNo check
-        onPressed: () => Navigator.pushNamed(context, Routes.createKurban),
+        onPressed: navigateToCreate,
         icon: const Icon(Icons.add),
         label: Text(lang.shareQurbani),
         backgroundColor: Theme.of(context).primaryColor,
@@ -179,4 +183,10 @@ class _HomePageState extends State<HomePage>
       );
 
   clearFilter() => kurbanStore.clearFilter();
+
+  Future navigateToCreate() async {
+    if (await authStore.checkPhoneNo(context)) {
+      Navigator.pushNamed(context, Routes.createKurban);
+    }
+  }
 }

@@ -199,5 +199,12 @@
   "HowDivideMeat": "How to divide the Qurbani meat?",
   "HowDivideMeatDesc": "After the Qurbani is slaughtered, the distribution of the meat is carried out in a manner determined by the owner and the partners among themselves. According to Islamic rules, the meat must be divided fairly.",
   "WhatShouldIDoIHaveProblems": "What should I do if I have problems with the app?",
-  "WhatShouldIDoIHaveProblemsDesc": "For technical problems, suggestions or questions, please send an e-mail to"
+  "WhatShouldIDoIHaveProblemsDesc": "For technical problems, suggestions or questions, please send an e-mail to",
+  "PhoneNoRequired": "Phone Number Required",
+  "PhoneNoRequiredDesc": "Please enter your phone number to continue",
+  "phoneNo": "Phone Number",
+  "InvalidPhoneNoFormat": "Invalid phone number format",
+  "PleasePhoneNo": "Please enter a valid phone number with the format",
+  "addPhoneNo": "Update Phone Number",
+  "country": "Country"
 }

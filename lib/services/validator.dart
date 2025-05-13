@@ -67,4 +67,27 @@ class Validator {
     }
     return null;
   }
+
+  static String? checkPhoneNo(String? value, String requiredMessage,
+      String notValidateMessage, String pattern) {
+    if (value == null || value.isEmpty) {
+      return requiredMessage;
+    }
+    if (!_validatePhoneNumber(value, pattern)) {
+      return notValidateMessage;
+    }
+    return null;
+  }
+
+  static bool _validatePhoneNumber(String phone, String pattern) {
+    // Türkiye telefon numarası formatı kontrolü
+    // 05XX XXX XX XX veya 5XX XXX XX XX formatında olmalı
+    String cleanedPhone = phone.replaceAll(RegExp(r'\s+'), '');
+
+    if (cleanedPhone.startsWith('0')) {
+      cleanedPhone = cleanedPhone.substring(1);
+    }
+
+    return RegExp(pattern).hasMatch(cleanedPhone);
+  }
 }

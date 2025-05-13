@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:kurbandas/services/apis/google_apis/google_api_service.dart';
 import 'package:kurbandas/services/apis/my_api/user_service.dart';
@@ -5,6 +6,7 @@ import 'package:mobx/mobx.dart';
 
 import '../../core/const/hive_cons.dart';
 import '../../core/domain/entities/user.dart';
+import '../../core/utils/components/dialogs/phone_validate_alert_dialog.dart';
 import '../../injector.dart';
 import '../../services/supabase/auth_service.dart';
 
@@ -55,4 +57,14 @@ abstract class _AuthStore with Store {
   @action
   Future updatePhoneNo(String phoneNo) async =>
       user = await userService.update({"phoneNo": phoneNo});
+
+  @action
+  Future<bool> checkPhoneNo(BuildContext context) async {
+    if (user!.phoneNo == null) {
+      return (await showDialog<bool?>(
+              context: context, builder: (context) => PhoneNumberDialog())) ??
+          false;
+    }
+    return true;
+  }
 }
