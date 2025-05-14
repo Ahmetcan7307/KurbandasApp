@@ -79,26 +79,16 @@ class KurbanService {
     throw MyAPI.getError(url, response);
   }
 
-  Future<List<Kurban>> getMyPartnerships() async => await Future.value([
-        Kurban(
-            animal: KurbanAnimal(name: "Sığır"),
-            addressStr: "İstanbul / Beylikdüzü Beylikdüzü Kesim Alanı",
-            status: KurbanStatus.waiting,
-            owner: User(phoneNo: "901234567890"))
-          ..documentId = "1",
-        Kurban(
-            animal: KurbanAnimal(name: "Manda"),
-            addressStr: "İstanbul / Esenyurt Esenyurt Kesim Alanı",
-            status: KurbanStatus.cut,
-            owner: User(phoneNo: "901234567890"))
-          ..documentId = "2",
-        Kurban(
-            animal: KurbanAnimal(name: "Deve"),
-            addressStr: "İstanbul / Fatih Fatih Kesim Alanı",
-            status: KurbanStatus.shared,
-            owner: User(phoneNo: "901234567890"))
-          ..documentId = "3"
-      ]);
+  Future<List<Kurban>> getMyPartnerships() async {
+    String url = MyAPI.getUrl(Controllers.kurbans, "GetMyPartnerships");
+    Response<List> response = await dio.get(url);
+
+    if (response.statusCode == 200) {
+      return response.data!.map((data) => Kurban.fromJson(data)).toList();
+    }
+
+    throw MyAPI.getError(url, response);
+  }
 
   Future<List<Kurban>> getKurbans(
           bool isActive, Filter? filter, int page, int pageSize) async =>
