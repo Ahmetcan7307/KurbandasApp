@@ -150,7 +150,7 @@ class _KurbanRequestsPageState extends State<KurbanRequestsPage>
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      "${lang.requestDate}: ${request.createdAt.formatDate()}",
+                      "${lang.requestDate}: ${request.createdAt != null ? request.createdAt!.formatDate() : request.updatedAt!.formatDate()}",
                       style:
                           TextStyle(color: Colors.grey.shade500, fontSize: 12),
                     )

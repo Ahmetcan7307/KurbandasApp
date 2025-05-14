@@ -11,12 +11,14 @@ enum KurbanRequestState { waiting, approved }
 class KurbanRequest extends EntityBase {
   User user;
   String? kurbanDocumentId;
-  DateTime createdAt;
+  DateTime? createdAt;
+  DateTime? updatedAt;
   KurbanRequestState state;
 
   KurbanRequest(
       {required this.user,
-      required this.createdAt,
+      this.createdAt,
+      this.updatedAt,
       required this.state,
       this.kurbanDocumentId});
 

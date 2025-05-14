@@ -40,44 +40,18 @@ class KurbanService {
     throw MyAPI.getError(url, response);
   }
 
-  Future<List<KurbanRequest>> getRequests(String documentId) => Future.value([
-        KurbanRequest(
-            user: User(
-                name: "Test",
-                surname: "Testoğlu",
-                email: "test@test.com",
-                phoneNo: "905551234567"),
-            createdAt: DateTime.now(),
-            state: KurbanRequestState.waiting)
-          ..documentId = "1",
-        KurbanRequest(
-            user: User(
-                name: "Test1",
-                surname: "Testoğlu",
-                email: "test1@test.com",
-                phoneNo: "905551234567"),
-            createdAt: DateTime.now(),
-            state: KurbanRequestState.waiting)
-          ..documentId = "2",
-        KurbanRequest(
-            user: User(
-                name: "Test2",
-                surname: "Testoğlu",
-                email: "test2@test.com",
-                phoneNo: "905551234567"),
-            createdAt: DateTime.now(),
-            state: KurbanRequestState.approved)
-          ..documentId = "3",
-        KurbanRequest(
-            user: User(
-                name: "Test3",
-                surname: "Testoğlu",
-                email: "test3@test.com",
-                phoneNo: "905551234567"),
-            createdAt: DateTime.now(),
-            state: KurbanRequestState.approved)
-          ..documentId = "4"
-      ]);
+  Future<List<KurbanRequest>> getRequests(String documentId) async {
+    String url = MyAPI.getUrl(Controllers.kurbanRequests, "Get/$documentId");
+    Response<List> response = await dio.get(url);
+
+    if (response.statusCode == 200) {
+      return response.data!
+          .map((data) => KurbanRequest.fromJson(data))
+          .toList();
+    }
+
+    throw MyAPI.getError(url, response);
+  }
 
   Future<List<KurbanRequest>> approveOrDeclineRequest(
           String documentId, bool isApprove) async =>
@@ -139,7 +113,7 @@ class KurbanService {
     await Future.delayed(Duration(milliseconds: 500));
   }
 
-  // API, request'i atan kullanıcıya göre isMy propunu doldurmalı
+  // API, request'i atan kullanıcıya göre isMy ve partners propları doldurmalı
   Future<Kurban> get(String documentId, bool isMy) async =>
       (isMy ? await getMyKurbans() : await getKurbans(true, null, 0, 0))
           .firstWhere((kurban) => kurban.documentId == documentId)
