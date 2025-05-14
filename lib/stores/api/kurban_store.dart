@@ -289,4 +289,7 @@ abstract class _KurbanStore with Store {
 
   @action
   nullSelectedKurban() => selectedKurban = null;
+
+  @action
+  selectPartnership(String documentId) => selectedKurbanDocumentId = documentId;
 }

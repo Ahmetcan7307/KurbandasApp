@@ -7,6 +7,8 @@ import 'package:kurbandas/stores/root_store.dart';
 import 'package:kurbandas/stores/url_launcher_store.dart';
 import 'package:provider/provider.dart';
 
+import '../../routes.dart';
+
 class MyPartnershipsPage extends StatefulWidget {
   const MyPartnershipsPage({super.key});
 
@@ -85,14 +87,23 @@ class _MyPartnershipsPageState extends State<MyPartnershipsPage> {
   Widget buildShareCard(Kurban kurban) => Card(
         margin: const EdgeInsets.only(bottom: 16),
         elevation: 2,
-        child: Column(
-          children: [
-            buildHeader(kurban),
-            const Divider(),
-            buildActionButtons(kurban.owner!.phoneNo!)
-          ],
+        child: InkWell(
+          onTap: () => navigateToDetail(kurban.documentId!),
+          child: Column(
+            children: [
+              buildHeader(kurban),
+              const Divider(),
+              buildActionButtons(kurban.owner!.phoneNo!)
+            ],
+          ),
         ),
       );
+
+  navigateToDetail(String documentId) {
+    kurbanStore.selectPartnership(documentId);
+
+    Navigator.pushNamed(context, Routes.kurbanDetail);
+  }
 
   Widget buildHeader(Kurban kurban) => Container(
         padding: const EdgeInsets.all(16),

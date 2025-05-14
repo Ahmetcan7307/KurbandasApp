@@ -429,6 +429,17 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
+  dynamic selectPartnership(String documentId) {
+    final _$actionInfo = _$_KurbanStoreActionController.startAction(
+        name: '_KurbanStore.selectPartnership');
+    try {
+      return super.selectPartnership(documentId);
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 animals: ${animals},

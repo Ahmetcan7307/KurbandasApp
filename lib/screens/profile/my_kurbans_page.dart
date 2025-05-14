@@ -42,9 +42,11 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await kurbanStore.getMyKurbans();
 
-      setState(() {
-        isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          isLoading = false;
+        });
+      }
     });
   }
 

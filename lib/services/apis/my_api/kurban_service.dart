@@ -84,17 +84,20 @@ class KurbanService {
             animal: KurbanAnimal(name: "Sığır"),
             addressStr: "İstanbul / Beylikdüzü Beylikdüzü Kesim Alanı",
             status: KurbanStatus.waiting,
-            owner: User(phoneNo: "901234567890")),
+            owner: User(phoneNo: "901234567890"))
+          ..documentId = "1",
         Kurban(
             animal: KurbanAnimal(name: "Manda"),
             addressStr: "İstanbul / Esenyurt Esenyurt Kesim Alanı",
             status: KurbanStatus.cut,
-            owner: User(phoneNo: "901234567890")),
+            owner: User(phoneNo: "901234567890"))
+          ..documentId = "2",
         Kurban(
             animal: KurbanAnimal(name: "Deve"),
             addressStr: "İstanbul / Fatih Fatih Kesim Alanı",
             status: KurbanStatus.shared,
             owner: User(phoneNo: "901234567890"))
+          ..documentId = "3"
       ]);
 
   Future<List<Kurban>> getKurbans(
