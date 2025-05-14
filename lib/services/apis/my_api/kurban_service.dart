@@ -54,8 +54,19 @@ class KurbanService {
   }
 
   Future<List<KurbanRequest>> approveOrDeclineRequest(
-          String documentId, bool isApprove) async =>
-      await getRequests(documentId);
+      String documentId, bool isApprove) async {
+    String url = MyAPI.getUrl(Controllers.kurbanRequests, "ApproveOrDecline");
+    Response<List> response = await dio
+        .put(url, data: {"documentId": documentId, "isApprove": isApprove});
+
+    if (response.statusCode == 200) {
+      return response.data!
+          .map((data) => KurbanRequest.fromJson(data))
+          .toList();
+    }
+
+    throw MyAPI.getError(url, response);
+  }
 
   Future<List<Kurban>> delete(String documentId) async => await getMyKurbans();
 

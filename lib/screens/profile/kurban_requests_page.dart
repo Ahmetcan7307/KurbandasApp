@@ -20,7 +20,7 @@ class _KurbanRequestsPageState extends State<KurbanRequestsPage>
     with SingleTickerProviderStateMixin {
   late TabController tabController;
 
-  bool isLoading = true;
+  bool isLoading = true, isLoadingApprove = false;
 
   late KurbanStore kurbanStore;
   late UrlLauncherStore urlLauncherStore;
@@ -150,7 +150,7 @@ class _KurbanRequestsPageState extends State<KurbanRequestsPage>
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      "${lang.requestDate}: ${request.createdAt != null ? request.createdAt!.formatDate() : request.updatedAt!.formatDate()}",
+                      "${isPending ? lang.requestDate : lang.ApprovalDate}: ${request.createdAt != null ? request.createdAt!.formatDate() : request.updatedAt!.formatDate()}",
                       style:
                           TextStyle(color: Colors.grey.shade500, fontSize: 12),
                     )
@@ -158,30 +158,37 @@ class _KurbanRequestsPageState extends State<KurbanRequestsPage>
                 ),
               ),
               if (isPending)
-                Row(
-                  children: [
-                    IconButton(
-                      onPressed: () => approveOrDecline(
-                          request.user.fullName, true, request.documentId!),
-                      icon: const Icon(
-                        Icons.check_circle,
-                        color: Colors.green,
+                isLoadingApprove
+                    ? Center(child: CircularProgressIndicator())
+                    : Row(
+                        children: [
+                          IconButton(
+                            onPressed: () => approveOrDecline(
+                                request.user.fullName,
+                                true,
+                                request.documentId!),
+                            icon: const Icon(
+                              Icons.check_circle,
+                              color: Colors.green,
+                            ),
+                            tooltip: lang.approve,
+                          ),
+                          IconButton(
+                            onPressed: () => approveOrDecline(
+                                request.user.fullName,
+                                false,
+                                request.documentId!),
+                            icon: Icon(
+                              Icons.cancel,
+                              color: Colors.red,
+                            ),
+                            tooltip: lang.decline,
+                          )
+                        ],
                       ),
-                      tooltip: lang.approve,
-                    ),
-                    IconButton(
-                      onPressed: () => approveOrDecline(
-                          request.user.fullName, false, request.documentId!),
-                      icon: Icon(
-                        Icons.cancel,
-                        color: Colors.red,
-                      ),
-                      tooltip: lang.decline,
-                    )
-                  ],
-                ),
               IconButton(
-                onPressed: () => call(request.user.phoneNo!),
+                onPressed: () =>
+                    isLoadingApprove ? null : call(request.user.phoneNo!),
                 icon: Icon(
                   Icons.phone,
                   color: Colors.blue,
@@ -200,12 +207,19 @@ class _KurbanRequestsPageState extends State<KurbanRequestsPage>
             builder: (context) =>
                 buildAreYouSureApproveOrDeclineAlertDialog(userName, isApprove))
         as bool) {
+      setState(() {
+        isLoadingApprove = true;
+      });
       await kurbanStore.approveOrDeclineRequest(documentId, isApprove);
 
       showSnackBar(context,
           text: isApprove
               ? lang.requestApproved(userName)
               : lang.requestDeclined(userName));
+
+      setState(() {
+        isLoadingApprove = false;
+      });
     }
   }
 

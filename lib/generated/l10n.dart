@@ -1579,6 +1579,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Approval Date`
+  String get ApprovalDate {
+    return Intl.message(
+      'Approval Date',
+      name: 'ApprovalDate',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

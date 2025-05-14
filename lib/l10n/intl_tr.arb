@@ -206,5 +206,6 @@
   "InvalidPhoneNoFormat": "Geçersiz telefon numarası formatı",
   "PleasePhoneNo": "Lütfen bu format ile geçerli bir telefon numarası girin",
   "addPhoneNo": "Telefon No Ekle",
-  "country": "Ülke"
+  "country": "Ülke",
+  "ApprovalDate": "Onaylanma Tarihi"
 }

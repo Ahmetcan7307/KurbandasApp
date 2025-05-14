@@ -39,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "AccountOperations":
             MessageLookupByLibrary.simpleMessage("Hesap İşlemleri"),
+        "ApprovalDate":
+            MessageLookupByLibrary.simpleMessage("Onaylanma Tarihi"),
         "EnterInfoPlace": MessageLookupByLibrary.simpleMessage(
             "Kurbanınızın kesileceği yer hakkında bilgi girin"),
         "ExistingPhotos":
