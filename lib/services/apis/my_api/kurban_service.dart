@@ -68,7 +68,16 @@ class KurbanService {
     throw MyAPI.getError(url, response);
   }
 
-  Future<List<Kurban>> delete(String documentId) async => await getMyKurbans();
+  Future<List<Kurban>> delete(String documentId) async {
+    String url = MyAPI.getUrl(Controllers.kurbans, "Delete/$documentId");
+    Response<List> response = await dio.delete(url);
+
+    if (response.statusCode == 200) {
+      return response.data!.map((data) => Kurban.fromJson(data)).toList();
+    }
+
+    throw MyAPI.getError(url, response);
+  }
 
   Future<List<Kurban>> getMyPartnerships() async => await Future.value([
         Kurban(

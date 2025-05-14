@@ -143,9 +143,17 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
             context: context,
             builder: (context) => buildAreYouSureDeleteAlertDialog(animalName))
         as bool) {
+      setState(() {
+        isLoading = true;
+      });
+
       await kurbanStore.delete(documentId);
 
       showSnackBar(context, text: lang.QurbaniPostDeleted);
+
+      setState(() {
+        isLoading = false;
+      });
     }
   }
 
