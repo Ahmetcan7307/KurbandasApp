@@ -3,7 +3,14 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:kurbandas/services/apis/api/api.dart';
 import 'package:kurbandas/services/apis/api/query.dart';
 
-enum Controllers { users, appSettings, kurbanAnimals, kurbans, kurbanRequests }
+enum Controllers {
+  users,
+  appSettings,
+  kurbanAnimals,
+  kurbans,
+  kurbanRequests,
+  countryCodes
+}
 
 class MyAPI {
   static String getUrl(Controllers controllers, String action,
@@ -25,6 +32,9 @@ class MyAPI {
         break;
       case Controllers.kurbanRequests:
         url += "KurbanRequests";
+        break;
+      case Controllers.countryCodes:
+        url += "CountryCodes";
         break;
     }
 

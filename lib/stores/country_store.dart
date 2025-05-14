@@ -15,7 +15,7 @@ abstract class _CountryStore with Store {
       country: "TR 🇹🇷",
       pattern: "5[0-9]{9}",
       example: "5XX XXX XX XX")
-    ..documentId = "1";
+    ..documentId = "s0qz2psj7ze0awz9re3aagmw";
 
   @observable
   List<CountryCode>? countryCodes;
@@ -27,7 +27,7 @@ abstract class _CountryStore with Store {
   selectCountry(CountryCode countryCode) => selectedCountry = countryCode;
 
   @action
-  Future get() async => countryCodes = await service.get();
+  Future get() async => countryCodes = await service.getAll();
 
   String formatPhoneNumber(String phone, String countryCode) =>
       stringService.formatPhoneNumber(phone, countryCode);
