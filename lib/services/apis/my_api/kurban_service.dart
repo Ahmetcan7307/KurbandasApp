@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/domain/entities/kurban_request.dart';
 import 'package:kurbandas/core/domain/entities/user.dart';
-import 'package:kurbandas/core/models/filter.dart';
 import 'package:kurbandas/services/apis/api/query.dart';
 import 'package:kurbandas/services/apis/my_api/my_api.dart';
 
@@ -90,26 +89,22 @@ class KurbanService {
     throw MyAPI.getError(url, response);
   }
 
-  Future<List<Kurban>> getKurbans(
-          bool isActive, Filter? filter, int page, int pageSize) async =>
-      await Future.value(List.generate(
-          5,
-          (index) => Kurban(
-                  animal: KurbanAnimal(name: "Sheep"),
-                  weight: 40 + (index % 300).toDouble(),
-                  price: 1000 + (index * 100).toDouble(),
-                  addressStr: "İstanbul / Beylikdüzü",
-                  totalPartnersCount: 7,
-                  status:
-                      KurbanStatus.values[index % KurbanStatus.values.length],
-                  photoUrls: [
-                    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg",
-                    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg",
-                    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg",
-                    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Lleyn_sheep.jpg/800px-Lleyn_sheep.jpg"
-                  ])
-                ..documentId = index.toString()
-                ..remainPartnersCount = index % 8));
+  Future<List<Kurban>> getKurbans(bool isActive, int page, int pageSize,
+      Map<String, dynamic> filter) async {
+    String url = MyAPI.getUrl(Controllers.kurbans, "GetByFilter");
+    Response<List> response = await dio.get(url, data: {
+      "isActive": isActive,
+      "filter": filter,
+      "page": page,
+      "pageSize": pageSize
+    });
+
+    if (response.statusCode == 200) {
+      return response.data!.map((data) => Kurban.fromJson(data)).toList();
+    }
+
+    throw MyAPI.getError(url, response);
+  }
 
   Future<bool> isRequestSend(String documentId) async =>
       await Future.value(false);
@@ -128,7 +123,7 @@ class KurbanService {
 
   // API, request'i atan kullanıcıya göre isMy ve partners propları doldurmalı
   Future<Kurban> get(String documentId, bool isMy) async =>
-      (isMy ? await getMyKurbans() : await getKurbans(true, null, 0, 0))
+      (isMy ? await getMyKurbans() : await getKurbans(true, 0, 0, {}))
           .firstWhere((kurban) => kurban.documentId == documentId)
         ..partners = isMy
             ? List.empty()

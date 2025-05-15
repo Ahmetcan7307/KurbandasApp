@@ -123,16 +123,16 @@ abstract class _KurbanStore with Store {
 
   @action
   Future<bool> getActiveKurbans(int page) async {
-    List<Kurban> newKurbans =
-        await service.getKurbans(true, filter, page, pageSize);
+    List<Kurban> newKurbans = await service.getKurbans(
+        true, page, pageSize, filter != null ? filter!.toJson() : {});
     activeKurbans.addAll(newKurbans);
     return newKurbans.length < pageSize;
   }
 
   @action
   Future<bool> getDeactiveKurbans(int page) async {
-    List<Kurban> newKurbans =
-        await service.getKurbans(false, filter, page, pageSize);
+    List<Kurban> newKurbans = await service.getKurbans(
+        false, page, pageSize, filter != null ? filter!.toJson() : {});
     deactiveKurbans.addAll(newKurbans);
     return newKurbans.length < pageSize;
   }

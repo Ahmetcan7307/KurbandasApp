@@ -13,8 +13,14 @@ class TurkiyeAPIProvince {
   TurkiyeAPIProvince(
       {required this.turkiyeAPIId, required this.name, this.districts});
 
-  factory TurkiyeAPIProvince.fromJson(Map<String, dynamic> json) =>
-      _$TurkiyeAPIProvinceFromJson(json);
+  factory TurkiyeAPIProvince.fromJson(Map<String, dynamic> json) {
+    // Turkiye API için
+    if (json.containsKey("id")) {
+      json["turkiyeAPIId"] = json["id"];
+    }
+
+    return _$TurkiyeAPIProvinceFromJson(json);
+  }
 
   Map<String, dynamic> toJson() {
     districts = null;

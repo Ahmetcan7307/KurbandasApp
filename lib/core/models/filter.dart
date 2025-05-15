@@ -6,4 +6,22 @@ class Filter {
   KurbanAnimal? animal;
   TurkiyeAPIProvince? selectedProvince;
   TurkiyeAPIDistrict? selectedDistrict;
+
+  Map<String, dynamic> toJson() {
+    Map<String, dynamic> json = {};
+
+    if (animal != null) {
+      json["animal"] = animal!.documentId;
+    }
+
+    if (selectedProvince != null) {
+      json["province"] = selectedProvince!.turkiyeAPIId;
+    }
+
+    if (selectedDistrict != null) {
+      json["district"] = selectedDistrict!.turkiyeAPIId;
+    }
+
+    return json;
+  }
 }
