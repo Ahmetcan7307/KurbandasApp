@@ -54,6 +54,8 @@ class _EditKurbanPageState extends State<EditKurbanPage> {
   Future<void> _loadData() async {
     await turkiyeAPIStore.getProvince();
 
+    await kurbanStore.get(true);
+
     weightCnt.text = kurbanStore.selectedKurban!.weight!.toStringAsFixed(2);
     priceCnt.text = kurbanStore.selectedKurban!.price!.toStringAsFixed(2);
     cutAddressCnt.text = kurbanStore.selectedKurban!.address!.cutAddress!;

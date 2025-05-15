@@ -1,11 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
-import 'package:kurbandas/core/domain/entities/user.dart';
 import 'package:kurbandas/services/apis/api/query.dart';
 import 'package:kurbandas/services/apis/my_api/my_api.dart';
-
-import '../../../core/domain/entities/partner.dart';
 
 class KurbanService {
   final Dio dio;
@@ -87,18 +84,15 @@ class KurbanService {
     await Future.delayed(Duration(milliseconds: 500));
   }
 
-  // API, request'i atan kullanıcıya göre isMy ve partners propları doldurmalı
-  Future<Kurban> get(String documentId, bool isMy) async =>
-      (isMy ? await getMyKurbans() : await getKurbans(true, 0, 0, {}))
-          .firstWhere((kurban) => kurban.documentId == documentId)
-        ..partners = isMy
-            ? List.empty()
-            : List.generate(
-                7,
-                (partnerIndex) => Partner(
-                    fullName: "User ${partnerIndex + 1}",
-                    createdAt: DateTime.now()))
-        ..isMy = isMy
-        ..cutDate = DateTime.now()
-        ..owner = isMy ? User(name: "User", surname: "0") : null;
+  Future<Kurban> get(String documentId, bool isEdit) async {
+    String url = MyAPI.getUrl(
+        Controllers.kurbans, "GetDetail/$documentId?isEdit=$isEdit");
+    Response<Map<String, dynamic>> response = await dio.get(url);
+
+    if (response.statusCode == 200) {
+      return Kurban.fromJson(response.data!);
+    }
+
+    throw MyAPI.getError(url, response);
+  }
 }

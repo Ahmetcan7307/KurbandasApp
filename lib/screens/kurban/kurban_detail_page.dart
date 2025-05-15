@@ -38,7 +38,7 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await kurbanStore.get();
+      await kurbanStore.get(false);
 
       isRequestSend = await kurbanStore.isRequestSend();
 
@@ -113,10 +113,8 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
                             ],
                           ),
                           const Divider(),
-                          buildInfoRow(
-                              lang.owner,
-                              kurbanStore.selectedKurban!.owner?.fullName ??
-                                  authStore.user!.fullName),
+                          buildInfoRow(lang.owner,
+                              kurbanStore.selectedKurban!.owner!.fullName),
                           buildInfoRow(
                               lang.cutAddress,
                               kurbanStore.selectedKurban!.addressStr ??

@@ -157,8 +157,7 @@ abstract class _KurbanStore with Store {
   @action
   selectKurban(bool isMy, bool isActive, int index) {
     if (isMy) {
-      selectedKurban = myKurbans![index];
-      selectedKurbanDocumentId = selectedKurban!.documentId;
+      selectedKurbanDocumentId = myKurbans![index].documentId;
     } else {
       selectedKurbanDocumentId = isActive
           ? activeKurbans.elementAt(index).documentId!
@@ -285,11 +284,8 @@ abstract class _KurbanStore with Store {
   }
 
   @action
-  Future get() async {
-    bool isMy = selectedKurban != null;
-    selectedKurban = null;
-    selectedKurban = await service.get(selectedKurbanDocumentId!, isMy);
-  }
+  Future get(bool isEdit) async =>
+      selectedKurban = await service.get(selectedKurbanDocumentId!, isEdit);
 
   @action
   nullSelectedKurban() => selectedKurban = null;

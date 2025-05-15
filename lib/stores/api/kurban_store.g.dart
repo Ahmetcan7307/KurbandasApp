@@ -305,8 +305,8 @@ mixin _$KurbanStore on _KurbanStore, Store {
       AsyncAction('_KurbanStore.get', context: context);
 
   @override
-  Future<dynamic> get() {
-    return _$getAsyncAction.run(() => super.get());
+  Future<dynamic> get(bool isEdit) {
+    return _$getAsyncAction.run(() => super.get(isEdit));
   }
 
   late final _$_KurbanStoreActionController =
