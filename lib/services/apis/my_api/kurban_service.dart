@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
-import 'package:kurbandas/core/domain/entities/kurban_request.dart';
 import 'package:kurbandas/core/domain/entities/user.dart';
 import 'package:kurbandas/services/apis/api/query.dart';
 import 'package:kurbandas/services/apis/my_api/my_api.dart';
@@ -34,34 +33,6 @@ class KurbanService {
 
     if (response.statusCode == 200) {
       return response.data!.map((data) => Kurban.fromJson(data)).toList();
-    }
-
-    throw MyAPI.getError(url, response);
-  }
-
-  Future<List<KurbanRequest>> getRequests(String documentId) async {
-    String url = MyAPI.getUrl(Controllers.kurbanRequests, "Get/$documentId");
-    Response<List> response = await dio.get(url);
-
-    if (response.statusCode == 200) {
-      return response.data!
-          .map((data) => KurbanRequest.fromJson(data))
-          .toList();
-    }
-
-    throw MyAPI.getError(url, response);
-  }
-
-  Future<List<KurbanRequest>> approveOrDeclineRequest(
-      String documentId, bool isApprove) async {
-    String url = MyAPI.getUrl(Controllers.kurbanRequests, "ApproveOrDecline");
-    Response<List> response = await dio
-        .put(url, data: {"documentId": documentId, "isApprove": isApprove});
-
-    if (response.statusCode == 200) {
-      return response.data!
-          .map((data) => KurbanRequest.fromJson(data))
-          .toList();
     }
 
     throw MyAPI.getError(url, response);
@@ -105,11 +76,6 @@ class KurbanService {
 
     throw MyAPI.getError(url, response);
   }
-
-  Future<bool> isRequestSend(String documentId) async =>
-      await Future.value(false);
-
-  Future postRequest(String documentId) async {}
 
   // returns DocumentId
   Future<String> post(Map<String, dynamic> data) async =>

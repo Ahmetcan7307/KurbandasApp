@@ -7,6 +7,7 @@ import 'package:kurbandas/core/const/hive_cons.dart';
 import 'package:kurbandas/services/apis/google_apis/google_api_service.dart';
 import 'package:kurbandas/services/apis/my_api/app_setting_service.dart';
 import 'package:kurbandas/services/apis/my_api/country_service.dart';
+import 'package:kurbandas/services/apis/my_api/kurban_request_service.dart';
 import 'package:kurbandas/services/apis/my_api/kurban_service.dart';
 import 'package:kurbandas/services/apis/my_api/user_service.dart';
 import 'package:kurbandas/services/apis/turkiye_api/turkiye_api_service.dart';
@@ -66,6 +67,8 @@ Future init() async {
   serviceLocator.registerLazySingleton(() =>
       CountryService(serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)));
   serviceLocator.registerLazySingleton(() => StringService());
+  serviceLocator.registerLazySingleton(() => KurbanRequestService(
+      serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)));
 
   serviceLocator.registerLazySingleton(() => RootStore(
       urlLauncherStore: serviceLocator.get<UrlLauncherStore>(),

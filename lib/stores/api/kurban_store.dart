@@ -12,6 +12,7 @@ import 'package:kurbandas/core/domain/entities/turkiye_api_province.dart';
 import 'package:kurbandas/core/models/filter.dart';
 import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/injector.dart';
+import 'package:kurbandas/services/apis/my_api/kurban_request_service.dart';
 import 'package:kurbandas/services/apis/my_api/kurban_service.dart';
 import 'package:kurbandas/services/image_picker_service.dart';
 import 'package:kurbandas/services/supabase/storage_service.dart';
@@ -61,6 +62,8 @@ abstract class _KurbanStore with Store {
   ImagePickerService imagePickerService =
       serviceLocator.get<ImagePickerService>();
   StorageService storageService = serviceLocator.get<StorageService>();
+  KurbanRequestService requestService =
+      serviceLocator.get<KurbanRequestService>();
 
   int pageSize = 10;
 
@@ -85,11 +88,12 @@ abstract class _KurbanStore with Store {
 
   @action
   Future getRequests() async =>
-      requests = await service.getRequests(selectedKurbanDocumentId!);
+      requests = await requestService.getRequests(selectedKurbanDocumentId!);
 
   @action
   Future approveOrDeclineRequest(String documentId, bool isApprove) async =>
-      requests = await service.approveOrDeclineRequest(documentId, isApprove);
+      requests =
+          await requestService.approveOrDeclineRequest(documentId, isApprove);
 
   @action
   Future<List<Kurban>> delete(String documentId) async =>
@@ -177,10 +181,10 @@ abstract class _KurbanStore with Store {
       };
 
   Future<bool> isRequestSend() async =>
-      await service.isRequestSend(selectedKurbanDocumentId!);
+      await requestService.isRequestSend(selectedKurbanDocumentId!);
 
   Future postRequest() async =>
-      await service.postRequest(selectedKurbanDocumentId!);
+      await requestService.postRequest(selectedKurbanDocumentId!);
 
   @action
   Future create() async {
