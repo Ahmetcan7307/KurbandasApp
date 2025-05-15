@@ -182,8 +182,8 @@ abstract class _KurbanStore with Store {
   Future<bool> isRequestSend() async =>
       await requestService.isRequestSend(selectedKurbanDocumentId!);
 
-  Future postRequest() async =>
-      await requestService.postRequest(selectedKurbanDocumentId!);
+  Future sendRequest() async =>
+      await requestService.sendRequest(selectedKurbanDocumentId!);
 
   @action
   Future create() async {

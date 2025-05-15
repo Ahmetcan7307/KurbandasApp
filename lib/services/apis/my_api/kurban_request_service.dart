@@ -48,5 +48,15 @@ class KurbanRequestService {
     throw MyAPI.getError(url, response);
   }
 
-  Future postRequest(String documentId) async {}
+  Future sendRequest(String kurbanDocumentId) async {
+    String url =
+        MyAPI.getUrl(Controllers.kurbanRequests, "Send/$kurbanDocumentId");
+    Response response = await dio.post(url);
+
+    if (response.statusCode == 200) {
+      return;
+    }
+
+    throw MyAPI.getError(url, response);
+  }
 }

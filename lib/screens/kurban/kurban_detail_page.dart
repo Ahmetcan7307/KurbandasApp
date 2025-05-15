@@ -323,7 +323,7 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
       });
 
       try {
-        await kurbanStore.postRequest();
+        await kurbanStore.sendRequest();
 
         showSnackBar(context,
             text: lang.SuccessfullySentRequest, color: Colors.green);
