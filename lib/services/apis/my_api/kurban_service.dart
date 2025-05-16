@@ -74,14 +74,26 @@ class KurbanService {
     throw MyAPI.getError(url, response);
   }
 
-  // returns DocumentId
-  Future<String> post(Map<String, dynamic> data) async =>
-      await Future.value("vqyyv08hsxf49vcymrioulcc");
+  Future<String> create(Map<String, dynamic> data) async {
+    String url = MyAPI.getUrl(Controllers.kurbans, "Create");
+    Response<String> response = await dio.post(url, data: data);
 
-  Future put(Map<String, dynamic> data) async {
-    // API entegrasyon kodu eklenmeli
-    // Şimdilik simulasyon olarak boş fonksiyon
-    await Future.delayed(Duration(milliseconds: 500));
+    if (response.statusCode == 200) {
+      return response.data!;
+    }
+
+    throw MyAPI.getError(url, response);
+  }
+
+  Future update(Map<String, dynamic> data) async {
+    String url = MyAPI.getUrl(Controllers.kurbans, "Update");
+    Response response = await dio.put(url, data: data);
+
+    if (response.statusCode == 200) {
+      return;
+    }
+
+    throw MyAPI.getError(url, response);
   }
 
   Future<Kurban> get(String documentId, bool isEdit) async {

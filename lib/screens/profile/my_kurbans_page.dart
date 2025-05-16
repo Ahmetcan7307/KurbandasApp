@@ -130,6 +130,8 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
                       false) {
                     setState(() {});
                   }
+
+                  kurbanStore.selectedPhotos.clear();
                 }),
             ActionButton(
                 icon: Icons.delete,

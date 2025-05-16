@@ -93,7 +93,6 @@ class _EditKurbanPageState extends State<EditKurbanPage> {
     cutDateCnt.dispose();
     cutAddressCnt.dispose();
 
-    kurbanStore.selectedPhotos.clear();
     kurbanStore.selectedKurban = null;
     super.dispose();
   }

@@ -111,7 +111,7 @@ abstract class _KurbanStore with Store {
           storageService.getPublicUrl(StorageCons.kurbansBucketName, path));
     }
 
-    await service.put(selectedKurban!.toJson());
+    await service.update(selectedKurban!.toJson());
 
     int indexWhere =
         myKurbans!.indexWhere((kurban) => kurban == selectedKurban);
@@ -187,7 +187,7 @@ abstract class _KurbanStore with Store {
 
   @action
   Future create() async {
-    String documentId = await service.post(newKurban!.toJson());
+    String documentId = await service.create(newKurban!.toJson());
     newKurban!.clear();
 
     newKurban!.documentId = documentId;
@@ -202,7 +202,7 @@ abstract class _KurbanStore with Store {
           storageService.getPublicUrl(StorageCons.kurbansBucketName, path));
     }
 
-    await service.put(newKurban!.toJson());
+    await service.update(newKurban!.toJson());
 
     newKurban = null;
     selectedPhotos.clear();
@@ -215,7 +215,7 @@ abstract class _KurbanStore with Store {
 
   @action
   selectNewKurbanProvince(TurkiyeAPIProvince province) =>
-      newKurban!.address ??= Address(province: province);
+      newKurban!.address = Address(province: province);
 
   @action
   Future pickImage(ImageSource source) async {

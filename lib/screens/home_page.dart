@@ -186,7 +186,9 @@ class _HomePageState extends State<HomePage>
 
   Future navigateToCreate() async {
     if (await authStore.checkPhoneNo(context)) {
-      Navigator.pushNamed(context, Routes.createKurban);
+      await Navigator.pushNamed(context, Routes.createKurban);
+
+      kurbanStore.selectedPhotos.clear();
     }
   }
 }

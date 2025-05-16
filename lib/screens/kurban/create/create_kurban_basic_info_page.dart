@@ -84,8 +84,6 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
     priceCnt.dispose();
     totalPartnersCountCnt.dispose();
     cutDateCnt.dispose();
-
-    kurbanStore.selectedPhotos.clear();
     super.dispose();
   }
 

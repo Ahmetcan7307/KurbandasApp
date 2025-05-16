@@ -46,7 +46,7 @@ class Kurban extends EntityBase {
 
   Map<String, dynamic> toJson() {
     Map<String, dynamic> json = _$KurbanToJson(this);
-    json["animal"] = animal?.documentId;
+    json["animalDocumentId"] = animal?.documentId;
     json["address"] = address?.toJson();
     json.clearNulls();
     return json;

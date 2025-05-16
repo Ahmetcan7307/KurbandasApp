@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:intl/intl.dart';
 import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
@@ -37,109 +38,112 @@ class _CreateKurbanPreviewPageState extends State<CreateKurbanPreviewPage> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            lang.confirmQurbaniInfo,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 24),
-          buildCard(
-              title: lang.QurbaniInfo,
-              icon: Icons.pets,
-              content: Column(
-                children: [
-                  buildInfoRow(
-                      lang.QurbaniAnimal, kurbanStore.newKurban!.animal!.name!),
-                  buildInfoRow(
-                      lang.weight, "${kurbanStore.newKurban!.weight} kg"),
-                  buildInfoRow(lang.price, "${kurbanStore.newKurban!.price} ₺"),
-                  buildInfoRow(lang.totalPartnersCount,
-                      kurbanStore.newKurban!.totalPartnersCount.toString())
-                ],
-              )),
-          const SizedBox(height: 16),
-          buildCard(
-              title: lang.LocationInfo,
-              icon: Icons.location_on,
-              content: Column(
-                children: [
-                  buildInfoRow(lang.province,
-                      kurbanStore.newKurban!.address!.province!.name),
-                  buildInfoRow(lang.district,
-                      kurbanStore.newKurban!.address!.district!.name),
-                  buildInfoRow(lang.cutAddress,
-                      kurbanStore.newKurban!.address!.cutAddress!)
-                ],
-              )),
-          const SizedBox(height: 16),
-          if (kurbanStore.newKurban!.cutDate != null)
+      child: Observer(builder: (context) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              lang.confirmQurbaniInfo,
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 24),
             buildCard(
-                title: lang.cutDate,
-                icon: Icons.calendar_today,
+                title: lang.QurbaniInfo,
+                icon: Icons.pets,
                 content: Column(
                   children: [
+                    buildInfoRow(lang.QurbaniAnimal,
+                        kurbanStore.newKurban!.animal!.name!),
                     buildInfoRow(
-                        lang.cutDate,
-                        DateFormat('dd.MM.yyyy')
-                            .format(kurbanStore.newKurban!.cutDate!))
+                        lang.weight, "${kurbanStore.newKurban!.weight} kg"),
+                    buildInfoRow(
+                        lang.price, "${kurbanStore.newKurban!.price} ₺"),
+                    buildInfoRow(lang.totalPartnersCount,
+                        kurbanStore.newKurban!.totalPartnersCount.toString())
                   ],
                 )),
-          if (kurbanStore.newKurban!.cutDate != null)
             const SizedBox(height: 16),
-          buildCard(
-              title: lang.photos,
-              icon: Icons.photo_library,
-              content: SizedBox(
-                height: 120,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: kurbanStore.selectedPhotos.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.all(5),
-                      width: 100,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        image: DecorationImage(
-                          image: FileImage(kurbanStore.selectedPhotos[index]),
-                          fit: BoxFit.cover,
+            buildCard(
+                title: lang.LocationInfo,
+                icon: Icons.location_on,
+                content: Column(
+                  children: [
+                    buildInfoRow(lang.province,
+                        kurbanStore.newKurban!.address!.province!.name),
+                    buildInfoRow(lang.district,
+                        kurbanStore.newKurban!.address!.district!.name),
+                    buildInfoRow(lang.cutAddress,
+                        kurbanStore.newKurban!.address!.cutAddress!)
+                  ],
+                )),
+            const SizedBox(height: 16),
+            if (kurbanStore.newKurban!.cutDate != null)
+              buildCard(
+                  title: lang.cutDate,
+                  icon: Icons.calendar_today,
+                  content: Column(
+                    children: [
+                      buildInfoRow(
+                          lang.cutDate,
+                          DateFormat('dd.MM.yyyy')
+                              .format(kurbanStore.newKurban!.cutDate!))
+                    ],
+                  )),
+            if (kurbanStore.newKurban!.cutDate != null)
+              const SizedBox(height: 16),
+            buildCard(
+                title: lang.photos,
+                icon: Icons.photo_library,
+                content: SizedBox(
+                  height: 120,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: kurbanStore.selectedPhotos.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        margin: EdgeInsets.all(5),
+                        width: 100,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          image: DecorationImage(
+                            image: FileImage(kurbanStore.selectedPhotos[index]),
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
+                )),
+            const SizedBox(height: 16),
+            buildNoticeCard(
+                title: lang.ImportantInfo, content: lang.ImportantInfoDesc),
+            const SizedBox(height: 32),
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton(
+                      onPressed: widget.onBack,
+                      style: OutlinedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 16)),
+                      child: Text(lang.previous)),
                 ),
-              )),
-          const SizedBox(height: 16),
-          buildNoticeCard(
-              title: lang.ImportantInfo, content: lang.ImportantInfoDesc),
-          const SizedBox(height: 32),
-          Row(
-            children: [
-              Expanded(
-                child: OutlinedButton(
-                    onPressed: widget.onBack,
-                    style: OutlinedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 16)),
-                    child: Text(lang.previous)),
-              ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: ElevatedButton(
-                    onPressed: isLoading ? null : widget.onSubmit,
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Theme.of(context).primaryColor,
-                        foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(vertical: 16)),
-                    child: isLoading
-                        ? CircularProgressIndicator()
-                        : Text(lang.shareQurbani)),
-              )
-            ],
-          )
-        ],
-      ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: ElevatedButton(
+                      onPressed: isLoading ? null : submit,
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Theme.of(context).primaryColor,
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(vertical: 16)),
+                      child: isLoading
+                          ? CircularProgressIndicator()
+                          : Text(lang.shareQurbani)),
+                )
+              ],
+            )
+          ],
+        );
+      }),
     );
   }
 
