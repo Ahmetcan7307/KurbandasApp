@@ -13,7 +13,7 @@ abstract class _CountryStore with Store {
   CountryCode selectedCountry = CountryCode(
       code: "+90",
       country: "TR 🇹🇷",
-      pattern: "5[0-9]{9}",
+      pattern: "^5[0-9]{9}\$",
       example: "5XX XXX XX XX")
     ..documentId = "s0qz2psj7ze0awz9re3aagmw";
 

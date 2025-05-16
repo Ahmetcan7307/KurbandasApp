@@ -58,7 +58,6 @@ abstract class _AuthStore with Store {
   Future updatePhoneNo(String phoneNo) async =>
       user = await userService.update({"phoneNo": phoneNo});
 
-  @action
   Future<bool> checkPhoneNo(BuildContext context) async {
     if (user!.phoneNo == null) {
       return (await showDialog<bool?>(
