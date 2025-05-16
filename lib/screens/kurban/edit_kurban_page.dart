@@ -270,7 +270,9 @@ class _EditKurbanPageState extends State<EditKurbanPage> {
                             padding: EdgeInsets.symmetric(vertical: 16),
                           ),
                           child: isSaving
-                              ? CircularProgressIndicator()
+                              ? CircularProgressIndicator(
+                                  color: Colors.white,
+                                )
                               : Text(
                                   lang.SaveChanges,
                                   style: TextStyle(fontSize: 16),
