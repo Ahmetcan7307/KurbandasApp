@@ -54,7 +54,7 @@
     }
   },
   "areYouSureDeleteQurbaniDesc": "Bu işlem geri alınamaz ve tüm ortaklıklar iptal edilir.",
-  "QurbaniPostDeleted": "Kurban ilanı silindi",
+  "QurbaniPostDeleted": "Kurban ilanı kaldırıldı",
   "partnersRemain": "{count} ortak kaldı",
   "@partnersRemain": {
     "placeholders": {

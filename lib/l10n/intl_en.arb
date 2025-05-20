@@ -54,7 +54,7 @@
     }
   },
   "areYouSureDeleteQurbaniDesc": "This action is irreversible and all partnerships are canceled.",
-  "QurbaniPostDeleted": "Qurbani announcement deleted",
+  "QurbaniPostDeleted": "Qurbani announcement removed",
   "partnersRemain": "{count} partners remain",
   "@partnersRemain": {
     "placeholders": {

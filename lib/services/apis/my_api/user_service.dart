@@ -1,57 +1,22 @@
 import 'package:dio/dio.dart';
 import 'package:kurbandas/core/domain/entities/user.dart';
 
-import 'my_api.dart';
-
 class UserService {
   final Dio dio;
 
   UserService(this.dio);
 
-  Future<User?> get() async {
-    try {
-      String url = MyAPI.getUrl(Controllers.users, "Get");
-      Response<Map<String, dynamic>> response = await dio.get(url);
+  Future<User?> get() async => Future.value(
+      User(name: "Test", surname: "Testoğlu", email: "test@test.com"));
 
-      if (response.statusCode == 200) {
-        return User.fromJson(response.data!);
-      }
+  Future<User> signIn(Map<String, dynamic> userData) async => Future.value(User(
+      name: "Test", surname: "Testoğlu", email: "test@test.com", token: ""));
 
-      throw MyAPI.getError(url, response);
-    } on DioException catch (e) {
-      Response response = e.response!;
-      if (response.statusCode == 500) {
-        return null;
-      }
-
-      throw MyAPI.getError(response.realUri.toString(), response);
-    }
-  }
-
-  Future<User> signIn(Map<String, dynamic> userData) async {
-    try {
-      String url = MyAPI.getUrl(Controllers.users, "SignIn");
-      Response<Map<String, dynamic>> response =
-          await dio.post<Map<String, dynamic>>(url, data: userData);
-
-      if (response.statusCode == 200) {
-        return User.fromJson(response.data!);
-      }
-
-      throw MyAPI.getError(url, response);
-    } on DioException catch (e) {
-      throw MyAPI.getDioException(e);
-    }
-  }
-
-  Future<User> update(Map<String, dynamic> data) async {
-    String url = MyAPI.getUrl(Controllers.users, "Update");
-    Response<Map<String, dynamic>> response = await dio.put(url, data: data);
-
-    if (response.statusCode == 200) {
-      return User.fromJson(response.data!);
-    }
-
-    throw MyAPI.getError(url, response);
-  }
+  Future<User> update(Map<String, dynamic> data) async =>
+      await Future.value(User(
+          name: "Test",
+          surname: "Testoğlu",
+          email: "test@test.com",
+          token: "",
+          phoneNo: "901234567890"));
 }

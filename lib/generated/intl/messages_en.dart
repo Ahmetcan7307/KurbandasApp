@@ -98,7 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "QurbaniInfoSuccessfullyUpdated": MessageLookupByLibrary.simpleMessage(
             "Qurbani information successfully updated"),
         "QurbaniPostDeleted": MessageLookupByLibrary.simpleMessage(
-            "Qurbani announcement deleted"),
+            "Qurbani announcement removed"),
         "Requests": MessageLookupByLibrary.simpleMessage("Requests"),
         "SaveChanges": MessageLookupByLibrary.simpleMessage("Save Changes"),
         "SelectDistrict":

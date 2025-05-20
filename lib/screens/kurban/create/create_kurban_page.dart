@@ -50,6 +50,8 @@ class _CreateKurbanPageState extends State<CreateKurbanPage> {
   @override
   void dispose() {
     controller.dispose();
+
+    kurbanStore.newKurban = null;
     super.dispose();
   }
 

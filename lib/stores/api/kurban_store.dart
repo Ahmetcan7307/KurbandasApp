@@ -188,23 +188,21 @@ abstract class _KurbanStore with Store {
   @action
   Future create() async {
     String documentId = await service.create(newKurban!.toJson());
-    newKurban!.clear();
+    Kurban updatedKurban = Kurban()..documentId = documentId;
 
-    newKurban!.documentId = documentId;
-    newKurban!.photoUrls = [];
+    updatedKurban.photoUrls = [];
     for (File photo in selectedPhotos) {
       String path =
           "$documentId/${DateTime.now().millisecondsSinceEpoch}.${photo.path.split("/").last.split(".").last}";
       await storageService.uploadFile(
           StorageCons.kurbansBucketName, path, photo);
 
-      newKurban!.photoUrls!.add(
+      updatedKurban.photoUrls!.add(
           storageService.getPublicUrl(StorageCons.kurbansBucketName, path));
     }
 
-    await service.update(newKurban!.toJson());
+    await service.update(updatedKurban.toJson());
 
-    newKurban = null;
     selectedPhotos.clear();
   }
 

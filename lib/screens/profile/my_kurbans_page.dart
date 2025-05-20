@@ -153,7 +153,7 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
 
       await kurbanStore.delete(documentId);
 
-      showSnackBar(context, text: lang.QurbaniPostDeleted);
+      showSnackBar(context, text: lang.QurbaniPostDeleted, color: Colors.red);
 
       setState(() {
         isLoading = false;

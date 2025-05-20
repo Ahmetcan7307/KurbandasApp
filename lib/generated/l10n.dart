@@ -400,10 +400,10 @@ class S {
     );
   }
 
-  /// `Qurbani announcement deleted`
+  /// `Qurbani announcement removed`
   String get QurbaniPostDeleted {
     return Intl.message(
-      'Qurbani announcement deleted',
+      'Qurbani announcement removed',
       name: 'QurbaniPostDeleted',
       desc: '',
       args: [],
