@@ -400,10 +400,10 @@ class S {
     );
   }
 
-  /// `Qurbani announcement deleted`
+  /// `Qurbani announcement removed`
   String get QurbaniPostDeleted {
     return Intl.message(
-      'Qurbani announcement deleted',
+      'Qurbani announcement removed',
       name: 'QurbaniPostDeleted',
       desc: '',
       args: [],
@@ -590,10 +590,10 @@ class S {
     );
   }
 
-  /// `{name}'s request approved`
+  /// `{name}'s request declined`
   String requestDeclined(String name) {
     return Intl.message(
-      '$name\'s request approved',
+      '$name\'s request declined',
       name: 'requestDeclined',
       desc: '',
       args: [name],

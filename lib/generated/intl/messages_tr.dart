@@ -96,7 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "QurbaniInfoSuccessfullyUpdated": MessageLookupByLibrary.simpleMessage(
             "Kurban bilgileri başarıyla güncellendi"),
         "QurbaniPostDeleted":
-            MessageLookupByLibrary.simpleMessage("Kurban ilanı silindi"),
+            MessageLookupByLibrary.simpleMessage("Kurban ilanı kaldırıldı"),
         "Requests": MessageLookupByLibrary.simpleMessage("İstekler"),
         "SaveChanges":
             MessageLookupByLibrary.simpleMessage("Değişiklikleri Kaydet"),

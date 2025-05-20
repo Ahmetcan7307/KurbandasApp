@@ -215,7 +215,9 @@ class _KurbanRequestsPageState extends State<KurbanRequestsPage>
       showSnackBar(context,
           text: isApprove
               ? lang.requestApproved(userName)
-              : lang.requestDeclined(userName));
+              : lang.requestDeclined(userName),
+          color: isApprove ? Colors.green : Colors.red,
+          seconds: 3);
 
       setState(() {
         isLoadingApprove = false;

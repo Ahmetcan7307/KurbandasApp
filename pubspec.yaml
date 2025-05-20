@@ -54,6 +54,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   shimmer: 3.0.0
+  flutter_launcher_icons: 0.14.3
 
 dev_dependencies:
   flutter_test:
@@ -116,3 +117,10 @@ flutter:
   generate: true
 flutter_intl:
   enabled: true
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/kurbandas_logo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  remove_alpha_ios: true

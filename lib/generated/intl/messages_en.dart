@@ -33,7 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(name) => "${name}\'s request approved";
 
-  static String m5(name) => "${name}\'s request approved";
+  static String m5(name) => "${name}\'s request declined";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -98,7 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "QurbaniInfoSuccessfullyUpdated": MessageLookupByLibrary.simpleMessage(
             "Qurbani information successfully updated"),
         "QurbaniPostDeleted": MessageLookupByLibrary.simpleMessage(
-            "Qurbani announcement deleted"),
+            "Qurbani announcement removed"),
         "Requests": MessageLookupByLibrary.simpleMessage("Requests"),
         "SaveChanges": MessageLookupByLibrary.simpleMessage("Save Changes"),
         "SelectDistrict":
