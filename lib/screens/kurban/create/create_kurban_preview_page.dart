@@ -7,7 +7,7 @@ import 'package:kurbandas/stores/root_store.dart';
 import 'package:provider/provider.dart';
 
 class CreateKurbanPreviewPage extends StatefulWidget {
-  final VoidCallback onSubmit;
+  final Function onSubmit;
   final VoidCallback onBack;
 
   const CreateKurbanPreviewPage(
@@ -233,12 +233,12 @@ class _CreateKurbanPreviewPageState extends State<CreateKurbanPreviewPage> {
         ),
       );
 
-  submit() {
+  Future submit() async {
     setState(() {
       isLoading = true;
     });
 
-    widget.onSubmit();
+    await widget.onSubmit();
 
     setState(() {
       isLoading = false;
