@@ -101,7 +101,7 @@
       }
     }
   },
-  "requestDeclined": "{name}'s request approved",
+  "requestDeclined": "{name}'s request declined",
   "@requestDeclined": {
     "placeholders": {
       "name": {

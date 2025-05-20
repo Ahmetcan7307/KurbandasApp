@@ -590,10 +590,10 @@ class S {
     );
   }
 
-  /// `{name}'s request approved`
+  /// `{name}'s request declined`
   String requestDeclined(String name) {
     return Intl.message(
-      '$name\'s request approved',
+      '$name\'s request declined',
       name: 'requestDeclined',
       desc: '',
       args: [name],
