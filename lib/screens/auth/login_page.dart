@@ -90,6 +90,25 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius: BorderRadius.circular(12)),
                     elevation: 4),
               ),
+              const SizedBox(height: 30),
+              ElevatedButton.icon(
+                  onPressed: signInWithApple,
+                  icon: Image.asset("assets/images/apple_logo.png", height: 24),
+                  label: Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+                      child: Text("lang.SigninwithApple",
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black87))),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.black87,
+                      minimumSize: const Size(double.infinity, 56),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                      elevation: 4)),
               const SizedBox(height: 24),
               if (isLoading)
                 const CircularProgressIndicator(
@@ -109,6 +128,28 @@ class _LoginPageState extends State<LoginPage> {
 
     try {
       await authStore.signInWithGoogle();
+
+      if (authStore.isLoggedIn) {
+        Routes.navigateAndRemoveUntil(Routes.home);
+      }
+    } catch (e) {
+      showSnackBar(context, text: e.toString());
+    }
+
+    if (mounted) {
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
+
+  Future signInWithApple() async {
+    setState(() {
+      isLoading = true;
+    });
+
+    try {
+      await authStore.signInWithApple();
 
       if (authStore.isLoggedIn) {
         Routes.navigateAndRemoveUntil(Routes.home);
