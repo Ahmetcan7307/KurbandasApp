@@ -207,5 +207,6 @@
   "PleasePhoneNo": "Please enter a valid phone number with the format",
   "addPhoneNo": "Update Phone Number",
   "country": "Country",
-  "ApprovalDate": "Approval Date"
+  "ApprovalDate": "Approval Date",
+  "SignInWithApple": "Signin with Apple"
 }

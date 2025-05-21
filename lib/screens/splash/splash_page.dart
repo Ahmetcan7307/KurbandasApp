@@ -41,7 +41,10 @@ class _SplashPageState extends State<SplashPage> {
       }
     } catch (e) {
       await authStore.logout();
-      showSnackBar(context, text: e.toString());
+
+      if (mounted) {
+        showSnackBar(context, text: e.toString());
+      }
 
       await currentUser(timeStamp);
     }

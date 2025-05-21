@@ -1589,6 +1589,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Signin with Apple`
+  String get SignInWithApple {
+    return Intl.message(
+      'Signin with Apple',
+      name: 'SignInWithApple',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -39,6 +39,18 @@ class User extends EntityBase {
         name: name, surname: surname, email: email, accessToken: accessToken);
   }
 
+  factory User.fromApple({required String displayName, required String email}) {
+    List<String>? nameSurname = splitName(displayName);
+    String? name, surname;
+    if (nameSurname != null) {
+      name = nameSurname[0];
+      surname = nameSurname[1];
+    } else {
+      name = displayName;
+    }
+    return User(name: name, surname: surname, email: email);
+  }
+
   Map<String, dynamic> toJson() {
     Map<String, dynamic> json = _$UserToJson(this);
     json.clearNulls();

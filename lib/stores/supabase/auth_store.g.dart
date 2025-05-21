@@ -55,6 +55,14 @@ mixin _$AuthStore on _AuthStore, Store {
     return _$signInWithGoogleAsyncAction.run(() => super.signInWithGoogle());
   }
 
+  late final _$signInWithAppleAsyncAction =
+      AsyncAction('_AuthStore.signInWithApple', context: context);
+
+  @override
+  Future<dynamic> signInWithApple() {
+    return _$signInWithAppleAsyncAction.run(() => super.signInWithApple());
+  }
+
   late final _$updatePhoneNoAsyncAction =
       AsyncAction('_AuthStore.updatePhoneNo', context: context);
 

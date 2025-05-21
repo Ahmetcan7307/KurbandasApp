@@ -105,6 +105,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Select District"),
         "SelectProvince":
             MessageLookupByLibrary.simpleMessage("Select Province"),
+        "SignInWithApple":
+            MessageLookupByLibrary.simpleMessage("Signin with Apple"),
         "SigningOut": MessageLookupByLibrary.simpleMessage("Signing out..."),
         "SigninwithGoogle":
             MessageLookupByLibrary.simpleMessage("Sign in with Google"),

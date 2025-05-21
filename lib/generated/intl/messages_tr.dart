@@ -102,6 +102,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Değişiklikleri Kaydet"),
         "SelectDistrict": MessageLookupByLibrary.simpleMessage("İlçe Seçin"),
         "SelectProvince": MessageLookupByLibrary.simpleMessage("İl Seçin"),
+        "SignInWithApple":
+            MessageLookupByLibrary.simpleMessage("Apple ile Giriş"),
         "SigningOut":
             MessageLookupByLibrary.simpleMessage("Çıkış Yapılıyor..."),
         "SigninwithGoogle":
