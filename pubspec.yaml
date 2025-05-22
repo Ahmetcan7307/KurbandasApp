@@ -118,7 +118,7 @@ flutter:
 
   generate: true
 flutter_intl:
-  enabled: true
+  enabled: false
 
 flutter_launcher_icons:
   android: "launcher_icon"
