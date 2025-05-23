@@ -57,7 +57,7 @@ class User extends EntityBase {
     return json;
   }
 
-  String get fullName => "$name $surname";
+  String get fullName => "$name ${surname ?? ""}";
 
   static List<String>? splitName(String name) {
     List<String> nameList = name.split(" ");
