@@ -59,9 +59,9 @@ class User extends EntityBase {
 
   String get fullName => "$name $surname";
 
-  static List<String>? splitName(String? name) {
-    List<String>? nameList = name?.split(" ");
-    if (nameList != null) {
+  static List<String>? splitName(String name) {
+    List<String> nameList = name.split(" ");
+    if (nameList.length > 1) {
       return [
         nameList.sublist(0, nameList.length - 1).join(" "),
         nameList[nameList.length - 1]
