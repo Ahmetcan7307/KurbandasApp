@@ -49,3 +49,4 @@ app.*.map.json
 /android/app/google-services.json
 /flutter-apk - Kısayol.lnk
 /ss/
+/bundle.lnk
