@@ -36,64 +36,80 @@ Kurban ibadetini dijital bir deneyime dönüştürerek kullanıcılar için sür
 
 ## 🖼️ Uygulama Ekran Görüntüleri
 
-### 🔐 Giriş Sayfası
+<a href="ss/Login_Page.png" target="_blank">
+  <img src="ss/Login_Page.png" alt="Giriş Sayfası" width="30%" />
+</a>  
+**Giriş Sayfası**
 
-![Login Page](ss/Login_Page.png)
+<a href="ss/Home_Page.png" target="_blank">
+  <img src="ss/Home_Page.png" alt="Ana Sayfa" width="30%" />
+</a>  
+**Ana Sayfa**
 
-### 🏠 Ana Sayfa
+<a href="ss/Create_Kurban_Page-Basic_Info.png" target="_blank">
+  <img src="ss/Create_Kurban_Page-Basic_Info.png" alt="Kurban Oluştur – Temel Bilgiler" width="30%" />
+</a>  
+**Kurban Oluştur – Temel Bilgiler**
 
-![Home Page](ss/Home_Page.png)
+<a href="ss/Create_Kurban_Page-Location.png" target="_blank">
+  <img src="ss/Create_Kurban_Page-Location.png" alt="Kurban Oluştur – Konum Bilgisi" width="30%" />
+</a>  
+**Kurban Oluştur – Konum Bilgisi**
 
-### ➕ Kurban Oluşturma Süreci
+<a href="ss/Create_Kurban_Page-Preview.png" target="_blank">
+  <img src="ss/Create_Kurban_Page-Preview.png" alt="Kurban Oluştur – Önizleme" width="30%" />
+</a>  
+**Kurban Oluştur – Önizleme**
 
-**Temel Bilgiler**  
-![Create Kurban - Basic Info](ss/Create_Kurban_Page-Basic_Info.png)
+<a href="ss/Edit_Kurban_Page.png" target="_blank">
+  <img src="ss/Edit_Kurban_Page.png" alt="Kurban Düzenleme Sayfası" width="30%" />
+</a>  
+**Kurban Düzenleme Sayfası**
 
-**Konum Bilgisi**  
-![Create Kurban - Location](ss/Create_Kurban_Page-Location.png)
+<a href="ss/Filter_Bottom_Sheet.png" target="_blank">
+  <img src="ss/Filter_Bottom_Sheet.png" alt="Filtreleme Seçenekleri" width="30%" />
+</a>  
+**Filtreleme Seçenekleri**
 
-**Önizleme**  
-![Create Kurban - Preview](ss/Create_Kurban_Page-Preview.png)
+<a href="ss/Kurban_Detail_Page.png" target="_blank">
+  <img src="ss/Kurban_Detail_Page.png" alt="Kurban Detayı – Genel Bilgiler" width="30%" />
+</a>  
+**Kurban Detayı – Genel Bilgiler**
 
-### ✏️ Kurban Düzenleme
+<a href="ss/Kurban_Detail_Page-Partners.png" target="_blank">
+  <img src="ss/Kurban_Detail_Page-Partners.png" alt="Kurban Detayı – Paydaşlar" width="30%" />
+</a>  
+**Kurban Detayı – Paydaşlar**
 
-![Edit Kurban Page](ss/Edit_Kurban_Page.png)
+<a href="ss/Kurban_Requests_Page-Approved.png" target="_blank">
+  <img src="ss/Kurban_Requests_Page-Approved.png" alt="İstekler – Onaylananlar" width="30%" />
+</a>  
+**İstekler – Onaylananlar**
 
-### 🔍 Filtreleme Seçenekleri
+<a href="ss/Kurban_Requests_Page-Waiting.png" target="_blank">
+  <img src="ss/Kurban_Requests_Page-Waiting.png" alt="İstekler – Bekleyenler" width="30%" />
+</a>  
+**İstekler – Bekleyenler**
 
-![Filter Bottom Sheet](ss/Filter_Bottom_Sheet.png)
+<a href="ss/My_Partnerships_Page.png" target="_blank">
+  <img src="ss/My_Partnerships_Page.png" alt="Ortaklıklarım Sayfası" width="30%" />
+</a>  
+**Ortaklıklarım Sayfası**
 
-### 📄 Kurban Detayı
+<a href="ss/Profile_Page.png" target="_blank">
+  <img src="ss/Profile_Page.png" alt="Profil Sayfası" width="30%" />
+</a>  
+**Profil Sayfası**
 
-**Genel Bilgiler**  
-![Kurban Detail](ss/Kurban_Detail_Page.png)
+<a href="ss/About_Page.png" target="_blank">
+  <img src="ss/About_Page.png" alt="Hakkında Sayfası" width="30%" />
+</a>  
+**Hakkında Sayfası**
 
-**Ortaklar**  
-![Kurban Partners](ss/Kurban_Detail_Page-Partners.png)
-
-### 📬 Paylaşım İstekleri
-
-**Onaylananlar**  
-![Kurban Requests - Approved](ss/Kurban_Requests_Page-Approved.png)
-
-**Bekleyenler**  
-![Kurban Requests - Waiting](ss/Kurban_Requests_Page-Waiting.png)
-
-### 👥 Ortaklıklarım
-
-![My Partnerships](ss/My_Partnerships_Page.png)
-
-### 👤 Profil Sayfası
-
-![Profile Page](ss/Profile_Page.png)
-
-### ℹ️ Hakkında
-
-![About Page](ss/About_Page.png)
-
-### 🆘 Yardım Sayfası
-
-![Help Page](ss/Help_Page.png)
+<a href="ss/Help_Page.png" target="_blank">
+  <img src="ss/Help_Page.png" alt="Yardım Sayfası" width="30%" />
+</a>  
+**Yardım Sayfası**
 
 ---
 
