@@ -207,5 +207,6 @@
   "PleasePhoneNo": "Lütfen bu format ile geçerli bir telefon numarası girin",
   "addPhoneNo": "Telefon No Ekle",
   "country": "Ülke",
-  "ApprovalDate": "Onaylanma Tarihi"
+  "ApprovalDate": "Onaylanma Tarihi",
+  "SignInWithApple": "Apple ile Giriş"
 }

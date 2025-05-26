@@ -49,8 +49,21 @@ abstract class _AuthStore with Store {
           await googleApiService.getPhoneNumber(authUser.accessToken!);
       User dbUser = await userService.signIn(authUser.toJson());
       user = dbUser;
-      await Hive.box<String>(HiveCons.settings)
-          .put(HiveCons.token, user!.token!);
+
+      await updateHiveToken();
+    }
+  }
+
+  Future updateHiveToken() async => await Hive.box<String>(HiveCons.settings)
+      .put(HiveCons.token, user!.token!);
+
+  @action
+  Future signInWithApple() async {
+    User? authUser = await authService.signInWithApple();
+    if (authUser != null) {
+      user = await userService.signIn(authUser.toJson());
+
+      await updateHiveToken();
     }
   }
 
