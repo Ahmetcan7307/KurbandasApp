@@ -1,58 +1,62 @@
 import 'package:dio/dio.dart';
 
 import '../../../core/domain/entities/kurban_request.dart';
-import '../../../core/domain/entities/user.dart';
+import 'my_api.dart';
 
 class KurbanRequestService {
   final Dio dio;
 
   KurbanRequestService(this.dio);
 
-  Future<List<KurbanRequest>> getRequests(String documentId) => Future.value([
-        KurbanRequest(
-            user: User(
-                name: "Test",
-                surname: "Testoğlu",
-                email: "test@test.com",
-                phoneNo: "905551234567"),
-            createdAt: DateTime.now(),
-            state: KurbanRequestState.waiting)
-          ..documentId = "1",
-        KurbanRequest(
-            user: User(
-                name: "Test1",
-                surname: "Testoğlu",
-                email: "test1@test.com",
-                phoneNo: "905551234567"),
-            createdAt: DateTime.now(),
-            state: KurbanRequestState.waiting)
-          ..documentId = "2",
-        KurbanRequest(
-            user: User(
-                name: "Test2",
-                surname: "Testoğlu",
-                email: "test2@test.com",
-                phoneNo: "905551234567"),
-            createdAt: DateTime.now(),
-            state: KurbanRequestState.approved)
-          ..documentId = "3",
-        KurbanRequest(
-            user: User(
-                name: "Test3",
-                surname: "Testoğlu",
-                email: "test3@test.com",
-                phoneNo: "905551234567"),
-            createdAt: DateTime.now(),
-            state: KurbanRequestState.approved)
-          ..documentId = "4"
-      ]);
+  Future<List<KurbanRequest>> getRequests(String documentId) async {
+    String url = MyAPI.getUrl(Controllers.kurbanRequests, "Get/$documentId");
+    Response<List> response = await dio.get(url);
+
+    if (response.statusCode == 200) {
+      return response.data!
+          .map((data) => KurbanRequest.fromJson(data))
+          .toList();
+    }
+
+    throw MyAPI.getError(url, response);
+  }
 
   Future<List<KurbanRequest>> approveOrDeclineRequest(
-          String documentId, bool isApprove) async =>
-      await getRequests(documentId);
+      String documentId, bool isApprove) async {
+    String url = MyAPI.getUrl(Controllers.kurbanRequests, "ApproveOrDecline");
+    Response<List> response = await dio
+        .put(url, data: {"documentId": documentId, "isApprove": isApprove});
 
-  Future<bool> isRequestSend(String documentId) async =>
-      await Future.value(false);
+    if (response.statusCode == 200) {
+      return response.data!
+          .map((data) => KurbanRequest.fromJson(data))
+          .toList();
+    }
 
-  Future sendRequest(String kurbanDocumentId) async {}
+    throw MyAPI.getError(url, response);
+  }
+
+  Future<bool> isRequestSend(String documentId) async {
+    String url =
+        MyAPI.getUrl(Controllers.kurbanRequests, "IsRequestSend/$documentId");
+    Response<bool> response = await dio.get(url);
+
+    if (response.statusCode == 200) {
+      return response.data!;
+    }
+
+    throw MyAPI.getError(url, response);
+  }
+
+  Future sendRequest(String kurbanDocumentId) async {
+    String url =
+        MyAPI.getUrl(Controllers.kurbanRequests, "Send/$kurbanDocumentId");
+    Response response = await dio.post(url);
+
+    if (response.statusCode == 200) {
+      return;
+    }
+
+    throw MyAPI.getError(url, response);
+  }
 }
