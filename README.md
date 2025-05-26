@@ -38,63 +38,78 @@ Kurban ibadetini dijital bir deneyime dönüştürerek kullanıcılar için sür
 
 <a href="ss/Login_Page.png" target="_blank">
   <img src="ss/Login_Page.png" alt="Giriş Sayfası" width="30%" />
-</a>
+</a>  
+**Giriş Sayfası**
 
 <a href="ss/Home_Page.png" target="_blank">
   <img src="ss/Home_Page.png" alt="Ana Sayfa" width="30%" />
-</a>
+</a>  
+**Ana Sayfa**
 
 <a href="ss/Create_Kurban_Page-Basic_Info.png" target="_blank">
   <img src="ss/Create_Kurban_Page-Basic_Info.png" alt="Kurban Oluştur – Temel Bilgiler" width="30%" />
-</a>
+</a>  
+**Kurban Oluştur – Temel Bilgiler**
 
 <a href="ss/Create_Kurban_Page-Location.png" target="_blank">
   <img src="ss/Create_Kurban_Page-Location.png" alt="Kurban Oluştur – Konum Bilgisi" width="30%" />
-</a>
+</a>  
+**Kurban Oluştur – Konum Bilgisi**
 
 <a href="ss/Create_Kurban_Page-Preview.png" target="_blank">
   <img src="ss/Create_Kurban_Page-Preview.png" alt="Kurban Oluştur – Önizleme" width="30%" />
-</a>
+</a>  
+**Kurban Oluştur – Önizleme**
 
 <a href="ss/Edit_Kurban_Page.png" target="_blank">
   <img src="ss/Edit_Kurban_Page.png" alt="Kurban Düzenleme Sayfası" width="30%" />
-</a>
+</a>  
+**Kurban Düzenleme Sayfası**
 
 <a href="ss/Filter_Bottom_Sheet.png" target="_blank">
   <img src="ss/Filter_Bottom_Sheet.png" alt="Filtreleme Seçenekleri" width="30%" />
-</a>
+</a>  
+**Filtreleme Seçenekleri**
 
 <a href="ss/Kurban_Detail_Page.png" target="_blank">
   <img src="ss/Kurban_Detail_Page.png" alt="Kurban Detayı – Genel Bilgiler" width="30%" />
-</a>
+</a>  
+**Kurban Detayı – Genel Bilgiler**
 
 <a href="ss/Kurban_Detail_Page-Partners.png" target="_blank">
   <img src="ss/Kurban_Detail_Page-Partners.png" alt="Kurban Detayı – Paydaşlar" width="30%" />
-</a>
+</a>  
+**Kurban Detayı – Paydaşlar**
 
 <a href="ss/Kurban_Requests_Page-Approved.png" target="_blank">
   <img src="ss/Kurban_Requests_Page-Approved.png" alt="İstekler – Onaylananlar" width="30%" />
-</a>
+</a>  
+**İstekler – Onaylananlar**
 
 <a href="ss/Kurban_Requests_Page-Waiting.png" target="_blank">
   <img src="ss/Kurban_Requests_Page-Waiting.png" alt="İstekler – Bekleyenler" width="30%" />
-</a>
+</a>  
+**İstekler – Bekleyenler**
 
 <a href="ss/My_Partnerships_Page.png" target="_blank">
   <img src="ss/My_Partnerships_Page.png" alt="Ortaklıklarım Sayfası" width="30%" />
-</a>
+</a>  
+**Ortaklıklarım Sayfası**
 
 <a href="ss/Profile_Page.png" target="_blank">
   <img src="ss/Profile_Page.png" alt="Profil Sayfası" width="30%" />
-</a>
+</a>  
+**Profil Sayfası**
 
 <a href="ss/About_Page.png" target="_blank">
   <img src="ss/About_Page.png" alt="Hakkında Sayfası" width="30%" />
-</a>
+</a>  
+**Hakkında Sayfası**
 
 <a href="ss/Help_Page.png" target="_blank">
   <img src="ss/Help_Page.png" alt="Yardım Sayfası" width="30%" />
-</a>
+</a>  
+**Yardım Sayfası**
 
 ---
 
