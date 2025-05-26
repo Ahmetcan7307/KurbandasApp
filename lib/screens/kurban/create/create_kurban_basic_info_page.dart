@@ -359,7 +359,8 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
 
       widget.onContinue();
     } else {
-      showSnackBar(context, text: lang.pleasePhoto, color: Colors.orange);
+      showSnackBar(context,
+          text: lang.pleasePhoto, color: Colors.orange, seconds: 3);
     }
   }
 }
