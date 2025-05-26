@@ -205,7 +205,7 @@
   "phoneNo": "Telefon Numarası",
   "InvalidPhoneNoFormat": "Geçersiz telefon numarası formatı",
   "PleasePhoneNo": "Lütfen bu format ile geçerli bir telefon numarası girin",
-  "addPhoneNo": "Telefon No Ekle",
+  "addPhoneNo": "Ekle",
   "country": "Ülke",
   "ApprovalDate": "Onaylanma Tarihi",
   "SignInWithApple": "Apple ile Giriş"

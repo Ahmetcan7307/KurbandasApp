@@ -126,8 +126,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutAppDesc": MessageLookupByLibrary.simpleMessage(
             "Kurbandaş application is a platform developed to find and share Qurbani partnerships during Eid al-Adha. Users can declare their own Qurbanis and become partners in other users\' Qurbanis."),
         "active": MessageLookupByLibrary.simpleMessage("Actives"),
-        "addPhoneNo":
-            MessageLookupByLibrary.simpleMessage("Update Phone Number"),
+        "addPhoneNo": MessageLookupByLibrary.simpleMessage("Update"),
         "addPhotos": MessageLookupByLibrary.simpleMessage("Add photos"),
         "app": MessageLookupByLibrary.simpleMessage("Application"),
         "appUpdateRequired":

@@ -1560,10 +1560,10 @@ class S {
     );
   }
 
-  /// `Update Phone Number`
+  /// `Update`
   String get addPhoneNo {
     return Intl.message(
-      'Update Phone Number',
+      'Update',
       name: 'addPhoneNo',
       desc: '',
       args: [],

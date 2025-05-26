@@ -124,7 +124,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutAppDesc": MessageLookupByLibrary.simpleMessage(
             "Kurbandaş uygulaması, kurban bayramlarında kurban ortaklığı bulmak ve paylaşmak için geliştirilmiş bir platformdur. Kullanıcılar kendi kurbanlarını ilan edebilir ve diğer kullanıcıların kurbanlarına ortak olabilirler."),
         "active": MessageLookupByLibrary.simpleMessage("Aktif"),
-        "addPhoneNo": MessageLookupByLibrary.simpleMessage("Telefon No Ekle"),
+        "addPhoneNo": MessageLookupByLibrary.simpleMessage("Ekle"),
         "addPhotos":
             MessageLookupByLibrary.simpleMessage("Fotoğraf ekleyin (max 7)"),
         "app": MessageLookupByLibrary.simpleMessage("Uygulama"),

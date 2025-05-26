@@ -205,7 +205,7 @@
   "phoneNo": "Phone Number",
   "InvalidPhoneNoFormat": "Invalid phone number format",
   "PleasePhoneNo": "Please enter a valid phone number with the format",
-  "addPhoneNo": "Update Phone Number",
+  "addPhoneNo": "Update",
   "country": "Country",
   "ApprovalDate": "Approval Date",
   "SignInWithApple": "Signin with Apple"
