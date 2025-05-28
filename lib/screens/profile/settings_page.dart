@@ -113,7 +113,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
       await authStore.logout();
 
-      Navigator.pushReplacementNamed(context, Routes.login);
+      Routes.navigateAndRemoveUntil(Routes.login);
     }
   }
 }
