@@ -9,7 +9,8 @@ enum Controllers {
   kurbanAnimals,
   kurbans,
   kurbanRequests,
-  countryCodes
+  countryCodes,
+  kurbanReports
 }
 
 class MyAPI {
@@ -35,6 +36,9 @@ class MyAPI {
         break;
       case Controllers.countryCodes:
         url += "CountryCodes";
+        break;
+      case Controllers.kurbanReports:
+        url += "KurbanReports";
         break;
     }
 
