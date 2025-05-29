@@ -162,6 +162,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "delete": MessageLookupByLibrary.simpleMessage("Kaldır"),
         "deleteQurbani":
             MessageLookupByLibrary.simpleMessage("Kurban İlanını Kaldır"),
+        "detailedExplanation":
+            MessageLookupByLibrary.simpleMessage("Detaylı Açıklama"),
+        "detailedExplanationHint": MessageLookupByLibrary.simpleMessage(
+            "Sorunu detaylı olarak açıklayın...\n\nÖrnek: Fotoğraftaki kurban gerçek değil, başka bir kurbanın fotoğrafını kullanmış."),
         "differentFilters": MessageLookupByLibrary.simpleMessage(
             "Farklı filtreler deneyebilirsiniz"),
         "district": MessageLookupByLibrary.simpleMessage("İlçe"),
@@ -245,6 +249,45 @@ class MessageLookup extends MessageLookupByLibrary {
         "remain": MessageLookupByLibrary.simpleMessage("Kalan"),
         "remainingPhotoCount":
             MessageLookupByLibrary.simpleMessage("Kalan fotoğraf sayısı"),
+        "reportCategoryAnimalWelfare":
+            MessageLookupByLibrary.simpleMessage("Hayvan Hakları İhlali"),
+        "reportCategoryAnimalWelfareDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Hayvan bakım şartları, sağlık sorunları"),
+        "reportCategoryFakePhotos":
+            MessageLookupByLibrary.simpleMessage("Sahte Fotoğraflar"),
+        "reportCategoryFakePhotosDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Gerçek dışı veya yanıltıcı görseller"),
+        "reportCategoryFraud":
+            MessageLookupByLibrary.simpleMessage("Dolandırıcılık"),
+        "reportCategoryFraudDescription": MessageLookupByLibrary.simpleMessage(
+            "Sahte ilan, yanıltıcı bilgiler"),
+        "reportCategoryInappropriateContent":
+            MessageLookupByLibrary.simpleMessage("Uygunsuz İçerik"),
+        "reportCategoryInappropriateContentDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Kaba dil, hakaret içeren içerik"),
+        "reportCategoryOther": MessageLookupByLibrary.simpleMessage("Diğer"),
+        "reportCategoryOtherDescription": MessageLookupByLibrary.simpleMessage(
+            "Yukarıdakiler dışında bir sorun"),
+        "reportCategoryPriceManipulation":
+            MessageLookupByLibrary.simpleMessage("Fiyat Manipülasyonu"),
+        "reportCategoryPriceManipulationDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Abartılı fiyat, aldatmaca fiyat"),
+        "reportCategoryTitle":
+            MessageLookupByLibrary.simpleMessage("Şikayet Kategorisi"),
+        "reportDescription": MessageLookupByLibrary.simpleMessage(
+            "Bu kurban ilanında hangi sorun var? Lütfen kategori seçin veya isterseniz detaylı açıklama yapın."),
+        "reportKurbanAd":
+            MessageLookupByLibrary.simpleMessage("Kurban İlanını Şikayet Et"),
+        "reportProcessingInfo": MessageLookupByLibrary.simpleMessage(
+            "Şikayetiniz 24 saat içinde değerlendirilecek ve gerekli işlemler yapılacaktır."),
+        "reportSubmit": MessageLookupByLibrary.simpleMessage("Şikayet Et"),
+        "reportSubmittedSuccessfully": MessageLookupByLibrary.simpleMessage(
+            "Şikayetiniz başarıyla gönderildi"),
+        "reportTitle": MessageLookupByLibrary.simpleMessage("Şikayet Et"),
         "requestApproved": m4,
         "requestDate": MessageLookupByLibrary.simpleMessage("İstek Tarihi"),
         "requestDeclined": m5,
@@ -258,6 +301,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shareQurbani": MessageLookupByLibrary.simpleMessage("Kurban Paylaş"),
         "shared": MessageLookupByLibrary.simpleMessage("Paylaşıldı"),
         "sss": MessageLookupByLibrary.simpleMessage("Sıkça Sorulan Sorular"),
+        "submitting": MessageLookupByLibrary.simpleMessage("Gönderiliyor..."),
         "successfullyShared":
             MessageLookupByLibrary.simpleMessage("Kurban başarıyla paylaşıldı"),
         "total": MessageLookupByLibrary.simpleMessage("Toplam"),

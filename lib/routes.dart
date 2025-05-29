@@ -3,6 +3,7 @@ import 'package:kurbandas/screens/home_page.dart';
 import 'package:kurbandas/screens/kurban/create/create_kurban_page.dart';
 import 'package:kurbandas/screens/kurban/edit_kurban_page.dart';
 import 'package:kurbandas/screens/kurban/kurban_detail_page.dart';
+import 'package:kurbandas/screens/kurban/kurban_report_page.dart';
 import 'package:kurbandas/screens/profile/about_page.dart';
 import 'package:kurbandas/screens/profile/help_page.dart';
 import 'package:kurbandas/screens/profile/kurban_requests_page.dart';
@@ -26,7 +27,8 @@ class Routes {
       createKurban = "/createKurban",
       editKurban = "/editKurban",
       about = "/about",
-      help = "/help";
+      help = "/help",
+      kurbanReport = "/kurbanReport";
 
   Route onGenerateRoute(RouteSettings settings) {
     Widget page = const Scaffold(
@@ -65,6 +67,9 @@ class Routes {
         break;
       case Routes.help:
         page = HelpPage();
+        break;
+      case Routes.kurbanReport:
+        page = KurbanReportPage();
         break;
     }
 

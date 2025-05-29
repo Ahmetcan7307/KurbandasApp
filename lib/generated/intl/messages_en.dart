@@ -165,6 +165,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "deleteQurbani":
             MessageLookupByLibrary.simpleMessage("Delete Qurbani Posting"),
+        "detailedExplanation":
+            MessageLookupByLibrary.simpleMessage("Detailed Explanation"),
+        "detailedExplanationHint": MessageLookupByLibrary.simpleMessage(
+            "Explain the problem in detail...\n\nExample: The kurban in the photo is not real, they used another kurban\'s photo."),
         "differentFilters": MessageLookupByLibrary.simpleMessage(
             "You can try different filters"),
         "district": MessageLookupByLibrary.simpleMessage("District"),
@@ -247,6 +251,43 @@ class MessageLookup extends MessageLookupByLibrary {
         "remain": MessageLookupByLibrary.simpleMessage("Remain"),
         "remainingPhotoCount":
             MessageLookupByLibrary.simpleMessage("Remaining photo count"),
+        "reportCategoryAnimalWelfare":
+            MessageLookupByLibrary.simpleMessage("Animal Rights Violation"),
+        "reportCategoryAnimalWelfareDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Animal care conditions, health issues"),
+        "reportCategoryFakePhotos":
+            MessageLookupByLibrary.simpleMessage("Fake Photos"),
+        "reportCategoryFakePhotosDescription":
+            MessageLookupByLibrary.simpleMessage("Unreal or misleading images"),
+        "reportCategoryFraud": MessageLookupByLibrary.simpleMessage("Fraud"),
+        "reportCategoryFraudDescription": MessageLookupByLibrary.simpleMessage(
+            "Fake ads, misleading information"),
+        "reportCategoryInappropriateContent":
+            MessageLookupByLibrary.simpleMessage("Inappropriate Content"),
+        "reportCategoryInappropriateContentDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Rude language, offensive content"),
+        "reportCategoryOther": MessageLookupByLibrary.simpleMessage("Other"),
+        "reportCategoryOtherDescription": MessageLookupByLibrary.simpleMessage(
+            "A problem other than those above"),
+        "reportCategoryPriceManipulation":
+            MessageLookupByLibrary.simpleMessage("Price Manipulation"),
+        "reportCategoryPriceManipulationDescription":
+            MessageLookupByLibrary.simpleMessage(
+                "Exaggerated price, deceptive pricing"),
+        "reportCategoryTitle":
+            MessageLookupByLibrary.simpleMessage("Report Category"),
+        "reportDescription": MessageLookupByLibrary.simpleMessage(
+            "What\'s wrong with this kurban ad? Please select a category or if you want provide detailed explanation."),
+        "reportKurbanAd":
+            MessageLookupByLibrary.simpleMessage("Report Kurban Ad"),
+        "reportProcessingInfo": MessageLookupByLibrary.simpleMessage(
+            "Your report will be reviewed within 24 hours and necessary actions will be taken."),
+        "reportSubmit": MessageLookupByLibrary.simpleMessage("Submit Report"),
+        "reportSubmittedSuccessfully": MessageLookupByLibrary.simpleMessage(
+            "Your report has been submitted successfully"),
+        "reportTitle": MessageLookupByLibrary.simpleMessage("Report"),
         "requestApproved": m4,
         "requestDate": MessageLookupByLibrary.simpleMessage("Request Date"),
         "requestDeclined": m5,
@@ -261,6 +302,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shared": MessageLookupByLibrary.simpleMessage("Shared"),
         "sss":
             MessageLookupByLibrary.simpleMessage("Frequently Asked Questions"),
+        "submitting": MessageLookupByLibrary.simpleMessage("Submitting..."),
         "successfullyShared": MessageLookupByLibrary.simpleMessage(
             "Qurbani was successfully shared"),
         "total": MessageLookupByLibrary.simpleMessage("Total"),

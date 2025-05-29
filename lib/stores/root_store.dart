@@ -1,4 +1,5 @@
 import 'package:kurbandas/stores/api/app_setting_store.dart';
+import 'package:kurbandas/stores/api/kurban_report_store.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
 import 'package:kurbandas/stores/country_store.dart';
 import 'package:kurbandas/stores/package_store.dart';
@@ -34,6 +35,9 @@ abstract class _RootStore with Store {
   @observable
   late CountryStore countryStore;
 
+  @observable
+  late KurbanReportStore kurbanReportStore;
+
   _RootStore(
       {required this.urlLauncherStore,
       required this.appSettingStore,
@@ -41,5 +45,6 @@ abstract class _RootStore with Store {
       required this.turkiyeAPIStore,
       required this.kurbanStore,
       required this.packageStore,
-      required this.countryStore});
+      required this.countryStore,
+      required this.kurbanReportStore});
 }

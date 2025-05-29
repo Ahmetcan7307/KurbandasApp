@@ -8,6 +8,8 @@ class KurbanReport {
   String? why;
   int? quickWhy;
 
+  KurbanReport({this.why, this.quickWhy});
+
   Map<String, dynamic> toJson() {
     Map<String, dynamic> json = _$KurbanReportToJson(this);
     json.clearNulls();

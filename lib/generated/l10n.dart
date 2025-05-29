@@ -1599,6 +1599,226 @@ class S {
       args: [],
     );
   }
+
+  /// `Fraud`
+  String get reportCategoryFraud {
+    return Intl.message(
+      'Fraud',
+      name: 'reportCategoryFraud',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fake ads, misleading information`
+  String get reportCategoryFraudDescription {
+    return Intl.message(
+      'Fake ads, misleading information',
+      name: 'reportCategoryFraudDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Inappropriate Content`
+  String get reportCategoryInappropriateContent {
+    return Intl.message(
+      'Inappropriate Content',
+      name: 'reportCategoryInappropriateContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rude language, offensive content`
+  String get reportCategoryInappropriateContentDescription {
+    return Intl.message(
+      'Rude language, offensive content',
+      name: 'reportCategoryInappropriateContentDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fake Photos`
+  String get reportCategoryFakePhotos {
+    return Intl.message(
+      'Fake Photos',
+      name: 'reportCategoryFakePhotos',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unreal or misleading images`
+  String get reportCategoryFakePhotosDescription {
+    return Intl.message(
+      'Unreal or misleading images',
+      name: 'reportCategoryFakePhotosDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price Manipulation`
+  String get reportCategoryPriceManipulation {
+    return Intl.message(
+      'Price Manipulation',
+      name: 'reportCategoryPriceManipulation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exaggerated price, deceptive pricing`
+  String get reportCategoryPriceManipulationDescription {
+    return Intl.message(
+      'Exaggerated price, deceptive pricing',
+      name: 'reportCategoryPriceManipulationDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Animal Rights Violation`
+  String get reportCategoryAnimalWelfare {
+    return Intl.message(
+      'Animal Rights Violation',
+      name: 'reportCategoryAnimalWelfare',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Animal care conditions, health issues`
+  String get reportCategoryAnimalWelfareDescription {
+    return Intl.message(
+      'Animal care conditions, health issues',
+      name: 'reportCategoryAnimalWelfareDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Other`
+  String get reportCategoryOther {
+    return Intl.message(
+      'Other',
+      name: 'reportCategoryOther',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A problem other than those above`
+  String get reportCategoryOtherDescription {
+    return Intl.message(
+      'A problem other than those above',
+      name: 'reportCategoryOtherDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Report`
+  String get reportTitle {
+    return Intl.message(
+      'Report',
+      name: 'reportTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Report Kurban Ad`
+  String get reportKurbanAd {
+    return Intl.message(
+      'Report Kurban Ad',
+      name: 'reportKurbanAd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What's wrong with this kurban ad? Please select a category or if you want provide detailed explanation.`
+  String get reportDescription {
+    return Intl.message(
+      'What\'s wrong with this kurban ad? Please select a category or if you want provide detailed explanation.',
+      name: 'reportDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Report Category`
+  String get reportCategoryTitle {
+    return Intl.message(
+      'Report Category',
+      name: 'reportCategoryTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Detailed Explanation`
+  String get detailedExplanation {
+    return Intl.message(
+      'Detailed Explanation',
+      name: 'detailedExplanation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Explain the problem in detail...\n\nExample: The kurban in the photo is not real, they used another kurban's photo.`
+  String get detailedExplanationHint {
+    return Intl.message(
+      'Explain the problem in detail...\n\nExample: The kurban in the photo is not real, they used another kurban\'s photo.',
+      name: 'detailedExplanationHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your report will be reviewed within 24 hours and necessary actions will be taken.`
+  String get reportProcessingInfo {
+    return Intl.message(
+      'Your report will be reviewed within 24 hours and necessary actions will be taken.',
+      name: 'reportProcessingInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submitting...`
+  String get submitting {
+    return Intl.message(
+      'Submitting...',
+      name: 'submitting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit Report`
+  String get reportSubmit {
+    return Intl.message(
+      'Submit Report',
+      name: 'reportSubmit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your report has been submitted successfully`
+  String get reportSubmittedSuccessfully {
+    return Intl.message(
+      'Your report has been submitted successfully',
+      name: 'reportSubmittedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

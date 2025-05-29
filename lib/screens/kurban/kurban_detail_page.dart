@@ -8,6 +8,7 @@ import 'package:kurbandas/core/utils/components/kurban/partners_list.dart';
 import 'package:kurbandas/core/utils/components/my_snackbar.dart';
 import 'package:kurbandas/core/utils/extensions/date_time_extensions.dart';
 import 'package:kurbandas/generated/l10n.dart';
+import 'package:kurbandas/routes.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
 import 'package:kurbandas/stores/root_store.dart';
 import 'package:kurbandas/stores/supabase/auth_store.dart';
@@ -268,10 +269,11 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
             ],
           ),
         ),
-        actions: [IconButton(onPressed: share, icon: Icon(Icons.share))],
+        actions: [
+          IconButton(onPressed: share, icon: Icon(Icons.share)),
+          IconButton(onPressed: report, icon: Icon(Icons.flag))
+        ],
       );
-
-  Future share() async => await urlLauncherStore.launchStore(null);
 
   Widget buildStatusChip() => Chip(
         label: Text(
@@ -337,4 +339,8 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
       });
     }
   }
+
+  Future share() async => await urlLauncherStore.launchStore(null);
+
+  report() => Navigator.pushNamed(context, Routes.kurbanReport);
 }

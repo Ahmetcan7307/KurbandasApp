@@ -152,6 +152,27 @@ mixin _$RootStore on _RootStore, Store {
     });
   }
 
+  late final _$kurbanReportStoreAtom =
+      Atom(name: '_RootStore.kurbanReportStore', context: context);
+
+  @override
+  KurbanReportStore get kurbanReportStore {
+    _$kurbanReportStoreAtom.reportRead();
+    return super.kurbanReportStore;
+  }
+
+  bool _kurbanReportStoreIsInitialized = false;
+
+  @override
+  set kurbanReportStore(KurbanReportStore value) {
+    _$kurbanReportStoreAtom.reportWrite(
+        value, _kurbanReportStoreIsInitialized ? super.kurbanReportStore : null,
+        () {
+      super.kurbanReportStore = value;
+      _kurbanReportStoreIsInitialized = true;
+    });
+  }
+
   @override
   String toString() {
     return '''
@@ -161,7 +182,8 @@ authStore: ${authStore},
 turkiyeAPIStore: ${turkiyeAPIStore},
 kurbanStore: ${kurbanStore},
 packageStore: ${packageStore},
-countryStore: ${countryStore}
+countryStore: ${countryStore},
+kurbanReportStore: ${kurbanReportStore}
     ''';
   }
 }
