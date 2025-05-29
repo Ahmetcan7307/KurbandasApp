@@ -46,12 +46,16 @@ class UserService {
 
   Future<User> update(Map<String, dynamic> data) async {
     String url = MyAPI.getUrl(Controllers.users, "Update");
-    Response<Map<String, dynamic>> response = await dio.put(url, data: data);
+    try {
+      Response<Map<String, dynamic>> response = await dio.put(url, data: data);
 
-    if (response.statusCode == 200) {
-      return User.fromJson(response.data!);
+      if (response.statusCode == 200) {
+        return User.fromJson(response.data!);
+      }
+
+      throw MyAPI.getError(url, response);
+    } on DioException catch (e) {
+      throw MyAPI.getDioException(e);
     }
-
-    throw MyAPI.getError(url, response);
   }
 }

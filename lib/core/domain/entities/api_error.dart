@@ -11,6 +11,8 @@ class ApiError {
   factory ApiError.fromJson(Map<String, dynamic> json) =>
       _$ApiErrorFromJson(json);
 
+  String get message => errors[0].split("\n").last;
+
   @override
   String toString() {
     return 'ApiError{errors: $errors}';

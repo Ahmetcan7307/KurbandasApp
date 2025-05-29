@@ -1,9 +1,11 @@
 // ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:kurbandas/core/domain/entities/api_error.dart';
 import 'package:kurbandas/core/domain/entities/country_code.dart';
 import 'package:kurbandas/core/utils/components/my_snackbar.dart';
 import 'package:kurbandas/generated/l10n.dart';
+import 'package:kurbandas/services/exceptions.dart';
 import 'package:kurbandas/services/validator.dart';
 import 'package:kurbandas/stores/country_store.dart';
 import 'package:kurbandas/stores/root_store.dart';
@@ -292,7 +294,13 @@ class _PhoneNumberDialogState extends State<PhoneNumberDialog> {
 
           Navigator.of(context).pop(true);
         }
+      } on ApiError catch (e) {
+        showSnackBar(context,
+            text: Exceptions.translate(e.message,
+                WidgetsBinding.instance.platformDispatcher.locale.languageCode),
+            color: Colors.red);
       } catch (e) {
+        debugPrint("Hata: $e");
         showSnackBar(context, text: "${lang.error}: $e");
       }
 

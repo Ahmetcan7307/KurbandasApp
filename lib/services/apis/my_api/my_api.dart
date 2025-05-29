@@ -3,6 +3,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:kurbandas/services/apis/api/api.dart';
 import 'package:kurbandas/services/apis/api/query.dart';
 
+import '../../../core/domain/entities/api_error.dart';
+
 enum Controllers {
   users,
   appSettings,
@@ -61,5 +63,12 @@ class MyAPI {
   static Exception getError(String url, Response? response) =>
       API.getError(url, response);
 
-  static Exception getDioException(DioException e) => API.getDioException(e);
+  static Exception getDioException(DioException e) {
+    Response response = e.response!;
+    if (response.statusCode == 500) {
+      throw ApiError.fromJson(response.data!);
+    }
+
+    throw getError(response.realUri.toString(), response);
+  }
 }

@@ -6,7 +6,7 @@ import 'package:mobx/mobx.dart';
 
 import '../../core/const/hive_cons.dart';
 import '../../core/domain/entities/user.dart';
-import '../../core/utils/components/dialogs/phone_validate_alert_dialog.dart';
+import '../../core/utils/components/dialogs/phone_number_dialog.dart';
 import '../../injector.dart';
 import '../../services/supabase/auth_service.dart';
 
