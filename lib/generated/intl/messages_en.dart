@@ -278,6 +278,8 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Exaggerated price, deceptive pricing"),
         "reportCategoryTitle":
             MessageLookupByLibrary.simpleMessage("Report Category"),
+        "reportDescMin": MessageLookupByLibrary.simpleMessage(
+            "Description must be at least 10 characters."),
         "reportDescription": MessageLookupByLibrary.simpleMessage(
             "What\'s wrong with this kurban ad? Please select a category or if you want provide detailed explanation."),
         "reportKurbanAd":

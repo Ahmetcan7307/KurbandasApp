@@ -434,6 +434,11 @@ class _KurbanReportPageState extends State<KurbanReportPage> {
   }
 
   Future<void> _submitReport() async {
+    if (whyCnt.text.isNotEmpty && whyCnt.text.length < 10) {
+      showSnackBar(context, text: lang.reportDescMin, color: Colors.red);
+      return;
+    }
+
     setState(() {
       _isSubmitting = true;
     });

@@ -230,5 +230,6 @@
   "reportProcessingInfo": "Şikayetiniz 24 saat içinde değerlendirilecek ve gerekli işlemler yapılacaktır.",
   "submitting": "Gönderiliyor...",
   "reportSubmit": "Şikayet Et",
-  "reportSubmittedSuccessfully": "Şikayetiniz başarıyla gönderildi"
+  "reportSubmittedSuccessfully": "Şikayetiniz başarıyla gönderildi",
+  "reportDescMin": "Açıklama en az 10 karakter olmalıdır"
 }

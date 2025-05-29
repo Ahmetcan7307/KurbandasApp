@@ -278,6 +278,8 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Abartılı fiyat, aldatmaca fiyat"),
         "reportCategoryTitle":
             MessageLookupByLibrary.simpleMessage("Şikayet Kategorisi"),
+        "reportDescMin": MessageLookupByLibrary.simpleMessage(
+            "Açıklama en az 10 karakter olmalıdır"),
         "reportDescription": MessageLookupByLibrary.simpleMessage(
             "Bu kurban ilanında hangi sorun var? Lütfen kategori seçin veya isterseniz detaylı açıklama yapın."),
         "reportKurbanAd":

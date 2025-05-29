@@ -230,5 +230,6 @@
   "reportProcessingInfo": "Your report will be reviewed within 24 hours and necessary actions will be taken.",
   "submitting": "Submitting...",
   "reportSubmit": "Submit Report",
-  "reportSubmittedSuccessfully": "Your report has been submitted successfully"
+  "reportSubmittedSuccessfully": "Your report has been submitted successfully",
+  "reportDescMin": "Description must be at least 10 characters."
 }

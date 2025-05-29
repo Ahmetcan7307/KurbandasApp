@@ -1819,6 +1819,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Description must be at least 10 characters.`
+  String get reportDescMin {
+    return Intl.message(
+      'Description must be at least 10 characters.',
+      name: 'reportDescMin',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
