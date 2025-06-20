@@ -58,4 +58,15 @@ class UserService {
       throw MyAPI.getDioException(e);
     }
   }
+
+  Future<bool> delete() async {
+    String url = MyAPI.getUrl(Controllers.users, "Delete");
+    Response response = await dio.delete(url);
+
+    if (response.statusCode == 200) {
+      return true;
+    }
+
+    throw MyAPI.getError(url, response);
+  }
 }

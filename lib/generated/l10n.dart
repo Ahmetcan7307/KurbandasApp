@@ -1829,6 +1829,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Delete My Account`
+  String get accountDelete {
+    return Intl.message(
+      'Delete My Account',
+      name: 'accountDelete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure?`
+  String get delete_confirm {
+    return Intl.message(
+      'Are you sure?',
+      name: 'delete_confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your account will be permanently deleted and all your data includes your Qurbani and partnership requests will be lost. This action cannot be undone.`
+  String get delete_confirm_text {
+    return Intl.message(
+      'Your account will be permanently deleted and all your data includes your Qurbani and partnership requests will be lost. This action cannot be undone.',
+      name: 'delete_confirm_text',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All your Qurbani posts and partnership requests will be deleted.`
+  String get qurbaniPostsPartnershipRequestsDeleted {
+    return Intl.message(
+      'All your Qurbani posts and partnership requests will be deleted.',
+      name: 'qurbaniPostsPartnershipRequestsDeleted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your account information will be completely deleted.`
+  String get accountCompletelyDeleted {
+    return Intl.message(
+      'Your account information will be completely deleted.',
+      name: 'accountCompletelyDeleted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This action cannot be undone.`
+  String get actionUndone {
+    return Intl.message(
+      'This action cannot be undone.',
+      name: 'actionUndone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `FINAL WARNING!`
+  String get finalWarning {
+    return Intl.message(
+      'FINAL WARNING!',
+      name: 'finalWarning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please wait...`
+  String get pleaseWait {
+    return Intl.message(
+      'Please wait...',
+      name: 'pleaseWait',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To delete your account, type {confirmationText} below:`
+  String deleteAccountType(String confirmationText) {
+    return Intl.message(
+      'To delete your account, type $confirmationText below:',
+      name: 'deleteAccountType',
+      desc: '',
+      args: [confirmationText],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

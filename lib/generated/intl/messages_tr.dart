@@ -29,11 +29,14 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m2(animal) =>
       "${animal} kurban ilanını silmek istediğinize emin misiniz?";
 
-  static String m3(count) => "${count} ortak kaldı";
+  static String m3(confirmationText) =>
+      "Hesabınızı silmek için aşağıya ${confirmationText} yazın:";
 
-  static String m4(name) => "${name} kişisinin talebi onaylandı";
+  static String m4(count) => "${count} ortak kaldı";
 
-  static String m5(name) => "${name} kişisinin talebi reddedildi";
+  static String m5(name) => "${name} kişisinin talebi onaylandı";
+
+  static String m6(name) => "${name} kişisinin talebi reddedildi";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -123,6 +126,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutApp": MessageLookupByLibrary.simpleMessage("Uygulama Hakkında"),
         "aboutAppDesc": MessageLookupByLibrary.simpleMessage(
             "Kurbandaş uygulaması, kurban bayramlarında kurban ortaklığı bulmak ve paylaşmak için geliştirilmiş bir platformdur. Kullanıcılar kendi kurbanlarını ilan edebilir ve diğer kullanıcıların kurbanlarına ortak olabilirler."),
+        "accountCompletelyDeleted": MessageLookupByLibrary.simpleMessage(
+            "Hesap bilgileriniz tamamen kaldırılacak."),
+        "accountDelete": MessageLookupByLibrary.simpleMessage("Hesabımı Sil"),
+        "actionUndone":
+            MessageLookupByLibrary.simpleMessage("Bu işlem geri alınamaz."),
         "active": MessageLookupByLibrary.simpleMessage("Aktif"),
         "addPhoneNo": MessageLookupByLibrary.simpleMessage("Ekle"),
         "addPhotos":
@@ -160,8 +168,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "decline": MessageLookupByLibrary.simpleMessage("Reddet"),
         "declineRequest": MessageLookupByLibrary.simpleMessage("İsteği Reddet"),
         "delete": MessageLookupByLibrary.simpleMessage("Kaldır"),
+        "deleteAccountType": m3,
         "deleteQurbani":
             MessageLookupByLibrary.simpleMessage("Kurban İlanını Kaldır"),
+        "delete_confirm": MessageLookupByLibrary.simpleMessage("Emin misiniz?"),
+        "delete_confirm_text": MessageLookupByLibrary.simpleMessage(
+            "Hesabınız kalıcı olarak silinecek ve tüm verileriniz, Kurban ve ortaklık talepleriniz dahil olmak üzere kaybolacaktır. Bu işlem geri alınamaz."),
         "detailedExplanation":
             MessageLookupByLibrary.simpleMessage("Detaylı Açıklama"),
         "detailedExplanationHint": MessageLookupByLibrary.simpleMessage(
@@ -184,6 +196,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "fillRequiredInfo": MessageLookupByLibrary.simpleMessage(
             "Lütfen tüm gerekli bilgileri doldurun"),
         "filters": MessageLookupByLibrary.simpleMessage("Filtreler"),
+        "finalWarning": MessageLookupByLibrary.simpleMessage("SON UYARI!"),
         "findPartnersQurbani": MessageLookupByLibrary.simpleMessage(
             "Kurban için ortaklarınızı kolayca bulun"),
         "gallery": MessageLookupByLibrary.simpleMessage("Galeri"),
@@ -216,7 +229,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "owner": MessageLookupByLibrary.simpleMessage("Sahip"),
         "partner": MessageLookupByLibrary.simpleMessage("Ortak"),
         "partners": MessageLookupByLibrary.simpleMessage("Ortaklar"),
-        "partnersRemain": m3,
+        "partnersRemain": m4,
         "partnershipDate":
             MessageLookupByLibrary.simpleMessage("Ortaklık Tarihi"),
         "partnershipRequests":
@@ -241,11 +254,16 @@ class MessageLookup extends MessageLookupByLibrary {
             "Lütfen Ortak Sayısını giriniz"),
         "pleaseUpdateToContinue": MessageLookupByLibrary.simpleMessage(
             "Uygulamayı kullanmaya devam etmek için lütfen güncelleyin."),
+        "pleaseWait": MessageLookupByLibrary.simpleMessage(
+            "Devam etmek için bekleyin..."),
         "pleaseWeight": MessageLookupByLibrary.simpleMessage(
             "Lütfen Kurbanın ağırlığını girin"),
         "previous": MessageLookupByLibrary.simpleMessage("Geri"),
         "price": MessageLookupByLibrary.simpleMessage("Fiyat"),
         "province": MessageLookupByLibrary.simpleMessage("İl"),
+        "qurbaniPostsPartnershipRequestsDeleted":
+            MessageLookupByLibrary.simpleMessage(
+                "Tüm kurban ilanlarınız ve ortaklık istekleriniz silinecek."),
         "remain": MessageLookupByLibrary.simpleMessage("Kalan"),
         "remainingPhotoCount":
             MessageLookupByLibrary.simpleMessage("Kalan fotoğraf sayısı"),
@@ -290,9 +308,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "reportSubmittedSuccessfully": MessageLookupByLibrary.simpleMessage(
             "Şikayetiniz başarıyla gönderildi"),
         "reportTitle": MessageLookupByLibrary.simpleMessage("Şikayet Et"),
-        "requestApproved": m4,
+        "requestApproved": m5,
         "requestDate": MessageLookupByLibrary.simpleMessage("İstek Tarihi"),
-        "requestDeclined": m5,
+        "requestDeclined": m6,
         "selectAnimal":
             MessageLookupByLibrary.simpleMessage("Kurban hayvanını seçin"),
         "selectCutDate":

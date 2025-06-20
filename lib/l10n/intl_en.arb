@@ -231,5 +231,21 @@
   "submitting": "Submitting...",
   "reportSubmit": "Submit Report",
   "reportSubmittedSuccessfully": "Your report has been submitted successfully",
-  "reportDescMin": "Description must be at least 10 characters."
+  "reportDescMin": "Description must be at least 10 characters.",
+  "accountDelete": "Delete My Account",
+  "delete_confirm": "Are you sure?",
+  "delete_confirm_text": "Your account will be permanently deleted and all your data includes your Qurbani and partnership requests will be lost. This action cannot be undone.",
+  "qurbaniPostsPartnershipRequestsDeleted": "All your Qurbani posts and partnership requests will be deleted.",
+  "accountCompletelyDeleted": "Your account information will be completely deleted.",
+  "actionUndone": "This action cannot be undone.",
+  "finalWarning": "FINAL WARNING!",
+  "pleaseWait": "Please wait...",
+  "deleteAccountType": "To delete your account, type {confirmationText} below:",
+  "@deleteAccountType": {
+    "placeholders": {
+      "confirmationText": {
+        "type": "String"
+      }
+    }
+  }
 }

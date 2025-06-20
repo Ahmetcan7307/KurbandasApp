@@ -1,5 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
+import 'package:kurbandas/core/utils/components/dialogs/account_deletion_dialogs/account_deletion_dialog.dart';
+import 'package:kurbandas/core/utils/components/dialogs/account_deletion_dialogs/final_deletion_confirmation_dialog.dart';
 import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/stores/root_store.dart';
 import 'package:kurbandas/stores/supabase/auth_store.dart';
@@ -8,6 +10,7 @@ import 'package:provider/provider.dart';
 import '../../core/utils/components/dialogs/logout_confirmation_dialog.dart';
 import '../../core/utils/components/my_snackbar.dart';
 import '../../routes.dart';
+import '../../services/exceptions.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -20,6 +23,8 @@ class _SettingsPageState extends State<SettingsPage> {
   late S lang;
 
   late AuthStore authStore;
+
+  bool isLoading = false;
 
   @override
   void didChangeDependencies() {
@@ -54,6 +59,12 @@ class _SettingsPageState extends State<SettingsPage> {
                   ))
         ]),
         buildSection(title: lang.AccountOperations, items: [
+          isLoading
+              ? Center(child: CircularProgressIndicator())
+              : buildItem(
+                  icon: Icons.delete,
+                  title: lang.accountDelete,
+                  onTap: areYouSureForDelete),
           buildItem(
               icon: Icons.logout,
               title: lang.logout,
@@ -114,6 +125,39 @@ class _SettingsPageState extends State<SettingsPage> {
       await authStore.logout();
 
       Routes.navigateAndRemoveUntil(Routes.login);
+    }
+  }
+
+  Future areYouSureForDelete() async {
+    bool? result = (await showDialog<bool?>(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => AccountDeletionDialog()));
+    if (result != null && result) {
+      result = (await showDialog<bool?>(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) => FinalDeletionConfirmationDialog()));
+      if (result != null && result) {
+        await deleteAccount();
+      }
+    }
+  }
+
+  Future<void> deleteAccount() async {
+    setState(() => isLoading = true);
+
+    try {
+      await authStore.delete();
+      Navigator.pop(context);
+
+      Routes.navigateAndRemoveUntil(Routes.login);
+    } catch (e) {
+      showSnackBar(context,
+          text: Exceptions.translate(e.toString(),
+              WidgetsBinding.instance.platformDispatcher.locale.languageCode));
+    } finally {
+      setState(() => isLoading = false);
     }
   }
 }

@@ -29,11 +29,14 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m2(animal) =>
       "Are you sure you want to delete the ${animal} Qurbani?";
 
-  static String m3(count) => "${count} partners remain";
+  static String m3(confirmationText) =>
+      "To delete your account, type ${confirmationText} below:";
 
-  static String m4(name) => "${name}\'s request approved";
+  static String m4(count) => "${count} partners remain";
 
-  static String m5(name) => "${name}\'s request declined";
+  static String m5(name) => "${name}\'s request approved";
+
+  static String m6(name) => "${name}\'s request declined";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -125,6 +128,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutApp": MessageLookupByLibrary.simpleMessage("About App"),
         "aboutAppDesc": MessageLookupByLibrary.simpleMessage(
             "Kurbandaş application is a platform developed to find and share Qurbani partnerships during Eid al-Adha. Users can declare their own Qurbanis and become partners in other users\' Qurbanis."),
+        "accountCompletelyDeleted": MessageLookupByLibrary.simpleMessage(
+            "Your account information will be completely deleted."),
+        "accountDelete":
+            MessageLookupByLibrary.simpleMessage("Delete My Account"),
+        "actionUndone": MessageLookupByLibrary.simpleMessage(
+            "This action cannot be undone."),
         "active": MessageLookupByLibrary.simpleMessage("Actives"),
         "addPhoneNo": MessageLookupByLibrary.simpleMessage("Update"),
         "addPhotos": MessageLookupByLibrary.simpleMessage("Add photos"),
@@ -163,8 +172,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "declineRequest":
             MessageLookupByLibrary.simpleMessage("Decline Request"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
+        "deleteAccountType": m3,
         "deleteQurbani":
             MessageLookupByLibrary.simpleMessage("Delete Qurbani Posting"),
+        "delete_confirm": MessageLookupByLibrary.simpleMessage("Are you sure?"),
+        "delete_confirm_text": MessageLookupByLibrary.simpleMessage(
+            "Your account will be permanently deleted and all your data includes your Qurbani and partnership requests will be lost. This action cannot be undone."),
         "detailedExplanation":
             MessageLookupByLibrary.simpleMessage("Detailed Explanation"),
         "detailedExplanationHint": MessageLookupByLibrary.simpleMessage(
@@ -187,6 +200,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "fillRequiredInfo": MessageLookupByLibrary.simpleMessage(
             "Please fill in all required information"),
         "filters": MessageLookupByLibrary.simpleMessage("Filters"),
+        "finalWarning": MessageLookupByLibrary.simpleMessage("FINAL WARNING!"),
         "findPartnersQurbani": MessageLookupByLibrary.simpleMessage(
             "Easily find your partners for Qurbani"),
         "gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
@@ -218,7 +232,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "owner": MessageLookupByLibrary.simpleMessage("Owner"),
         "partner": MessageLookupByLibrary.simpleMessage("Partner"),
         "partners": MessageLookupByLibrary.simpleMessage("Partners"),
-        "partnersRemain": m3,
+        "partnersRemain": m4,
         "partnershipDate":
             MessageLookupByLibrary.simpleMessage("Partnership Date"),
         "partnershipRequests":
@@ -243,11 +257,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please enter the total partners count"),
         "pleaseUpdateToContinue": MessageLookupByLibrary.simpleMessage(
             "Please update to continue using the app."),
+        "pleaseWait": MessageLookupByLibrary.simpleMessage("Please wait..."),
         "pleaseWeight": MessageLookupByLibrary.simpleMessage(
             "Please enter the Qurbani\'s weight"),
         "previous": MessageLookupByLibrary.simpleMessage("Previous"),
         "price": MessageLookupByLibrary.simpleMessage("Price"),
         "province": MessageLookupByLibrary.simpleMessage("Province"),
+        "qurbaniPostsPartnershipRequestsDeleted":
+            MessageLookupByLibrary.simpleMessage(
+                "All your Qurbani posts and partnership requests will be deleted."),
         "remain": MessageLookupByLibrary.simpleMessage("Remain"),
         "remainingPhotoCount":
             MessageLookupByLibrary.simpleMessage("Remaining photo count"),
@@ -290,9 +308,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "reportSubmittedSuccessfully": MessageLookupByLibrary.simpleMessage(
             "Your report has been submitted successfully"),
         "reportTitle": MessageLookupByLibrary.simpleMessage("Report"),
-        "requestApproved": m4,
+        "requestApproved": m5,
         "requestDate": MessageLookupByLibrary.simpleMessage("Request Date"),
-        "requestDeclined": m5,
+        "requestDeclined": m6,
         "selectAnimal":
             MessageLookupByLibrary.simpleMessage("Select Qurbani animal"),
         "selectCutDate":

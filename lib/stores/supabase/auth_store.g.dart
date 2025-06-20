@@ -71,6 +71,14 @@ mixin _$AuthStore on _AuthStore, Store {
     return _$updatePhoneNoAsyncAction.run(() => super.updatePhoneNo(phoneNo));
   }
 
+  late final _$deleteAsyncAction =
+      AsyncAction('_AuthStore.delete', context: context);
+
+  @override
+  Future<dynamic> delete() {
+    return _$deleteAsyncAction.run(() => super.delete());
+  }
+
   @override
   String toString() {
     return '''

@@ -231,5 +231,21 @@
   "submitting": "Gönderiliyor...",
   "reportSubmit": "Şikayet Et",
   "reportSubmittedSuccessfully": "Şikayetiniz başarıyla gönderildi",
-  "reportDescMin": "Açıklama en az 10 karakter olmalıdır"
+  "reportDescMin": "Açıklama en az 10 karakter olmalıdır",
+  "accountDelete": "Hesabımı Sil",
+  "delete_confirm": "Emin misiniz?",
+  "delete_confirm_text": "Hesabınız kalıcı olarak silinecek ve tüm verileriniz, Kurban ve ortaklık talepleriniz dahil olmak üzere kaybolacaktır. Bu işlem geri alınamaz.",
+  "qurbaniPostsPartnershipRequestsDeleted": "Tüm kurban ilanlarınız ve ortaklık istekleriniz silinecek.",
+  "accountCompletelyDeleted": "Hesap bilgileriniz tamamen kaldırılacak.",
+  "actionUndone": "Bu işlem geri alınamaz.",
+  "finalWarning": "SON UYARI!",
+  "pleaseWait": "Devam etmek için bekleyin...",
+  "deleteAccountType": "Hesabınızı silmek için aşağıya {confirmationText} yazın:",
+  "@deleteAccountType": {
+    "placeholders": {
+      "confirmationText": {
+        "type": "String"
+      }
+    }
+  }
 }

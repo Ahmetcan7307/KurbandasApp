@@ -79,4 +79,11 @@ abstract class _AuthStore with Store {
     }
     return true;
   }
+
+  @action
+  Future delete() async {
+    if (await userService.delete()) {
+      await logout();
+    }
+  }
 }
