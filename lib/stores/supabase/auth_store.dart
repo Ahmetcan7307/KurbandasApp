@@ -47,6 +47,10 @@ abstract class _AuthStore with Store {
     if (authUser != null) {
       authUser.phoneNo =
           await googleApiService.getPhoneNumber(authUser.accessToken!);
+      if (authUser.phoneNo != null &&
+          authUser.phoneNo!.substring(0, 1) == "+") {
+        authUser.phoneNo = authUser.phoneNo!.substring(1);
+      }
       User dbUser = await userService.signIn(authUser.toJson());
       user = dbUser;
 
