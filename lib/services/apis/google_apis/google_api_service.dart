@@ -9,12 +9,11 @@ class GoogleApiService {
 
   Future<String?> getPhoneNumber(String accessToken) async {
     try {
-      String url = GoogleApi.getUrl(Controllers.me,
-          queries: [Query(name: "personFields", value: "phoneNumbers")]);
       dio.options.headers["Authorization"] = "Bearer $accessToken";
 
       Response<Map<String, dynamic>> response =
-          await dio.get<Map<String, dynamic>>(url);
+          await dio.get<Map<String, dynamic>>(GoogleApi.getUrl(Controllers.me,
+              queries: [Query(name: "personFields", value: "phoneNumbers")]));
 
       if (response.statusCode == 200) {
         if (response.data!.containsKey("phoneNumbers") &&
@@ -26,7 +25,7 @@ class GoogleApiService {
         return null;
       }
 
-      throw GoogleApi.getError(url, response);
+      throw GoogleApi.getError(response);
     } on DioException catch (e) {
       throw GoogleApi.getDioException(e);
     }

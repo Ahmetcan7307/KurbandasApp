@@ -10,9 +10,8 @@ class TurkiyeAPIService {
 
   Future<List<TurkiyeAPIProvince>> getProvinces() async {
     try {
-      String url = TurkiyeAPI.getUrl(Controllers.province);
-      Response<Map<String, dynamic>> response =
-          await dio.get<Map<String, dynamic>>(url);
+      Response<Map<String, dynamic>> response = await dio
+          .get<Map<String, dynamic>>(TurkiyeAPI.getUrl(Controllers.province));
 
       if (response.statusCode == 200) {
         return (response.data!["data"] as List)
@@ -20,7 +19,7 @@ class TurkiyeAPIService {
             .toList();
       }
 
-      throw TurkiyeAPI.getError(url, response);
+      throw TurkiyeAPI.getError(response);
     } on DioException catch (e) {
       throw TurkiyeAPI.getDioException(e);
     }

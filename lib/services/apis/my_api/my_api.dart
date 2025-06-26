@@ -60,15 +60,14 @@ class MyAPI {
     return url;
   }
 
-  static Exception getError(String url, Response? response) =>
-      API.getError(url, response);
+  static Exception getError(Response? response) => API.getError(response);
 
-  static Exception getDioException(DioException e) {
+  static throwDioException(DioException e) {
     Response response = e.response!;
-    if (response.statusCode == 500) {
+    if (response.statusCode == 500 || response.statusCode == 400) {
       throw ApiError.fromJson(response.data!);
     }
 
-    throw getError(response.realUri.toString(), response);
+    throw getError(response);
   }
 }

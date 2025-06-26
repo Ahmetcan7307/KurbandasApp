@@ -9,13 +9,13 @@ class AppSettingService {
   AppSettingService(this.dio);
 
   Future<AppSetting> get() async {
-    String url = MyAPI.getUrl(Controllers.appSettings, "GetRequiredVersion");
-    Response<Map<String, dynamic>> response = await dio.get(url);
+    Response<Map<String, dynamic>> response = await dio
+        .get(MyAPI.getUrl(Controllers.appSettings, "GetRequiredVersion"));
 
     if (response.statusCode == 200) {
       return AppSetting.fromJson(response.data!);
     }
 
-    throw MyAPI.getError(url, response);
+    throw MyAPI.getError(response);
   }
 }

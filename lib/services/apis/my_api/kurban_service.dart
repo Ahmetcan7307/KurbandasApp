@@ -11,57 +11,57 @@ class KurbanService {
   KurbanService({required this.dio});
 
   Future<List<KurbanAnimal>> getAnimals() async {
-    String url = MyAPI.getUrl(Controllers.kurbanAnimals, "GetAll", queries: [
+    Response<List> response = await dio
+        .get(MyAPI.getUrl(Controllers.kurbanAnimals, "GetAll", queries: [
       Query(
           name: "locale",
           value: WidgetsBinding.instance.platformDispatcher.locale.languageCode)
-    ]);
-    Response<List> response = await dio.get(url);
+    ]));
 
     if (response.statusCode == 200) {
       return response.data!.map((data) => KurbanAnimal.fromJson(data)).toList();
     }
 
-    throw MyAPI.getError(url, response);
+    throw MyAPI.getError(response);
   }
 
   Future<List<Kurban>> getMyKurbans() async {
-    String url = MyAPI.getUrl(Controllers.kurbans, "GetMines");
-    Response<List> response = await dio.get(url);
+    Response<List> response =
+        await dio.get(MyAPI.getUrl(Controllers.kurbans, "GetMines"));
 
     if (response.statusCode == 200) {
       return response.data!.map((data) => Kurban.fromJson(data)).toList();
     }
 
-    throw MyAPI.getError(url, response);
+    throw MyAPI.getError(response);
   }
 
   Future<List<Kurban>> delete(String documentId) async {
-    String url = MyAPI.getUrl(Controllers.kurbans, "Delete/$documentId");
-    Response<List> response = await dio.delete(url);
+    Response<List> response = await dio
+        .delete(MyAPI.getUrl(Controllers.kurbans, "Delete/$documentId"));
 
     if (response.statusCode == 200) {
       return response.data!.map((data) => Kurban.fromJson(data)).toList();
     }
 
-    throw MyAPI.getError(url, response);
+    throw MyAPI.getError(response);
   }
 
   Future<List<Kurban>> getMyPartnerships() async {
-    String url = MyAPI.getUrl(Controllers.kurbans, "GetMyPartnerships");
-    Response<List> response = await dio.get(url);
+    Response<List> response =
+        await dio.get(MyAPI.getUrl(Controllers.kurbans, "GetMyPartnerships"));
 
     if (response.statusCode == 200) {
       return response.data!.map((data) => Kurban.fromJson(data)).toList();
     }
 
-    throw MyAPI.getError(url, response);
+    throw MyAPI.getError(response);
   }
 
   Future<List<Kurban>> getKurbans(bool isActive, int page, int pageSize,
       Map<String, dynamic> filter) async {
-    String url = MyAPI.getUrl(Controllers.kurbans, "GetByFilter");
-    Response<List> response = await dio.get(url, data: {
+    Response<List> response = await dio
+        .get(MyAPI.getUrl(Controllers.kurbans, "GetByFilter"), data: {
       "isActive": isActive,
       "filter": filter,
       "page": page,
@@ -72,40 +72,39 @@ class KurbanService {
       return response.data!.map((data) => Kurban.fromJson(data)).toList();
     }
 
-    throw MyAPI.getError(url, response);
+    throw MyAPI.getError(response);
   }
 
   Future<String> create(Map<String, dynamic> data) async {
-    String url = MyAPI.getUrl(Controllers.kurbans, "Create");
-    Response<String> response = await dio.post(url, data: data);
+    Response<String> response =
+        await dio.post(MyAPI.getUrl(Controllers.kurbans, "Create"), data: data);
 
     if (response.statusCode == 200) {
       return response.data!;
     }
 
-    throw MyAPI.getError(url, response);
+    throw MyAPI.getError(response);
   }
 
   Future update(Map<String, dynamic> data) async {
-    String url = MyAPI.getUrl(Controllers.kurbans, "Update");
-    Response response = await dio.put(url, data: data);
+    Response response =
+        await dio.put(MyAPI.getUrl(Controllers.kurbans, "Update"), data: data);
 
     if (response.statusCode == 200) {
       return;
     }
 
-    throw MyAPI.getError(url, response);
+    throw MyAPI.getError(response);
   }
 
   Future<Kurban> get(String documentId, bool isEdit) async {
-    String url = MyAPI.getUrl(
-        Controllers.kurbans, "GetDetail/$documentId?isEdit=$isEdit");
-    Response<Map<String, dynamic>> response = await dio.get(url);
+    Response<Map<String, dynamic>> response = await dio.get(MyAPI.getUrl(
+        Controllers.kurbans, "GetDetail/$documentId?isEdit=$isEdit"));
 
     if (response.statusCode == 200) {
       return Kurban.fromJson(response.data!);
     }
 
-    throw MyAPI.getError(url, response);
+    throw MyAPI.getError(response);
   }
 }

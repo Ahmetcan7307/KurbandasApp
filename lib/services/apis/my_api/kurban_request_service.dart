@@ -9,8 +9,8 @@ class KurbanRequestService {
   KurbanRequestService(this.dio);
 
   Future<List<KurbanRequest>> getRequests(String documentId) async {
-    String url = MyAPI.getUrl(Controllers.kurbanRequests, "Get/$documentId");
-    Response<List> response = await dio.get(url);
+    Response<List> response = await dio
+        .get(MyAPI.getUrl(Controllers.kurbanRequests, "Get/$documentId"));
 
     if (response.statusCode == 200) {
       return response.data!
@@ -18,14 +18,14 @@ class KurbanRequestService {
           .toList();
     }
 
-    throw MyAPI.getError(url, response);
+    throw MyAPI.getError(response);
   }
 
   Future<List<KurbanRequest>> approveOrDeclineRequest(
       String documentId, bool isApprove) async {
-    String url = MyAPI.getUrl(Controllers.kurbanRequests, "ApproveOrDecline");
-    Response<List> response = await dio
-        .put(url, data: {"documentId": documentId, "isApprove": isApprove});
+    Response<List> response = await dio.put(
+        MyAPI.getUrl(Controllers.kurbanRequests, "ApproveOrDecline"),
+        data: {"documentId": documentId, "isApprove": isApprove});
 
     if (response.statusCode == 200) {
       return response.data!
@@ -33,30 +33,28 @@ class KurbanRequestService {
           .toList();
     }
 
-    throw MyAPI.getError(url, response);
+    throw MyAPI.getError(response);
   }
 
   Future<bool> isRequestSend(String documentId) async {
-    String url =
-        MyAPI.getUrl(Controllers.kurbanRequests, "IsRequestSend/$documentId");
-    Response<bool> response = await dio.get(url);
+    Response<bool> response = await dio.get(
+        MyAPI.getUrl(Controllers.kurbanRequests, "IsRequestSend/$documentId"));
 
     if (response.statusCode == 200) {
       return response.data!;
     }
 
-    throw MyAPI.getError(url, response);
+    throw MyAPI.getError(response);
   }
 
   Future sendRequest(String kurbanDocumentId) async {
-    String url =
-        MyAPI.getUrl(Controllers.kurbanRequests, "Send/$kurbanDocumentId");
-    Response response = await dio.post(url);
+    Response response = await dio.post(
+        MyAPI.getUrl(Controllers.kurbanRequests, "Send/$kurbanDocumentId"));
 
     if (response.statusCode == 200) {
       return;
     }
 
-    throw MyAPI.getError(url, response);
+    throw MyAPI.getError(response);
   }
 }

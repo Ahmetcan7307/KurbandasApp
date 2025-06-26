@@ -28,8 +28,7 @@ class TurkiyeAPI {
     return url;
   }
 
-  static Exception getError(String url, Response? response) =>
-      API.getError(url, response);
+  static Exception getError(Response? response) => API.getError(response);
 
-  static Exception getDioException(DioException e) => API.getDioException(e);
+  static Exception getDioException(DioException e) => API.throwDioException(e);
 }

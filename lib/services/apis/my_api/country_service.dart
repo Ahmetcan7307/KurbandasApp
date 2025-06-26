@@ -9,13 +9,13 @@ class CountryService {
   CountryService(this.dio);
 
   Future<List<CountryCode>> getAll() async {
-    String url = MyAPI.getUrl(Controllers.countryCodes, "GetAll");
-    Response<List> response = await dio.get(url);
+    Response<List> response =
+        await dio.get(MyAPI.getUrl(Controllers.countryCodes, "GetAll"));
 
     if (response.statusCode == 200) {
       return response.data!.map((data) => CountryCode.fromJson(data)).toList();
     }
 
-    throw MyAPI.getError(url, response);
+    throw MyAPI.getError(response);
   }
 }

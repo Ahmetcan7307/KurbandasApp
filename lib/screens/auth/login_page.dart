@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:kurbandas/core/domain/entities/api_error.dart';
 import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/stores/root_store.dart';
 import 'package:kurbandas/stores/supabase/auth_store.dart';
@@ -137,6 +138,8 @@ class _LoginPageState extends State<LoginPage> {
       if (authStore.isLoggedIn) {
         Routes.navigateAndRemoveUntil(Routes.home);
       }
+    } on ApiError catch (e) {
+      showSnackBar(context, text: e.errors[0]);
     } catch (e) {
       showSnackBar(context, text: e.toString());
     }
