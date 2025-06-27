@@ -138,10 +138,13 @@ class _HomePageState extends State<HomePage>
                 ),
               ),
             Expanded(
-              child: TabBarView(controller: tabController, children: [
-                KurbanList(isActive: true),
-                KurbanList(isActive: false)
-              ]),
+              child: TabBarView(
+                controller: tabController,
+                children: [
+                  KurbanList(isActive: true),
+                  KurbanList(isActive: false)
+                ],
+              ),
             )
           ],
         );
@@ -189,6 +192,8 @@ class _HomePageState extends State<HomePage>
       await Navigator.pushNamed(context, Routes.createKurban);
 
       kurbanStore.selectedPhotos.clear();
+
+      setState(() {});
     }
   }
 }

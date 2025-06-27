@@ -129,6 +129,9 @@ abstract class _KurbanStore with Store {
   Future<bool> getActiveKurbans(int page) async {
     List<Kurban> newKurbans = await service.getKurbans(
         true, page, pageSize, filter != null ? filter!.toJson() : {});
+    if (page == 1) {
+      activeKurbans.clear();
+    }
     activeKurbans.addAll(newKurbans);
     return newKurbans.length < pageSize;
   }

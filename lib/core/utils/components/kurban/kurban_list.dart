@@ -45,13 +45,13 @@ class _KurbanListState extends State<KurbanList> {
       isLoading = true;
     });
 
-    int lastPage = pageNumber ?? page;
+    int currentPage = pageNumber ?? page;
     bool isLastPage = await fetchKurbans(page);
 
     if (mounted) {
       setState(() {
         hasMore = !isLastPage;
-        page = lastPage;
+        page = currentPage;
         isLoading = false;
       });
     }
@@ -64,7 +64,7 @@ class _KurbanListState extends State<KurbanList> {
   setupController() {
     controller.addListener(() {
       if (controller.position.pixels >=
-              controller.position.maxScrollExtent - 200 &&
+              (controller.position.maxScrollExtent - 200) &&
           hasMore &&
           !isLoading) {
         loadPage(page + 1);
@@ -96,7 +96,9 @@ class _KurbanListState extends State<KurbanList> {
 
   @override
   Widget build(BuildContext context) {
-    if (isLoading) return buildLoadingView();
+    if (isLoading && kurbanStore.getKurbansLength(widget.isActive) == 0) {
+      return buildLoadingView();
+    }
 
     if (kurbanStore.getKurbansLength(widget.isActive) == 0) {
       return buildEmptyView();
@@ -110,15 +112,11 @@ class _KurbanListState extends State<KurbanList> {
       },
       child: Observer(builder: (context) {
         return ListView.builder(
+            physics: const AlwaysScrollableScrollPhysics(),
             controller: controller,
             padding: const EdgeInsets.all(16),
-            itemCount: kurbanStore.getKurbansLength(widget.isActive) +
-                (hasMore ? 1 : 0),
+            itemCount: kurbanStore.getKurbansLength(widget.isActive),
             itemBuilder: (context, index) {
-              if (index == kurbanStore.getKurbansLength(widget.isActive)) {
-                return buildLoadingMoreIndicator();
-              }
-
               return Padding(
                 padding: const EdgeInsets.only(bottom: 16),
                 child: KurbanCard(
