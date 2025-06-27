@@ -247,5 +247,6 @@
         "type": "String"
       }
     }
-  }
+  },
+  "imageNotLoaded": "Resim yüklenemedi"
 }

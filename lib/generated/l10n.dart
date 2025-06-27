@@ -1919,6 +1919,16 @@ class S {
       args: [confirmationText],
     );
   }
+
+  /// `Image could not be loaded`
+  String get imageNotLoaded {
+    return Intl.message(
+      'Image could not be loaded',
+      name: 'imageNotLoaded',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

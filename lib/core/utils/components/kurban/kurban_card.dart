@@ -29,6 +29,7 @@ class _KurbanCardState extends State<KurbanCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.black,
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       clipBehavior: Clip.antiAlias,

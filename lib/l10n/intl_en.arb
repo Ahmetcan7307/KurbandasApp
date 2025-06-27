@@ -247,5 +247,6 @@
         "type": "String"
       }
     }
-  }
+  },
+  "imageNotLoaded": "Image could not be loaded"
 }

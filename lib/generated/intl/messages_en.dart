@@ -208,6 +208,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "howToWorks": MessageLookupByLibrary.simpleMessage("How to Works?"),
         "howToWorksDesc": MessageLookupByLibrary.simpleMessage(
             "From the home page, you can view and filter the available Qurbani ads and access the details of the ads. You can send a request for the Qurbani you want to be a partner. You can use the “Share Qurbani” button to share your own Qurbani. You can manage your own Qurbanis and partnerships from your profile."),
+        "imageNotLoaded":
+            MessageLookupByLibrary.simpleMessage("Image could not be loaded"),
         "info": MessageLookupByLibrary.simpleMessage("Information"),
         "later": MessageLookupByLibrary.simpleMessage("Later"),
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),

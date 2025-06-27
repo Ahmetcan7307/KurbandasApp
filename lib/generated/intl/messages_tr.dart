@@ -204,6 +204,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "howToWorks": MessageLookupByLibrary.simpleMessage("Nasıl Çalışır?"),
         "howToWorksDesc": MessageLookupByLibrary.simpleMessage(
             "Ana sayfadan mevcut kurban ilanlarını görebilir, filtreleyebilir ve ilan detaylarına ulaşabilirsiniz. Ortak olmak istediğiniz kurban için istek gönderebilirsiniz. Kendi kurbanınızı paylaşmak için \'Kurban Paylaş\' butonunu kullanabilirsiniz. Profilinizden kendi kurbanlarınızı ve ortaklıklarınızı yönetebilirsiniz."),
+        "imageNotLoaded":
+            MessageLookupByLibrary.simpleMessage("Resim yüklenemedi"),
         "info": MessageLookupByLibrary.simpleMessage("Hakkında"),
         "later": MessageLookupByLibrary.simpleMessage("Daha Sonra"),
         "logout": MessageLookupByLibrary.simpleMessage("Çıkış Yap"),
