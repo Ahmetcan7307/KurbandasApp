@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/utils/components/kurban/kurban_background_image.dart';
@@ -340,7 +341,8 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
     }
   }
 
-  Future share() async => await urlLauncherStore.launchStore(null);
+  Future share() async => await urlLauncherStore.launchStore(null,
+      iosAppStoreId: dotenv.env["iosAppStoreId"]);
 
   report() => Navigator.pushNamed(context, Routes.kurbanReport);
 }
