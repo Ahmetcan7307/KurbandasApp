@@ -1929,6 +1929,16 @@ class S {
       args: [],
     );
   }
+
+  /// `I just shared my Qurbani via Kurbandaş! 🐄\nLooking for a partner or want to join one? Download now:\n`
+  String get shareMessage {
+    return Intl.message(
+      'I just shared my Qurbani via Kurbandaş! 🐄\nLooking for a partner or want to join one? Download now:\n',
+      name: 'shareMessage',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

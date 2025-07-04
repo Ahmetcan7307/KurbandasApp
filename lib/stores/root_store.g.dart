@@ -173,6 +173,26 @@ mixin _$RootStore on _RootStore, Store {
     });
   }
 
+  late final _$shareStoreAtom =
+      Atom(name: '_RootStore.shareStore', context: context);
+
+  @override
+  ShareStore get shareStore {
+    _$shareStoreAtom.reportRead();
+    return super.shareStore;
+  }
+
+  bool _shareStoreIsInitialized = false;
+
+  @override
+  set shareStore(ShareStore value) {
+    _$shareStoreAtom.reportWrite(
+        value, _shareStoreIsInitialized ? super.shareStore : null, () {
+      super.shareStore = value;
+      _shareStoreIsInitialized = true;
+    });
+  }
+
   @override
   String toString() {
     return '''
@@ -183,7 +203,8 @@ turkiyeAPIStore: ${turkiyeAPIStore},
 kurbanStore: ${kurbanStore},
 packageStore: ${packageStore},
 countryStore: ${countryStore},
-kurbanReportStore: ${kurbanReportStore}
+kurbanReportStore: ${kurbanReportStore},
+shareStore: ${shareStore}
     ''';
   }
 }

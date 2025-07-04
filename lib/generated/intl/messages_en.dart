@@ -320,6 +320,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendRequest": MessageLookupByLibrary.simpleMessage(
             "Send Request To Become a Partner"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "shareMessage": MessageLookupByLibrary.simpleMessage(
+            "I just shared my Qurbani via Kurbandaş! 🐄\nLooking for a partner or want to join one? Download now:\n"),
         "shareQurbani": MessageLookupByLibrary.simpleMessage("Share Qurbani"),
         "shared": MessageLookupByLibrary.simpleMessage("Shared"),
         "sss":

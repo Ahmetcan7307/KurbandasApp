@@ -74,5 +74,14 @@
         <string>Kurban kaydı için fotoğraflarınızı seçmenize izin veriliyor</string>
         <key>NSMicrophoneUsageDescription</key>
         <string>Kurban kaydı için video çekmenize izin veriliyor</string>
+        <key>LSApplicationQueriesSchemes</key>
+        		<array>
+        			<string>instagram</string>
+        			<string>tg</string>
+        			<string>whatsapp</string>
+        			<string>twitter</string>
+        			<string>https</string>
+        			<string>mailto</string>
+        		</array>
 	</dict>
 </plist>

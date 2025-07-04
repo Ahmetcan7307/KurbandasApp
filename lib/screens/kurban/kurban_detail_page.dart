@@ -1,6 +1,5 @@
 // ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/utils/components/kurban/kurban_background_image.dart';
@@ -12,8 +11,8 @@ import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/routes.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
 import 'package:kurbandas/stores/root_store.dart';
+import 'package:kurbandas/stores/share_store.dart';
 import 'package:kurbandas/stores/supabase/auth_store.dart';
-import 'package:kurbandas/stores/url_launcher_store.dart';
 import 'package:provider/provider.dart';
 
 class KurbanDetailPage extends StatefulWidget {
@@ -27,8 +26,8 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
   late S lang;
 
   late KurbanStore kurbanStore;
-  late UrlLauncherStore urlLauncherStore;
   late AuthStore authStore;
+  late ShareStore shareStore;
 
   bool isClickedRequestSend = false,
       isLoadingSendRequest = false,
@@ -58,8 +57,8 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
 
     RootStore rootStore = Provider.of<RootStore>(context);
     kurbanStore = rootStore.kurbanStore;
-    urlLauncherStore = rootStore.urlLauncherStore;
     authStore = rootStore.authStore;
+    shareStore = rootStore.shareStore;
   }
 
   @override
@@ -341,8 +340,7 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
     }
   }
 
-  Future share() async => await urlLauncherStore.launchStore(null,
-      iosAppStoreId: dotenv.env["iosAppStoreId"]);
+  Future share() async => await shareStore.openSystemSheetWithShare(context);
 
   report() => Navigator.pushNamed(context, Routes.kurbanReport);
 }
