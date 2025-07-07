@@ -340,7 +340,7 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
     }
   }
 
-  Future share() async => await shareStore.openSystemSheetWithShare(context);
+  Future share() async => await shareStore.shareSystem(context);
 
   report() => Navigator.pushNamed(context, Routes.kurbanReport);
 }

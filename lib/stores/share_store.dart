@@ -19,9 +19,7 @@ abstract class _ShareStore with Store {
   final PackageInfoService packageInfoService =
       serviceLocator.get<PackageInfoService>();
 
-  Future<bool> openSystemSheetWithShare(BuildContext context) async =>
-      await shareService.openSystemSheet(
-          "Kurbandaş",
-          "${ShareCons.getMessage(context)}"
-              "${storeService.getStoreUrl(dotenv.env["iosAppStoreId"], await packageInfoService.getPackageName())!}");
+  Future<bool> shareSystem(BuildContext context) async =>
+      await shareService.shareToSystem("${ShareCons.getMessage(context)}"
+          "${storeService.getStoreUrl(dotenv.env["iosAppStoreId"], await packageInfoService.getPackageName())!}");
 }
