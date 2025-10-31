@@ -83,7 +83,8 @@ class AuthService {
       return user_c.User.fromApple(
           displayName:
               "${appleIDCredential.givenName} ${appleIDCredential.familyName}",
-          email: user.email!);
+          email: user.email!,
+          idToken: idToken);
     }
 
     return null;

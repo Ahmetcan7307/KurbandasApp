@@ -49,7 +49,10 @@ class User extends EntityBase {
         fromGoogle: true);
   }
 
-  factory User.fromApple({required String displayName, required String email}) {
+  factory User.fromApple(
+      {required String displayName,
+      required String email,
+      required String idToken}) {
     List<String>? nameSurname = splitName(displayName);
     String? name, surname;
     if (nameSurname != null) {
@@ -58,7 +61,12 @@ class User extends EntityBase {
     } else {
       name = displayName;
     }
-    return User(name: name, surname: surname, email: email);
+    return User(
+        name: name,
+        surname: surname,
+        email: email,
+        idToken: idToken,
+        fromGoogle: false);
   }
 
   Map<String, dynamic> toJson() {
