@@ -12,6 +12,8 @@ class User extends EntityBase {
   String? token;
   String? phoneNo;
   String? accessToken;
+  String? idToken;
+  bool? fromGoogle;
 
   User(
       {this.name,
@@ -19,14 +21,17 @@ class User extends EntityBase {
       this.email,
       this.phoneNo,
       this.accessToken,
-      this.token});
+      this.token,
+      this.idToken,
+      this.fromGoogle});
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
   factory User.fromGoogle(
       {required String displayName,
       required String email,
-      required String accessToken}) {
+      required String accessToken,
+      required String idToken}) {
     List<String>? nameSurname = splitName(displayName);
     String? name, surname;
     if (nameSurname != null) {
@@ -36,7 +41,12 @@ class User extends EntityBase {
       name = displayName;
     }
     return User(
-        name: name, surname: surname, email: email, accessToken: accessToken);
+        name: name,
+        surname: surname,
+        email: email,
+        accessToken: accessToken,
+        idToken: idToken,
+        fromGoogle: true);
   }
 
   factory User.fromApple({required String displayName, required String email}) {

@@ -13,6 +13,8 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
       phoneNo: json['phoneNo'] as String?,
       accessToken: json['accessToken'] as String?,
       token: json['token'] as String?,
+      idToken: json['idToken'] as String?,
+      fromGoogle: json['fromGoogle'] as bool?,
     )..documentId = json['documentId'] as String?;
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
@@ -23,4 +25,6 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'token': instance.token,
       'phoneNo': instance.phoneNo,
       'accessToken': instance.accessToken,
+      'idToken': instance.idToken,
+      'fromGoogle': instance.fromGoogle,
     };

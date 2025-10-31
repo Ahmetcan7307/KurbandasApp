@@ -54,7 +54,8 @@ class AuthService {
       return user_c.User.fromGoogle(
           displayName: googleAccount.displayName!,
           email: user.email!,
-          accessToken: googleAuth.accessToken!);
+          accessToken: googleAuth.accessToken!,
+          idToken: googleAuth.idToken!);
     }
 
     return null;
