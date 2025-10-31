@@ -320,6 +320,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendRequest":
             MessageLookupByLibrary.simpleMessage("Ortak Olma İsteği Gönder"),
         "settings": MessageLookupByLibrary.simpleMessage("Ayarlar"),
+        "shareMessage": MessageLookupByLibrary.simpleMessage(
+            "Kurbanımı Kurbandaş üzerinden paylaştım! 🐄\nOrtak arıyorsan ya da bir kurbana katılmak istiyorsan hemen indir:\n"),
         "shareQurbani": MessageLookupByLibrary.simpleMessage("Kurban Paylaş"),
         "shared": MessageLookupByLibrary.simpleMessage("Paylaşıldı"),
         "sss": MessageLookupByLibrary.simpleMessage("Sıkça Sorulan Sorular"),

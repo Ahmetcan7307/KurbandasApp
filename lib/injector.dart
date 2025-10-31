@@ -14,6 +14,7 @@ import 'package:kurbandas/services/apis/my_api/user_service.dart';
 import 'package:kurbandas/services/apis/turkiye_api/turkiye_api_service.dart';
 import 'package:kurbandas/services/image_picker_service.dart';
 import 'package:kurbandas/services/package_info_service.dart';
+import 'package:kurbandas/services/share_service.dart';
 import 'package:kurbandas/services/store_service.dart';
 import 'package:kurbandas/services/string_service.dart';
 import 'package:kurbandas/services/supabase/auth_service.dart';
@@ -25,6 +26,7 @@ import 'package:kurbandas/stores/api/kurban_store.dart';
 import 'package:kurbandas/stores/country_store.dart';
 import 'package:kurbandas/stores/package_store.dart';
 import 'package:kurbandas/stores/root_store.dart';
+import 'package:kurbandas/stores/share_store.dart';
 import 'package:kurbandas/stores/supabase/auth_store.dart';
 import 'package:kurbandas/stores/turkiye_api_store.dart';
 import 'package:kurbandas/stores/url_launcher_store.dart';
@@ -40,6 +42,7 @@ Future init() async {
   serviceLocator.registerFactory(() => PackageStore());
   serviceLocator.registerFactory(() => CountryStore());
   serviceLocator.registerFactory(() => KurbanReportStore());
+  serviceLocator.registerFactory(() => ShareStore());
 
   serviceLocator.registerLazySingleton(() => Dio(),
       instanceName: GetCons.myAPIDio);
@@ -74,6 +77,7 @@ Future init() async {
       serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)));
   serviceLocator.registerLazySingleton(() => KurbanReportService(
       serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)));
+  serviceLocator.registerLazySingleton(() => ShareService());
 
   serviceLocator.registerLazySingleton(() => RootStore(
       urlLauncherStore: serviceLocator.get<UrlLauncherStore>(),
@@ -83,7 +87,8 @@ Future init() async {
       kurbanStore: serviceLocator.get<KurbanStore>(),
       packageStore: serviceLocator.get<PackageStore>(),
       countryStore: serviceLocator.get<CountryStore>(),
-      kurbanReportStore: serviceLocator.get<KurbanReportStore>()));
+      kurbanReportStore: serviceLocator.get<KurbanReportStore>(),
+      shareStore: serviceLocator.get<ShareStore>()));
 }
 
 initDio() {

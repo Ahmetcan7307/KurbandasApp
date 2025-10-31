@@ -61,7 +61,7 @@ class _AppState extends State<App> {
                 statusBarColor: Colors.transparent,
                 statusBarIconBrightness: Brightness.light),
           ),
-          cardTheme: CardTheme(
+          cardTheme: CardThemeData(
             elevation: 2,
             margin: EdgeInsets.zero,
             shape:
@@ -87,7 +87,7 @@ class _AppState extends State<App> {
                   borderSide: const BorderSide(color: Colors.green, width: 2)),
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 16, vertical: 16)),
-          tabBarTheme: const TabBarTheme(
+          tabBarTheme: const TabBarThemeData(
             labelColor: Colors.white,
             unselectedLabelColor: Colors.white70,
             indicatorColor: Colors.white,

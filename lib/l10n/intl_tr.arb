@@ -248,5 +248,6 @@
       }
     }
   },
-  "imageNotLoaded": "Resim yüklenemedi"
+  "imageNotLoaded": "Resim yüklenemedi",
+  "shareMessage": "Kurbanımı Kurbandaş üzerinden paylaştım! 🐄\nOrtak arıyorsan ya da bir kurbana katılmak istiyorsan hemen indir:\n"
 }
