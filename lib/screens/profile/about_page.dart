@@ -100,7 +100,7 @@ class _AboutPageState extends State<AboutPage> {
                   const SizedBox(height: 16),
                   _buildInfoCard(
                     title: lang.contactUs,
-                    content: "${lang.contactUsDesc}: hakkicanbuluc@gmail.com",
+                    content: "${lang.contactUsDesc}: kurbandas7307@gmail.com",
                   ),
                   const SizedBox(height: 24),
                   Text(
