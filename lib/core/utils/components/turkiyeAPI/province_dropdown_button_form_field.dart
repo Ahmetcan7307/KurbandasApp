@@ -56,7 +56,7 @@ class _ProvinceDropdownButtonFormFieldState
     return !fetched
         ? Center(child: CircularProgressIndicator())
         : DropdownButtonFormField<TurkiyeAPIProvince>(
-            value: widget.value,
+            initialValue: widget.value,
             decoration: InputDecoration(
                 labelText: lang.SelectProvince,
                 prefixIcon: Icon(Icons.location_city)),

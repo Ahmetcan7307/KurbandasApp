@@ -55,7 +55,7 @@ class _AppState extends State<App> {
               secondary: Colors.amber),
           appBarTheme: const AppBarTheme(
             elevation: 0,
-            color: Colors.green,
+            backgroundColor: Colors.green,
             foregroundColor: Colors.white,
             systemOverlayStyle: SystemUiOverlayStyle(
                 statusBarColor: Colors.transparent,

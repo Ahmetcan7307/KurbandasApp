@@ -342,5 +342,5 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
 
   Future share() async => await shareStore.shareSystem(context);
 
-  report() => Navigator.pushNamed(context, Routes.kurbanReport);
+  void report() => Navigator.pushNamed(context, Routes.kurbanReport);
 }

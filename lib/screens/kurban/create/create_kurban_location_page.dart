@@ -162,7 +162,7 @@ class _CreateKurbanLocationPageState extends State<CreateKurbanLocationPage> {
     );
   }
 
-  saveAndContinue() {
+  void saveAndContinue() {
     if (formKey.currentState!.validate()) {
       kurbanStore.newKurban!.address!.cutAddress = cutAddressCnt.text;
 

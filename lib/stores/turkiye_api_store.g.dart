@@ -53,7 +53,7 @@ mixin _$TurkiyeAPIStore on _TurkiyeAPIStore, Store {
       ActionController(name: '_TurkiyeAPIStore', context: context);
 
   @override
-  dynamic selectProvince(int id) {
+  void selectProvince(int id) {
     final _$actionInfo = _$_TurkiyeAPIStoreActionController.startAction(
         name: '_TurkiyeAPIStore.selectProvince');
     try {

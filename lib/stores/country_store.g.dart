@@ -53,7 +53,7 @@ mixin _$CountryStore on _CountryStore, Store {
       ActionController(name: '_CountryStore', context: context);
 
   @override
-  dynamic selectCountry(CountryCode countryCode) {
+  void selectCountry(CountryCode countryCode) {
     final _$actionInfo = _$_CountryStoreActionController.startAction(
         name: '_CountryStore.selectCountry');
     try {

@@ -47,7 +47,7 @@ class _FinalDeletionConfirmationDialogState
     startCountDown();
   }
 
-  startCountDown() {
+  void startCountDown() {
     Future.doWhile(() async {
       await Future.delayed(const Duration(seconds: 1));
 
@@ -384,7 +384,7 @@ class _FinalDeletionConfirmationDialogState
     );
   }
 
-  onTextChanged(String value) {
+  void onTextChanged(String value) {
     setState(() {
       isTypingCorrect = value == confirmationText;
     });
@@ -407,7 +407,7 @@ class _FinalDeletionConfirmationDialogState
     }
   }
 
-  shakeDialog() {
+  void shakeDialog() {
     shakeController.reset();
     shakeController.forward();
     HapticFeedback.vibrate();

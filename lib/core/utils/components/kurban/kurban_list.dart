@@ -61,7 +61,7 @@ class _KurbanListState extends State<KurbanList> {
       ? await kurbanStore.getActiveKurbans(page)
       : await kurbanStore.getDeactiveKurbans(page);
 
-  setupController() {
+  void setupController() {
     controller.addListener(() {
       if (controller.position.pixels >=
               (controller.position.maxScrollExtent - 200) &&
@@ -178,7 +178,7 @@ class _KurbanListState extends State<KurbanList> {
         child: Center(child: CircularProgressIndicator()),
       );
 
-  resetPagination() {
+  void resetPagination() {
     setState(() {
       hasMore = true;
       page = 1;

@@ -71,7 +71,7 @@ abstract class _KurbanStore with Store {
   Future getAnimals() async => animals ??= await service.getAnimals();
 
   @action
-  createFilter(
+  void createFilter(
       {KurbanAnimal? animal,
       TurkiyeAPIProvince? selectedProvince,
       TurkiyeAPIDistrict? selectedDistrict}) {
@@ -123,7 +123,7 @@ abstract class _KurbanStore with Store {
       myPartnerships = await service.getMyPartnerships();
 
   @action
-  clearFilter() => filter = null;
+  Null clearFilter() => filter = null;
 
   @action
   Future<bool> getActiveKurbans(int page) async {
@@ -152,13 +152,13 @@ abstract class _KurbanStore with Store {
   }
 
   @action
-  clearKurbanses() {
+  void clearKurbanses() {
     activeKurbans.clear();
     deactiveKurbans.clear();
   }
 
   @action
-  selectKurban(bool isMy, bool isActive, int index) {
+  void selectKurban(bool isMy, bool isActive, int index) {
     if (isMy) {
       selectedKurbanDocumentId = myKurbans![index].documentId;
     } else {
@@ -210,12 +210,12 @@ abstract class _KurbanStore with Store {
   }
 
   @action
-  selectNewKurbanAnimal(KurbanAnimal animal) {
+  void selectNewKurbanAnimal(KurbanAnimal animal) {
     newKurban ??= Kurban(animal: animal);
   }
 
   @action
-  selectNewKurbanProvince(TurkiyeAPIProvince province) =>
+  Address selectNewKurbanProvince(TurkiyeAPIProvince province) =>
       newKurban!.address = Address(province: province);
 
   @action
@@ -227,7 +227,7 @@ abstract class _KurbanStore with Store {
   }
 
   @action
-  removePhoto(int index) => selectedPhotos.removeAt(index);
+  File removePhoto(int index) => selectedPhotos.removeAt(index);
 
   @action
   Future<bool> pickMultiImage() async {
@@ -253,7 +253,8 @@ abstract class _KurbanStore with Store {
   }
 
   @action
-  selectSelectedKurbanProvince(TurkiyeAPIProvince province) =>
+  TurkiyeAPIProvince selectSelectedKurbanProvince(
+          TurkiyeAPIProvince province) =>
       selectedKurban!.address!.province = province;
 
   @computed
@@ -261,7 +262,7 @@ abstract class _KurbanStore with Store {
       selectedKurban!.photoUrls!.length + selectedPhotos.length;
 
   @action
-  removePhotoUrl(int index) {
+  void removePhotoUrl(int index) {
     selectedKurban!.removedPhotoUrls ??= [];
     selectedKurban!.removedPhotoUrls!
         .add(selectedKurban!.photoUrls!.removeAt(index));
@@ -289,8 +290,9 @@ abstract class _KurbanStore with Store {
       selectedKurban = await service.get(selectedKurbanDocumentId!, isEdit);
 
   @action
-  nullSelectedKurban() => selectedKurban = null;
+  void nullSelectedKurban() => selectedKurban = null;
 
   @action
-  selectPartnership(String documentId) => selectedKurbanDocumentId = documentId;
+  void selectPartnership(String documentId) =>
+      selectedKurbanDocumentId = documentId;
 }

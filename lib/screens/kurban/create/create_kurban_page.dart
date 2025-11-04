@@ -154,7 +154,7 @@ class _CreateKurbanPageState extends State<CreateKurbanPage> {
     );
   }
 
-  goToNextPage() {
+  void goToNextPage() {
     if (currentPage < 2) {
       setState(() {
         currentPage++;
@@ -165,7 +165,7 @@ class _CreateKurbanPageState extends State<CreateKurbanPage> {
     }
   }
 
-  goToPreviousPage() {
+  void goToPreviousPage() {
     if (currentPage > 0) {
       setState(() {
         currentPage--;
@@ -176,7 +176,7 @@ class _CreateKurbanPageState extends State<CreateKurbanPage> {
     }
   }
 
-  onPageChanged(int page) {
+  void onPageChanged(int page) {
     setState(() {
       currentPage = page;
     });

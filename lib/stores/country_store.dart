@@ -24,7 +24,7 @@ abstract class _CountryStore with Store {
   final StringService stringService = serviceLocator.get<StringService>();
 
   @action
-  selectCountry(CountryCode countryCode) => selectedCountry = countryCode;
+  void selectCountry(CountryCode countryCode) => selectedCountry = countryCode;
 
   @action
   Future get() async => countryCodes = await service.getAll();

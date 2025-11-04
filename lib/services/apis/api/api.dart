@@ -5,7 +5,7 @@ abstract class API {
   static Exception getError(Response? response) =>
       Exception("Response: $response");
 
-  static throwDioException(DioException e) {
+  static Exception throwDioException(DioException e) {
     Response response = e.response!;
     if (response.statusCode == 500) {
       throw ApiError.fromJson(response.data!);

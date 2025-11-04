@@ -91,7 +91,7 @@ Future init() async {
       shareStore: serviceLocator.get<ShareStore>()));
 }
 
-initDio() {
+void initDio() {
   serviceLocator.get<Dio>(instanceName: "MyAPI").interceptors.add(
       InterceptorsWrapper(onRequest:
           (RequestOptions options, RequestInterceptorHandler handler) {

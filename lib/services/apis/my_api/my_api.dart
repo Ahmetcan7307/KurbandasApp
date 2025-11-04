@@ -62,7 +62,7 @@ class MyAPI {
 
   static Exception getError(Response? response) => API.getError(response);
 
-  static throwDioException(DioException e) {
+  static Exception throwDioException(DioException e) {
     Response response = e.response!;
     if (response.statusCode == 500 || response.statusCode == 400) {
       throw ApiError.fromJson(response.data!);

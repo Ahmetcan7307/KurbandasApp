@@ -99,7 +99,7 @@ class _MyPartnershipsPageState extends State<MyPartnershipsPage> {
         ),
       );
 
-  navigateToDetail(String documentId) {
+  void navigateToDetail(String documentId) {
     kurbanStore.selectPartnership(documentId);
 
     Navigator.pushNamed(context, Routes.kurbanDetail);

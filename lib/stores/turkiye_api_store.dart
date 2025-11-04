@@ -21,7 +21,7 @@ abstract class _TurkiyeAPIStore with Store {
   Future getProvince() async => provinces ??= await service.getProvinces();
 
   @action
-  selectProvince(int id) => districts = provinces!
+  void selectProvince(int id) => districts = provinces!
       .where((province) => province.turkiyeAPIId == id)
       .first
       .districts;

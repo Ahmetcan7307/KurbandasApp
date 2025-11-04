@@ -164,7 +164,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
         ),
       );
 
-  clear() {
+  void clear() {
     setState(() {
       selectedAnimal = null;
       selectedProvince = null;
@@ -172,7 +172,7 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
     });
   }
 
-  apply() {
+  void apply() {
     if (selectedAnimal != null ||
         selectedProvince != null ||
         selectedDistrict != null) {

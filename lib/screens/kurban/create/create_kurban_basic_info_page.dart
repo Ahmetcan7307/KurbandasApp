@@ -111,7 +111,7 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
                     ),
                     const SizedBox(height: 8),
                     DropdownButtonFormField<KurbanAnimal>(
-                      value: kurbanStore.newKurban?.animal,
+                      initialValue: kurbanStore.newKurban?.animal,
                       decoration: InputDecoration(
                           hintText: lang.selectAnimal,
                           prefixIcon: Icon(Icons.pets)),
@@ -348,7 +348,7 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
     );
   }
 
-  saveAndContinue() {
+  void saveAndContinue() {
     if (formKey.currentState!.validate() &&
         kurbanStore.selectedPhotos.isNotEmpty) {
       kurbanStore.newKurban!.weight = double.parse(weightCnt.text);

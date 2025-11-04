@@ -185,7 +185,7 @@ class _HomePageState extends State<HomePage>
         ),
       );
 
-  clearFilter() => kurbanStore.clearFilter();
+  dynamic clearFilter() => kurbanStore.clearFilter();
 
   Future navigateToCreate() async {
     if (await authStore.checkPhoneNo(context)) {

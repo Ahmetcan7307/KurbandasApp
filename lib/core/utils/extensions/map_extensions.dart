@@ -1,5 +1,5 @@
 extension MapExtensions on Map {
-  clearNulls() {
+  void clearNulls() {
     Iterable iterableKeys = keys.toList();
 
     for (dynamic key in iterableKeys) {

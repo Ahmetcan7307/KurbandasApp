@@ -114,7 +114,7 @@ class _PhoneNumberDialogState extends State<PhoneNumberDialog> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         DropdownButtonFormField<CountryCode>(
-                            value: countryStore.selectedCountry,
+                            initialValue: countryStore.selectedCountry,
                             decoration: InputDecoration(
                                 labelText: lang.country,
                                 prefixIcon: const Icon(

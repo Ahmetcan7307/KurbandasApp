@@ -37,7 +37,7 @@ class _DistrictDropdownButtonFormFieldState
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<TurkiyeAPIDistrict>(
-      value: widget.value,
+      initialValue: widget.value,
       decoration: InputDecoration(
           labelText: lang.SelectDistrict, prefixIcon: Icon(Icons.location_on)),
       items: turkiyeAPIStore.districts

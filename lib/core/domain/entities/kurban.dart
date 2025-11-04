@@ -75,7 +75,7 @@ class Kurban extends EntityBase {
       totalPartnersCount! > 0 &&
       totalPartnersCount! <= 7;
 
-  clear() {
+  void clear() {
     animal = null;
     weight = null;
     price = null;

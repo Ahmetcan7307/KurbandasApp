@@ -313,7 +313,7 @@ mixin _$KurbanStore on _KurbanStore, Store {
       ActionController(name: '_KurbanStore', context: context);
 
   @override
-  dynamic createFilter(
+  void createFilter(
       {KurbanAnimal? animal,
       TurkiyeAPIProvince? selectedProvince,
       TurkiyeAPIDistrict? selectedDistrict}) {
@@ -330,7 +330,7 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
-  dynamic clearFilter() {
+  Null clearFilter() {
     final _$actionInfo = _$_KurbanStoreActionController.startAction(
         name: '_KurbanStore.clearFilter');
     try {
@@ -341,7 +341,7 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
-  dynamic clearKurbanses() {
+  void clearKurbanses() {
     final _$actionInfo = _$_KurbanStoreActionController.startAction(
         name: '_KurbanStore.clearKurbanses');
     try {
@@ -352,7 +352,7 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
-  dynamic selectKurban(bool isMy, bool isActive, int index) {
+  void selectKurban(bool isMy, bool isActive, int index) {
     final _$actionInfo = _$_KurbanStoreActionController.startAction(
         name: '_KurbanStore.selectKurban');
     try {
@@ -363,7 +363,7 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
-  dynamic selectNewKurbanAnimal(KurbanAnimal animal) {
+  void selectNewKurbanAnimal(KurbanAnimal animal) {
     final _$actionInfo = _$_KurbanStoreActionController.startAction(
         name: '_KurbanStore.selectNewKurbanAnimal');
     try {
@@ -374,7 +374,7 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
-  dynamic selectNewKurbanProvince(TurkiyeAPIProvince province) {
+  Address selectNewKurbanProvince(TurkiyeAPIProvince province) {
     final _$actionInfo = _$_KurbanStoreActionController.startAction(
         name: '_KurbanStore.selectNewKurbanProvince');
     try {
@@ -385,7 +385,7 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
-  dynamic removePhoto(int index) {
+  File removePhoto(int index) {
     final _$actionInfo = _$_KurbanStoreActionController.startAction(
         name: '_KurbanStore.removePhoto');
     try {
@@ -396,7 +396,7 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
-  dynamic selectSelectedKurbanProvince(TurkiyeAPIProvince province) {
+  TurkiyeAPIProvince selectSelectedKurbanProvince(TurkiyeAPIProvince province) {
     final _$actionInfo = _$_KurbanStoreActionController.startAction(
         name: '_KurbanStore.selectSelectedKurbanProvince');
     try {
@@ -407,7 +407,7 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
-  dynamic removePhotoUrl(int index) {
+  void removePhotoUrl(int index) {
     final _$actionInfo = _$_KurbanStoreActionController.startAction(
         name: '_KurbanStore.removePhotoUrl');
     try {
@@ -418,7 +418,7 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
-  dynamic nullSelectedKurban() {
+  void nullSelectedKurban() {
     final _$actionInfo = _$_KurbanStoreActionController.startAction(
         name: '_KurbanStore.nullSelectedKurban');
     try {
@@ -429,7 +429,7 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
-  dynamic selectPartnership(String documentId) {
+  void selectPartnership(String documentId) {
     final _$actionInfo = _$_KurbanStoreActionController.startAction(
         name: '_KurbanStore.selectPartnership');
     try {
