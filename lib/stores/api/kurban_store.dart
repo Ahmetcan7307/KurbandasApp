@@ -211,7 +211,11 @@ abstract class _KurbanStore with Store {
 
   @action
   void selectNewKurbanAnimal(KurbanAnimal animal) {
-    newKurban ??= Kurban(animal: animal);
+    if (newKurban == null) {
+      newKurban = Kurban(animal: animal);
+    } else {
+      newKurban!.animal = animal;
+    }
   }
 
   @action
