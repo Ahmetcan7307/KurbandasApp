@@ -49,18 +49,12 @@ mixin _$TurkiyeAPIStore on _TurkiyeAPIStore, Store {
     return _$getProvinceAsyncAction.run(() => super.getProvince());
   }
 
-  late final _$_TurkiyeAPIStoreActionController =
-      ActionController(name: '_TurkiyeAPIStore', context: context);
+  late final _$selectProvinceAsyncAction =
+      AsyncAction('_TurkiyeAPIStore.selectProvince', context: context);
 
   @override
-  void selectProvince(int id) {
-    final _$actionInfo = _$_TurkiyeAPIStoreActionController.startAction(
-        name: '_TurkiyeAPIStore.selectProvince');
-    try {
-      return super.selectProvince(id);
-    } finally {
-      _$_TurkiyeAPIStoreActionController.endAction(_$actionInfo);
-    }
+  Future<dynamic> selectProvince(int id) {
+    return _$selectProvinceAsyncAction.run(() => super.selectProvince(id));
   }
 
   @override

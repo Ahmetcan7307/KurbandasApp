@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:kurbandas/core/domain/entities/turkiye_api_district.dart';
+import 'package:kurbandas/services/apis/api/query.dart';
 import 'package:kurbandas/services/apis/turkiye_api/turkiye_api.dart';
 
 import '../../../core/domain/entities/turkiye_api_province.dart';
@@ -16,6 +18,27 @@ class TurkiyeAPIService {
       if (response.statusCode == 200) {
         return (response.data!["data"] as List)
             .map((dynamic data) => TurkiyeAPIProvince.fromJson(data))
+            .toList();
+      }
+
+      throw TurkiyeAPI.getError(response);
+    } on DioException catch (e) {
+      throw TurkiyeAPI.getDioException(e);
+    }
+  }
+
+  Future<List<TurkiyeAPIDistrict>> getDistrictFromProvince(
+      int provinceId) async {
+    try {
+      Response<Map<String, dynamic>> response =
+          await dio.get<Map<String, dynamic>>(
+              TurkiyeAPI.getUrl(Controllers.district, queries: [
+        Query(name: "provinceId", value: provinceId.toString())
+      ]));
+
+      if (response.statusCode == 200) {
+        return (response.data!["data"] as List)
+            .map((dynamic data) => TurkiyeAPIDistrict.fromJson(data))
             .toList();
       }
 

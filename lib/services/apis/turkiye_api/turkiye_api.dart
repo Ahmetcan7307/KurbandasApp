@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:kurbandas/services/apis/api/api.dart';
 import 'package:kurbandas/services/apis/api/query.dart';
 
-enum Controllers { province }
+enum Controllers { province, district }
 
 class TurkiyeAPI {
   static String getUrl(Controllers controllers, {List<Query>? queries}) {
@@ -11,6 +11,9 @@ class TurkiyeAPI {
     switch (controllers) {
       case Controllers.province:
         url += "provinces";
+        break;
+      case Controllers.district:
+        url += "districts";
         break;
     }
 

@@ -21,8 +21,14 @@ abstract class _TurkiyeAPIStore with Store {
   Future getProvince() async => provinces ??= await service.getProvinces();
 
   @action
-  void selectProvince(int id) => districts = provinces!
-      .where((province) => province.turkiyeAPIId == id)
-      .first
-      .districts;
+  Future selectProvince(int id) async {
+    List<TurkiyeAPIDistrict>? localDistricts = provinces!
+        .where((province) => province.turkiyeAPIId == id)
+        .first
+        .districts;
+
+    localDistricts ??= await service.getDistrictFromProvince(id);
+    
+    districts = localDistricts;
+  }
 }
