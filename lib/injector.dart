@@ -51,7 +51,10 @@ Future init() async {
   serviceLocator.registerLazySingleton(() => Dio(),
       instanceName: GetCons.othersDio);
 
-  await compute(initHive, null);
+  await compute((dynamic _) async {
+    await Hive.initFlutter();
+    await Hive.openBox<String>(HiveCons.settings);
+  }, null);
 
   initDio();
 
@@ -91,11 +94,6 @@ Future init() async {
       countryStore: serviceLocator.get<CountryStore>(),
       kurbanReportStore: serviceLocator.get<KurbanReportStore>(),
       shareStore: serviceLocator.get<ShareStore>()));
-}
-
-Future initHive(dynamic _) async {
-  await Hive.initFlutter();
-  await Hive.openBox<String>(HiveCons.settings);
 }
 
 void initDio() {
