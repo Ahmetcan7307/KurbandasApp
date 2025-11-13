@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -50,8 +51,7 @@ Future init() async {
   serviceLocator.registerLazySingleton(() => Dio(),
       instanceName: GetCons.othersDio);
 
-  await Hive.initFlutter();
-  await Hive.openBox<String>(HiveCons.settings);
+  await compute(initHive, null);
 
   initDio();
 
@@ -91,6 +91,11 @@ Future init() async {
       countryStore: serviceLocator.get<CountryStore>(),
       kurbanReportStore: serviceLocator.get<KurbanReportStore>(),
       shareStore: serviceLocator.get<ShareStore>()));
+}
+
+Future initHive(dynamic _) async {
+  await Hive.initFlutter();
+  await Hive.openBox<String>(HiveCons.settings);
 }
 
 void initDio() {
