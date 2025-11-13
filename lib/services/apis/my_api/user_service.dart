@@ -28,11 +28,11 @@ class UserService {
     }
   }
 
-  Future<User> signIn(Map<String, dynamic> userData) async {
+  Future<User> signIn(String encryptedData) async {
     try {
       Response<Map<String, dynamic>> response = await dio
           .post<Map<String, dynamic>>(MyAPI.getUrl(Controllers.users, "SignIn"),
-              data: userData);
+              data: {"encryptedText": encryptedData});
 
       if (response.statusCode == 200) {
         return User.fromJson(response.data!);
@@ -44,10 +44,11 @@ class UserService {
     }
   }
 
-  Future<User> update(Map<String, dynamic> data) async {
+  Future<User> update(String encryptedData) async {
     try {
-      Response<Map<String, dynamic>> response =
-          await dio.put(MyAPI.getUrl(Controllers.users, "Update"), data: data);
+      Response<Map<String, dynamic>> response = await dio.put(
+          MyAPI.getUrl(Controllers.users, "Update"),
+          data: {"encryptedText": encryptedData});
 
       if (response.statusCode == 200) {
         return User.fromJson(response.data!);

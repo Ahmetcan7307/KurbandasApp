@@ -12,6 +12,7 @@ import 'package:kurbandas/services/apis/my_api/kurban_request_service.dart';
 import 'package:kurbandas/services/apis/my_api/kurban_service.dart';
 import 'package:kurbandas/services/apis/my_api/user_service.dart';
 import 'package:kurbandas/services/apis/turkiye_api/turkiye_api_service.dart';
+import 'package:kurbandas/services/encrypt_service.dart';
 import 'package:kurbandas/services/image_picker_service.dart';
 import 'package:kurbandas/services/package_info_service.dart';
 import 'package:kurbandas/services/share_service.dart';
@@ -78,6 +79,7 @@ Future init() async {
   serviceLocator.registerLazySingleton(() => KurbanReportService(
       serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)));
   serviceLocator.registerLazySingleton(() => ShareService());
+  serviceLocator.registerLazySingleton(() => EncryptService());
 
   serviceLocator.registerLazySingleton(() => RootStore(
       urlLauncherStore: serviceLocator.get<UrlLauncherStore>(),
@@ -95,13 +97,11 @@ void initDio() {
   serviceLocator.get<Dio>(instanceName: "MyAPI").interceptors.add(
       InterceptorsWrapper(onRequest:
           (RequestOptions options, RequestInterceptorHandler handler) {
-    options.headers
-        .putIfAbsent("Authorization", () => "Bearer ${dotenv.env["apiKey"]}");
+    options.headers["Authorization"] = "Bearer ${dotenv.env["apiKey"]}";
 
     Box<String> settingsBox = Hive.box(HiveCons.settings);
     if (settingsBox.containsKey(HiveCons.token)) {
-      options.headers
-          .putIfAbsent("token", () => settingsBox.get(HiveCons.token));
+      options.headers["token"] = settingsBox.get(HiveCons.token);
     }
 
     return handler.next(options);

@@ -53,6 +53,8 @@ dependencies:
   crypto: 3.0.6
   flutter_social_share_plugin: ^2.1.4
   json_annotation: ^4.9.0
+  encrypt: ^5.0.3
+  cryptography: 2.7.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -120,7 +122,7 @@ flutter:
 
   generate: true
 flutter_intl:
-  enabled: true
+  enabled: false
 
 flutter_launcher_icons:
   android: "launcher_icon"

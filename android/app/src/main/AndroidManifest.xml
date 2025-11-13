@@ -16,7 +16,8 @@
         android:name="${applicationName}"
         android:enableOnBackInvokedCallback="true"
         android:icon="@mipmap/launcher_icon"
-        android:label="Kurbandaş">
+        android:label="Kurbandaş"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

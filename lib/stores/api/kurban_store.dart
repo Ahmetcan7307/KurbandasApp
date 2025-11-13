@@ -14,6 +14,7 @@ import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/injector.dart';
 import 'package:kurbandas/services/apis/my_api/kurban_request_service.dart';
 import 'package:kurbandas/services/apis/my_api/kurban_service.dart';
+import 'package:kurbandas/services/encrypt_service.dart';
 import 'package:kurbandas/services/image_picker_service.dart';
 import 'package:kurbandas/services/supabase/storage_service.dart';
 import 'package:mobx/mobx.dart';
@@ -64,6 +65,7 @@ abstract class _KurbanStore with Store {
   StorageService storageService = serviceLocator.get<StorageService>();
   KurbanRequestService requestService =
       serviceLocator.get<KurbanRequestService>();
+  EncryptService encryptService = serviceLocator.get<EncryptService>();
 
   int pageSize = 10;
 
@@ -92,8 +94,9 @@ abstract class _KurbanStore with Store {
 
   @action
   Future approveOrDeclineRequest(String documentId, bool isApprove) async =>
-      requests =
-          await requestService.approveOrDeclineRequest(documentId, isApprove);
+      requests = await requestService.approveOrDeclineRequest(
+          await encryptService
+              .encryptMap({"documentId": documentId, "isApprove": isApprove}));
 
   @action
   Future<List<Kurban>> delete(String documentId) async =>
@@ -111,7 +114,8 @@ abstract class _KurbanStore with Store {
           storageService.getPublicUrl(StorageCons.kurbansBucketName, path));
     }
 
-    await service.update(selectedKurban!.toJson());
+    await service
+        .update(await encryptService.encryptMap(selectedKurban!.toJson()));
 
     int indexWhere =
         myKurbans!.indexWhere((kurban) => kurban == selectedKurban);
@@ -127,8 +131,13 @@ abstract class _KurbanStore with Store {
 
   @action
   Future<bool> getActiveKurbans(int page) async {
-    List<Kurban> newKurbans = await service.getKurbans(
-        true, page, pageSize, filter != null ? filter!.toJson() : {});
+    List<Kurban> newKurbans =
+        await service.getKurbans(await encryptService.encryptMap({
+      "isActive": true,
+      "filter": filter != null ? filter!.toJson() : {},
+      "page": page,
+      "pageSize": pageSize
+    }));
     if (page == 1) {
       activeKurbans.clear();
     }
@@ -138,8 +147,13 @@ abstract class _KurbanStore with Store {
 
   @action
   Future<bool> getDeactiveKurbans(int page) async {
-    List<Kurban> newKurbans = await service.getKurbans(
-        false, page, pageSize, filter != null ? filter!.toJson() : {});
+    List<Kurban> newKurbans =
+        await service.getKurbans(await encryptService.encryptMap({
+      "isActive": false,
+      "filter": filter != null ? filter!.toJson() : {},
+      "page": page,
+      "pageSize": pageSize
+    }));
     deactiveKurbans.addAll(newKurbans);
     return newKurbans.length < pageSize;
   }
@@ -190,7 +204,8 @@ abstract class _KurbanStore with Store {
 
   @action
   Future create() async {
-    String documentId = await service.create(newKurban!.toJson());
+    String documentId = await service
+        .create(await encryptService.encryptMap(newKurban!.toJson()));
     Kurban updatedKurban = Kurban()..documentId = documentId;
 
     updatedKurban.photoUrls = [];
@@ -204,7 +219,8 @@ abstract class _KurbanStore with Store {
           storageService.getPublicUrl(StorageCons.kurbansBucketName, path));
     }
 
-    await service.update(updatedKurban.toJson());
+    await service
+        .update(await encryptService.encryptMap(updatedKurban.toJson()));
 
     selectedPhotos.clear();
   }

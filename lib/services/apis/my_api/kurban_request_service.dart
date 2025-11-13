@@ -22,10 +22,11 @@ class KurbanRequestService {
   }
 
   Future<List<KurbanRequest>> approveOrDeclineRequest(
-      String documentId, bool isApprove) async {
+      String encryptedData) async {
     Response<List> response = await dio.put(
-        MyAPI.getUrl(Controllers.kurbanRequests, "ApproveOrDecline"),
-        data: {"documentId": documentId, "isApprove": isApprove});
+      MyAPI.getUrl(Controllers.kurbanRequests, "ApproveOrDecline"),
+      data: {"encryptedText": encryptedData},
+    );
 
     if (response.statusCode == 200) {
       return response.data!

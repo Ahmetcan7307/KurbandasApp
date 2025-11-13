@@ -58,15 +58,10 @@ class KurbanService {
     throw MyAPI.getError(response);
   }
 
-  Future<List<Kurban>> getKurbans(bool isActive, int page, int pageSize,
-      Map<String, dynamic> filter) async {
-    Response<List> response = await dio
-        .get(MyAPI.getUrl(Controllers.kurbans, "GetByFilter"), data: {
-      "isActive": isActive,
-      "filter": filter,
-      "page": page,
-      "pageSize": pageSize
-    });
+  Future<List<Kurban>> getKurbans(String encryptedData) async {
+    Response<List> response = await dio.get(
+        MyAPI.getUrl(Controllers.kurbans, "GetByFilter"),
+        data: {"encryptedText": encryptedData});
 
     if (response.statusCode == 200) {
       return response.data!.map((data) => Kurban.fromJson(data)).toList();
@@ -75,9 +70,10 @@ class KurbanService {
     throw MyAPI.getError(response);
   }
 
-  Future<String> create(Map<String, dynamic> data) async {
-    Response<String> response =
-        await dio.post(MyAPI.getUrl(Controllers.kurbans, "Create"), data: data);
+  Future<String> create(String encryptedData) async {
+    Response<String> response = await dio.post(
+        MyAPI.getUrl(Controllers.kurbans, "Create"),
+        data: {"encryptedText": encryptedData});
 
     if (response.statusCode == 200) {
       return response.data!;
@@ -86,12 +82,13 @@ class KurbanService {
     throw MyAPI.getError(response);
   }
 
-  Future update(Map<String, dynamic> data) async {
-    Response response =
-        await dio.put(MyAPI.getUrl(Controllers.kurbans, "Update"), data: data);
+  Future<bool> update(String encryptedData) async {
+    Response response = await dio.put(
+        MyAPI.getUrl(Controllers.kurbans, "Update"),
+        data: {"encryptedText": encryptedData});
 
     if (response.statusCode == 200) {
-      return;
+      return true;
     }
 
     throw MyAPI.getError(response);

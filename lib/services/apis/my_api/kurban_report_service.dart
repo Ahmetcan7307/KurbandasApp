@@ -6,10 +6,10 @@ class KurbanReportService {
 
   KurbanReportService(this.dio);
 
-  Future create(String kurbanDocumentId, Map<String, dynamic> data) async {
+  Future create(String kurbanDocumentId, String encryptedData) async {
     Response response = await dio.post(
         MyAPI.getUrl(Controllers.kurbanReports, "Create/$kurbanDocumentId"),
-        data: data);
+        data: {"encryptedText": encryptedData});
 
     if (response.statusCode == 200) {
       return;
