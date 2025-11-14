@@ -1,5 +1,6 @@
+import 'dart:async';
+
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -46,45 +47,69 @@ Future init() async {
   serviceLocator.registerFactory(() => KurbanReportStore());
   serviceLocator.registerFactory(() => ShareStore());
 
-  serviceLocator.registerLazySingleton(() => Dio(),
-      instanceName: GetCons.myAPIDio);
-  serviceLocator.registerLazySingleton(() => Dio(),
-      instanceName: GetCons.othersDio);
+  serviceLocator.registerLazySingleton(
+    () => Dio(),
+    instanceName: GetCons.myAPIDio,
+  );
+  serviceLocator.registerLazySingleton(
+    () => Dio(),
+    instanceName: GetCons.othersDio,
+  );
 
-  await compute((dynamic _) async {
-    await Hive.initFlutter();
-    await Hive.openBox<String>(HiveCons.settings);
-  }, null);
+  await Hive.initFlutter();
+  await Hive.openBox<String>(HiveCons.settings);
 
   initDio();
 
   serviceLocator.registerLazySingleton(() => PackageInfoService());
   serviceLocator.registerLazySingleton(() => UrlLauncherService());
-  serviceLocator.registerLazySingleton(() => AppSettingService(
-      serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)));
+  serviceLocator.registerLazySingleton(
+    () => AppSettingService(
+      serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio),
+    ),
+  );
   serviceLocator.registerLazySingleton(() => AuthService());
-  serviceLocator.registerLazySingleton(() =>
-      UserService(serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)));
-  serviceLocator.registerLazySingleton(() => TurkiyeAPIService(
-      dio: serviceLocator.get<Dio>(instanceName: GetCons.othersDio)));
-  serviceLocator.registerLazySingleton(() => KurbanService(
-      dio: serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)));
-  serviceLocator.registerLazySingleton(() => GoogleApiService(
-      serviceLocator.get<Dio>(instanceName: GetCons.othersDio)));
+  serviceLocator.registerLazySingleton(
+    () => UserService(serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)),
+  );
+  serviceLocator.registerLazySingleton(
+    () => TurkiyeAPIService(
+      dio: serviceLocator.get<Dio>(instanceName: GetCons.othersDio),
+    ),
+  );
+  serviceLocator.registerLazySingleton(
+    () => KurbanService(
+      dio: serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio),
+    ),
+  );
+  serviceLocator.registerLazySingleton(
+    () => GoogleApiService(
+      serviceLocator.get<Dio>(instanceName: GetCons.othersDio),
+    ),
+  );
   serviceLocator.registerLazySingleton(() => StoreService());
   serviceLocator.registerLazySingleton(() => ImagePickerService());
   serviceLocator.registerLazySingleton(() => StorageService());
-  serviceLocator.registerLazySingleton(() =>
-      CountryService(serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)));
+  serviceLocator.registerLazySingleton(
+    () =>
+        CountryService(serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)),
+  );
   serviceLocator.registerLazySingleton(() => StringService());
-  serviceLocator.registerLazySingleton(() => KurbanRequestService(
-      serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)));
-  serviceLocator.registerLazySingleton(() => KurbanReportService(
-      serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio)));
+  serviceLocator.registerLazySingleton(
+    () => KurbanRequestService(
+      serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio),
+    ),
+  );
+  serviceLocator.registerLazySingleton(
+    () => KurbanReportService(
+      serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio),
+    ),
+  );
   serviceLocator.registerLazySingleton(() => ShareService());
   serviceLocator.registerLazySingleton(() => EncryptService());
 
-  serviceLocator.registerLazySingleton(() => RootStore(
+  serviceLocator.registerLazySingleton(
+    () => RootStore(
       urlLauncherStore: serviceLocator.get<UrlLauncherStore>(),
       appSettingStore: serviceLocator.get<AppSettingStore>(),
       authStore: serviceLocator.get<AuthStore>(),
@@ -93,20 +118,24 @@ Future init() async {
       packageStore: serviceLocator.get<PackageStore>(),
       countryStore: serviceLocator.get<CountryStore>(),
       kurbanReportStore: serviceLocator.get<KurbanReportStore>(),
-      shareStore: serviceLocator.get<ShareStore>()));
+      shareStore: serviceLocator.get<ShareStore>(),
+    ),
+  );
 }
 
 void initDio() {
   serviceLocator.get<Dio>(instanceName: "MyAPI").interceptors.add(
-      InterceptorsWrapper(onRequest:
-          (RequestOptions options, RequestInterceptorHandler handler) {
-    options.headers["Authorization"] = "Bearer ${dotenv.env["apiKey"]}";
+    InterceptorsWrapper(
+      onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
+        options.headers["Authorization"] = "Bearer ${dotenv.env["apiKey"]}";
 
-    Box<String> settingsBox = Hive.box(HiveCons.settings);
-    if (settingsBox.containsKey(HiveCons.token)) {
-      options.headers["token"] = settingsBox.get(HiveCons.token);
-    }
+        Box<String> settingsBox = Hive.box(HiveCons.settings);
+        if (settingsBox.containsKey(HiveCons.token)) {
+          options.headers["token"] = settingsBox.get(HiveCons.token);
+        }
 
-    return handler.next(options);
-  }));
+        return handler.next(options);
+      },
+    ),
+  );
 }
