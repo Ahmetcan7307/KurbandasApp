@@ -1,8 +1,13 @@
-import 'package:flutter_social_share_plugin/flutter_social_share.dart';
+import 'dart:io';
+
+import 'package:easy_social_share/easy_social_share.dart';
 
 class ShareService {
-  final FlutterSocialShare flutterSocialShare = FlutterSocialShare();
+  final EasySocialShare easySocialShare = EasySocialShare();
 
   Future<bool> shareToSystem(String message) async =>
-      await flutterSocialShare.shareToSystem(msg: message) == "success";
+      (Platform.isAndroid
+          ? await easySocialShare.android.shareToSystem("title", message, null)
+          : await easySocialShare.iOS.shareToSystem(message)) ==
+      "success";
 }

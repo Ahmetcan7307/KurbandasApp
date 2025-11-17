@@ -82,6 +82,7 @@
         			<string>twitter</string>
         			<string>https</string>
         			<string>mailto</string>
+        			<string>fb</string>
         		</array>
 	</dict>
 </plist>
