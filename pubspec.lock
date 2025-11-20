@@ -249,6 +249,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  easy_social_share:
+    dependency: "direct main"
+    description:
+      name: easy_social_share
+      sha256: b57f8e171cb9b90e2e03ed2af635ba722b3d03095a216dd93cca4aabc9707917
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.2"
   encrypt:
     dependency: "direct main"
     description:
@@ -395,14 +403,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.28"
-  flutter_social_share_plugin:
-    dependency: "direct main"
-    description:
-      name: flutter_social_share_plugin
-      sha256: "7a047b9124b81ac6da792df556202aca8e875b0240662e9d6e71cd65ca0cf000"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.4"
   flutter_test:
     dependency: "direct dev"
     description: flutter
