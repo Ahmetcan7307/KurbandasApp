@@ -6,7 +6,8 @@ import 'package:encrypt/encrypt.dart' as encrypt;
 import 'package:kurbandas/core/utils/extensions/map_extensions.dart';
 
 class EncryptService {
-  static const String Salt = "", Key = "";
+  static const String Salt = "v6usbfx8qh8brszlwhze9qh7ca9l3dwza6wamfxhbwtr",
+   Key = "vyx3rlzkonbfjcreu3w44o9sarg5fe1whf1edcypbc33";
 
   /// Encrypts a string using AES encryption with PBKDF2 key derivation.
   Future<String> encryptMap(Map<String, dynamic> map) async {
