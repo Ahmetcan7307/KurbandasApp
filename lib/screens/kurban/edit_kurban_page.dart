@@ -16,6 +16,8 @@ import 'package:kurbandas/stores/root_store.dart';
 import 'package:kurbandas/stores/turkiye_api_store.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/exceptions/file_too_large_exception.dart';
+
 class EditKurbanPage extends StatefulWidget {
   const EditKurbanPage({super.key});
 
@@ -431,8 +433,7 @@ class _EditKurbanPageState extends State<EditKurbanPage> {
           children: [
             OutlinedButton.icon(
               onPressed: remainingPhotos > 0
-                  ? () =>
-                      kurbanStore.getImages(context, lang, ImageSource.camera)
+                  ? () => getImages(ImageSource.camera)
                   : null,
               icon: Icon(Icons.camera_alt),
               label: Text(lang.camera),
@@ -440,8 +441,7 @@ class _EditKurbanPageState extends State<EditKurbanPage> {
             SizedBox(width: 16),
             OutlinedButton.icon(
               onPressed: remainingPhotos > 0
-                  ? () =>
-                      kurbanStore.getImages(context, lang, ImageSource.gallery)
+                  ? () => getImages(ImageSource.gallery)
                   : null,
               icon: Icon(Icons.photo_library),
               label: Text(lang.gallery),
@@ -450,6 +450,15 @@ class _EditKurbanPageState extends State<EditKurbanPage> {
         ),
       ],
     );
+  }
+
+  Future getImages(ImageSource source) async {
+    try {
+      await kurbanStore.getImages(context, lang, source);
+    } on FileTooLargeException {
+      showSnackBar(context,
+          text: lang.fileTooLargeException, color: Colors.orange, seconds: 3);
+    }
   }
 
   Future<void> _saveChanges() async {
