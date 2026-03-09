@@ -979,10 +979,10 @@ class S {
     return Intl.message('Gallery', name: 'gallery', desc: '', args: []);
   }
 
-  /// `Use the buttons below to add photos (max 7)`
+  /// `Use the buttons below to add photos. You can upload up to 7 photos, and each photo must not exceed 5 MB in size.`
   String get UseButtonsAddPhotos {
     return Intl.message(
-      'Use the buttons below to add photos (max 7)',
+      'Use the buttons below to add photos. You can upload up to 7 photos, and each photo must not exceed 5 MB in size.',
       name: 'UseButtonsAddPhotos',
       desc: '',
       args: [],
@@ -1674,6 +1674,16 @@ class S {
     return Intl.message(
       'I just shared my Qurbani via Kurbandaş! 🐄\nLooking for a partner or want to join one? Download now:\n',
       name: 'shareMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `One of the selected photos is larger than 5 MB. Please select a smaller photo!`
+  String get fileTooLargeException {
+    return Intl.message(
+      'One of the selected photos is larger than 5 MB. Please select a smaller photo!',
+      name: 'fileTooLargeException',
       desc: '',
       args: [],
     );

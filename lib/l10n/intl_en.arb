@@ -169,7 +169,7 @@
   "addPhotos": "Add photos",
   "camera": "Camera",
   "gallery": "Gallery",
-  "UseButtonsAddPhotos": "Use the buttons below to add photos (max 7)",
+  "UseButtonsAddPhotos": "Use the buttons below to add photos. You can upload up to 7 photos, and each photo must not exceed 5 MB in size.",
   "remainingPhotoCount": "Remaining photo count",
   "canAdd7Photos": "You can add up to 7 photos",
   "pleasePhoto": "Please attach at least 1 photo",
@@ -249,5 +249,6 @@
     }
   },
   "imageNotLoaded": "Image could not be loaded",
-  "shareMessage": "I just shared my Qurbani via Kurbandaş! 🐄\nLooking for a partner or want to join one? Download now:\n"
+  "shareMessage": "I just shared my Qurbani via Kurbandaş! 🐄\nLooking for a partner or want to join one? Download now:\n",
+  "fileTooLargeException": "One of the selected photos is larger than 5 MB. Please select a smaller photo!"
 }

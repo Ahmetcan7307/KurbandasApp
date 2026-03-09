@@ -5,6 +5,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
+import 'package:kurbandas/core/exceptions/file_too_large_exception.dart';
 import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/services/validator.dart';
 import 'package:kurbandas/stores/api/kurban_store.dart';
@@ -327,8 +328,7 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
           children: [
             OutlinedButton.icon(
               onPressed: remainingPhotos > 0
-                  ? () =>
-                      kurbanStore.getImages(context, lang, ImageSource.camera)
+                  ? () => getImages(ImageSource.camera)
                   : null,
               icon: Icon(Icons.camera_alt),
               label: Text(lang.camera),
@@ -336,8 +336,7 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
             SizedBox(width: 16),
             OutlinedButton.icon(
               onPressed: remainingPhotos > 0
-                  ? () =>
-                      kurbanStore.getImages(context, lang, ImageSource.gallery)
+                  ? () => getImages(ImageSource.gallery)
                   : null,
               icon: Icon(Icons.photo_library),
               label: Text(lang.gallery),
@@ -346,6 +345,15 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
         ),
       ],
     );
+  }
+
+  Future getImages(ImageSource source) async {
+    try {
+      await kurbanStore.getImages(context, lang, source);
+    } on FileTooLargeException {
+      showSnackBar(context,
+          text: lang.fileTooLargeException, color: Colors.orange, seconds: 3);
+    }
   }
 
   void saveAndContinue() {

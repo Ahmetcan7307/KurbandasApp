@@ -137,7 +137,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Successfully sent request",
     ),
     "UseButtonsAddPhotos": MessageLookupByLibrary.simpleMessage(
-      "Use the buttons below to add photos (max 7)",
+      "Use the buttons below to add photos. You can upload up to 7 photos, and each photo must not exceed 5 MB in size.",
     ),
     "WhatQurbaniPartnership": MessageLookupByLibrary.simpleMessage(
       "What is a Qurbani partnership?",
@@ -238,6 +238,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Enter the Qurbani\'s weight",
     ),
     "error": MessageLookupByLibrary.simpleMessage("Error"),
+    "fileTooLargeException": MessageLookupByLibrary.simpleMessage(
+      "One of the selected photos is larger than 5 MB. Please select a smaller photo!",
+    ),
     "fillRequiredInfo": MessageLookupByLibrary.simpleMessage(
       "Please fill in all required information",
     ),

@@ -169,7 +169,7 @@
   "addPhotos": "Fotoğraf ekleyin (max 7)",
   "camera": "Kamera",
   "gallery": "Galeri",
-  "UseButtonsAddPhotos": "Fotoğraf eklemek için aşağıdaki butonları kullanın (max 7)",
+  "UseButtonsAddPhotos": "Fotoğraf eklemek için aşağıdaki butonları kullanın. En fazla 7 fotoğraf yükleyebilirsiniz ve her fotoğrafın boyutu 5 MB’ı geçmemelidir.",
   "remainingPhotoCount": "Kalan fotoğraf sayısı",
   "canAdd7Photos": "Maksimum 7 fotoğraf ekleyebilirsiniz",
   "pleasePhoto": "Lütfen en az 1 fotoğraf ekleyiniz",
@@ -249,5 +249,6 @@
     }
   },
   "imageNotLoaded": "Resim yüklenemedi",
-  "shareMessage": "Kurbanımı Kurbandaş üzerinden paylaştım! 🐄\nOrtak arıyorsan ya da bir kurbana katılmak istiyorsan hemen indir:\n"
+  "shareMessage": "Kurbanımı Kurbandaş üzerinden paylaştım! 🐄\nOrtak arıyorsan ya da bir kurbana katılmak istiyorsan hemen indir:\n",
+  "fileTooLargeException": "Seçilen bir fotoğraf 5 MB’tan büyük. Lütfen daha küçük bir fotoğraf seçin!"
 }

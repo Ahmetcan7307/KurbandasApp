@@ -9,6 +9,7 @@ import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/domain/entities/kurban_request.dart';
 import 'package:kurbandas/core/domain/entities/turkiye_api_district.dart';
 import 'package:kurbandas/core/domain/entities/turkiye_api_province.dart';
+import 'package:kurbandas/core/exceptions/file_too_large_exception.dart';
 import 'package:kurbandas/core/models/filter.dart';
 import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/injector.dart';
@@ -265,6 +266,12 @@ abstract class _KurbanStore with Store {
         return false;
       }
 
+      for (File photo in photos) {
+        int length = await photo.length();
+        if (length > 5000000) {
+          throw FileTooLargeException();
+        }
+      }
       selectedPhotos.addAll(photos);
       return true;
     }

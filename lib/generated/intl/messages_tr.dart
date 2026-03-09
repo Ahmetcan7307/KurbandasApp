@@ -137,7 +137,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Başarılı bir şekilde istek gönderildi",
     ),
     "UseButtonsAddPhotos": MessageLookupByLibrary.simpleMessage(
-      "Fotoğraf eklemek için aşağıdaki butonları kullanın (max 7)",
+      "Fotoğraf eklemek için aşağıdaki butonları kullanın. En fazla 7 fotoğraf yükleyebilirsiniz ve her fotoğrafın boyutu 5 MB’ı geçmemelidir.",
     ),
     "WhatQurbaniPartnership": MessageLookupByLibrary.simpleMessage(
       "Kurban ortaklığı nedir?",
@@ -240,6 +240,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Kurbanın ağırlığını girin",
     ),
     "error": MessageLookupByLibrary.simpleMessage("Hata"),
+    "fileTooLargeException": MessageLookupByLibrary.simpleMessage(
+      "Seçilen bir fotoğraf 5 MB’tan büyük. Lütfen daha küçük bir fotoğraf seçin!",
+    ),
     "fillRequiredInfo": MessageLookupByLibrary.simpleMessage(
       "Lütfen tüm gerekli bilgileri doldurun",
     ),
