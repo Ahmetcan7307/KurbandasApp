@@ -8,7 +8,6 @@ import 'package:kurbandas/core/const/get_cons.dart';
 import 'package:kurbandas/core/const/hive_cons.dart';
 import 'package:kurbandas/services/apis/google_apis/google_api_service.dart';
 import 'package:kurbandas/services/apis/my_api/app_setting_service.dart';
-import 'package:kurbandas/services/apis/my_api/kurban_request_service.dart';
 import 'package:kurbandas/services/apis/my_api/kurban_service.dart';
 import 'package:kurbandas/services/apis/my_api/user_service.dart';
 import 'package:kurbandas/services/apis/turkiye_api/turkiye_api_service.dart';
@@ -89,11 +88,6 @@ Future init() async {
   serviceLocator.registerLazySingleton(() => ImagePickerService());
   serviceLocator.registerLazySingleton(() => StorageService());
   serviceLocator.registerLazySingleton(() => StringService());
-  serviceLocator.registerLazySingleton(
-    () => KurbanRequestService(
-      serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio),
-    ),
-  );
   serviceLocator.registerLazySingleton(() => ShareService());
   serviceLocator.registerLazySingleton(() => EncryptService());
 

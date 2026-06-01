@@ -41,7 +41,7 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await kurbanStore.get(false);
 
-      isRequestSend = await kurbanStore.isRequestSend();
+      isRequestSend = kurbanStore.isRequestSend();
 
       setState(() {
         isLoading = false;
@@ -325,7 +325,7 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
       });
 
       try {
-        await kurbanStore.sendRequest();
+        kurbanStore.sendRequest();
 
         showSnackBar(context,
             text: lang.SuccessfullySentRequest, color: Colors.green);

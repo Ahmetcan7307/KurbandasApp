@@ -44,8 +44,8 @@ class _KurbanRequestsPageState extends State<KurbanRequestsPage>
 
     tabController = TabController(length: 2, vsync: this);
 
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await kurbanStore.getRequests();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      kurbanStore.getRequests();
 
       setState(() {
         isLoading = false;
@@ -210,7 +210,7 @@ class _KurbanRequestsPageState extends State<KurbanRequestsPage>
       setState(() {
         isLoadingApprove = true;
       });
-      await kurbanStore.approveOrDeclineRequest(documentId, isApprove);
+      kurbanStore.approveOrDeclineRequest(documentId, isApprove);
 
       showSnackBar(context,
           text: isApprove
