@@ -39,7 +39,7 @@ class _KurbanDetailPageState extends State<KurbanDetailPage> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await kurbanStore.get(false);
+      kurbanStore.get(false, user: authStore.user);
 
       isRequestSend = kurbanStore.isRequestSend();
 

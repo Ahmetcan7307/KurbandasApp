@@ -3,19 +3,19 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:kurbandas/core/const/my_api/kurban_request_service.dart';
+import 'package:kurbandas/core/const/my_api/kurban_service.dart';
 import 'package:kurbandas/core/const/storage_cons.dart';
 import 'package:kurbandas/core/domain/entities/address.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/domain/entities/kurban_request.dart';
 import 'package:kurbandas/core/domain/entities/turkiye_api_district.dart';
 import 'package:kurbandas/core/domain/entities/turkiye_api_province.dart';
+import 'package:kurbandas/core/domain/entities/user.dart';
 import 'package:kurbandas/core/exceptions/file_too_large_exception.dart';
 import 'package:kurbandas/core/models/filter.dart';
 import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/injector.dart';
-import 'package:kurbandas/services/apis/my_api/kurban_request_service.dart';
-import 'package:kurbandas/services/apis/my_api/kurban_service.dart';
-import 'package:kurbandas/services/encrypt_service.dart';
 import 'package:kurbandas/services/image_picker_service.dart';
 import 'package:kurbandas/services/supabase/storage_service.dart';
 import 'package:mobx/mobx.dart';
@@ -60,18 +60,14 @@ abstract class _KurbanStore with Store {
   @observable
   String? selectedKurbanDocumentId;
 
-  KurbanService service = serviceLocator.get<KurbanService>();
   ImagePickerService imagePickerService =
       serviceLocator.get<ImagePickerService>();
   StorageService storageService = serviceLocator.get<StorageService>();
-  KurbanRequestService requestService =
-      serviceLocator.get<KurbanRequestService>();
-  EncryptService encryptService = serviceLocator.get<EncryptService>();
 
   int pageSize = 10;
 
   @action
-  Future getAnimals() async => animals ??= await service.getAnimals();
+  void getAnimals() => animals ??= KurbanService.getAnimals();
 
   @action
   void createFilter(
@@ -87,21 +83,18 @@ abstract class _KurbanStore with Store {
   }
 
   @action
-  Future getMyKurbans() async => myKurbans = await service.getMyKurbans();
+  Future getMyKurbans() async => myKurbans = KurbanService.getMyKurbans;
 
   @action
-  Future getRequests() async =>
-      requests = await requestService.getRequests(selectedKurbanDocumentId!);
+  void getRequests() => requests = KurbanRequestService.getRequests;
 
   @action
-  Future approveOrDeclineRequest(String documentId, bool isApprove) async =>
-      requests = await requestService.approveOrDeclineRequest(
-          await encryptService
-              .encryptMap({"documentId": documentId, "isApprove": isApprove}));
+  void approveOrDeclineRequest(String documentId, bool isApprove) => requests!
+      .removeWhere((kurbanRequest) => kurbanRequest.documentId == documentId);
 
   @action
-  Future<List<Kurban>> delete(String documentId) async =>
-      myKurbans = await service.delete(documentId);
+  void delete(String documentId) =>
+      myKurbans!.removeWhere((kurban) => kurban.documentId == documentId);
 
   @action
   Future updateKurban() async {
@@ -115,30 +108,20 @@ abstract class _KurbanStore with Store {
           storageService.getPublicUrl(StorageCons.kurbansBucketName, path));
     }
 
-    await service
-        .update(await encryptService.encryptMap(selectedKurban!.toJson()));
-
     int indexWhere =
         myKurbans!.indexWhere((kurban) => kurban == selectedKurban);
     myKurbans![indexWhere] = selectedKurban!;
   }
 
   @action
-  Future getMyPartnerships() async =>
-      myPartnerships = await service.getMyPartnerships();
+  void getMyPartnerships() => myPartnerships = KurbanService.getMyPartnerships;
 
   @action
   Null clearFilter() => filter = null;
 
   @action
-  Future<bool> getActiveKurbans(int page) async {
-    List<Kurban> newKurbans =
-        await service.getKurbans(await encryptService.encryptMap({
-      "isActive": true,
-      "filter": filter != null ? filter!.toJson() : {},
-      "page": page,
-      "pageSize": pageSize
-    }));
+  bool getActiveKurbans(int page) {
+    List<Kurban> newKurbans = KurbanService.getKurbans(true, filter);
     if (page == 1) {
       activeKurbans.clear();
     }
@@ -147,14 +130,8 @@ abstract class _KurbanStore with Store {
   }
 
   @action
-  Future<bool> getDeactiveKurbans(int page) async {
-    List<Kurban> newKurbans =
-        await service.getKurbans(await encryptService.encryptMap({
-      "isActive": false,
-      "filter": filter != null ? filter!.toJson() : {},
-      "page": page,
-      "pageSize": pageSize
-    }));
+  bool getDeactiveKurbans(int page) {
+    List<Kurban> newKurbans = KurbanService.getKurbans(false, filter);
     deactiveKurbans.addAll(newKurbans);
     return newKurbans.length < pageSize;
   }
@@ -197,16 +174,15 @@ abstract class _KurbanStore with Store {
         KurbanStatus.shared => Colors.green,
       };
 
-  Future<bool> isRequestSend() async =>
-      await requestService.isRequestSend(selectedKurbanDocumentId!);
+  bool isRequestSend() => false;
 
-  Future sendRequest() async =>
-      await requestService.sendRequest(selectedKurbanDocumentId!);
+  void sendRequest() {
+    return;
+  }
 
   @action
   Future create() async {
-    String documentId = await service
-        .create(await encryptService.encryptMap(newKurban!.toJson()));
+    String documentId = "5";
     Kurban updatedKurban = Kurban()..documentId = documentId;
 
     updatedKurban.photoUrls = [];
@@ -219,9 +195,6 @@ abstract class _KurbanStore with Store {
       updatedKurban.photoUrls!.add(
           storageService.getPublicUrl(StorageCons.kurbansBucketName, path));
     }
-
-    await service
-        .update(await encryptService.encryptMap(updatedKurban.toJson()));
 
     selectedPhotos.clear();
   }
@@ -313,8 +286,8 @@ abstract class _KurbanStore with Store {
   }
 
   @action
-  Future get(bool isEdit) async =>
-      selectedKurban = await service.get(selectedKurbanDocumentId!, isEdit);
+  void get(bool isEdit, {User? user}) => selectedKurban =
+      KurbanService.get(selectedKurbanDocumentId!, isEdit, user: user);
 
   @action
   void nullSelectedKurban() => selectedKurban = null;

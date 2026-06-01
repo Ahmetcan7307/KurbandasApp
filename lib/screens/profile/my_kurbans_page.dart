@@ -39,8 +39,8 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await kurbanStore.getMyKurbans();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      kurbanStore.getMyKurbans();
 
       if (mounted) {
         setState(() {
@@ -151,7 +151,7 @@ class _MyKurbansPageState extends State<MyKurbansPage> {
         isLoading = true;
       });
 
-      await kurbanStore.delete(documentId);
+      kurbanStore.delete(documentId);
 
       showSnackBar(context, text: lang.QurbaniPostDeleted, color: Colors.red);
 

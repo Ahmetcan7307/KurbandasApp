@@ -44,7 +44,7 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       if (kurbanStore.newKurban != null) {
         if (kurbanStore.newKurban!.weight != null) {
           weightCnt.text = kurbanStore.newKurban!.weight!.toStringAsFixed(2);
@@ -62,7 +62,7 @@ class _CreateKurbanBasicInfoPageState extends State<CreateKurbanBasicInfoPage> {
         }
       }
 
-      await kurbanStore.getAnimals();
+      kurbanStore.getAnimals();
 
       setState(() {
         fetched = true;

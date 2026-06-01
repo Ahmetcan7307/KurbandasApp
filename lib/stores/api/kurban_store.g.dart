@@ -193,14 +193,6 @@ mixin _$KurbanStore on _KurbanStore, Store {
     });
   }
 
-  late final _$getAnimalsAsyncAction =
-      AsyncAction('_KurbanStore.getAnimals', context: context);
-
-  @override
-  Future<dynamic> getAnimals() {
-    return _$getAnimalsAsyncAction.run(() => super.getAnimals());
-  }
-
   late final _$getMyKurbansAsyncAction =
       AsyncAction('_KurbanStore.getMyKurbans', context: context);
 
@@ -209,63 +201,12 @@ mixin _$KurbanStore on _KurbanStore, Store {
     return _$getMyKurbansAsyncAction.run(() => super.getMyKurbans());
   }
 
-  late final _$getRequestsAsyncAction =
-      AsyncAction('_KurbanStore.getRequests', context: context);
-
-  @override
-  Future<dynamic> getRequests() {
-    return _$getRequestsAsyncAction.run(() => super.getRequests());
-  }
-
-  late final _$approveOrDeclineRequestAsyncAction =
-      AsyncAction('_KurbanStore.approveOrDeclineRequest', context: context);
-
-  @override
-  Future<dynamic> approveOrDeclineRequest(String documentId, bool isApprove) {
-    return _$approveOrDeclineRequestAsyncAction
-        .run(() => super.approveOrDeclineRequest(documentId, isApprove));
-  }
-
-  late final _$deleteAsyncAction =
-      AsyncAction('_KurbanStore.delete', context: context);
-
-  @override
-  Future<List<Kurban>> delete(String documentId) {
-    return _$deleteAsyncAction.run(() => super.delete(documentId));
-  }
-
   late final _$updateKurbanAsyncAction =
       AsyncAction('_KurbanStore.updateKurban', context: context);
 
   @override
   Future<dynamic> updateKurban() {
     return _$updateKurbanAsyncAction.run(() => super.updateKurban());
-  }
-
-  late final _$getMyPartnershipsAsyncAction =
-      AsyncAction('_KurbanStore.getMyPartnerships', context: context);
-
-  @override
-  Future<dynamic> getMyPartnerships() {
-    return _$getMyPartnershipsAsyncAction.run(() => super.getMyPartnerships());
-  }
-
-  late final _$getActiveKurbansAsyncAction =
-      AsyncAction('_KurbanStore.getActiveKurbans', context: context);
-
-  @override
-  Future<bool> getActiveKurbans(int page) {
-    return _$getActiveKurbansAsyncAction
-        .run(() => super.getActiveKurbans(page));
-  }
-
-  late final _$getDeactiveKurbansAsyncAction =
-      AsyncAction('_KurbanStore.getDeactiveKurbans', context: context);
-
-  @override
-  Future<bool> getDeactiveKurbans(int page) {
-    return _$getDeactiveKurbansAsyncAction
-        .run(() => super.getDeactiveKurbans(page));
   }
 
   late final _$createAsyncAction =
@@ -301,16 +242,19 @@ mixin _$KurbanStore on _KurbanStore, Store {
         .run(() => super.getImages(context, lang, source));
   }
 
-  late final _$getAsyncAction =
-      AsyncAction('_KurbanStore.get', context: context);
-
-  @override
-  Future<dynamic> get(bool isEdit) {
-    return _$getAsyncAction.run(() => super.get(isEdit));
-  }
-
   late final _$_KurbanStoreActionController =
       ActionController(name: '_KurbanStore', context: context);
+
+  @override
+  void getAnimals() {
+    final _$actionInfo = _$_KurbanStoreActionController.startAction(
+        name: '_KurbanStore.getAnimals');
+    try {
+      return super.getAnimals();
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   void createFilter(
@@ -330,11 +274,77 @@ mixin _$KurbanStore on _KurbanStore, Store {
   }
 
   @override
+  void getRequests() {
+    final _$actionInfo = _$_KurbanStoreActionController.startAction(
+        name: '_KurbanStore.getRequests');
+    try {
+      return super.getRequests();
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void approveOrDeclineRequest(String documentId, bool isApprove) {
+    final _$actionInfo = _$_KurbanStoreActionController.startAction(
+        name: '_KurbanStore.approveOrDeclineRequest');
+    try {
+      return super.approveOrDeclineRequest(documentId, isApprove);
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void delete(String documentId) {
+    final _$actionInfo =
+        _$_KurbanStoreActionController.startAction(name: '_KurbanStore.delete');
+    try {
+      return super.delete(documentId);
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void getMyPartnerships() {
+    final _$actionInfo = _$_KurbanStoreActionController.startAction(
+        name: '_KurbanStore.getMyPartnerships');
+    try {
+      return super.getMyPartnerships();
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   Null clearFilter() {
     final _$actionInfo = _$_KurbanStoreActionController.startAction(
         name: '_KurbanStore.clearFilter');
     try {
       return super.clearFilter();
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  bool getActiveKurbans(int page) {
+    final _$actionInfo = _$_KurbanStoreActionController.startAction(
+        name: '_KurbanStore.getActiveKurbans');
+    try {
+      return super.getActiveKurbans(page);
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  bool getDeactiveKurbans(int page) {
+    final _$actionInfo = _$_KurbanStoreActionController.startAction(
+        name: '_KurbanStore.getDeactiveKurbans');
+    try {
+      return super.getDeactiveKurbans(page);
     } finally {
       _$_KurbanStoreActionController.endAction(_$actionInfo);
     }
@@ -412,6 +422,17 @@ mixin _$KurbanStore on _KurbanStore, Store {
         name: '_KurbanStore.removePhotoUrl');
     try {
       return super.removePhotoUrl(index);
+    } finally {
+      _$_KurbanStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void get(bool isEdit, {User? user}) {
+    final _$actionInfo =
+        _$_KurbanStoreActionController.startAction(name: '_KurbanStore.get');
+    try {
+      return super.get(isEdit, user: user);
     } finally {
       _$_KurbanStoreActionController.endAction(_$actionInfo);
     }

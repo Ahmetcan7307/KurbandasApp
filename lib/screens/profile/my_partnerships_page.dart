@@ -39,8 +39,8 @@ class _MyPartnershipsPageState extends State<MyPartnershipsPage> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await kurbanStore.getMyPartnerships();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      kurbanStore.getMyPartnerships();
 
       setState(() {
         isLoading = false;

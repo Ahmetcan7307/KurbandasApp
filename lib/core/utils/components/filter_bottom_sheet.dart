@@ -35,8 +35,8 @@ class _FilterBottomSheetState extends State<FilterBottomSheet> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await kurbanStore.getAnimals();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      kurbanStore.getAnimals();
 
       setState(() {
         fetched = true;
