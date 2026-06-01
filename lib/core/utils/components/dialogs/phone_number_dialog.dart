@@ -37,8 +37,8 @@ class _PhoneNumberDialogState extends State<PhoneNumberDialog> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await countryStore.get();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      countryStore.get();
 
       setState(() {
         isLoadingCountryCodes = false;

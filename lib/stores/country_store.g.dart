@@ -41,14 +41,6 @@ mixin _$CountryStore on _CountryStore, Store {
     });
   }
 
-  late final _$getAsyncAction =
-      AsyncAction('_CountryStore.get', context: context);
-
-  @override
-  Future<dynamic> get() {
-    return _$getAsyncAction.run(() => super.get());
-  }
-
   late final _$_CountryStoreActionController =
       ActionController(name: '_CountryStore', context: context);
 
@@ -58,6 +50,17 @@ mixin _$CountryStore on _CountryStore, Store {
         name: '_CountryStore.selectCountry');
     try {
       return super.selectCountry(countryCode);
+    } finally {
+      _$_CountryStoreActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void get() {
+    final _$actionInfo =
+        _$_CountryStoreActionController.startAction(name: '_CountryStore.get');
+    try {
+      return super.get();
     } finally {
       _$_CountryStoreActionController.endAction(_$actionInfo);
     }
