@@ -189,81 +189,88 @@ class _KurbanReportPageState extends State<KurbanReportPage> {
                   if (isLoading)
                     Center(child: CircularProgressIndicator())
                   else
-                    ...reportCategories.map((category) {
-                      bool isSelected = selectedQuickWhy == category["id"];
+                    RadioGroup<int>(
+                        groupValue: selectedQuickWhy,
+                        onChanged: (int? value) {
+                          setState(() {
+                            selectedQuickWhy = value;
+                          });
+                        },
+                        child: Column(
+                            children: reportCategories.map((category) {
+                          bool isSelected = selectedQuickWhy == category["id"];
 
-                      return Container(
-                        margin: EdgeInsets.only(bottom: 12),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(
-                            color:
-                                isSelected ? Colors.red : Colors.grey.shade300,
-                            width: isSelected ? 2 : 1,
-                          ),
-                          color: isSelected ? Colors.red.shade50 : Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withValues(alpha: .1),
-                              spreadRadius: 1,
-                              blurRadius: 3,
-                              offset: Offset(0, 1),
-                            ),
-                          ],
-                        ),
-                        child: ListTile(
-                          contentPadding: EdgeInsets.all(16),
-                          leading: Container(
-                            padding: EdgeInsets.all(8),
+                          return Container(
+                            margin: EdgeInsets.only(bottom: 12),
                             decoration: BoxDecoration(
-                              color: isSelected
-                                  ? Colors.red
-                                  : Colors.grey.shade100,
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Icon(
-                              category["icon"],
-                              color:
-                                  isSelected ? Colors.white : Colors.grey[600],
-                              size: 24,
-                            ),
-                          ),
-                          title: Text(
-                            category["title"],
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: isSelected ? Colors.red : Colors.black87,
-                              fontSize: 16,
-                            ),
-                          ),
-                          subtitle: Padding(
-                            padding: EdgeInsets.only(top: 4),
-                            child: Text(
-                              category["description"],
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                fontSize: 14,
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(
+                                color: isSelected
+                                    ? Colors.red
+                                    : Colors.grey.shade300,
+                                width: isSelected ? 2 : 1,
                               ),
+                              color: isSelected
+                                  ? Colors.red.shade50
+                                  : Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withValues(alpha: .1),
+                                  spreadRadius: 1,
+                                  blurRadius: 3,
+                                  offset: Offset(0, 1),
+                                ),
+                              ],
                             ),
-                          ),
-                          trailing: Radio<int>(
-                            value: category["id"],
-                            groupValue: selectedQuickWhy,
-                            onChanged: (int? value) {
-                              setState(() {
-                                selectedQuickWhy = value;
-                              });
-                            },
-                            activeColor: Colors.red,
-                          ),
-                          onTap: () {
-                            setState(() {
-                              selectedQuickWhy = category["id"];
-                            });
-                          },
-                        ),
-                      );
-                    }),
+                            child: ListTile(
+                              contentPadding: EdgeInsets.all(16),
+                              leading: Container(
+                                padding: EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  color: isSelected
+                                      ? Colors.red
+                                      : Colors.grey.shade100,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Icon(
+                                  category["icon"],
+                                  color: isSelected
+                                      ? Colors.white
+                                      : Colors.grey[600],
+                                  size: 24,
+                                ),
+                              ),
+                              title: Text(
+                                category["title"],
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color:
+                                      isSelected ? Colors.red : Colors.black87,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              subtitle: Padding(
+                                padding: EdgeInsets.only(top: 4),
+                                child: Text(
+                                  category["description"],
+                                  style: TextStyle(
+                                    color: Colors.grey[600],
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ),
+                              trailing: Radio<int>(
+                                value: category["id"],
+                                activeColor: Colors.red,
+                              ),
+                              onTap: () {
+                                setState(() {
+                                  selectedQuickWhy = category["id"];
+                                });
+                              },
+                            ),
+                          );
+                        }).toList())),
                   SizedBox(height: 24),
                   Text(
                     lang.detailedExplanation,
@@ -384,7 +391,7 @@ class _KurbanReportPageState extends State<KurbanReportPage> {
                 Expanded(
                   flex: 2,
                   child: ElevatedButton(
-                    onPressed: _isSubmitting ? null : _submitReport,
+                    onPressed: _isSubmitting ? null : submitReport,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,
                       foregroundColor: Colors.white,
@@ -433,7 +440,7 @@ class _KurbanReportPageState extends State<KurbanReportPage> {
     );
   }
 
-  Future<void> _submitReport() async {
+  void submitReport() async {
     if (whyCnt.text.isNotEmpty && whyCnt.text.length < 10) {
       showSnackBar(context, text: lang.reportDescMin, color: Colors.red);
       return;
@@ -444,7 +451,7 @@ class _KurbanReportPageState extends State<KurbanReportPage> {
     });
 
     try {
-      await kurbanReportStore.create(
+      kurbanReportStore.create(
           kurbanStore.selectedKurbanDocumentId!,
           KurbanReport(
               why: whyCnt.text.isEmpty ? null : whyCnt.text,
