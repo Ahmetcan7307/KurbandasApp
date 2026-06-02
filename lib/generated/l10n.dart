@@ -1688,6 +1688,71 @@ class S {
       args: [],
     );
   }
+
+  /// `Information`
+  String get endingAppTitle {
+    return Intl.message(
+      'Information',
+      name: 'endingAppTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hello,\n\nDevelopment of this application has been discontinued, and it is no longer actively supported. All backend services for the application have been removed.\n\nTherefore:\n`
+  String get endingAppContent1 {
+    return Intl.message(
+      'Hello,\n\nDevelopment of this application has been discontinued, and it is no longer actively supported. All backend services for the application have been removed.\n\nTherefore:\n',
+      name: 'endingAppContent1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The operations performed are entirely static.`
+  String get endingAppContentBulletPoint1 {
+    return Intl.message(
+      'The operations performed are entirely static.',
+      name: 'endingAppContentBulletPoint1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No data is sent to any server.`
+  String get endingAppContentBulletPoint2 {
+    return Intl.message(
+      'No data is sent to any server.',
+      name: 'endingAppContentBulletPoint2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No data is stored or processed.`
+  String get endingAppContentBulletPoint3 {
+    return Intl.message(
+      'No data is stored or processed.',
+      name: 'endingAppContentBulletPoint3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The app continues to be used in its current form.\n\nTo contact the developer:\n`
+  String get endingAppContent2 {
+    return Intl.message(
+      'The app continues to be used in its current form.\n\nTo contact the developer:\n',
+      name: 'endingAppContent2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ok`
+  String get ok {
+    return Intl.message('Ok', name: 'ok', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

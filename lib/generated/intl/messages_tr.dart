@@ -227,6 +227,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "editQurbaniInfo": MessageLookupByLibrary.simpleMessage(
       "Kurban Bilgilerini Düzenle",
     ),
+    "endingAppContent1": MessageLookupByLibrary.simpleMessage(
+      "Merhaba,\n\nBu uygulama geliştirme süreci sonlandırılmıştır ve aktif olarak desteklenmemektedir. Uygulamadaki tüm arka uç (backend) servisleri kaldırılmıştır.\n\nBu nedenle:\n\n",
+    ),
+    "endingAppContent2": MessageLookupByLibrary.simpleMessage(
+      "Uygulama mevcut haliyle kullanılmaya devam etmektedir.\n\nGeliştiriciye ulaşmak için:\n",
+    ),
+    "endingAppContentBulletPoint1": MessageLookupByLibrary.simpleMessage(
+      "Yapılan işlemler tamamen statiktir.",
+    ),
+    "endingAppContentBulletPoint2": MessageLookupByLibrary.simpleMessage(
+      "Herhangi bir veri sunucuya gönderilmez.",
+    ),
+    "endingAppContentBulletPoint3": MessageLookupByLibrary.simpleMessage(
+      "Hiçbir veri saklanmaz veya işlenmez.",
+    ),
+    "endingAppTitle": MessageLookupByLibrary.simpleMessage("Bilgilendirme"),
     "enterCutAddress": MessageLookupByLibrary.simpleMessage(
       "Kesim alanının adını giriniz",
     ),
@@ -288,6 +304,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "noWaitingRequests": MessageLookupByLibrary.simpleMessage(
       "Bekleyen hiçbir isteğiniz yok",
     ),
+    "ok": MessageLookupByLibrary.simpleMessage("Tamam"),
     "owner": MessageLookupByLibrary.simpleMessage("Sahip"),
     "partner": MessageLookupByLibrary.simpleMessage("Ortak"),
     "partners": MessageLookupByLibrary.simpleMessage("Ortaklar"),

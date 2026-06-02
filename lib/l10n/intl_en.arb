@@ -250,5 +250,12 @@
   },
   "imageNotLoaded": "Image could not be loaded",
   "shareMessage": "I just shared my Qurbani via Kurbandaş! 🐄\nLooking for a partner or want to join one? Download now:\n",
-  "fileTooLargeException": "One of the selected photos is larger than 5 MB. Please select a smaller photo!"
+  "fileTooLargeException": "One of the selected photos is larger than 5 MB. Please select a smaller photo!",
+  "endingAppTitle": "Information",
+  "endingAppContent1": "Hello,\n\nDevelopment of this application has been discontinued, and it is no longer actively supported. All backend services for the application have been removed.\n\nTherefore:\n",
+  "endingAppContentBulletPoint1": "The operations performed are entirely static.",
+  "endingAppContentBulletPoint2": "No data is sent to any server.",
+  "endingAppContentBulletPoint3": "No data is stored or processed.",
+  "endingAppContent2": "The app continues to be used in its current form.\n\nTo contact the developer:\n",
+  "ok": "Ok"
 }

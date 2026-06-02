@@ -225,6 +225,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "editQurbaniInfo": MessageLookupByLibrary.simpleMessage(
       "Edit Qurbani Information",
     ),
+    "endingAppContent1": MessageLookupByLibrary.simpleMessage(
+      "Hello,\n\nDevelopment of this application has been discontinued, and it is no longer actively supported. All backend services for the application have been removed.\n\nTherefore:\n",
+    ),
+    "endingAppContent2": MessageLookupByLibrary.simpleMessage(
+      "The app continues to be used in its current form.\n\nTo contact the developer:\n",
+    ),
+    "endingAppContentBulletPoint1": MessageLookupByLibrary.simpleMessage(
+      "The operations performed are entirely static.",
+    ),
+    "endingAppContentBulletPoint2": MessageLookupByLibrary.simpleMessage(
+      "No data is sent to any server.",
+    ),
+    "endingAppContentBulletPoint3": MessageLookupByLibrary.simpleMessage(
+      "No data is stored or processed.",
+    ),
+    "endingAppTitle": MessageLookupByLibrary.simpleMessage("Information"),
     "enterCutAddress": MessageLookupByLibrary.simpleMessage(
       "Enter cut address",
     ),
@@ -286,6 +302,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "noWaitingRequests": MessageLookupByLibrary.simpleMessage(
       "There is not any Waiting Requests",
     ),
+    "ok": MessageLookupByLibrary.simpleMessage("Ok"),
     "owner": MessageLookupByLibrary.simpleMessage("Owner"),
     "partner": MessageLookupByLibrary.simpleMessage("Partner"),
     "partners": MessageLookupByLibrary.simpleMessage("Partners"),

@@ -250,5 +250,12 @@
   },
   "imageNotLoaded": "Resim yüklenemedi",
   "shareMessage": "Kurbanımı Kurbandaş üzerinden paylaştım! 🐄\nOrtak arıyorsan ya da bir kurbana katılmak istiyorsan hemen indir:\n",
-  "fileTooLargeException": "Seçilen bir fotoğraf 5 MB’tan büyük. Lütfen daha küçük bir fotoğraf seçin!"
+  "fileTooLargeException": "Seçilen bir fotoğraf 5 MB’tan büyük. Lütfen daha küçük bir fotoğraf seçin!",
+  "endingAppTitle": "Bilgilendirme",
+  "endingAppContent1": "Merhaba,\n\nBu uygulama geliştirme süreci sonlandırılmıştır ve aktif olarak desteklenmemektedir. Uygulamadaki tüm arka uç (backend) servisleri kaldırılmıştır.\n\nBu nedenle:\n\n",
+  "endingAppContentBulletPoint1": "Yapılan işlemler tamamen statiktir.",
+  "endingAppContentBulletPoint2": "Herhangi bir veri sunucuya gönderilmez.",
+  "endingAppContentBulletPoint3": "Hiçbir veri saklanmaz veya işlenmez.",
+  "endingAppContent2": "Uygulama mevcut haliyle kullanılmaya devam etmektedir.\n\nGeliştiriciye ulaşmak için:\n",
+  "ok": "Tamam"
 }
