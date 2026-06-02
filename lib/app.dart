@@ -93,7 +93,8 @@ class _AppState extends State<App> {
       builder: (context, child) => ForceUpdate(
           navigatorKey: Routes.navigatorKey,
           client: ForceUpdateClient(
-              fetchRequiredVersion: appSettingStore.getRequiredVersion),
+              fetchRequiredVersion: () async =>
+                  appSettingStore.getRequiredVersion()),
           allowCancel: false,
           child: child!),
       home: const SplashPage(),

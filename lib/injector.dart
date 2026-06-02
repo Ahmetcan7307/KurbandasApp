@@ -7,7 +7,6 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:kurbandas/core/const/get_cons.dart';
 import 'package:kurbandas/core/const/hive_cons.dart';
 import 'package:kurbandas/services/apis/google_apis/google_api_service.dart';
-import 'package:kurbandas/services/apis/my_api/app_setting_service.dart';
 import 'package:kurbandas/services/apis/turkiye_api/turkiye_api_service.dart';
 import 'package:kurbandas/services/image_picker_service.dart';
 import 'package:kurbandas/services/package_info_service.dart';
@@ -42,25 +41,14 @@ Future init() async {
 
   serviceLocator.registerLazySingleton(
     () => Dio(),
-    instanceName: GetCons.myAPIDio,
-  );
-  serviceLocator.registerLazySingleton(
-    () => Dio(),
     instanceName: GetCons.othersDio,
   );
 
   await Hive.initFlutter();
   await Hive.openBox<String>(HiveCons.settings);
 
-  initDio();
-
   serviceLocator.registerLazySingleton(() => PackageInfoService());
   serviceLocator.registerLazySingleton(() => UrlLauncherService());
-  serviceLocator.registerLazySingleton(
-    () => AppSettingService(
-      serviceLocator.get<Dio>(instanceName: GetCons.myAPIDio),
-    ),
-  );
   serviceLocator.registerLazySingleton(() => AuthService());
   serviceLocator.registerLazySingleton(
     () => TurkiyeAPIService(

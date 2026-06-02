@@ -14,12 +14,11 @@ class ForceUpdateClient {
       serviceLocator.get<PackageInfoService>();
   final StoreService storeService = serviceLocator.get<StoreService>();
 
-  Future<bool> isAppUpdateRequired() async {
-    return Version.parse(RegExp(r'\d+\.\d+\.\d+')
-            .matchAsPrefix(await _packageInfoService.getVersion())!
-            .group(0)!) <
-        Version.parse(await fetchRequiredVersion());
-  }
+  Future<bool> isAppUpdateRequired() async =>
+      Version.parse(RegExp(r'\d+\.\d+\.\d+')
+          .matchAsPrefix(await _packageInfoService.getVersion())!
+          .group(0)!) <
+      Version.parse(await fetchRequiredVersion());
 
   Future<String?> getStoreUrl() async => storeService.getStoreUrl(
       iosAppStoreId, await _packageInfoService.getPackageName());
