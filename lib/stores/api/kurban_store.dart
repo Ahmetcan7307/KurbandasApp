@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kurbandas/core/const/my_api/kurban_request_service.dart';
 import 'package:kurbandas/core/const/my_api/kurban_service.dart';
-import 'package:kurbandas/core/const/storage_cons.dart';
 import 'package:kurbandas/core/domain/entities/address.dart';
 import 'package:kurbandas/core/domain/entities/kurban.dart';
 import 'package:kurbandas/core/domain/entities/kurban_request.dart';
@@ -17,7 +16,6 @@ import 'package:kurbandas/core/models/filter.dart';
 import 'package:kurbandas/generated/l10n.dart';
 import 'package:kurbandas/injector.dart';
 import 'package:kurbandas/services/image_picker_service.dart';
-import 'package:kurbandas/services/supabase/storage_service.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../core/utils/components/my_snackbar.dart';
@@ -62,7 +60,6 @@ abstract class _KurbanStore with Store {
 
   ImagePickerService imagePickerService =
       serviceLocator.get<ImagePickerService>();
-  StorageService storageService = serviceLocator.get<StorageService>();
 
   int pageSize = 10;
 
@@ -98,16 +95,6 @@ abstract class _KurbanStore with Store {
 
   @action
   Future updateKurban() async {
-    for (File photo in selectedPhotos) {
-      String path =
-          "${selectedKurban!.documentId}/${DateTime.now().millisecondsSinceEpoch}.${photo.path.split("/").last.split(".").last}";
-      await storageService.uploadFile(
-          StorageCons.kurbansBucketName, path, photo);
-
-      selectedKurban!.photoUrls!.add(
-          storageService.getPublicUrl(StorageCons.kurbansBucketName, path));
-    }
-
     int indexWhere =
         myKurbans!.indexWhere((kurban) => kurban == selectedKurban);
     myKurbans![indexWhere] = selectedKurban!;
@@ -182,20 +169,6 @@ abstract class _KurbanStore with Store {
 
   @action
   Future create() async {
-    String documentId = "5";
-    Kurban updatedKurban = Kurban()..documentId = documentId;
-
-    updatedKurban.photoUrls = [];
-    for (File photo in selectedPhotos) {
-      String path =
-          "$documentId/${DateTime.now().millisecondsSinceEpoch}.${photo.path.split("/").last.split(".").last}";
-      await storageService.uploadFile(
-          StorageCons.kurbansBucketName, path, photo);
-
-      updatedKurban.photoUrls!.add(
-          storageService.getPublicUrl(StorageCons.kurbansBucketName, path));
-    }
-
     selectedPhotos.clear();
   }
 

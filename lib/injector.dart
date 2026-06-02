@@ -15,7 +15,6 @@ import 'package:kurbandas/services/share_service.dart';
 import 'package:kurbandas/services/store_service.dart';
 import 'package:kurbandas/services/string_service.dart';
 import 'package:kurbandas/services/supabase/auth_service.dart';
-import 'package:kurbandas/services/supabase/storage_service.dart';
 import 'package:kurbandas/services/url_launcher_service.dart';
 import 'package:kurbandas/stores/api/app_setting_store.dart';
 import 'package:kurbandas/stores/api/kurban_report_store.dart';
@@ -75,7 +74,6 @@ Future init() async {
   );
   serviceLocator.registerLazySingleton(() => StoreService());
   serviceLocator.registerLazySingleton(() => ImagePickerService());
-  serviceLocator.registerLazySingleton(() => StorageService());
   serviceLocator.registerLazySingleton(() => StringService());
   serviceLocator.registerLazySingleton(() => ShareService());
 
