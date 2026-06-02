@@ -31,14 +31,14 @@ class _KurbanListState extends State<KurbanList> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await loadPage();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      loadPage();
     });
 
     setupController();
   }
 
-  Future loadPage([int? pageNumber]) async {
+  void loadPage([int? pageNumber]) {
     if (isLoading) return;
 
     setState(() {
@@ -46,7 +46,7 @@ class _KurbanListState extends State<KurbanList> {
     });
 
     int currentPage = pageNumber ?? page;
-    bool isLastPage = await fetchKurbans(page);
+    bool isLastPage = fetchKurbans(page);
 
     if (mounted) {
       setState(() {
@@ -57,9 +57,9 @@ class _KurbanListState extends State<KurbanList> {
     }
   }
 
-  Future<bool> fetchKurbans(int page) async => widget.isActive
-      ? await kurbanStore.getActiveKurbans(page)
-      : await kurbanStore.getDeactiveKurbans(page);
+  bool fetchKurbans(int page) => widget.isActive
+      ? kurbanStore.getActiveKurbans(page)
+      : kurbanStore.getDeactiveKurbans(page);
 
   void setupController() {
     controller.addListener(() {
@@ -106,7 +106,7 @@ class _KurbanListState extends State<KurbanList> {
 
     return RefreshIndicator(
       onRefresh: () async {
-        await fetchKurbans(1);
+        fetchKurbans(1);
 
         resetPagination();
       },

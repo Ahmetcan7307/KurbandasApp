@@ -63,20 +63,26 @@ mixin _$AuthStore on _AuthStore, Store {
     return _$signInWithAppleAsyncAction.run(() => super.signInWithApple());
   }
 
-  late final _$updatePhoneNoAsyncAction =
-      AsyncAction('_AuthStore.updatePhoneNo', context: context);
-
-  @override
-  Future<dynamic> updatePhoneNo(String phoneNo) {
-    return _$updatePhoneNoAsyncAction.run(() => super.updatePhoneNo(phoneNo));
-  }
-
   late final _$deleteAsyncAction =
       AsyncAction('_AuthStore.delete', context: context);
 
   @override
   Future<dynamic> delete() {
     return _$deleteAsyncAction.run(() => super.delete());
+  }
+
+  late final _$_AuthStoreActionController =
+      ActionController(name: '_AuthStore', context: context);
+
+  @override
+  void updatePhoneNo(String phoneNo) {
+    final _$actionInfo = _$_AuthStoreActionController.startAction(
+        name: '_AuthStore.updatePhoneNo');
+    try {
+      return super.updatePhoneNo(phoneNo);
+    } finally {
+      _$_AuthStoreActionController.endAction(_$actionInfo);
+    }
   }
 
   @override

@@ -277,14 +277,14 @@ class _PhoneNumberDialogState extends State<PhoneNumberDialog> {
     );
   }
 
-  Future updatePhoneNo() async {
+  void updatePhoneNo() {
     if (formKey.currentState!.validate()) {
       setState(() {
         _isLoading = true;
       });
 
       try {
-        await authStore.updatePhoneNo(
+        authStore.updatePhoneNo(
             "${countryStore.selectedCountry.code.substring(1)}${countryStore.formatPhoneNumber(phoneController.text, countryStore.selectedCountry.code)}");
 
         if (mounted) {

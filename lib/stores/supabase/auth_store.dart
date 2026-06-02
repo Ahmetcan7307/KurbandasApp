@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:kurbandas/services/apis/google_apis/google_api_service.dart';
-import 'package:kurbandas/services/apis/my_api/user_service.dart';
-import 'package:kurbandas/services/encrypt_service.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../core/const/hive_cons.dart';
@@ -20,10 +18,8 @@ abstract class _AuthStore with Store {
   User? user;
 
   final AuthService authService = serviceLocator.get<AuthService>();
-  final UserService userService = serviceLocator.get<UserService>();
   final GoogleApiService googleApiService =
       serviceLocator.get<GoogleApiService>();
-  final EncryptService encryptService = serviceLocator.get<EncryptService>();
 
   @computed
   bool get isLoggedIn => user != null;
@@ -32,7 +28,7 @@ abstract class _AuthStore with Store {
   Future currentUser() async {
     User? authUser = await authService.currentUser();
     if (authUser != null) {
-      user = await userService.get();
+      user = authUser;
     }
   }
 
@@ -53,11 +49,7 @@ abstract class _AuthStore with Store {
           authUser.phoneNo!.substring(0, 1) == "+") {
         authUser.phoneNo = authUser.phoneNo!.substring(1);
       }
-      User dbUser = await userService
-          .signIn(await encryptService.encryptMap(authUser.toJson()));
-      user = dbUser;
-
-      await updateHiveToken();
+      user = authUser;
     }
   }
 
@@ -68,16 +60,12 @@ abstract class _AuthStore with Store {
   Future signInWithApple() async {
     User? authUser = await authService.signInWithApple();
     if (authUser != null) {
-      user = await userService
-          .signIn(await encryptService.encryptMap(authUser.toJson()));
-
-      await updateHiveToken();
+      user = authUser;
     }
   }
 
   @action
-  Future updatePhoneNo(String phoneNo) async => user = await userService
-      .update(await encryptService.encryptMap({"phoneNo": phoneNo}));
+  void updatePhoneNo(String phoneNo) => user!.phoneNo = phoneNo;
 
   Future<bool> checkPhoneNo(BuildContext context) async {
     if (user!.phoneNo == null) {
@@ -90,8 +78,6 @@ abstract class _AuthStore with Store {
 
   @action
   Future delete() async {
-    if (await userService.delete()) {
-      await logout();
-    }
+    await logout();
   }
 }

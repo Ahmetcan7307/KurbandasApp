@@ -14,7 +14,8 @@ class AuthService {
   Future<user_c.User?> currentUser() async {
     User? user = _supabaseAuth.currentUser;
     if (user != null) {
-      return user_c.User(email: user.email!);
+      return user_c.User(
+          email: user.email!, name: user.userMetadata!["full_name"]);
     }
 
     return null;
