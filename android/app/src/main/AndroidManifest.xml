@@ -2,7 +2,6 @@
 
     <!-- Kamera ve depolama izinleri -->
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <!-- Android 32 öncesi için depolama izinleri -->
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
